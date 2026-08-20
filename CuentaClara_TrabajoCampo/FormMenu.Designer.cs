@@ -219,7 +219,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             button4.Location = new Point(12, 377);
-            button4.Margin = new Padding(1, 1, 1, 1);
+            button4.Margin = new Padding(1);
             button4.Name = "button4";
             button4.Size = new Size(181, 46);
             button4.TabIndex = 12;
@@ -236,7 +236,7 @@
             btnCerrarSesion.FlatStyle = FlatStyle.Flat;
             btnCerrarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnCerrarSesion.Location = new Point(20, 706);
-            btnCerrarSesion.Margin = new Padding(1, 1, 1, 1);
+            btnCerrarSesion.Margin = new Padding(1);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(153, 31);
             btnCerrarSesion.TabIndex = 10;
@@ -253,7 +253,7 @@
             btnSaldos.FlatStyle = FlatStyle.Flat;
             btnSaldos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSaldos.Location = new Point(15, 305);
-            btnSaldos.Margin = new Padding(1, 1, 1, 1);
+            btnSaldos.Margin = new Padding(1);
             btnSaldos.Name = "btnSaldos";
             btnSaldos.Size = new Size(158, 29);
             btnSaldos.TabIndex = 6;
@@ -317,7 +317,7 @@
             btnVencimientos.FlatStyle = FlatStyle.Flat;
             btnVencimientos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnVencimientos.Location = new Point(15, 265);
-            btnVencimientos.Margin = new Padding(1, 1, 1, 1);
+            btnVencimientos.Margin = new Padding(1);
             btnVencimientos.Name = "btnVencimientos";
             btnVencimientos.Size = new Size(164, 28);
             btnVencimientos.TabIndex = 5;
@@ -351,7 +351,7 @@
             btnGraficos.FlatStyle = FlatStyle.Flat;
             btnGraficos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGraficos.Location = new Point(15, 222);
-            btnGraficos.Margin = new Padding(1, 1, 1, 1);
+            btnGraficos.Margin = new Padding(1);
             btnGraficos.Name = "btnGraficos";
             btnGraficos.Size = new Size(164, 31);
             btnGraficos.TabIndex = 7;
@@ -615,7 +615,6 @@
             // 
             // FormMenu
             // 
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
