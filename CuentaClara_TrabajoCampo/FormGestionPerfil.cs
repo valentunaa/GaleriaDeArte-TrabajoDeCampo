@@ -260,7 +260,7 @@ namespace IU
             catch (Exception ex)
             {
                 string mensaje = TraducirExcepcion(ex);
-                MessageBox.Show(TraducirTexto("msg_ErrorVistaPrevia") +mensaje);
+                MessageBox.Show(TraducirTexto("msg_ErrorVistaPrevia") + mensaje);
 
             }
         }
@@ -646,7 +646,7 @@ namespace IU
             }
         }
 
-    
+
 
         private void EliminarFamilia()
         {
@@ -1131,7 +1131,7 @@ namespace IU
 
             }
             if ((modoActual == "MODIFICAR" & radioBtn_Rol.Checked))
-                {
+            {
                 listBox1.Items.Clear();
                 //listBox1.Items.Add("Modo modificar ROL");
                 //listBox1.Items.Add("1. Elija el ROL del ComboBox.");
@@ -1268,7 +1268,7 @@ namespace IU
                     case "MODIFICAR":
                         if (radioBtn_Rol.Checked) ModificarRol();
                         else ModificarFamilia();
-                        
+
                         break;
                     case "ELIMINAR":
                         if (tipoNodoSeleccionado == "ROL")
@@ -1432,6 +1432,11 @@ namespace IU
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

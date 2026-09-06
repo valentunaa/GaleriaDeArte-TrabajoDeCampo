@@ -470,6 +470,7 @@
             label5.TabIndex = 1;
             label5.Tag = "";
             label5.Text = "Maria Lopez-Administrador";
+            label5.Click += label5_Click;
             // 
             // lblUsuarioActivo
             // 

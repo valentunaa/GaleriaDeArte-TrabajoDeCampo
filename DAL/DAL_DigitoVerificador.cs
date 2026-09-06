@@ -216,44 +216,7 @@ namespace DAL
 
 
 
-        //using (SqlConnection conn = new SqlConnection(cadenaConexion))
-        //{
-        //    string selectQuery = "SELECT Nombre, DVV, DVH FROM DIGITOVERIFICADOR WHERE Nombre = @Nombre";
-        //    SqlDataAdapter da = new SqlDataAdapter(selectQuery, conn);
-        //    da.SelectCommand.Parameters.AddWithValue("@Nombre", registroMaestro.Nombre);
-
-        //    // 1. Configuración explícita de comandos (el 4to parámetro es el nombre de la columna en el DataTable)
-        //    da.InsertCommand = new SqlCommand("INSERT INTO DIGITOVERIFICADOR (Nombre, DVV) VALUES (@Nombre, @DVV)", conn);
-        //    da.InsertCommand.Parameters.Add("@Nombre", SqlDbType.NVarChar, 255, "Nombre"); // Mapea al campo "Nombre" del DT
-        //    da.InsertCommand.Parameters.Add("@DVV", SqlDbType.NVarChar, 255, "DVV");      // Mapea al campo "DVV" del DT
-
-        //    da.UpdateCommand = new SqlCommand("UPDATE DIGITOVERIFICADOR SET DVV = @DVV WHERE Nombre = @Nombre", conn);
-        //    da.UpdateCommand.Parameters.Add("@Nombre", SqlDbType.NVarChar, 255, "Nombre");
-        //    da.UpdateCommand.Parameters.Add("@DVV", SqlDbType.NVarChar, 255, "DVV");
-
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-
-        //    // 2. Modificación en modo desconectado
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        dt.Rows[0]["DVV"] = registroMaestro.DVV;
-        //        // Aseguramos que el Nombre no sea sobrescrito accidentalmente
-        //        dt.Rows[0]["Nombre"] = registroMaestro.Nombre;
-        //    }
-        //    else
-        //    {
-        //        DataRow nuevaFila = dt.NewRow();
-        //        nuevaFila["Nombre"] = registroMaestro.Nombre;
-        //        nuevaFila["DVV"] = registroMaestro.DVV;
-        //        // IMPORTANTE: Debemos inicializar DVH aunque sea NULL para evitar errores de restricción
-        //        nuevaFila["DVH"] = DBNull.Value;
-        //        dt.Rows.Add(nuevaFila);
-        //    }
-
-        //    // 3. Sincronización
-        //    da.Update(dt);
-        //}
+       
     }
     
 }

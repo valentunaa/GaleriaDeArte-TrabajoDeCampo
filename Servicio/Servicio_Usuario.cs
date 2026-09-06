@@ -24,7 +24,7 @@ namespace Servicio
         public ExcepcionIntegridad ErrorIntegridad { get; set; }
         public string ObtenerIdentificadorFila() 
         {
-            return this.Login; // Usamos el Login como identificador de fila
+            return this.Login; 
         }
 
         public string ObtenerCadenaParaHash()

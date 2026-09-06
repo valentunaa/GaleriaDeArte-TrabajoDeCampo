@@ -67,14 +67,11 @@ namespace CuentaClara_TrabajoCampo
             button1.Enabled = false;
             button2.Enabled = false;
             button3.Enabled = false;
-            btnInicio.Enabled = false;
-            btnCategorias.Enabled = false;
-            btnGraficos.Enabled = false;
-            btnNuevoEgreso.Enabled = false;
-            btnNuevoIngreso.Enabled = false;
-            btnVencimientos.Enabled = false;
-            btnTransacciones.Enabled = false;
-            btnSaldos.Enabled = false;
+
+            btnCatalogo.Enabled = false;
+            btnReserva.Enabled = false;
+            btnArtista.Enabled = false;
+            btnTesoreria_Cobros.Enabled = false;
             button7.Enabled = false;
         }
 
@@ -114,14 +111,12 @@ namespace CuentaClara_TrabajoCampo
             button3.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P42");
             button2.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P43");
             button5.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P44");
-            btnInicio.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "InicioMenu");
-            btnCategorias.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Categorias");
-            btnGraficos.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Graficos");
-            btnNuevoEgreso.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Egreso");
-            btnNuevoIngreso.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Ingreso");
-            btnVencimientos.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Vencimientos");
-            btnTransacciones.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Transacciones");
-            btnSaldos.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "SaldosCruzados");
+            btnArtista.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Artista");
+            btnCatalogo.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Catalogo_Obras");
+            btn_Estado_PostExhibicion.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Estado_PostExhibicion");
+            btnReserva.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Reserva");
+            btnTesoreria_Cobros.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Tesoreria_Cobro");
+            btn_Salas_Calendario.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Salas_Calendario");
             button7.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P36");
         }
 
@@ -374,6 +369,18 @@ namespace CuentaClara_TrabajoCampo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void btnTransacciones_Click(object sender, EventArgs e)
+        {
+            Form_RegistroArtista_VM516 frm = new Form_RegistroArtista_VM516();
+            frm.ShowDialog();
+        }
+
+        private void btnCatalogo_Click(object sender, EventArgs e)
+        {
+            Form_Especificacion_Obra_VM516 frm = new Form_Especificacion_Obra_VM516();
+            frm.ShowDialog();
         }
     }
 }

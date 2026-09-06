@@ -9,9 +9,7 @@ namespace Servicio
     public interface IVerificable
     {
         
-        string ObtenerIdentificadorFila();///
-
-      
+        string ObtenerIdentificadorFila();
         string ObtenerCadenaParaHash();
     }
 }
