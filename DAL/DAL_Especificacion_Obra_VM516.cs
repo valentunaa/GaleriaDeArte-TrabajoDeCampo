@@ -15,7 +15,7 @@ namespace DAL
 
         public List<BE_Especificacion_Obra_VM516> MapearLista(DataTable dt)
         {
-            List<BE_Especificacion_Obra_VM516> lista = new List<BE_Especificacion_Obra_VM516                >();
+            List<BE_Especificacion_Obra_VM516> lista = new List<BE_Especificacion_Obra_VM516>();
 
             foreach (DataRow row in dt.Rows)
             {
@@ -37,6 +37,7 @@ namespace DAL
             }
             return lista;
         }
+       
 
         public void GuardarEspecificacion_VM516(BE_Especificacion_Obra_VM516 obra)
         {
@@ -45,8 +46,9 @@ namespace DAL
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Especificacion_Obra_VM516 WHERE 1=0", conn);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds, "Especificacion_Obra_VM516");
-
+                
                 DataRow row = ds.Tables["Especificacion_Obra_VM516"].NewRow();
+                row["Id_Obra_VM516"] = obra.Id_Obra_VM516;
                 row["DNI_Artista_VM516"] = obra.DNI_Artista_VM516;
                 row["Titulo_Obra_VM516"] = obra.Titulo_Obra_VM516;
                 row["Tecnica_VM516"] = obra.Tecnica_VM516;

@@ -28,6 +28,11 @@ namespace BLL_Negocio
             return dalArtista_VM516.ExisteArtista_VM516(dni);
         }
 
+        public BE_Especificacion_Obra_VM516 ObtenerPorId_VM516(int idObra)
+        {
+            var lista = dalObra_VM516.ListarEspecificaciones_VM516();
+            return lista.FirstOrDefault(o => o.Id_Obra_VM516 == idObra);
+        }
         public void RegistrarEspecificacion_VM516(BE_Especificacion_Obra_VM516 obra)
         {
             if (string.IsNullOrWhiteSpace(obra.DNI_Artista_VM516) ||

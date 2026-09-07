@@ -36,15 +36,34 @@ namespace DAL
             }
             return lista;
         }
+        public List<BE_Sala_VM516> MapearSalas(DataTable dt)
+        {
+            List<BE_Sala_VM516> lista = new List<BE_Sala_VM516>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                BE_Sala_VM516 sala = new BE_Sala_VM516
+                {
+                    Codigo_Sala_VM516 = row["Codigo_Sala_VM516"].ToString(),
+                    Nombre_Sala_VM516 = row["Nombre_Sala_VM516"].ToString(),
+                    Alto_Max_Soportado_VM516 = Convert.ToDecimal(row["Alto_Max_Soportado_VM516"]),
+                    Ancho_Max_Soportado_VM516 = Convert.ToDecimal(row["Ancho_Max_Soportado_VM516"]),
+                    Peso_Max_Soportado_VM516 = Convert.ToDecimal(row["Peso_Max_Soportado_VM516"]),
+                    Tipo_Iluminacion_Disponible_VM516 = row["Tipo_Iluminacion_Disponible_VM516"].ToString()
+                };
+                lista.Add(sala);
+            }
+            return lista;
+        }
         public List<BE_Sala_VM516> ObtenerSalasDisponiblesPorObra_VM516(DateTime inicio, DateTime fin, decimal alto, decimal ancho, decimal peso, string iluminacion)
         {
             DataTable tabla = new DataTable();
-            string consulta = @"SELECT * FROM Sala 
-                        WHERE Alto_Max_Soportado >= @Alto 
-                          AND Ancho_Max_Soportado >= @Ancho 
-                          AND Peso_Max_Soportado >= @Peso 
-                          AND Tipo_Iluminacion_Disponible = @Iluminacion 
-                          AND Codigo_Sala NOT IN (
+            string consulta = @"SELECT * FROM Sala_VM516 
+                        WHERE Alto_Max_Soportado_VM516 >= @Alto 
+                          AND Ancho_Max_Soportado_VM516 >= @Ancho 
+                          AND Peso_Max_Soportado_VM516 >= @Peso 
+                          AND Tipo_Iluminacion_Disponible_VM516 = @Iluminacion 
+                          AND Codigo_Sala_VM516 NOT IN (
                               SELECT Codigo_Sala_VM516 FROM Reserva_Sala_VM516 
                               WHERE NOT (Fecha_Fin_VM516 < @FechaInicio OR Fecha_Inicio_VM516 > @FechaFin)
                           )";

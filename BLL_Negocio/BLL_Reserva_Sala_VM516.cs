@@ -14,13 +14,84 @@ namespace BLL_Negocio
     {
         private DAL_Reserva_Sala_VM516 dalReserva_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
-
+        private BLL_Especificacion_Obra_VM516 bllObra_VM516;
         public BLL_Reserva_Sala_VM516()
         {
             dalReserva_VM516 = new DAL_Reserva_Sala_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
+            bllObra_VM516 = new BLL_Especificacion_Obra_VM516();
         }
+        public BE_Reserva_Sala_VM516 BuscarReservaParaPeritaje_VM516(string codigoReserva)
+        {
+            if (string.IsNullOrWhiteSpace(codigoReserva))
+            {
+                throw new Exception("Por favor, ingrese un código de reserva para buscar.");
+            }
 
+            var listaReservas = dalReserva_VM516.ListarReservas_VM516();
+            var reserva = listaReservas.FirstOrDefault(r => r.Codigo_Reserva_VM516.Trim().Equals(codigoReserva.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            // Flujo alternativo 1.1: Si no existe, se dispara la excepción de negocio
+            if (reserva == null)
+            {
+                throw new Exception("No se registran reservas vigentes en etapa de cierre para el criterio ingresado.");
+            }
+
+            return reserva;
+        }
+        public (decimal Monto, string TipoPago, string EstadoActual) ObtenerDetalleCobroReserva_VM516(string codigoReserva)
+        {
+            if (string.IsNullOrWhiteSpace(codigoReserva))
+            {
+                throw new Exception("Debe ingresar un código de reserva válido.");
+            }
+
+            var reserva = dalReserva_VM516.ListarReservas_VM516()
+                .FirstOrDefault(r => r.Codigo_Reserva_VM516.Trim().Equals(codigoReserva.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            if (reserva == null)
+            {
+                throw new Exception("No se registra ninguna reserva activa para el código ingresado.");
+            }
+
+            decimal montoACobrar = 0;
+            string tipoPago = "";
+
+            if (reserva.Estado_Pago_VM516.Equals("Pendiente_Seña", StringComparison.OrdinalIgnoreCase) ||
+                reserva.Estado_Pago_VM516.Equals("Pendiente", StringComparison.OrdinalIgnoreCase))
+            {
+                montoACobrar = reserva.Monto_Alquiler_Total_VM516 * (reserva.Porcentaje_Sena_VM516 / 100);
+                tipoPago = "Seña";
+            }
+            else if (reserva.Estado_Pago_VM516.Equals("Seña Abonada", StringComparison.OrdinalIgnoreCase))
+            {
+                montoACobrar = reserva.Saldo_Restante_A_Pagar_VM516;
+                tipoPago = "Pago Final";
+            }
+            else
+            {
+                throw new Exception($"La reserva ya se encuentra liquidada bajo el estado: {reserva.Estado_Pago_VM516}");
+            }
+
+            return (montoACobrar, tipoPago, reserva.Estado_Pago_VM516);
+        }
+        public BE_Reserva_Sala_VM516 BuscarReservaPorCodigo_VM516(string codigoReserva)
+        {
+            if (string.IsNullOrWhiteSpace(codigoReserva))
+            {
+                throw new Exception("Por favor, ingrese un código de reserva para realizar la búsqueda.");
+            }
+
+            var lista = dalReserva_VM516.ListarReservas_VM516();
+            var reserva = lista.FirstOrDefault(r => r.Codigo_Reserva_VM516.Trim().Equals(codigoReserva.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            if (reserva == null)
+            {
+                throw new Exception("No se registran reservas vigentes en etapa de cierre para el criterio ingresado.");
+            }
+
+            return reserva;
+        }
         public List<BE_Sala_VM516> ObtenerSalasDisponiblesPorObra(int idObra, DateTime inicio, DateTime fin)
         {
             if (inicio >= fin)
@@ -28,8 +99,8 @@ namespace BLL_Negocio
                 throw new Exception("El rango de fechas ingresado es cronológicamente incorrecto. La fecha de inicio debe ser anterior a la fecha de fin.");
             }
 
-            var listaObras = dalObra_VM516.ListarEspecificaciones_VM516();
-            BE_EspecificacionObra_VM516 obraSeleccionada = null;
+            var listaObras = bllObra_VM516.ListarEspecificaciones();
+            BE_Especificacion_Obra_VM516 obraSeleccionada = null;
 
             foreach (var o in listaObras)
             {

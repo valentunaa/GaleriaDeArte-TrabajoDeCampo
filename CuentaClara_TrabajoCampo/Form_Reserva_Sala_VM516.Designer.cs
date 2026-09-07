@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button1 = new Button();
             lblTitulo = new Label();
             dgvSalas = new DataGridView();
             lblIdObra = new Label();
@@ -57,6 +58,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(dgvSalas);
             panelContenedor.Controls.Add(lblIdObra);
@@ -74,8 +76,23 @@
             panelContenedor.Controls.Add(btnSalir);
             panelContenedor.Location = new Point(12, 12);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1316, 745);
+            panelContenedor.Size = new Size(1557, 745);
             panelContenedor.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(18, 87, 150);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(34, 465);
+            button1.Name = "button1";
+            button1.Size = new Size(380, 40);
+            button1.TabIndex = 22;
+            button1.Text = "Ver Historial de Reservas";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // lblTitulo
             // 
@@ -117,7 +134,7 @@
             dgvSalas.RowHeadersWidth = 102;
             dgvSalas.RowTemplate.Height = 28;
             dgvSalas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSalas.Size = new Size(789, 580);
+            dgvSalas.Size = new Size(1063, 580);
             dgvSalas.TabIndex = 21;
             // 
             // lblIdObra
@@ -139,6 +156,7 @@
             txtIdObra.Name = "txtIdObra";
             txtIdObra.Size = new Size(180, 25);
             txtIdObra.TabIndex = 3;
+            txtIdObra.TextChanged += txtIdObra_TextChanged;
             // 
             // lblFechaInicio
             // 
@@ -256,12 +274,13 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
-            btnSalir.Location = new Point(1129, 21);
+            btnSalir.Location = new Point(1339, 20);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 14;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click_1;
             // 
             // panelInferior
             // 
@@ -271,7 +290,7 @@
             panelInferior.Dock = DockStyle.Bottom;
             panelInferior.Location = new Point(0, 750);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1340, 38);
+            panelInferior.Size = new Size(1581, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -301,7 +320,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1340, 788);
+            ClientSize = new Size(1581, 788);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -337,5 +356,6 @@
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
+        private Button button1;
     }
 }

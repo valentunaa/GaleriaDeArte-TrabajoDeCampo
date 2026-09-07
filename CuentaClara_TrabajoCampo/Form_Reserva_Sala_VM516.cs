@@ -1,5 +1,7 @@
 ﻿using BE;
+using BLL;
 using BLL_Negocio;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,16 +17,95 @@ namespace IU
     public partial class Form_Reserva_Sala_VM516 : Form
     {
         private BLL_Reserva_Sala_VM516 bllReserva;
+        private BLL_Especificacion_Obra_VM516 bllObra;
         private string codigoSalaSeleccionada = "";
         public Form_Reserva_Sala_VM516()
         {
-            InitializeComponent();
+            InitializeComponent(); bllReserva = new BLL_Reserva_Sala_VM516();
+            bllObra = new BLL_Especificacion_Obra_VM516();
         }
-
         private void Form_Reserva_Sala_VM516_Load(object sender, EventArgs e)
         {
+            dgvSalas.DataSource = null;
+            Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
+            BLL_Rol bllRol = new BLL_Rol();
+            string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
 
+            lblUsuarioValor.Text = $"{usuario.Login} -  {nombreLegibleDelRol}";
         }
+        private void FormatearGrillaSalas()
+        {
+            if (dgvSalas.Columns.Contains("Codigo_Sala_VM516"))
+                dgvSalas.Columns["Codigo_Sala_VM516"].HeaderText = "Código Sala";
+            if (dgvSalas.Columns.Contains("Nombre_Sala_VM516"))
+                dgvSalas.Columns["Nombre_Sala_VM516"].HeaderText = "Nombre";
+            if (dgvSalas.Columns.Contains("Alto_Max_Soportado_VM516"))
+                dgvSalas.Columns["Alto_Max_Soportado_VM516"].HeaderText = "Alto Máx";
+            if (dgvSalas.Columns.Contains("Ancho_Max_Soportado_VM516"))
+                dgvSalas.Columns["Ancho_Max_Soportado_VM516"].HeaderText = "Ancho Máx";
+            if (dgvSalas.Columns.Contains("Peso_Max_Soportado_VM516"))
+                dgvSalas.Columns["Peso_Max_Soportado_VM516"].HeaderText = "Peso Máx";
+            if (dgvSalas.Columns.Contains("Tipo_Iluminacion_Disponible_VM516"))
+                dgvSalas.Columns["Tipo_Iluminacion_Disponible_VM516"].HeaderText = "Iluminación";
+
+            dgvSalas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+
+        private void LimpiarFormulario()
+        {
+            txtIdObra.Clear();
+            txtMontoTotal.Clear();
+            txtPorcentajeSena.Clear();
+            dtpFechaInicio.Value = DateTime.Now;
+            dtpFechaFin.Value = DateTime.Now;
+            codigoSalaSeleccionada = "";
+            dgvSalas.DataSource = null;
+            txtIdObra.Focus();
+        }
+
+        private void EspecificacionesObra()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtIdObra.Text)) return;
+
+                if (!int.TryParse(txtIdObra.Text.Trim(), out int idObra))
+                {
+                    throw new Exception("El ID de obra debe ser un valor numérico.");
+                }
+
+
+                var obra = bllObra.ObtenerPorId_VM516(idObra);
+
+                if (obra != null)
+                {
+                    string detalle = $"--- Especificaciones de la Obra ---\n" +
+                                     $"Título: {obra.Titulo_Obra_VM516}\n" +
+                                     $"Artista DNI: {obra.DNI_Artista_VM516}\n" +
+                                     $"Alto: {obra.Alto_VM516} | Ancho: {obra.Ancho_VM516} | Peso: {obra.Peso_VM516}\n" +
+                                     $"Iluminación: {obra.Req_Iluminacion_VM516}\n" +
+                                     $"Seguro: {obra.Categoria_Seguro_VM516}";
+
+                    MessageBox.Show(detalle, "Información de la Obra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró ninguna obra registrada con ese ID.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtIdObra.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
 
         private void btnConsultarDisponibilidad_Click(object sender, EventArgs e)
         {
@@ -38,15 +119,15 @@ namespace IU
                 DateTime inicio = dtpFechaInicio.Value;
                 DateTime fin = dtpFechaFin.Value;
 
-                var dtSalas = bllReserva.ObtenerSalasDisponiblesPorObra(idObra, inicio, fin);
+                var listSalas = bllReserva.ObtenerSalasDisponiblesPorObra(idObra, inicio, fin);
 
-                if (dtSalas.Rows.Count == 0)
+                if (listSalas.Count == 0)
                 {
                     MessageBox.Show("No existen salas compatibles disponibles en el período solicitado.", "Sin disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 dgvSalas.DataSource = null;
-                dgvSalas.DataSource = dtSalas;
+                dgvSalas.DataSource = listSalas;
                 FormatearGrillaSalas();
             }
             catch (Exception ex)
@@ -65,7 +146,7 @@ namespace IU
                 }
 
                 var row = dgvSalas.SelectedRows[0];
-                codigoSalaSeleccionada = row.Cells["Codigo_Sala"].Value.ToString();
+                codigoSalaSeleccionada = row.Cells["Codigo_Sala_VM516"].Value.ToString();
 
                 if (!int.TryParse(txtIdObra.Text.Trim(), out int idObra))
                 {
@@ -102,50 +183,15 @@ namespace IU
             }
         }
 
-        private void FormatearGrillaSalas()
+        private void txtIdObra_TextChanged(object sender, EventArgs e)
         {
-            if (dgvSalas.Columns.Contains("Codigo_Sala"))
-                dgvSalas.Columns["Codigo_Sala"].HeaderText = "Código Sala";
-            if (dgvSalas.Columns.Contains("Nombre_Sala"))
-                dgvSalas.Columns["Nombre_Sala"].HeaderText = "Nombre";
-            if (dgvSalas.Columns.Contains("Alto_Max_Soportado"))
-                dgvSalas.Columns["Alto_Max_Soportado"].HeaderText = "Alto Máx";
-            if (dgvSalas.Columns.Contains("Ancho_Max_Soportado"))
-                dgvSalas.Columns["Ancho_Max_Soportado"].HeaderText = "Ancho Máx";
-            if (dgvSalas.Columns.Contains("Peso_Max_Soportado"))
-                dgvSalas.Columns["Peso_Max_Soportado"].HeaderText = "Peso Máx";
-            if (dgvSalas.Columns.Contains("Tipo_Iluminacion_Disponible"))
-                dgvSalas.Columns["Tipo_Iluminacion_Disponible"].HeaderText = "Iluminación";
+            EspecificacionesObra();
         }
 
-        private void CargarGrillaVacia()
+        private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dgvSalas.DataSource = null;
-                dgvSalas.DataSource = bllReserva.ListarReservas();
-            }
-            catch
-            {
-               
-            }
-        }
-
-        private void LimpiarFormulario()
-        {
-            txtIdObra.Clear();
-            txtMontoTotal.Clear();
-            txtPorcentajeSena.Clear();
-            dtpFechaInicio.Value = DateTime.Now;
-            dtpFechaFin.Value = DateTime.Now;
-            codigoSalaSeleccionada = "";
-            CargarGrillaVacia();
-            txtIdObra.Focus();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            Form_ListarReservas_VM516 frm = new Form_ListarReservas_VM516();
+            frm.ShowDialog();
         }
     }
 }

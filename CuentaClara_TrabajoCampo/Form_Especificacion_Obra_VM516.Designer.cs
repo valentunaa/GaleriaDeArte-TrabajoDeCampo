@@ -30,6 +30,8 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            comboBox2 = new ComboBox();
+            comboBox1 = new ComboBox();
             lblTitulo = new Label();
             dgvEspecificaciones = new DataGridView();
             lblDNI = new Label();
@@ -47,11 +49,9 @@
             lblPeso = new Label();
             txtPeso = new TextBox();
             lblReqIluminacion = new Label();
-            txtReqIluminacion = new TextBox();
             lblValorMercado = new Label();
             txtValorMercado = new TextBox();
             lblCategoriaSeguro = new Label();
-            txtCategoriaSeguro = new TextBox();
             btnConfirmarRegistro = new Button();
             btnSalir = new Button();
             panelInferior = new Panel();
@@ -66,6 +66,8 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(comboBox2);
+            panelContenedor.Controls.Add(comboBox1);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(dgvEspecificaciones);
             panelContenedor.Controls.Add(lblDNI);
@@ -83,17 +85,33 @@
             panelContenedor.Controls.Add(lblPeso);
             panelContenedor.Controls.Add(txtPeso);
             panelContenedor.Controls.Add(lblReqIluminacion);
-            panelContenedor.Controls.Add(txtReqIluminacion);
             panelContenedor.Controls.Add(lblValorMercado);
             panelContenedor.Controls.Add(txtValorMercado);
             panelContenedor.Controls.Add(lblCategoriaSeguro);
-            panelContenedor.Controls.Add(txtCategoriaSeguro);
             panelContenedor.Controls.Add(btnConfirmarRegistro);
             panelContenedor.Controls.Add(btnSalir);
             panelContenedor.Location = new Point(12, 12);
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(1316, 745);
             panelContenedor.TabIndex = 1;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "Básico", "Estándar", "Premium" });
+            comboBox2.Location = new Point(234, 457);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(180, 23);
+            comboBox2.TabIndex = 25;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Natural (o Luz natural / Cenital)", "Artificial (o Luz fría / Cálida / LED)", "Mixta (combinación de ambas)" });
+            comboBox1.Location = new Point(34, 387);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(380, 23);
+            comboBox1.TabIndex = 24;
             // 
             // lblTitulo
             // 
@@ -295,15 +313,6 @@
             lblReqIluminacion.TabIndex = 16;
             lblReqIluminacion.Text = "Requisito de Iluminación";
             // 
-            // txtReqIluminacion
-            // 
-            txtReqIluminacion.BorderStyle = BorderStyle.FixedSingle;
-            txtReqIluminacion.Font = new Font("Segoe UI", 10F);
-            txtReqIluminacion.Location = new Point(34, 390);
-            txtReqIluminacion.Name = "txtReqIluminacion";
-            txtReqIluminacion.Size = new Size(380, 25);
-            txtReqIluminacion.TabIndex = 17;
-            // 
             // lblValorMercado
             // 
             lblValorMercado.AutoSize = true;
@@ -334,15 +343,6 @@
             lblCategoriaSeguro.Size = new Size(148, 19);
             lblCategoriaSeguro.TabIndex = 20;
             lblCategoriaSeguro.Text = "Categoría de Seguro";
-            // 
-            // txtCategoriaSeguro
-            // 
-            txtCategoriaSeguro.BorderStyle = BorderStyle.FixedSingle;
-            txtCategoriaSeguro.Font = new Font("Segoe UI", 10F);
-            txtCategoriaSeguro.Location = new Point(234, 455);
-            txtCategoriaSeguro.Name = "txtCategoriaSeguro";
-            txtCategoriaSeguro.Size = new Size(180, 25);
-            txtCategoriaSeguro.TabIndex = 21;
             // 
             // btnConfirmarRegistro
             // 
@@ -447,15 +447,15 @@
         private System.Windows.Forms.Label lblPeso;
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label lblReqIluminacion;
-        private System.Windows.Forms.TextBox txtReqIluminacion;
         private System.Windows.Forms.Label lblValorMercado;
         private System.Windows.Forms.TextBox txtValorMercado;
         private System.Windows.Forms.Label lblCategoriaSeguro;
-        private System.Windows.Forms.TextBox txtCategoriaSeguro;
         private System.Windows.Forms.Button btnConfirmarRegistro;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
     }
 }

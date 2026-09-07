@@ -87,9 +87,9 @@ namespace IU
             txtAlto.Enabled = habilitar;
             txtAncho.Enabled = habilitar;
             txtPeso.Enabled = habilitar;
-            txtReqIluminacion.Enabled = habilitar;
+            comboBox2.Enabled = habilitar;
             txtValorMercado.Enabled = habilitar;
-            txtCategoriaSeguro.Enabled = habilitar;
+            comboBox1.Enabled = habilitar;
             btnConfirmarRegistro.Enabled = habilitar;
         }
 
@@ -101,9 +101,9 @@ namespace IU
             txtAlto.Clear();
             txtAncho.Clear();
             txtPeso.Clear();
-            txtReqIluminacion.Clear();
+            
             txtValorMercado.Clear();
-            txtCategoriaSeguro.Clear();
+            
             lblNombreArtista.Text = "Estado del artista: Pendiente";
             lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(15, 45, 75);
             dniArtistaVerificado = "";
@@ -174,9 +174,9 @@ namespace IU
                     Alto_VM516 = alto,
                     Ancho_VM516 = ancho,
                     Peso_VM516 = peso,
-                    Req_Iluminacion_VM516 = txtReqIluminacion.Text.Trim(),
+                    Req_Iluminacion_VM516 = comboBox1.Text.Trim(),
                     Valor_Declarado_Mercado_VM516 = valorMercado,
-                    Categoria_Seguro_VM516 = txtCategoriaSeguro.Text.Trim(),
+                    Categoria_Seguro_VM516 = comboBox2.Text.Trim(),
                     Estado_Asignacion_VM516 = "Pendiente_Asignacion"
                 };
 

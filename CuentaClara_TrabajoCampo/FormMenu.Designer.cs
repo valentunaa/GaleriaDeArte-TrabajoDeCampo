@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
+            button9 = new Button();
             btn_Estado_PostExhibicion = new Button();
             btn_Salas_Calendario = new Button();
             button8 = new Button();
@@ -62,6 +63,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.White;
+            panelMenu.Controls.Add(button9);
             panelMenu.Controls.Add(btn_Estado_PostExhibicion);
             panelMenu.Controls.Add(btn_Salas_Calendario);
             panelMenu.Controls.Add(button8);
@@ -85,6 +87,23 @@
             panelMenu.Size = new Size(229, 849);
             panelMenu.TabIndex = 2;
             // 
+            // button9
+            // 
+            button9.BackColor = Color.White;
+            button9.FlatAppearance.BorderSize = 0;
+            button9.FlatStyle = FlatStyle.Flat;
+            button9.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button9.Location = new Point(21, 369);
+            button9.Margin = new Padding(1);
+            button9.Name = "button9";
+            button9.Size = new Size(189, 29);
+            button9.TabIndex = 20;
+            button9.Tag = "btn_SaldosCruzados";
+            button9.Text = "SALAS";
+            button9.TextAlign = ContentAlignment.MiddleLeft;
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
+            // 
             // btn_Estado_PostExhibicion
             // 
             btn_Estado_PostExhibicion.BackColor = Color.White;
@@ -100,6 +119,7 @@
             btn_Estado_PostExhibicion.Text = "ESTADO POST-EXHIBICION";
             btn_Estado_PostExhibicion.TextAlign = ContentAlignment.MiddleLeft;
             btn_Estado_PostExhibicion.UseVisualStyleBackColor = false;
+            btn_Estado_PostExhibicion.Click += btn_Estado_PostExhibicion_Click;
             // 
             // btn_Salas_Calendario
             // 
@@ -175,7 +195,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(16, 35);
+            lblTitulo.Location = new Point(15, 25);
             lblTitulo.Margin = new Padding(1, 0, 1, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(144, 64);
@@ -515,5 +535,6 @@
         private Button button8;
         private Button btn_Salas_Calendario;
         private Button btn_Estado_PostExhibicion;
+        private Button button9;
     }
 }

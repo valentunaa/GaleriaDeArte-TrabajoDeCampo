@@ -113,7 +113,7 @@ namespace CuentaClara_TrabajoCampo
             button5.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P44");
             btnArtista.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Artista");
             btnCatalogo.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Catalogo_Obras");
-            btn_Estado_PostExhibicion.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Estado_PostExhibicion");
+            btn_Estado_PostExhibicion.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P46");
             btnReserva.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Reserva");
             btnTesoreria_Cobros.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Tesoreria_Cobro");
             btn_Salas_Calendario.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Salas_Calendario");
@@ -330,7 +330,8 @@ namespace CuentaClara_TrabajoCampo
 
         private void btnVencimientos_Click(object sender, EventArgs e)
         {
-
+            Form_Reserva_Sala_VM516 frm = new Form_Reserva_Sala_VM516();
+            frm.ShowDialog();
         }
 
         private void panelUsuario_Paint(object sender, PaintEventArgs e)
@@ -380,6 +381,18 @@ namespace CuentaClara_TrabajoCampo
         private void btnCatalogo_Click(object sender, EventArgs e)
         {
             Form_Especificacion_Obra_VM516 frm = new Form_Especificacion_Obra_VM516();
+            frm.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form_Sala_VM516 frm = new Form_Sala_VM516();
+            frm.ShowDialog();
+        }
+
+        private void btn_Estado_PostExhibicion_Click(object sender, EventArgs e)
+        {
+            Form_Inspeccion_Obra_VM516 frm = new Form_Inspeccion_Obra_VM516();
             frm.ShowDialog();
         }
     }

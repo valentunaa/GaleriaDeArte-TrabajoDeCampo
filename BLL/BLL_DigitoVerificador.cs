@@ -1,10 +1,11 @@
-﻿using Servicio;
+﻿using BE;
+using DAL;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 
 namespace BLL
 {
@@ -16,6 +17,10 @@ namespace BLL
         private DAL_Usuario dalUsuario;
         private DAL_Idioma dalIdioma;
         private DAL_Permiso dalPermiso;
+        private DAL_Artista_VM516 dalArtista_VM516;
+        private DAL_Especificacion_Obra_VM516 dalObra_VM516;
+        private DAL_Reserva_Sala_VM516 dalReserva_VM516;
+        private DAL_Sala_VM516 dalSala_VM516;
         private Servicio_VerificadorDigito servicioVerificador;
         public BLL_DigitoVerificador()
         {
@@ -26,7 +31,11 @@ namespace BLL
             dalIdioma = new DAL_Idioma();
             servicioVerificador = new Servicio_VerificadorDigito();
             dalPermiso = new DAL_Permiso();
-  
+            dalArtista_VM516 = new DAL_Artista_VM516();
+            dalObra_VM516 = new DAL_Especificacion_Obra_VM516();
+            dalReserva_VM516 = new DAL_Reserva_Sala_VM516();
+            dalSala_VM516 = new DAL_Sala_VM516();
+
         }
 
 
@@ -45,15 +54,11 @@ namespace BLL
             {
                 string dvhCalculado = servicioCalcular.CalcularDVH(registro);
 
-                string nombreFila =
-                    $"{nombreTabla}_{registro.ObtenerIdentificadorFila()}";
+                string nombreFila = $"{nombreTabla}_{registro.ObtenerIdentificadorFila()}";
+                    
 
-                Servicio_DigitoVerificadorVertical registroBD =
-                    dalDigito.ObtenerRegistroDigito(nombreFila);
-
-                // Solo se marca "modificado" si YA existía un DVH previo y no coincide.
-                // Si registroBD es null, es un registro nuevo sin baseline: no es una alteración.
-                
+                Servicio_DigitoVerificadorVertical registroBD = dalDigito.ObtenerRegistroDigito(nombreFila);
+       
                 if (registroBD != null &&!servicioVerificador.EsValido(dvhCalculado, registroBD.DVH))
                 {
                     registrosAlterados.Add(registro.ObtenerIdentificadorFila());
@@ -61,33 +66,24 @@ namespace BLL
                 cadenaAcumuladaParaDVV += dvhCalculado;
             }
 
-            List<string> registrosGuardados =
-                dalDigito.ObtenerRegistrosDVH(nombreTabla);
+            List<string> registrosGuardados =dalDigito.ObtenerRegistrosDVH(nombreTabla);
+                
 
-            List<string> registrosActuales =
-                listaRegistros
-                .Select(x => nombreTabla + "_" + x.ObtenerIdentificadorFila())
-                .ToList();
+            List<string> registrosActuales =listaRegistros.Select(x => nombreTabla + "_" + x.ObtenerIdentificadorFila()).ToList();
 
-            List<string> eliminados =
-                registrosGuardados
-                .Where(x => !registrosActuales.Contains(x))
-                .ToList();
+            List<string> eliminados = registrosGuardados.Where(x => !registrosActuales.Contains(x)).ToList();
 
-            string dvvCalculado =
-                servicioCalcular.CalcularHash(cadenaAcumuladaParaDVV);
+            string dvvCalculado =servicioCalcular.CalcularHash(cadenaAcumuladaParaDVV);
+                
 
-            Servicio_DigitoVerificadorVertical maestro =
-                dalDigito.ObtenerRegistroDigito(nombreTabla + "_MAESTRO");
-
+            Servicio_DigitoVerificadorVertical maestro = dalDigito.ObtenerRegistroDigito(nombreTabla + "_MAESTRO");
+               
             bool errorDVV =maestro == null ||!servicioVerificador.EsValido(dvvCalculado, maestro.DVV);
      
 
-            if (registrosAlterados.Count == 0 &&
-                eliminados.Count == 0 &&
-                !errorDVV)
+            if (registrosAlterados.Count == 0 && eliminados.Count == 0 && !errorDVV)
             {
-                return null; // tabla íntegra, no hay nada que reportar
+                return null; 
             }
 
             StringBuilder sb = new StringBuilder();
@@ -118,18 +114,10 @@ namespace BLL
 
             string mensaje = sb.ToString();
 
-            bllBitacora.RegistrarBitacora(
-                mensaje,
-                "Sistema",
-                "Seguridad",
-                1);
+            bllBitacora.RegistrarBitacora(mensaje,"Sistema","Seguridad",1);
 
-            return new ExcepcionIntegridad(
-                nombreTabla,
-                registrosAlterados,
-                eliminados,
-                errorDVV,
-                mensaje);
+            return new ExcepcionIntegridad(nombreTabla,registrosAlterados,eliminados,errorDVV,mensaje);
+    
         }
 
         public void ValidarTodaLaBase()
@@ -214,6 +202,23 @@ namespace BLL
 
             if (errores.Count > 0)
                 throw new ExcepcionIntegridad(errores);
+            // ==========================================
+            // NUEVAS ENTIDADES DE NEGOCIO (GALERÍA)
+            // ==========================================
+            var errorArtista = ValidarIntegridad(dalArtista_VM516.ListarArtistas_VM516(), "Artista_VM516");
+            if (errorArtista != null) errores.Add(errorArtista);
+
+            var errorObra = ValidarIntegridad(dalObra_VM516.ListarEspecificaciones_VM516(), "Especificacion_Obra_VM516");
+            if (errorObra != null) errores.Add(errorObra);
+
+            var errorReserva = ValidarIntegridad(dalReserva_VM516.ListarReservas_VM516(), "Reserva_Sala_VM516");
+            if (errorReserva != null) errores.Add(errorReserva);
+
+            var errorSala = ValidarIntegridad(dalSala_VM516.ListarSalas_VM516(), "Sala_VM516");
+            if (errorSala != null) errores.Add(errorSala);
+
+            if (errores.Count > 0)
+                throw new ExcepcionIntegridad(errores);
         }
 
         public void EliminarDigitoYRecalcular<T>(string idElementoEliminado, List<T> listaCompleta, string nombreTabla) where T : IVerificable
@@ -277,6 +282,10 @@ namespace BLL
             RecalcularFamilias(log);
             RecalcularIdiomas(log);
             RecalcularPermisos(log);
+            RecalcularArtistas(log);
+            RecalcularObras(log);
+            RecalcularReservas(log);
+            RecalcularSalas(log);
         }
 
         private void RecalcularUsuarios(string log)
@@ -439,8 +448,7 @@ namespace BLL
             {
                 string dvh = servicioCalcular.CalcularDVH(permiso);
 
-                Servicio_DigitoVerificadorVertical reg =
-                    new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificadorVertical reg =new Servicio_DigitoVerificadorVertical();
 
                 reg.Nombre = "Permiso_" + permiso.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
@@ -452,8 +460,8 @@ namespace BLL
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
 
-            Servicio_DigitoVerificadorVertical maestro =
-                new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificadorVertical maestro =new Servicio_DigitoVerificadorVertical();
+                
 
             maestro.Nombre = "Permiso_MAESTRO";
             maestro.DVV = dvv;
@@ -472,10 +480,7 @@ namespace BLL
         {
             dalDigito.EliminarDVHDeTabla("Idioma");
 
-            List<Servicio_Idioma> idiomas =
-                dalIdioma.DameIdiomasBD()
-                         .OrderBy(i => i.ObtenerIdentificadorFila())
-                         .ToList();
+            List<Servicio_Idioma> idiomas =dalIdioma.DameIdiomasBD().OrderBy(i => i.ObtenerIdentificadorFila()).ToList();
 
             string cadenaDVV = "";
 
@@ -483,8 +488,8 @@ namespace BLL
             {
                 string dvh = servicioCalcular.CalcularDVH(idioma);
 
-                Servicio_DigitoVerificadorVertical reg =
-                    new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                   
 
                 reg.Nombre = "Idioma_" + idioma.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
@@ -496,8 +501,8 @@ namespace BLL
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
             
-            Servicio_DigitoVerificadorVertical maestro =
-                new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificadorVertical maestro =new Servicio_DigitoVerificadorVertical();
+                
 
             maestro.Nombre = "Idioma_MAESTRO";
             maestro.DVV = dvv;
@@ -511,6 +516,103 @@ namespace BLL
                 1);
         }
 
+        private void RecalcularArtistas(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Artista_VM516");
+            List<BE_Artista_VM516> artistas = dalArtista_VM516.ListarArtistas_VM516().OrderBy(a => a.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
 
+            foreach (BE_Artista_VM516 artista in artistas)
+            {
+                string dvh = servicioCalcular.CalcularDVH(artista);
+                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                reg.Nombre = "Artista_VM516_" + artista.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            maestro.Nombre = "Artista_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Artistas", log, "Seguridad", 1);
+        }
+
+        private void RecalcularObras(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Especificacion_Obra_VM516");
+            List<BE_Especificacion_Obra_VM516> obras = dalObra_VM516.ListarEspecificaciones_VM516().OrderBy(o => o.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Especificacion_Obra_VM516 obra in obras)
+            {
+                string dvh = servicioCalcular.CalcularDVH(obra);
+                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                reg.Nombre = "Especificacion_Obra_VM516_" + obra.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            maestro.Nombre = "Especificacion_Obra_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Obras", log, "Seguridad", 1);
+        }
+
+        private void RecalcularReservas(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Reserva_Sala_VM516");
+            List<BE_Reserva_Sala_VM516> reservas = dalReserva_VM516.ListarReservas_VM516().OrderBy(r => r.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Reserva_Sala_VM516 reserva in reservas)
+            {
+                string dvh = servicioCalcular.CalcularDVH(reserva);
+                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                reg.Nombre = "Reserva_Sala_VM516_" + reserva.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            maestro.Nombre = "Reserva_Sala_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Reservas", log, "Seguridad", 1);
+        }
+        private void RecalcularSalas(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Sala_VM516");
+            List<BE_Sala_VM516> salas = dalSala_VM516.ListarSalas_VM516().OrderBy(s => s.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Sala_VM516 sala in salas)
+            {
+                string dvh = servicioCalcular.CalcularDVH(sala);
+                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                reg.Nombre = "Sala_VM516_" + sala.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            maestro.Nombre = "Sala_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Salas", log, "Seguridad", 1);
+        }
     }
 }

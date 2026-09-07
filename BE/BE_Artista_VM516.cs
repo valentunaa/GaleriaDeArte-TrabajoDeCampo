@@ -1,8 +1,11 @@
-﻿using System;using Servicio;
+﻿using Servicio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace BE
@@ -31,7 +34,7 @@ namespace BE
 
         public string ObtenerCadenaParaHash()
         {
-            return DNI_VM516 + Nombre_VM516 + Apellido_VM516 + Telefono_VM516 + Email_VM516;
+            return $"{DNI_VM516}|{Nombre_VM516}|{Apellido_VM516}|{Telefono_VM516}|{Email_VM516}";
         }
     }
 }
