@@ -82,13 +82,11 @@ namespace IU
             {
                 string codigo = txtCodigoReserva.Text.Trim();
 
-                // La BLL valida el texto y busca la reserva (maneja el flujo alternativo 1.1)
                 var reserva = bllReserva_VM516.BuscarReservaParaPeritaje_VM516(codigo);
 
                 reservaEncontradaCodigo = reserva.Codigo_Reserva_VM516;
                 lblInfoReserva.Text = $"Reserva: {reserva.Codigo_Reserva_VM516} | Sala: {reserva.Codigo_Sala_VM516} | Obra ID: {reserva.Id_Obra_VM516} | Estado: {reserva.Estado_Espacio_VM516}";
 
-                // Habilitamos los controles para realizar el peritaje (Escenario Principal Paso 4)
                 cboEstadoExhibicion.Enabled = true;
                 txtObservaciones.Enabled = true;
                 btnConfirmarPeritaje.Enabled = true;
@@ -113,7 +111,6 @@ namespace IU
                 string estadoSeleccionado = cboEstadoExhibicion.SelectedItem?.ToString();
                 string observaciones = txtObservaciones.Text.Trim();
 
-                // La BLL se encarga de validar todas las reglas de negocio y flujos alternativos
                 bllInspeccion_VM516.RegistrarInspeccion_VM516(reservaEncontradaCodigo, estadoSeleccionado, observaciones);
 
                 if (estadoSeleccionado.Equals("Intacto", StringComparison.OrdinalIgnoreCase))

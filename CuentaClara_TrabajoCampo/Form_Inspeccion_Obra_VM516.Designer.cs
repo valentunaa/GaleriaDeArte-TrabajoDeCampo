@@ -279,7 +279,7 @@
             MaximizeBox = false;
             Name = "Form_Inspeccion_Obra_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CuentaClara - Peritaje Post-Exhibición";
+            Text = "Peritaje Post-Exhibición";
             Load += Form_Inspeccion_Obra_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();

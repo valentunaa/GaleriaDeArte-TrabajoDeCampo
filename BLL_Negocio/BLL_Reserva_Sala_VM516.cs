@@ -31,7 +31,6 @@ namespace BLL_Negocio
             var listaReservas = dalReserva_VM516.ListarReservas_VM516();
             var reserva = listaReservas.FirstOrDefault(r => r.Codigo_Reserva_VM516.Trim().Equals(codigoReserva.Trim(), StringComparison.OrdinalIgnoreCase));
 
-            // Flujo alternativo 1.1: Si no existe, se dispara la excepción de negocio
             if (reserva == null)
             {
                 throw new Exception("No se registran reservas vigentes en etapa de cierre para el criterio ingresado.");

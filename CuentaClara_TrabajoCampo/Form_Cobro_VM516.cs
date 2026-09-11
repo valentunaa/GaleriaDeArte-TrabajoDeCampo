@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace IU
 {
-    public partial class Form_Cobro : Form
+    public partial class Form_Cobro_VM516 : Form
     {
-        public Form_Cobro()
+        public Form_Cobro_VM516()
         {
             InitializeComponent();
         }
