@@ -90,6 +90,7 @@
             button1.Name = "button1";
             button1.Size = new Size(380, 40);
             button1.TabIndex = 22;
+            button1.Tag = "btn_VerHistorialReservas";
             button1.Text = "Ver Historial de Reservas";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -103,6 +104,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(213, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "titulo_FormReservaSala";
             lblTitulo.Text = "Registrar Reserva";
             // 
             // dgvSalas
@@ -146,6 +148,7 @@
             lblIdObra.Name = "lblIdObra";
             lblIdObra.Size = new Size(61, 19);
             lblIdObra.TabIndex = 2;
+            lblIdObra.Tag = "lbl_IdObra";
             lblIdObra.Text = "ID Obra";
             // 
             // txtIdObra
@@ -167,6 +170,7 @@
             lblFechaInicio.Name = "lblFechaInicio";
             lblFechaInicio.Size = new Size(87, 19);
             lblFechaInicio.TabIndex = 4;
+            lblFechaInicio.Tag = "lbl_FechaInicio";
             lblFechaInicio.Text = "Fecha Inicio";
             // 
             // dtpFechaInicio
@@ -187,6 +191,7 @@
             lblFechaFin.Name = "lblFechaFin";
             lblFechaFin.Size = new Size(70, 19);
             lblFechaFin.TabIndex = 6;
+            lblFechaFin.Tag = "lbl_FechaFin";
             lblFechaFin.Text = "Fecha Fin";
             // 
             // dtpFechaFin
@@ -209,6 +214,7 @@
             btnConsultarDisponibilidad.Name = "btnConsultarDisponibilidad";
             btnConsultarDisponibilidad.Size = new Size(380, 38);
             btnConsultarDisponibilidad.TabIndex = 8;
+            btnConsultarDisponibilidad.Tag = "btn_ConsultarDisponibilidad";
             btnConsultarDisponibilidad.Text = "Consultar Disponibilidad de Salas";
             btnConsultarDisponibilidad.UseVisualStyleBackColor = false;
             btnConsultarDisponibilidad.Click += btnConsultarDisponibilidad_Click;
@@ -222,6 +228,7 @@
             lblMontoTotal.Name = "lblMontoTotal";
             lblMontoTotal.Size = new Size(147, 19);
             lblMontoTotal.TabIndex = 9;
+            lblMontoTotal.Tag = "lbl_MontoTotal";
             lblMontoTotal.Text = "Monto Total Alquiler";
             // 
             // txtMontoTotal
@@ -242,6 +249,7 @@
             lblPorcentajeSena.Name = "lblPorcentajeSena";
             lblPorcentajeSena.Size = new Size(117, 19);
             lblPorcentajeSena.TabIndex = 11;
+            lblPorcentajeSena.Tag = "lbl_PorcentajeSena";
             lblPorcentajeSena.Text = "Porcentaje Seña";
             // 
             // txtPorcentajeSena
@@ -264,6 +272,7 @@
             btnConfirmarReserva.Name = "btnConfirmarReserva";
             btnConfirmarReserva.Size = new Size(380, 40);
             btnConfirmarReserva.TabIndex = 13;
+            btnConfirmarReserva.Tag = "btn_ConfirmarReserva";
             btnConfirmarReserva.Text = "Confirmar Reserva";
             btnConfirmarReserva.UseVisualStyleBackColor = false;
             btnConfirmarReserva.Click += btnConfirmarReserva_Click;
@@ -278,6 +287,7 @@
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 14;
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click_1;
@@ -313,6 +323,7 @@
             lblUsuarioActivo.Name = "lblUsuarioActivo";
             lblUsuarioActivo.Size = new Size(92, 15);
             lblUsuarioActivo.TabIndex = 0;
+            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
             // Form_Reserva_Sala_VM516
@@ -326,7 +337,8 @@
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Reserva_Sala_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CuentaClara - Registrar Reserva";
+            Text = "Registrar Reserva";
+            FormClosed += Form_Reserva_Sala_VM516_FormClosed;
             Load += Form_Reserva_Sala_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();

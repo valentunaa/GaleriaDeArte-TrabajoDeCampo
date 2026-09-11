@@ -33,8 +33,6 @@ namespace CuentaClara_TrabajoCampo
             this.Show();
         }
 
-
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             bllUsuario.CerrarSesion();
@@ -198,13 +196,7 @@ namespace CuentaClara_TrabajoCampo
             if (usuarioActual != null && usuarioActual.ModoEmergencia && usuarioActual.ErrorIntegridad != null)
 
             {
-                //string mensaje =
-                //@"ATENCIÓN
-
-                //El sistema detectó una violación de integridad.
-
-                //";
-
+               
                 string mensaje =
                 TraducirTexto("Atencion") +
                 Environment.NewLine + Environment.NewLine +

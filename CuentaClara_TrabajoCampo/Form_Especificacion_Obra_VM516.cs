@@ -11,10 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Servicio;
 
 namespace IU
 {
-    public partial class Form_Especificacion_Obra_VM516 : Form
+    public partial class Form_Especificacion_Obra_VM516 : Form, IObserverIdioma
     {
         public Form_Especificacion_Obra_VM516()
         {
@@ -25,35 +26,11 @@ namespace IU
         private BLL_Especificacion_Obra_VM516 bllObra;
         private BLL_Artista_VM516 bllArtista;
         private string dniArtistaVerificado = "";
-        private void FormatearGrilla()
-        {
-            if (dgvEspecificaciones.Columns.Contains("Id_Obra_VM516"))
-                dgvEspecificaciones.Columns["Id_Obra_VM516"].HeaderText = "ID";
-            if (dgvEspecificaciones.Columns.Contains("DNI_Artista_VM516"))
-                dgvEspecificaciones.Columns["DNI_Artista_VM516"].HeaderText = "DNI Artista";
-            if (dgvEspecificaciones.Columns.Contains("Titulo_Obra_VM516"))
-                dgvEspecificaciones.Columns["Titulo_Obra_VM516"].HeaderText = "Título";
-            if (dgvEspecificaciones.Columns.Contains("Tecnica_VM516"))
-                dgvEspecificaciones.Columns["Tecnica_VM516"].HeaderText = "Técnica";
-            if (dgvEspecificaciones.Columns.Contains("Alto_VM516"))
-                dgvEspecificaciones.Columns["Alto_VM516"].HeaderText = "Alto";
-            if (dgvEspecificaciones.Columns.Contains("Ancho_VM516"))
-                dgvEspecificaciones.Columns["Ancho_VM516"].HeaderText = "Ancho";
-            if (dgvEspecificaciones.Columns.Contains("Peso_VM516"))
-                dgvEspecificaciones.Columns["Peso_VM516"].HeaderText = "Peso";
-            if (dgvEspecificaciones.Columns.Contains("Req_Iluminacion_VM516"))
-                dgvEspecificaciones.Columns["Req_Iluminacion_VM516"].HeaderText = "Iluminación";
-            if (dgvEspecificaciones.Columns.Contains("Valor_Declarado_Mercado_VM516"))
-                dgvEspecificaciones.Columns["Valor_Declarado_Mercado_VM516"].HeaderText = "Valor Mercado";
-            if (dgvEspecificaciones.Columns.Contains("Categoria_Seguro_VM516"))
-                dgvEspecificaciones.Columns["Categoria_Seguro_VM516"].HeaderText = "Seguro";
-            if (dgvEspecificaciones.Columns.Contains("Estado_Asignacion_VM516"))
-                dgvEspecificaciones.Columns["Estado_Asignacion_VM516"].HeaderText = "Estado";
 
-            dgvEspecificaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
         private void Form_Especificacion_Obra_VM516_Load(object sender, EventArgs e)
         {
+            GestorIdioma.GetInstancia().Suscribir(this);
+            ActualizarIdioma();
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
@@ -64,6 +41,97 @@ namespace IU
             CargarGrilla();
 
         }
+        public void ActualizarIdioma()
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return;
+
+            TraducirControles(this.Controls, idioma);
+
+            this.Text = TraducirTexto("titulo_FormEspecificacionObra");
+            FormatearGrilla();
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
+        {
+            foreach (Control c in controles)
+            {
+                if (c.Tag != null)
+                {
+                    string clave = c.Tag.ToString();
+                    var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                    if (etiqueta != null) c.Text = etiqueta.Texto;
+                }
+
+                if (c is DataGridView dgv)
+                {
+                    foreach (DataGridViewColumn col in dgv.Columns)
+                    {
+                        string clave = col.Name;
+                        var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                        if (etiqueta != null) col.HeaderText = etiqueta.Texto;
+                    }
+                }
+
+                if (c.HasChildren)
+                    TraducirControles(c.Controls, idioma);
+            }
+        }
+
+        private string TraducirTexto(string clave)
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return clave;
+
+            var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+            return etiqueta != null ? etiqueta.Texto : clave;
+        }
+        private void FormatearGrilla()
+        {
+            if (dgvEspecificaciones.Columns.Contains("Id_Obra_VM516"))
+                dgvEspecificaciones.Columns["Id_Obra_VM516"].HeaderText = TraducirTexto("Id_Obra_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("DNI_Artista_VM516"))
+                dgvEspecificaciones.Columns["DNI_Artista_VM516"].HeaderText = TraducirTexto("DNI_Artista_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Titulo_Obra_VM516"))
+                dgvEspecificaciones.Columns["Titulo_Obra_VM516"].HeaderText = TraducirTexto("Titulo_Obra_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Tecnica_VM516"))
+                dgvEspecificaciones.Columns["Tecnica_VM516"].HeaderText = TraducirTexto("Tecnica_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Alto_VM516"))
+                dgvEspecificaciones.Columns["Alto_VM516"].HeaderText = TraducirTexto("Alto_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Ancho_VM516"))
+                dgvEspecificaciones.Columns["Ancho_VM516"].HeaderText = TraducirTexto("Ancho_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Peso_VM516"))
+                dgvEspecificaciones.Columns["Peso_VM516"].HeaderText = TraducirTexto("Peso_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Req_Iluminacion_VM516"))
+                dgvEspecificaciones.Columns["Req_Iluminacion_VM516"].HeaderText = TraducirTexto("Req_Iluminacion_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Valor_Declarado_Mercado_VM516"))
+                dgvEspecificaciones.Columns["Valor_Declarado_Mercado_VM516"].HeaderText = TraducirTexto("Valor_Declarado_Mercado_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Categoria_Seguro_VM516"))
+                dgvEspecificaciones.Columns["Categoria_Seguro_VM516"].HeaderText = TraducirTexto("Categoria_Seguro_VM516");
+
+            if (dgvEspecificaciones.Columns.Contains("Estado_Asignacion_VM516"))
+                dgvEspecificaciones.Columns["Estado_Asignacion_VM516"].HeaderText = TraducirTexto("Estado_Asignacion_VM516");
+
+            dgvEspecificaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+       
 
 
         private void CargarGrilla()
@@ -76,7 +144,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar la grilla de especificaciones: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,51 +169,40 @@ namespace IU
             txtAlto.Clear();
             txtAncho.Clear();
             txtPeso.Clear();
-            
+
             txtValorMercado.Clear();
-            
-            lblNombreArtista.Text = "Estado del artista: Pendiente";
+
+            lblNombreArtista.Text = TraducirTexto("lbl_EstadoArtistaPendiente");
             lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(15, 45, 75);
             dniArtistaVerificado = "";
             BloquearCamposObra(false);
             txtDNIBuscar.Focus();
         }
 
-        
+
 
         private void btnBuscarArtista_Click_1(object sender, EventArgs e)
         {
             try
             {
                 string dni = txtDNIBuscar.Text.Trim();
+                var artista = bllArtista.BuscarArtistaPorDNI_VM516(dni);
 
-                if (string.IsNullOrWhiteSpace(dni))
+                if (artista != null)
                 {
-                    throw new Exception("Por favor, ingrese el DNI del artista a buscar.");
-                }
-
-                var artistasEncontrados = bllArtista.BuscarArtistaPorDNI_VM516(dni);
-
-                if (artistasEncontrados != null && artistasEncontrados.Count > 0)
-                {
-                    var artista = artistasEncontrados[0];
                     dniArtistaVerificado = artista.DNI_VM516;
                     lblNombreArtista.Text = $"Artista verificado: {artista.Nombre_VM516} {artista.Apellido_VM516}";
                     lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(18, 120, 50);
                     BloquearCamposObra(true);
                 }
-                else
-                {
-                    dniArtistaVerificado = "";
-                    lblNombreArtista.Text = "El artista no se encuentra registrado.";
-                    lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(180, 40, 40);
-                    BloquearCamposObra(false);
-                    MessageBox.Show("El artista no se encuentra registrado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error de Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dniArtistaVerificado = "";
+                lblNombreArtista.Text = TraducirTexto("err_ArtistaNoRegistradoObra");
+                lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(180, 40, 40);
+                BloquearCamposObra(false);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -155,34 +212,28 @@ namespace IU
             {
                 if (string.IsNullOrEmpty(dniArtistaVerificado))
                 {
-                    throw new Exception("Debe verificar un artista registrado antes de confirmar la obra.");
+                    throw new Exception("err_DebeVerificarArtistaObra");
                 }
 
-                if (!decimal.TryParse(txtAlto.Text.Trim(), out decimal alto) ||
-                    !decimal.TryParse(txtAncho.Text.Trim(), out decimal ancho) ||
-                    !decimal.TryParse(txtPeso.Text.Trim(), out decimal peso) ||
-                    !decimal.TryParse(txtValorMercado.Text.Trim(), out decimal valorMercado))
-                {
-                    throw new Exception("Los campos de Alto, Ancho, Peso y Valor de Mercado deben ser numéricos.");
-                }
 
-                BE_Especificacion_Obra_VM516 nuevaObra = new BE_Especificacion_Obra_VM516
-                {
-                    DNI_Artista_VM516 = dniArtistaVerificado,
-                    Titulo_Obra_VM516 = txtTitulo.Text.Trim(),
-                    Tecnica_VM516 = txtTecnica.Text.Trim(),
-                    Alto_VM516 = alto,
-                    Ancho_VM516 = ancho,
-                    Peso_VM516 = peso,
-                    Req_Iluminacion_VM516 = comboBox1.Text.Trim(),
-                    Valor_Declarado_Mercado_VM516 = valorMercado,
-                    Categoria_Seguro_VM516 = comboBox2.Text.Trim(),
-                    Estado_Asignacion_VM516 = "Pendiente_Asignacion"
-                };
+                bllObra.RegistrarEspecificacion_VM516(
+                    dniArtistaVerificado,
+                    txtTitulo.Text.Trim(),
+                    txtTecnica.Text.Trim(),
+                    txtAlto.Text.Trim(),
+                    txtAncho.Text.Trim(),
+                    txtPeso.Text.Trim(),
+                    comboBox1.Text.Trim(),
+                    txtValorMercado.Text.Trim(),
+                    comboBox2.Text.Trim()
+                );
 
-                bllObra.RegistrarEspecificacion_VM516(nuevaObra);
-
-                MessageBox.Show("¡Especificación de obra registrada con éxito bajo el estado [Pendiente_Asignacion]!", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    TraducirTexto("msg_ExitoRegistroObra"),
+                    TraducirTexto("titulo_Exito"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
 
                 CargarGrilla();
                 LimpiarCamposObra();
@@ -196,6 +247,11 @@ namespace IU
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form_Especificacion_Obra_VM516_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GestorIdioma.GetInstancia().Desuscribir(this);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using DAL;
+using Microsoft.Extensions.DependencyInjection;
 using Servicio;
 using System;
 using System.Collections.Generic;
@@ -21,55 +22,59 @@ namespace BLL_Negocio
             bllDigito_VM516 = new BLL_DigitoVerificador();
         }
 
-        public void RegistrarArtista_VM516(BE_Artista_VM516 artista_VM516)
+        public void RegistrarArtista_VM516(string dni, string nombre, string apellido, string telefono, string email)
         {
-            if (string.IsNullOrWhiteSpace(artista_VM516.DNI_VM516) ||
-                string.IsNullOrWhiteSpace(artista_VM516.Nombre_VM516) ||
-                string.IsNullOrWhiteSpace(artista_VM516.Apellido_VM516) ||
-                string.IsNullOrWhiteSpace(artista_VM516.Telefono_VM516) ||
-                string.IsNullOrWhiteSpace(artista_VM516.Email_VM516))
+            // 1. Validaciones de negocio sobre los datos crudos
+            if (string.IsNullOrWhiteSpace(dni) ||
+                string.IsNullOrWhiteSpace(nombre) ||
+                string.IsNullOrWhiteSpace(apellido) ||
+                string.IsNullOrWhiteSpace(telefono) ||
+                string.IsNullOrWhiteSpace(email))
             {
                 throw new Exception("Campos incompletos. Por favor, ingrese todos los datos del artista.");
             }
 
-            if (!Regex.IsMatch(artista_VM516.DNI_VM516, @"^\d{7,8}$"))
+            if (!Regex.IsMatch(dni, @"^\d{7,8}$"))
             {
                 throw new Exception("El DNI debe contener solo números y tener entre 7 y 8 dígitos.");
             }
 
-            // Validación de Teléfono: Solo números, entre 7 y 15 dígitos
-            if (!Regex.IsMatch(artista_VM516.Telefono_VM516, @"^\d{7,15}$"))
+            if (!Regex.IsMatch(telefono, @"^\d{7,15}$"))
             {
                 throw new Exception("El teléfono debe contener solo números.");
             }
 
-            // Validación de Email (soporta dominios compuestos como hotmail.com.ar, gmail.com, etc.)
-            if (!Regex.IsMatch(artista_VM516.Email_VM516, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 throw new Exception("El formato del email no es válido.");
             }
 
+            if (dalArtista_VM516.ExisteArtista_VM516(dni))
+            {
+                throw new Exception("El artista ya se encuentra registrado.");
+            }
+
+            BE_Artista_VM516 artista_VM516 = new BE_Artista_VM516(dni, nombre, apellido, telefono, email);
+
             dalArtista_VM516.GuardarArtista_VM516(artista_VM516);
 
             List<BE_Artista_VM516> listaBE_VM516 = dalArtista_VM516.ListarArtistas_VM516();
-
-            bllDigito_VM516.ActualizarDigitos(artista_VM516,listaBE_VM516.Cast<IVerificable>().ToList(), "Artista_VM516" );
- 
+            bllDigito_VM516.ActualizarDigitos(artista_VM516, listaBE_VM516.Cast<IVerificable>().ToList(), "Artista_VM516");
         }
-
 
         public List<BE_Artista_VM516> ListarArtistas_VM516()
         {
             return dalArtista_VM516.ListarArtistas_VM516();
         }
-        public List<BE_Artista_VM516> BuscarArtistaPorDNI_VM516(string dni)
+        public BE_Artista_VM516 BuscarArtistaPorDNI_VM516(string dni)
         {
-            if (string.IsNullOrWhiteSpace(dni))
-            {
-                return ListarArtistas_VM516();
-            }
+            if (string.IsNullOrEmpty(dni)) throw new Exception("El DNI no puede estar vacío.");
 
-            return dalArtista_VM516.BuscarArtistaPorDNI_VM516(dni);
+            var aux = ListarArtistas_VM516().Find(x => x.DNI_VM516 == dni);
+            if (aux == null) throw new Exception("No se encontró un artista con el DNI proporcionado.");
+            return aux;
+
+
         }
     }
 }

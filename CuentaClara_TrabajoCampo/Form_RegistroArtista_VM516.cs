@@ -1,5 +1,8 @@
 ﻿using BE;
+using BLL;
+using BLL_Negocio;
 using DAL;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,12 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL_Negocio;
 
 
 namespace IU
 {
-    public partial class Form_RegistroArtista_VM516 : Form
+    public partial class Form_RegistroArtista_VM516 : Form, IObserverIdioma
     {
         private BLL_Artista_VM516 bllArtista;
 
@@ -26,9 +28,63 @@ namespace IU
 
         private void Form_RegistroArtista_VM516_Load(object sender, EventArgs e)
         {
-            CargarGrilla();
+            CargarGrilla();     
+            ActualizarIdioma();
         }
 
+        public void ActualizarIdioma()
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return;
+
+            TraducirControles(this.Controls, idioma);
+
+            // Traducimos el título del formulario manualmente
+            this.Text = TraducirTexto("titulo_FormRegistroArtista");
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
+        {
+            foreach (Control c in controles)
+            {
+                if (c.Tag != null)
+                {
+                    string clave = c.Tag.ToString();
+                    var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                    if (etiqueta != null) c.Text = etiqueta.Texto;
+                }
+
+                if (c is DataGridView dgv)
+                {
+                    foreach (DataGridViewColumn col in dgv.Columns)
+                    {
+                        string clave = col.Name; // Toma el nombre de la propiedad (ej: DNI_VM516)
+                        var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                        if (etiqueta != null) col.HeaderText = etiqueta.Texto;
+                    }
+                }
+
+                if (c.HasChildren)
+                    TraducirControles(c.Controls, idioma);
+            }
+        }
+
+        private string TraducirTexto(string clave)
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return clave;
+
+            var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+            return etiqueta != null ? etiqueta.Texto : clave;
+        }
         private void CargarGrilla()
         {
             try
@@ -39,7 +95,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar la lista de artistas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -59,7 +115,7 @@ namespace IU
         {
             try
             {
-                BE_Artista_VM516 nuevoArtista = new BE_Artista_VM516(
+                bllArtista.RegistrarArtista_VM516(
                     txtDNI.Text.Trim(),
                     txtNombre.Text.Trim(),
                     txtApellido.Text.Trim(),
@@ -67,16 +123,24 @@ namespace IU
                     txtEmail.Text.Trim()
                 );
 
-                bllArtista.RegistrarArtista_VM516(nuevoArtista);
-
-                MessageBox.Show("¡Artista registrado con éxito!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    TraducirTexto("msg_RegistroArtistaExito"),
+                    TraducirTexto("titulo_Exito"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
 
                 CargarGrilla();
                 LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    TraducirTexto(ex.Message),
+                    TraducirTexto("titulo_Error"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
             }
         }
 
@@ -88,7 +152,7 @@ namespace IU
 
                 if (string.IsNullOrEmpty(dniBuscado))
                 {
-                    CargarGrilla(); 
+                    CargarGrilla();
                     return;
                 }
 
@@ -97,7 +161,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Búsqueda / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -112,6 +176,11 @@ namespace IU
             {
                 MessageBox.Show(ex.Message, "Error de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void Form_RegistroArtista_VM516_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GestorIdioma.GetInstancia().Desuscribir(this);
         }
     }
 }

@@ -122,6 +122,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(414, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "titulo_FormEspecificacionObra";
             lblTitulo.Text = "Catalogar Especificaciones de Obra";
             // 
             // dgvEspecificaciones
@@ -165,6 +166,7 @@
             lblDNI.Name = "lblDNI";
             lblDNI.Size = new Size(82, 19);
             lblDNI.TabIndex = 2;
+            lblDNI.Tag = "lbl_DNIArtista";
             lblDNI.Text = "DNI Artista";
             // 
             // txtDNIBuscar
@@ -187,6 +189,7 @@
             btnBuscarArtista.Name = "btnBuscarArtista";
             btnBuscarArtista.Size = new Size(140, 28);
             btnBuscarArtista.TabIndex = 4;
+            btnBuscarArtista.Tag = "btn_BuscarArtista";
             btnBuscarArtista.Text = "Buscar Artista";
             btnBuscarArtista.UseVisualStyleBackColor = false;
             btnBuscarArtista.Click += btnBuscarArtista_Click_1;
@@ -200,6 +203,7 @@
             lblNombreArtista.Name = "lblNombreArtista";
             lblNombreArtista.Size = new Size(185, 17);
             lblNombreArtista.TabIndex = 5;
+            lblNombreArtista.Tag = "lbl_EstadoArtistaPendiente";
             lblNombreArtista.Text = "Estado del artista: Pendiente";
             // 
             // lblTituloObra
@@ -211,6 +215,7 @@
             lblTituloObra.Name = "lblTituloObra";
             lblTituloObra.Size = new Size(106, 19);
             lblTituloObra.TabIndex = 6;
+            lblTituloObra.Tag = "lbl_TituloObra";
             lblTituloObra.Text = "Título de Obra";
             // 
             // txtTitulo
@@ -231,6 +236,7 @@
             lblTecnica.Name = "lblTecnica";
             lblTecnica.Size = new Size(58, 19);
             lblTecnica.TabIndex = 8;
+            lblTecnica.Tag = "lbl_Tecnica";
             lblTecnica.Text = "Técnica";
             // 
             // txtTecnica
@@ -251,6 +257,7 @@
             lblAlto.Name = "lblAlto";
             lblAlto.Size = new Size(37, 19);
             lblAlto.TabIndex = 10;
+            lblAlto.Tag = "lbl_Alto";
             lblAlto.Text = "Alto";
             // 
             // txtAlto
@@ -271,6 +278,7 @@
             lblAncho.Name = "lblAncho";
             lblAncho.Size = new Size(51, 19);
             lblAncho.TabIndex = 12;
+            lblAncho.Tag = "lbl_Ancho";
             lblAncho.Text = "Ancho";
             // 
             // txtAncho
@@ -291,6 +299,7 @@
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(41, 19);
             lblPeso.TabIndex = 14;
+            lblPeso.Tag = "lbl_Peso";
             lblPeso.Text = "Peso";
             // 
             // txtPeso
@@ -311,6 +320,7 @@
             lblReqIluminacion.Name = "lblReqIluminacion";
             lblReqIluminacion.Size = new Size(173, 19);
             lblReqIluminacion.TabIndex = 16;
+            lblReqIluminacion.Tag = "lbl_ReqIluminacion";
             lblReqIluminacion.Text = "Requisito de Iluminación";
             // 
             // lblValorMercado
@@ -322,6 +332,7 @@
             lblValorMercado.Name = "lblValorMercado";
             lblValorMercado.Size = new Size(206, 19);
             lblValorMercado.TabIndex = 18;
+            lblValorMercado.Tag = "lbl_ValorMercado";
             lblValorMercado.Text = "Valor Declarado del Mercado";
             // 
             // txtValorMercado
@@ -342,6 +353,7 @@
             lblCategoriaSeguro.Name = "lblCategoriaSeguro";
             lblCategoriaSeguro.Size = new Size(148, 19);
             lblCategoriaSeguro.TabIndex = 20;
+            lblCategoriaSeguro.Tag = "lbl_CategoriaSeguro";
             lblCategoriaSeguro.Text = "Categoría de Seguro";
             // 
             // btnConfirmarRegistro
@@ -355,6 +367,7 @@
             btnConfirmarRegistro.Name = "btnConfirmarRegistro";
             btnConfirmarRegistro.Size = new Size(380, 40);
             btnConfirmarRegistro.TabIndex = 22;
+            btnConfirmarRegistro.Tag = "btn_ConfirmarRegistroObra";
             btnConfirmarRegistro.Text = "Confirmar Registro";
             btnConfirmarRegistro.UseVisualStyleBackColor = false;
             btnConfirmarRegistro.Click += btnConfirmarRegistro_Click_1;
@@ -369,6 +382,7 @@
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 23;
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click_1;
@@ -404,6 +418,7 @@
             lblUsuarioActivo.Name = "lblUsuarioActivo";
             lblUsuarioActivo.Size = new Size(92, 15);
             lblUsuarioActivo.TabIndex = 0;
+            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
             // Form_Especificacion_Obra_VM516
@@ -417,7 +432,8 @@
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Especificacion_Obra_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CuentaClara - Catalogar Especificaciones de Obra";
+            Text = "Catalogar Especificaciones de Obra";
+            FormClosed += Form_Especificacion_Obra_VM516_FormClosed;
             Load += Form_Especificacion_Obra_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();

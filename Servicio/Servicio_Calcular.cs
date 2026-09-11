@@ -15,7 +15,6 @@ namespace Servicio
             cripto = new Servicio_Cripto();
         }
 
-        // Método que pide el diagrama para DVH
         public string CalcularDVH(IVerificable entidad)
         {
             // 1. ObtenerCadena(entidad) según tu diagrama
@@ -25,7 +24,6 @@ namespace Servicio
             return cripto.CalcularHash(cadena);
         }
 
-     
         public string CalcularHash(string cadenaNormalizada)
         {
             return cripto.CalcularHash(cadenaNormalizada);

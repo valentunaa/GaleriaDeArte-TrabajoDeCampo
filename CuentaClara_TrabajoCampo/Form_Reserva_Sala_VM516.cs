@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace IU
 {
-    public partial class Form_Reserva_Sala_VM516 : Form
+    public partial class Form_Reserva_Sala_VM516 : Form, IObserverIdioma
     {
         private BLL_Reserva_Sala_VM516 bllReserva;
         private BLL_Especificacion_Obra_VM516 bllObra;
@@ -26,6 +26,8 @@ namespace IU
         }
         private void Form_Reserva_Sala_VM516_Load(object sender, EventArgs e)
         {
+            GestorIdioma.GetInstancia().Suscribir(this);
+            ActualizarIdioma();
             dgvSalas.DataSource = null;
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
@@ -33,20 +35,74 @@ namespace IU
 
             lblUsuarioValor.Text = $"{usuario.Login} -  {nombreLegibleDelRol}";
         }
+
+        public void ActualizarIdioma()
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return;
+
+            TraducirControles(this.Controls, idioma);
+
+            this.Text = TraducirTexto("titulo_FormReservaSala");
+            FormatearGrillaSalas();
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
+        {
+            foreach (Control c in controles)
+            {
+                if (c.Tag != null)
+                {
+                    string clave = c.Tag.ToString();
+                    var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                    if (etiqueta != null) c.Text = etiqueta.Texto;
+                }
+
+                if (c is DataGridView dgv)
+                {
+                    foreach (DataGridViewColumn col in dgv.Columns)
+                    {
+                        string clave = col.Name;
+                        var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                        if (etiqueta != null) col.HeaderText = etiqueta.Texto;
+                    }
+                }
+
+                if (c.HasChildren)
+                    TraducirControles(c.Controls, idioma);
+            }
+        }
+
+        private string TraducirTexto(string clave)
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return clave;
+
+            var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+            return etiqueta != null ? etiqueta.Texto : clave;
+        }
         private void FormatearGrillaSalas()
         {
             if (dgvSalas.Columns.Contains("Codigo_Sala_VM516"))
-                dgvSalas.Columns["Codigo_Sala_VM516"].HeaderText = "Código Sala";
+                dgvSalas.Columns["Codigo_Sala_VM516"].HeaderText = TraducirTexto("Codigo_Sala_VM516");
             if (dgvSalas.Columns.Contains("Nombre_Sala_VM516"))
-                dgvSalas.Columns["Nombre_Sala_VM516"].HeaderText = "Nombre";
+                dgvSalas.Columns["Nombre_Sala_VM516"].HeaderText = TraducirTexto("Nombre_Sala_VM516");
             if (dgvSalas.Columns.Contains("Alto_Max_Soportado_VM516"))
-                dgvSalas.Columns["Alto_Max_Soportado_VM516"].HeaderText = "Alto Máx";
+                dgvSalas.Columns["Alto_Max_Soportado_VM516"].HeaderText = TraducirTexto("Alto_Max_Soportado_VM516");
             if (dgvSalas.Columns.Contains("Ancho_Max_Soportado_VM516"))
-                dgvSalas.Columns["Ancho_Max_Soportado_VM516"].HeaderText = "Ancho Máx";
+                dgvSalas.Columns["Ancho_Max_Soportado_VM516"].HeaderText = TraducirTexto("Ancho_Max_Soportado_VM516");
             if (dgvSalas.Columns.Contains("Peso_Max_Soportado_VM516"))
-                dgvSalas.Columns["Peso_Max_Soportado_VM516"].HeaderText = "Peso Máx";
+                dgvSalas.Columns["Peso_Max_Soportado_VM516"].HeaderText = TraducirTexto("Peso_Max_Soportado_VM516");
             if (dgvSalas.Columns.Contains("Tipo_Iluminacion_Disponible_VM516"))
-                dgvSalas.Columns["Tipo_Iluminacion_Disponible_VM516"].HeaderText = "Iluminación";
+                dgvSalas.Columns["Tipo_Iluminacion_Disponible_VM516"].HeaderText = TraducirTexto("Tipo_Iluminacion_Disponible_VM516");
 
             dgvSalas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -72,7 +128,7 @@ namespace IU
 
                 if (!int.TryParse(txtIdObra.Text.Trim(), out int idObra))
                 {
-                    throw new Exception("El ID de obra debe ser un valor numérico.");
+                    throw new Exception(TraducirTexto("err_IdObraNumerico"));
                 }
 
 
@@ -87,17 +143,17 @@ namespace IU
                                      $"Iluminación: {obra.Req_Iluminacion_VM516}\n" +
                                      $"Seguro: {obra.Categoria_Seguro_VM516}";
 
-                    MessageBox.Show(detalle, "Información de la Obra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(detalle, TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró ninguna obra registrada con ese ID.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(TraducirTexto("err_ObraNoEncontrada"), TraducirTexto("msg_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtIdObra.Focus();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -113,7 +169,7 @@ namespace IU
             {
                 if (!int.TryParse(txtIdObra.Text.Trim(), out int idObra))
                 {
-                    throw new Exception("Debe ingresar un ID de obra válido para consultar las especificaciones.");
+                    throw new Exception(TraducirTexto("err_IdObraNumerico"));
                 }
 
                 DateTime inicio = dtpFechaInicio.Value;
@@ -123,7 +179,7 @@ namespace IU
 
                 if (listSalas.Count == 0)
                 {
-                    MessageBox.Show("No existen salas compatibles disponibles en el período solicitado.", "Sin disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(TraducirTexto("err_SinSalasDisponibles"), TraducirTexto("msg_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 dgvSalas.DataSource = null;
@@ -132,7 +188,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -140,46 +196,30 @@ namespace IU
         {
             try
             {
-                if (dgvSalas.SelectedRows.Count == 0)
+                string codigoSala = "";
+                if (dgvSalas.SelectedRows.Count > 0)
                 {
-                    throw new Exception("Debe seleccionar una sala de la grilla interactiva para continuar.");
+                    var row = dgvSalas.SelectedRows[0];
+                    codigoSala = row.Cells["Codigo_Sala_VM516"].Value?.ToString() ?? "";
                 }
 
-                var row = dgvSalas.SelectedRows[0];
-                codigoSalaSeleccionada = row.Cells["Codigo_Sala_VM516"].Value.ToString();
+                // Se envían los datos crudos a la BLL para su validación y posterior creación del objeto
+                bllReserva.RegistrarReserva_VM516(
+                    codigoSala,
+                    txtIdObra.Text.Trim(),
+                    dtpFechaInicio.Value,
+                    dtpFechaFin.Value,
+                    txtMontoTotal.Text.Trim(),
+                    txtPorcentajeSena.Text.Trim()
+                );
 
-                if (!int.TryParse(txtIdObra.Text.Trim(), out int idObra))
-                {
-                    throw new Exception("ID de obra inválido.");
-                }
-
-                if (!decimal.TryParse(txtMontoTotal.Text.Trim(), out decimal montoTotal) || montoTotal <= 0)
-                {
-                    throw new Exception("El monto total del alquiler debe ser un valor numérico superior a cero.");
-                }
-
-                if (!decimal.TryParse(txtPorcentajeSena.Text.Trim(), out decimal porcentajeSena) || porcentajeSena < 1 || porcentajeSena > 100)
-                {
-                    throw new Exception("El porcentaje de seña requerido debe ser un valor mayor a 0% y menor o igual al 100%.");
-                }
-
-                BE_Reserva_Sala_VM516 nuevaReserva = new BE_Reserva_Sala_VM516
-                {
-                    Codigo_Sala_VM516 = codigoSalaSeleccionada,
-                    Id_Obra_VM516 = idObra,
-                    Fecha_Inicio_VM516 = dtpFechaInicio.Value,
-                    Fecha_Fin_VM516 = dtpFechaFin.Value
-                };
-
-                bllReserva.RegistrarReserva_VM516(nuevaReserva, montoTotal, porcentajeSena);
-
-                MessageBox.Show("Espacio de exhibición adjudicado con éxito. La reserva ha sido registrada y se encuentra en espera para el cobro de la seña", "Reserva Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(TraducirTexto("msg_ReservaExitosa"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LimpiarFormulario();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -192,6 +232,11 @@ namespace IU
         {
             Form_ListarReservas_VM516 frm = new Form_ListarReservas_VM516();
             frm.ShowDialog();
+        }
+
+        private void Form_Reserva_Sala_VM516_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GestorIdioma.GetInstancia().Desuscribir(this);
         }
     }
 }

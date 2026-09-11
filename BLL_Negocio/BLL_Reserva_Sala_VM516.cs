@@ -126,37 +126,51 @@ namespace BLL_Negocio
             );
         }
 
-        public void RegistrarReserva_VM516(BE_Reserva_Sala_VM516 reserva, decimal montoTotal, decimal porcentajeSena)
+        public void RegistrarReserva_VM516(string codigoSala, string idObraStr, DateTime fechaInicio, DateTime fechaFin, string montoTotalStr, string porcentajeSenaStr)
         {
-            if (reserva.Fecha_Inicio_VM516 >= reserva.Fecha_Fin_VM516)
+            if (string.IsNullOrWhiteSpace(codigoSala))
+            {
+                throw new Exception("Debe seleccionar una sala de la grilla interactiva para continuar.");
+            }
+
+            if (string.IsNullOrWhiteSpace(idObraStr) || !int.TryParse(idObraStr.Trim(), out int idObra))
+            {
+                throw new Exception("El ID de obra está vacío o no posee un formato numérico válido.");
+            }
+
+            if (fechaInicio >= fechaFin)
             {
                 throw new Exception("El rango de fechas ingresado es cronológicamente incorrecto.");
             }
 
-            if (montoTotal <= 0)
+            if (!decimal.TryParse(montoTotalStr.Trim(), out decimal montoTotal) || montoTotal <= 0)
             {
                 throw new Exception("El monto total del alquiler debe ser un valor numérico superior a cero.");
             }
 
-            if (porcentajeSena < 1 || porcentajeSena > 100)
+            if (!decimal.TryParse(porcentajeSenaStr.Trim(), out decimal porcentajeSena) || porcentajeSena < 1 || porcentajeSena > 100)
             {
-                throw new Exception("El porcentaje de seña requerido debe ser mayor a 0% y menor o igual al 100%.");
+                throw new Exception("El porcentaje de seña requerido debe ser un valor mayor a 0% y menor o igual al 100%.");
             }
 
-            // Cálculos automáticos solicitados
+            
             decimal senaMonto = (montoTotal * porcentajeSena) / 100;
             decimal saldoRestante = montoTotal - senaMonto;
+            string codigoReserva = "RES_" + DateTime.Now.Ticks.ToString().Substring(10);
 
-            reserva.Monto_Alquiler_Total_VM516 = montoTotal;
-            reserva.Porcentaje_Sena_VM516 = porcentajeSena;
-            reserva.Saldo_Restante_A_Pagar_VM516 = saldoRestante;
-            reserva.Estado_Espacio_VM516 = "Reservado";
-            reserva.Estado_Pago_VM516 = "Pendiente_Sena";
-
-            if (string.IsNullOrWhiteSpace(reserva.Codigo_Reserva_VM516))
+            BE_Reserva_Sala_VM516 reserva = new BE_Reserva_Sala_VM516
             {
-                reserva.Codigo_Reserva_VM516 = "RES_" + DateTime.Now.Ticks.ToString().Substring(10);
-            }
+                Codigo_Reserva_VM516 = codigoReserva,
+                Codigo_Sala_VM516 = codigoSala,
+                Id_Obra_VM516 = idObra,
+                Fecha_Inicio_VM516 = fechaInicio,
+                Fecha_Fin_VM516 = fechaFin,
+                Monto_Alquiler_Total_VM516 = montoTotal,
+                Porcentaje_Sena_VM516 = porcentajeSena,
+                Saldo_Restante_A_Pagar_VM516 = saldoRestante,
+                Estado_Espacio_VM516 = "Reservado",
+                Estado_Pago_VM516 = "Pendiente_Sena"
+            };
 
             dalReserva_VM516.GuardarReserva_VM516(reserva);
 
@@ -172,7 +186,6 @@ namespace BLL_Negocio
                 );
             }
         }
-
         public List<BE_Reserva_Sala_VM516> ListarReservas()
         {
             return dalReserva_VM516.ListarReservas_VM516();

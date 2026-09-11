@@ -54,7 +54,7 @@ namespace DAL
             }
         }
 
-        public bool GuardarArtista_VM516(BE_Artista_VM516 artista_VM516)
+        public void GuardarArtista_VM516(BE_Artista_VM516 artista_VM516)
         {
             using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
             {
@@ -71,13 +71,9 @@ namespace DAL
                 fila_VM516["Email_VM516"] = artista_VM516.Email_VM516;
 
                 ds_VM516.Tables["Artista_VM516"].Rows.Add(fila_VM516);
-
-                // El builder auto-genera el INSERT mapeando los nombres de las columnas
                 SqlCommandBuilder builder_VM516 = new SqlCommandBuilder(adapter_VM516);
 
                 adapter_VM516.Update(ds_VM516, "Artista_VM516");
-
-                return true;
             }
         }
         public List<BE_Artista_VM516> BuscarArtistaPorDNI_VM516(string dni)

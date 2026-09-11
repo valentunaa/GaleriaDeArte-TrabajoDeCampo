@@ -55,6 +55,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(239, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "lbl_TituloRegistroArtista";
             lblTitulo.Text = "Registro de Artistas";
             // 
             // lblDNI
@@ -66,6 +67,7 @@
             lblDNI.Name = "lblDNI";
             lblDNI.Size = new Size(41, 20);
             lblDNI.TabIndex = 1;
+            lblDNI.Tag = "lbl_DNI";
             lblDNI.Text = "DNI:";
             // 
             // txtDNI
@@ -85,6 +87,7 @@
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(71, 20);
             lblNombre.TabIndex = 3;
+            lblNombre.Tag = "lbl_Nombre";
             lblNombre.Text = "Nombre:";
             // 
             // txtNombre
@@ -104,6 +107,7 @@
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(71, 20);
             lblApellido.TabIndex = 5;
+            lblApellido.Tag = "lbl_Apellido";
             lblApellido.Text = "Apellido:";
             // 
             // txtApellido
@@ -123,6 +127,7 @@
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(74, 20);
             lblTelefono.TabIndex = 7;
+            lblTelefono.Tag = "lbl_Telefono";
             lblTelefono.Text = "Teléfono:";
             // 
             // txtTelefono
@@ -142,6 +147,7 @@
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(51, 20);
             lblEmail.TabIndex = 9;
+            lblEmail.Tag = "lbl_Email";
             lblEmail.Text = "Email:";
             // 
             // txtEmail
@@ -163,9 +169,9 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(240, 42);
             btnGuardar.TabIndex = 11;
+            btnGuardar.Tag = "btn_RegistrarArtista";
             btnGuardar.Text = "Registrar Artista";
             btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
             // 
             // dgvArtistas
             // 
@@ -198,6 +204,7 @@
             label1.Name = "label1";
             label1.Size = new Size(200, 20);
             label1.TabIndex = 14;
+            label1.Tag = "lbl_BuscarArtistaDNI";
             label1.Text = "BUSCAR ARTISTA POR DNI";
             // 
             // Form_RegistroArtista_VM516
@@ -224,7 +231,9 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form_RegistroArtista_VM516";
+            Tag = "titulo_FormRegistroArtista";
             Text = "Form_RegistroArtista_VM516";
+            FormClosed += Form_RegistroArtista_VM516_FormClosed;
             Load += Form_RegistroArtista_VM516_Load;
             ((System.ComponentModel.ISupportInitialize)dgvArtistas).EndInit();
             ResumeLayout(false);

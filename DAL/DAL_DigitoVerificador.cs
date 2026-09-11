@@ -43,9 +43,9 @@ namespace DAL
                 da.Update(dt);
             }
         }
-        public Servicio_DigitoVerificadorVertical ObtenerRegistroDigito(string nombre)
+        public Servicio_DigitoVerificador ObtenerRegistroDigito(string nombre)
         {
-            Servicio_DigitoVerificadorVertical entidad = null;
+            Servicio_DigitoVerificador entidad = null;
 
             using (SqlConnection conn = new SqlConnection(cadenaConexion))
             {
@@ -61,7 +61,7 @@ namespace DAL
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
-                    entidad = new Servicio_DigitoVerificadorVertical();
+                    entidad = new Servicio_DigitoVerificador();
                     entidad.Nombre = row["Nombre"].ToString();
                     entidad.DVV = row["DVV"] != DBNull.Value ? row["DVV"].ToString() : null;
                     entidad.DVH = row["DVH"] != DBNull.Value ? row["DVH"].ToString() : null;
@@ -72,7 +72,7 @@ namespace DAL
         }
 
 
-        public void GuardarDVH(Servicio_DigitoVerificadorVertical registro)
+        public void GuardarDVH(Servicio_DigitoVerificador registro)
         {
             using (SqlConnection conn = new SqlConnection(cadenaConexion))
             {
@@ -115,7 +115,7 @@ namespace DAL
         // =================================================================
         // Guardar DVV (Maestro)
         // =================================================================
-        public void GuardarDVV(Servicio_DigitoVerificadorVertical registroMaestro)
+        public void GuardarDVV(Servicio_DigitoVerificador registroMaestro)
         {
             using (SqlConnection conn = new SqlConnection(cadenaConexion))
             {

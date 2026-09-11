@@ -57,7 +57,7 @@ namespace BLL
                 string nombreFila = $"{nombreTabla}_{registro.ObtenerIdentificadorFila()}";
                     
 
-                Servicio_DigitoVerificadorVertical registroBD = dalDigito.ObtenerRegistroDigito(nombreFila);
+                Servicio_DigitoVerificador registroBD = dalDigito.ObtenerRegistroDigito(nombreFila);
        
                 if (registroBD != null &&!servicioVerificador.EsValido(dvhCalculado, registroBD.DVH))
                 {
@@ -76,7 +76,7 @@ namespace BLL
             string dvvCalculado =servicioCalcular.CalcularHash(cadenaAcumuladaParaDVV);
                 
 
-            Servicio_DigitoVerificadorVertical maestro = dalDigito.ObtenerRegistroDigito(nombreTabla + "_MAESTRO");
+            Servicio_DigitoVerificador maestro = dalDigito.ObtenerRegistroDigito(nombreTabla + "_MAESTRO");
                
             bool errorDVV =maestro == null ||!servicioVerificador.EsValido(dvvCalculado, maestro.DVV);
      
@@ -239,7 +239,7 @@ namespace BLL
             string dvvFinal = servicioCalcular.CalcularHash(cadenaAcumulada);
             string nombreMaestro = $"{nombreTabla}_MAESTRO";
 
-            Servicio_DigitoVerificadorVertical nuevoDVV = new Servicio_DigitoVerificadorVertical(dvvFinal, nombreMaestro);
+            Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
             dalDigito.GuardarDVV(nuevoDVV);
         }
 
@@ -250,7 +250,7 @@ namespace BLL
             string dvhCalculado = servicioCalcular.CalcularDVH(entidadModificada);
             string nombreFila = $"{nombreTabla}_{entidadModificada.ObtenerIdentificadorFila()}";
 
-            Servicio_DigitoVerificadorVertical nuevoDVH = new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador nuevoDVH = new Servicio_DigitoVerificador();
             nuevoDVH.Nombre = nombreFila;
             nuevoDVH.DVH = dvhCalculado;
 
@@ -269,7 +269,7 @@ namespace BLL
             string nombreMaestro = $"{nombreTabla}_MAESTRO";
 
 
-            Servicio_DigitoVerificadorVertical nuevoDVV = new Servicio_DigitoVerificadorVertical(dvvFinal, nombreMaestro);
+            Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
 
             dalDigito.GuardarDVV(nuevoDVV);
         }
@@ -298,7 +298,7 @@ namespace BLL
             {
                 string dvh = servicioCalcular.CalcularDVH(usuario);
 
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
 
                 reg.Nombre = "Usuario_" + usuario.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
@@ -310,7 +310,7 @@ namespace BLL
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
 
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
 
             maestro.Nombre = "Usuario_MAESTRO";
             maestro.DVV = dvv;
@@ -340,8 +340,8 @@ namespace BLL
 
                 string dvh = servicioCalcular.CalcularDVH(rolCompleto);
 
-                Servicio_DigitoVerificadorVertical reg =
-                    new Servicio_DigitoVerificadorVertical
+                Servicio_DigitoVerificador reg =
+                    new Servicio_DigitoVerificador
                     {
                         Nombre = "Rol_" + rol.IdRol,
                         DVH = dvh
@@ -366,7 +366,7 @@ namespace BLL
             //}
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical(dvv, "Rol_MAESTRO");
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Rol_MAESTRO");
             dalDigito.GuardarDVV(maestro);
 
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Roles", log , "Seguridad", 1);
@@ -396,7 +396,7 @@ namespace BLL
 
                 string dvh = servicioCalcular.CalcularDVH(familiaCompleta);
 
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador
                 {
                     Nombre = "Familia_" + familia.IdRol,
                     DVH = dvh
@@ -426,7 +426,7 @@ namespace BLL
             //}
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical(dvv, "Familia_MAESTRO");
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Familia_MAESTRO");
             dalDigito.GuardarDVV(maestro);
 
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Familias", log, "Seguridad", 1);
@@ -448,7 +448,7 @@ namespace BLL
             {
                 string dvh = servicioCalcular.CalcularDVH(permiso);
 
-                Servicio_DigitoVerificadorVertical reg =new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg =new Servicio_DigitoVerificador();
 
                 reg.Nombre = "Permiso_" + permiso.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
@@ -460,7 +460,7 @@ namespace BLL
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
 
-            Servicio_DigitoVerificadorVertical maestro =new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro =new Servicio_DigitoVerificador();
                 
 
             maestro.Nombre = "Permiso_MAESTRO";
@@ -488,7 +488,7 @@ namespace BLL
             {
                 string dvh = servicioCalcular.CalcularDVH(idioma);
 
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
                    
 
                 reg.Nombre = "Idioma_" + idioma.ObtenerIdentificadorFila();
@@ -501,7 +501,7 @@ namespace BLL
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
             
-            Servicio_DigitoVerificadorVertical maestro =new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro =new Servicio_DigitoVerificador();
                 
 
             maestro.Nombre = "Idioma_MAESTRO";
@@ -525,7 +525,7 @@ namespace BLL
             foreach (BE_Artista_VM516 artista in artistas)
             {
                 string dvh = servicioCalcular.CalcularDVH(artista);
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
                 reg.Nombre = "Artista_VM516_" + artista.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
                 dalDigito.GuardarDVH(reg);
@@ -533,7 +533,7 @@ namespace BLL
             }
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
             maestro.Nombre = "Artista_VM516_MAESTRO";
             maestro.DVV = dvv;
             dalDigito.GuardarDVV(maestro);
@@ -550,7 +550,7 @@ namespace BLL
             foreach (BE_Especificacion_Obra_VM516 obra in obras)
             {
                 string dvh = servicioCalcular.CalcularDVH(obra);
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
                 reg.Nombre = "Especificacion_Obra_VM516_" + obra.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
                 dalDigito.GuardarDVH(reg);
@@ -558,7 +558,7 @@ namespace BLL
             }
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
             maestro.Nombre = "Especificacion_Obra_VM516_MAESTRO";
             maestro.DVV = dvv;
             dalDigito.GuardarDVV(maestro);
@@ -575,7 +575,7 @@ namespace BLL
             foreach (BE_Reserva_Sala_VM516 reserva in reservas)
             {
                 string dvh = servicioCalcular.CalcularDVH(reserva);
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
                 reg.Nombre = "Reserva_Sala_VM516_" + reserva.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
                 dalDigito.GuardarDVH(reg);
@@ -583,7 +583,7 @@ namespace BLL
             }
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
             maestro.Nombre = "Reserva_Sala_VM516_MAESTRO";
             maestro.DVV = dvv;
             dalDigito.GuardarDVV(maestro);
@@ -599,7 +599,7 @@ namespace BLL
             foreach (BE_Sala_VM516 sala in salas)
             {
                 string dvh = servicioCalcular.CalcularDVH(sala);
-                Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical();
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
                 reg.Nombre = "Sala_VM516_" + sala.ObtenerIdentificadorFila();
                 reg.DVH = dvh;
                 dalDigito.GuardarDVH(reg);
@@ -607,7 +607,7 @@ namespace BLL
             }
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificadorVertical maestro = new Servicio_DigitoVerificadorVertical();
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
             maestro.Nombre = "Sala_VM516_MAESTRO";
             maestro.DVV = dvv;
             dalDigito.GuardarDVV(maestro);

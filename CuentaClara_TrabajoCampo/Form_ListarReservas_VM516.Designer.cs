@@ -49,6 +49,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(253, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "titulo_FormListarReservas";
             lblTitulo.Text = "Historial de Reservas";
             // 
             // dgvReservas
@@ -93,6 +94,7 @@
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(160, 40);
             btnActualizar.TabIndex = 2;
+            btnActualizar.Tag = "btn_ActualizarListado";
             btnActualizar.Text = "Actualizar Listado";
             btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
@@ -109,6 +111,7 @@
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(100, 35);
             btnSalir.TabIndex = 3;
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
@@ -132,6 +135,7 @@
             lblUsuarioValor.Name = "lblUsuarioValor";
             lblUsuarioValor.Size = new Size(92, 15);
             lblUsuarioValor.TabIndex = 0;
+            lblUsuarioValor.Tag = "lbl_Usuario";
             lblUsuarioValor.Text = "Usuario activo: ";
             // 
             // Form_ListarReservas_VM516
@@ -150,7 +154,7 @@
             MaximizeBox = false;
             Name = "Form_ListarReservas_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cuentaclara - Historial de Reservas";
+            Text = "Historial de Reservas";
             Load += Form_ListarReservas_VM516_Load;
             ((System.ComponentModel.ISupportInitialize)dgvReservas).EndInit();
             panelInferior.ResumeLayout(false);
