@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            picLogo = new PictureBox();
             button1 = new Button();
             lblTitulo = new Label();
             dgvSalas = new DataGridView();
@@ -50,6 +51,7 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).BeginInit();
             panelInferior.SuspendLayout();
             SuspendLayout();
@@ -58,6 +60,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(dgvSalas);
@@ -79,14 +82,26 @@
             panelContenedor.Size = new Size(1557, 745);
             panelContenedor.TabIndex = 1;
             // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(34, 20);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(63, 60);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 24;
+            picLogo.TabStop = false;
+            // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(18, 87, 150);
+            button1.BackColor = Color.FromArgb(46, 17, 39);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(34, 465);
+            button1.Location = new Point(36, 509);
             button1.Name = "button1";
             button1.Size = new Size(380, 40);
             button1.TabIndex = 22;
@@ -99,8 +114,8 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(30, 20);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTitulo.Location = new Point(102, 37);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(213, 32);
             lblTitulo.TabIndex = 0;
@@ -113,7 +128,7 @@
             dgvSalas.AllowUserToDeleteRows = false;
             dgvSalas.AllowUserToResizeRows = false;
             dgvSalas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSalas.BackgroundColor = Color.FromArgb(18, 87, 150);
+            dgvSalas.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvSalas.BorderStyle = BorderStyle.None;
             dgvSalas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvSalas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -128,7 +143,7 @@
             dgvSalas.ColumnHeadersHeight = 58;
             dgvSalas.EnableHeadersVisualStyles = false;
             dgvSalas.GridColor = Color.FromArgb(220, 220, 220);
-            dgvSalas.Location = new Point(480, 80);
+            dgvSalas.Location = new Point(480, 124);
             dgvSalas.MultiSelect = false;
             dgvSalas.Name = "dgvSalas";
             dgvSalas.ReadOnly = true;
@@ -136,15 +151,15 @@
             dgvSalas.RowHeadersWidth = 102;
             dgvSalas.RowTemplate.Height = 28;
             dgvSalas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSalas.Size = new Size(1063, 580);
+            dgvSalas.Size = new Size(1063, 561);
             dgvSalas.TabIndex = 21;
             // 
             // lblIdObra
             // 
             lblIdObra.AutoSize = true;
             lblIdObra.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblIdObra.ForeColor = Color.FromArgb(15, 45, 75);
-            lblIdObra.Location = new Point(34, 80);
+            lblIdObra.ForeColor = Color.FromArgb(46, 17, 39);
+            lblIdObra.Location = new Point(36, 124);
             lblIdObra.Name = "lblIdObra";
             lblIdObra.Size = new Size(61, 19);
             lblIdObra.TabIndex = 2;
@@ -155,7 +170,7 @@
             // 
             txtIdObra.BorderStyle = BorderStyle.FixedSingle;
             txtIdObra.Font = new Font("Segoe UI", 10F);
-            txtIdObra.Location = new Point(34, 105);
+            txtIdObra.Location = new Point(36, 149);
             txtIdObra.Name = "txtIdObra";
             txtIdObra.Size = new Size(180, 25);
             txtIdObra.TabIndex = 3;
@@ -165,8 +180,8 @@
             // 
             lblFechaInicio.AutoSize = true;
             lblFechaInicio.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblFechaInicio.ForeColor = Color.FromArgb(15, 45, 75);
-            lblFechaInicio.Location = new Point(34, 150);
+            lblFechaInicio.ForeColor = Color.FromArgb(46, 17, 39);
+            lblFechaInicio.Location = new Point(36, 194);
             lblFechaInicio.Name = "lblFechaInicio";
             lblFechaInicio.Size = new Size(87, 19);
             lblFechaInicio.TabIndex = 4;
@@ -177,7 +192,7 @@
             // 
             dtpFechaInicio.Font = new Font("Segoe UI", 10F);
             dtpFechaInicio.Format = DateTimePickerFormat.Short;
-            dtpFechaInicio.Location = new Point(34, 175);
+            dtpFechaInicio.Location = new Point(36, 219);
             dtpFechaInicio.Name = "dtpFechaInicio";
             dtpFechaInicio.Size = new Size(180, 25);
             dtpFechaInicio.TabIndex = 5;
@@ -186,8 +201,8 @@
             // 
             lblFechaFin.AutoSize = true;
             lblFechaFin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblFechaFin.ForeColor = Color.FromArgb(15, 45, 75);
-            lblFechaFin.Location = new Point(234, 150);
+            lblFechaFin.ForeColor = Color.FromArgb(46, 17, 39);
+            lblFechaFin.Location = new Point(236, 194);
             lblFechaFin.Name = "lblFechaFin";
             lblFechaFin.Size = new Size(70, 19);
             lblFechaFin.TabIndex = 6;
@@ -198,19 +213,19 @@
             // 
             dtpFechaFin.Font = new Font("Segoe UI", 10F);
             dtpFechaFin.Format = DateTimePickerFormat.Short;
-            dtpFechaFin.Location = new Point(234, 175);
+            dtpFechaFin.Location = new Point(236, 219);
             dtpFechaFin.Name = "dtpFechaFin";
             dtpFechaFin.Size = new Size(180, 25);
             dtpFechaFin.TabIndex = 7;
             // 
             // btnConsultarDisponibilidad
             // 
-            btnConsultarDisponibilidad.BackColor = Color.FromArgb(18, 87, 150);
+            btnConsultarDisponibilidad.BackColor = Color.FromArgb(46, 17, 39);
             btnConsultarDisponibilidad.FlatAppearance.BorderSize = 0;
             btnConsultarDisponibilidad.FlatStyle = FlatStyle.Flat;
             btnConsultarDisponibilidad.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnConsultarDisponibilidad.ForeColor = Color.White;
-            btnConsultarDisponibilidad.Location = new Point(34, 225);
+            btnConsultarDisponibilidad.Location = new Point(36, 269);
             btnConsultarDisponibilidad.Name = "btnConsultarDisponibilidad";
             btnConsultarDisponibilidad.Size = new Size(380, 38);
             btnConsultarDisponibilidad.TabIndex = 8;
@@ -223,8 +238,8 @@
             // 
             lblMontoTotal.AutoSize = true;
             lblMontoTotal.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblMontoTotal.ForeColor = Color.FromArgb(15, 45, 75);
-            lblMontoTotal.Location = new Point(34, 300);
+            lblMontoTotal.ForeColor = Color.FromArgb(46, 17, 39);
+            lblMontoTotal.Location = new Point(36, 344);
             lblMontoTotal.Name = "lblMontoTotal";
             lblMontoTotal.Size = new Size(147, 19);
             lblMontoTotal.TabIndex = 9;
@@ -235,7 +250,7 @@
             // 
             txtMontoTotal.BorderStyle = BorderStyle.FixedSingle;
             txtMontoTotal.Font = new Font("Segoe UI", 10F);
-            txtMontoTotal.Location = new Point(34, 325);
+            txtMontoTotal.Location = new Point(36, 369);
             txtMontoTotal.Name = "txtMontoTotal";
             txtMontoTotal.Size = new Size(180, 25);
             txtMontoTotal.TabIndex = 10;
@@ -244,8 +259,8 @@
             // 
             lblPorcentajeSena.AutoSize = true;
             lblPorcentajeSena.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblPorcentajeSena.ForeColor = Color.FromArgb(15, 45, 75);
-            lblPorcentajeSena.Location = new Point(234, 300);
+            lblPorcentajeSena.ForeColor = Color.FromArgb(46, 17, 39);
+            lblPorcentajeSena.Location = new Point(236, 344);
             lblPorcentajeSena.Name = "lblPorcentajeSena";
             lblPorcentajeSena.Size = new Size(117, 19);
             lblPorcentajeSena.TabIndex = 11;
@@ -256,19 +271,19 @@
             // 
             txtPorcentajeSena.BorderStyle = BorderStyle.FixedSingle;
             txtPorcentajeSena.Font = new Font("Segoe UI", 10F);
-            txtPorcentajeSena.Location = new Point(234, 325);
+            txtPorcentajeSena.Location = new Point(236, 369);
             txtPorcentajeSena.Name = "txtPorcentajeSena";
             txtPorcentajeSena.Size = new Size(180, 25);
             txtPorcentajeSena.TabIndex = 12;
             // 
             // btnConfirmarReserva
             // 
-            btnConfirmarReserva.BackColor = Color.FromArgb(18, 87, 150);
+            btnConfirmarReserva.BackColor = Color.FromArgb(46, 17, 39);
             btnConfirmarReserva.FlatAppearance.BorderSize = 0;
             btnConfirmarReserva.FlatStyle = FlatStyle.Flat;
             btnConfirmarReserva.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnConfirmarReserva.ForeColor = Color.White;
-            btnConfirmarReserva.Location = new Point(34, 390);
+            btnConfirmarReserva.Location = new Point(36, 434);
             btnConfirmarReserva.Name = "btnConfirmarReserva";
             btnConfirmarReserva.Size = new Size(380, 40);
             btnConfirmarReserva.TabIndex = 13;
@@ -282,7 +297,7 @@
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1339, 20);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
@@ -294,7 +309,7 @@
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
@@ -337,11 +352,12 @@
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Reserva_Sala_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar Reserva";
+            Text = " Vanguardia Arte - Registrar Reserva";
             FormClosed += Form_Reserva_Sala_VM516_FormClosed;
             Load += Form_Reserva_Sala_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).EndInit();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
@@ -369,5 +385,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
         private Button button1;
+        private PictureBox picLogo;
     }
 }

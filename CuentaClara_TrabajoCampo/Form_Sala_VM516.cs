@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace IU
 {
-    public partial class Form_Sala_VM516 : Form
+    public partial class Form_Sala_VM516 : Form, IObserverIdioma
     {
         private BLL_Sala_VM516 bllSala;
         public Form_Sala_VM516()
@@ -27,6 +27,8 @@ namespace IU
 
         private void Form_Sala_VM516_Load(object sender, EventArgs e)
         {
+            GestorIdioma.GetInstancia().Suscribir(this);
+            ActualizarIdioma();
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
@@ -34,6 +36,58 @@ namespace IU
             lblUsuarioValor.Text = $"{usuario.Login} -  {nombreLegibleDelRol}";
 
             CargarGrilla();
+        }
+        public void ActualizarIdioma()
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return;
+
+            TraducirControles(this.Controls, idioma);
+            this.Text = TraducirTexto("titulo_FormGestionSalas");
+            FormatearGrilla();
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
+        {
+            foreach (Control c in controles)
+            {
+                if (c.Tag != null)
+                {
+                    string clave = c.Tag.ToString();
+                    var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                    if (etiqueta != null) c.Text = etiqueta.Texto;
+                }
+
+                if (c is DataGridView dgv)
+                {
+                    foreach (DataGridViewColumn col in dgv.Columns)
+                    {
+                        string clave = col.Name;
+                        var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+                        if (etiqueta != null) col.HeaderText = etiqueta.Texto;
+                    }
+                }
+
+                if (c.HasChildren)
+                    TraducirControles(c.Controls, idioma);
+            }
+        }
+
+        private string TraducirTexto(string clave)
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return clave;
+
+            var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+            return etiqueta != null ? etiqueta.Texto : clave;
         }
         private void CargarGrilla()
         {
@@ -45,24 +99,26 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar la grilla: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(TraducirTexto("err_ErrorCargarGrilla") + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void FormatearGrilla()
         {
             if (dgvSalas.Columns.Contains("Codigo_Sala_VM516"))
-                dgvSalas.Columns["Codigo_Sala_VM516"].HeaderText = "Código";
+                dgvSalas.Columns["Codigo_Sala_VM516"].HeaderText = TraducirTexto("Codigo_Sala_VM516");
             if (dgvSalas.Columns.Contains("Nombre_Sala_VM516"))
-                dgvSalas.Columns["Nombre_Sala_VM516"].HeaderText = "Nombre";
+                dgvSalas.Columns["Nombre_Sala_VM516"].HeaderText = TraducirTexto("Nombre_Sala_VM516");
             if (dgvSalas.Columns.Contains("Alto_Max_Soportado_VM516"))
-                dgvSalas.Columns["Alto_Max_Soportado_VM516"].HeaderText = "Alto Máx";
+                dgvSalas.Columns["Alto_Max_Soportado_VM516"].HeaderText = TraducirTexto("Alto_Max_Soportado_VM516");
             if (dgvSalas.Columns.Contains("Ancho_Max_Soportado_VM516"))
-                dgvSalas.Columns["Ancho_Max_Soportado_VM516"].HeaderText = "Ancho Máx";
+                dgvSalas.Columns["Ancho_Max_Soportado_VM516"].HeaderText = TraducirTexto("Ancho_Max_Soportado_VM516");
             if (dgvSalas.Columns.Contains("Peso_Max_Soportado_VM516"))
-                dgvSalas.Columns["Peso_Max_Soportado_VM516"].HeaderText = "Peso Máx";
+                dgvSalas.Columns["Peso_Max_Soportado_VM516"].HeaderText = TraducirTexto("Peso_Max_Soportado_VM516");
             if (dgvSalas.Columns.Contains("Tipo_Iluminacion_Disponible_VM516"))
-                dgvSalas.Columns["Tipo_Iluminacion_Disponible_VM516"].HeaderText = "Iluminación";
+                dgvSalas.Columns["Tipo_Iluminacion_Disponible_VM516"].HeaderText = TraducirTexto("Tipo_Iluminacion_Disponible_VM516");
+
+            dgvSalas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void LimpiarCampos()
@@ -72,7 +128,7 @@ namespace IU
             txtAlto.Clear();
             txtAncho.Clear();
             txtPeso.Clear();
-     
+            
             txtCodigo.Enabled = true;
             txtCodigo.Focus();
         }
@@ -84,13 +140,13 @@ namespace IU
                 string codigo = txtCodigo.Text.Trim();
                 bllSala.EliminarSala_VM516(codigo);
 
-                MessageBox.Show("Sala eliminada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(TraducirTexto("msg_SalaEliminadaExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarGrilla();
                 LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -102,7 +158,7 @@ namespace IU
                     !decimal.TryParse(txtAncho.Text.Trim(), out decimal ancho) ||
                     !decimal.TryParse(txtPeso.Text.Trim(), out decimal peso))
                 {
-                    throw new Exception("Los campos de Alto, Ancho y Peso máximo deben ser numéricos.");
+                    throw new Exception(TraducirTexto("err_DimensionesNumericasSalas"));
                 }
 
                 BE_Sala_VM516 sala = new BE_Sala_VM516
@@ -117,13 +173,13 @@ namespace IU
 
                 bllSala.ModificarSala_VM516(sala);
 
-                MessageBox.Show("Sala modificada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(TraducirTexto("msg_SalaModificadaExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarGrilla();
                 LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -135,7 +191,7 @@ namespace IU
                     !decimal.TryParse(txtAncho.Text.Trim(), out decimal ancho) ||
                     !decimal.TryParse(txtPeso.Text.Trim(), out decimal peso))
                 {
-                    throw new Exception("Los campos de Alto, Ancho y Peso máximo deben ser numéricos.");
+                    throw new Exception(TraducirTexto("err_DimensionesNumericasSalas"));
                 }
 
                 BE_Sala_VM516 sala = new BE_Sala_VM516
@@ -150,13 +206,13 @@ namespace IU
 
                 bllSala.RegistrarSala_VM516(sala);
 
-                MessageBox.Show("Sala registrada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(TraducirTexto("msg_SalaRegistradaExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarGrilla();
                 LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -168,6 +224,29 @@ namespace IU
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form_Sala_VM516_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GestorIdioma.GetInstancia().Desuscribir(this);
+        }
+
+        private void dgvSalas_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvSalas.Rows[e.RowIndex];
+
+                txtCodigo.Text = row.Cells["Codigo_Sala_VM516"].Value?.ToString();
+                txtNombre.Text = row.Cells["Nombre_Sala_VM516"].Value?.ToString();
+                txtAlto.Text = row.Cells["Alto_Max_Soportado_VM516"].Value?.ToString();
+                txtAncho.Text = row.Cells["Ancho_Max_Soportado_VM516"].Value?.ToString();
+                txtPeso.Text = row.Cells["Peso_Max_Soportado_VM516"].Value?.ToString();
+                comboBox1.Text = row.Cells["Tipo_Iluminacion_Disponible_VM516"].Value?.ToString();
+
+             
+                txtCodigo.Enabled = false;
+            }
         }
     }
 }

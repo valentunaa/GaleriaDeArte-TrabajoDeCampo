@@ -32,9 +32,9 @@
             listaServidores = new ListBox();
             btnGuardar = new Button();
             label1 = new Label();
-            lblTitulo = new Label();
             lblNombre = new Label();
             picLogo = new PictureBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             btnBuscar.BackColor = Color.White;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnBuscar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnBuscar.ForeColor = Color.FromArgb(46, 17, 39);
             btnBuscar.Location = new Point(241, 230);
             btnBuscar.Margin = new Padding(0);
             btnBuscar.Name = "btnBuscar";
@@ -70,7 +70,7 @@
             // btnGuardar
             // 
             btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(18, 87, 150);
+            btnGuardar.BackColor = Color.FromArgb(46, 17, 39);
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
@@ -88,30 +88,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label1.Location = new Point(23, 114);
+            label1.Location = new Point(23, 121);
             label1.Name = "label1";
             label1.Size = new Size(391, 38);
             label1.TabIndex = 44;
             label1.Tag = "lbl_Nombre";
             label1.Text = "Para comenzar, necesitamos preparar tu entorno. \r\nPor favor, selecciona el nombre de tu servidor SQL local.";
             // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(80, 20);
-            lblTitulo.Margin = new Padding(1, 0, 1, 0);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(152, 32);
-            lblTitulo.TabIndex = 45;
-            lblTitulo.Text = "CuentaClara";
-            // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblNombre.Location = new Point(23, 80);
+            lblNombre.Location = new Point(23, 89);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(102, 19);
             lblNombre.TabIndex = 46;
@@ -121,14 +109,27 @@
             // picLogo
             // 
             picLogo.BorderStyle = BorderStyle.FixedSingle;
-            picLogo.Image = Properties.Resources.logo;
+            picLogo.Image = Properties.Resources.ImagenLogo;
             picLogo.Location = new Point(23, 9);
             picLogo.Margin = new Padding(0);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(56, 43);
+            picLogo.Size = new Size(65, 60);
             picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             picLogo.TabIndex = 47;
             picLogo.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(46, 17, 39);
+            label2.Location = new Point(103, 9);
+            label2.Margin = new Padding(1, 0, 1, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(131, 60);
+            label2.TabIndex = 48;
+            label2.Tag = "lbl_TituloVanguardiaArte";
+            label2.Text = "Vanguardia\r\nArte";
             // 
             // FormPrimeraVez
             // 
@@ -136,19 +137,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(446, 470);
+            Controls.Add(label2);
             Controls.Add(picLogo);
             Controls.Add(lblNombre);
-            Controls.Add(lblTitulo);
             Controls.Add(label1);
             Controls.Add(btnBuscar);
             Controls.Add(listaServidores);
             Controls.Add(btnGuardar);
-            Margin = new Padding(1, 1, 1, 1);
+            Margin = new Padding(1);
             MaximizeBox = false;
             Name = "FormPrimeraVez";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
-            Text = "CuentaClara";
+            Text = "Vanguardia Arte";
             Load += FormPrimeraVez_Load;
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
@@ -161,8 +162,8 @@
         private ListBox listaServidores;
         private Button btnGuardar;
         private Label label1;
-        private Label lblTitulo;
         private Label lblNombre;
         private PictureBox picLogo;
+        private Label label2;
     }
 }

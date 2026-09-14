@@ -42,12 +42,12 @@ namespace BLL_Negocio
                 string.IsNullOrWhiteSpace(reqIluminacion) ||
                 string.IsNullOrWhiteSpace(categoriaSeguro))
             {
-                throw new Exception("Existen campos obligatorios incompletos.");
+                throw new Exception("err_CamposObligatoriosObra");
             }
 
             if (!dalArtista_VM516.ExisteArtista_VM516(dni))
             {
-                throw new Exception("El artista no se encuentra registrado.");
+                throw new Exception("err_ArtistaNoRegistradoObra");
             }
 
           
@@ -55,12 +55,12 @@ namespace BLL_Negocio
                 !decimal.TryParse(anchoStr, out decimal ancho) || ancho <= 0 ||
                 !decimal.TryParse(pesoStr, out decimal peso) || peso <= 0)
             {
-                throw new Exception("El Alto, Ancho y Peso deben ser valores numéricos válidos y mayores a cero.");
+                throw new Exception("err_DimensionesInvalidasObra");
             }
 
             if (!decimal.TryParse(valorMercadoStr, out decimal valorMercado) || valorMercado < 0)
             {
-                throw new Exception("El valor declarado de mercado debe ser un número válido y no puede ser negativo.");
+                throw new Exception("err_ValorMercadoNegativoObra");
             }
  
             BE_Especificacion_Obra_VM516 obra = new BE_Especificacion_Obra_VM516(dni, titulo, tecnica, alto, ancho, peso, reqIluminacion, valorMercado, categoriaSeguro);

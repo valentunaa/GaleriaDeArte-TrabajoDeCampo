@@ -76,11 +76,10 @@ namespace DAL
                 adapter_VM516.Update(ds_VM516, "Artista_VM516");
             }
         }
-        public List<BE_Artista_VM516> BuscarArtistaPorDNI_VM516(string dni)
+        public BE_Artista_VM516 BuscarArtistaPorDNI_VM516(string dni)
         {
             DataTable tabla = new DataTable();
-          
-            string consulta = "SELECT DNI_VM516, Nombre_VM516, Apellido_VM516, Telefono_VM516, Email_VM516 FROM Artista_VM516 WHERE DNI_VM516 LIKE @DNI + '%'";
+            string consulta = "SELECT DNI_VM516, Nombre_VM516, Apellido_VM516, Telefono_VM516, Email_VM516 FROM Artista_VM516 WHERE DNI_VM516 = @DNI";
 
             using (SqlConnection conexion = new SqlConnection(_connectionString_VM516))
             {
@@ -93,7 +92,9 @@ namespace DAL
                     }
                 }
             }
-            return MapearLista(tabla);
+
+            List<BE_Artista_VM516> lista = MapearLista(tabla);
+            return lista.FirstOrDefault();
         }
 
         public List<BE_Artista_VM516> ListarArtistas_VM516()

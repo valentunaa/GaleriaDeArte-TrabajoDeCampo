@@ -34,7 +34,19 @@ namespace DAL
                 adapter.Update(ds, "Inspeccion_Fisica_VM516");
             }
         }
+        public bool ExisteInspeccionPorReserva_VM516(string codigoReserva)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Inspeccion_Fisica_VM516 WHERE Codigo_Reserva_VM516 = @Codigo", conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@Codigo", codigoReserva);
 
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "Inspeccion_Fisica_VM516");
+
+                return ds.Tables["Inspeccion_Fisica_VM516"].Rows.Count > 0;
+            }
+        }
         public List<BE_Inspeccion_Fisica_VM516> ListarInspecciones_VM516()
         {
             DataTable dt = new DataTable();

@@ -130,7 +130,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = Color.FromArgb(18, 87, 150);
+            btnModificar.BackColor = Color.FromArgb(46, 17, 39);
             btnModificar.FlatStyle = FlatStyle.Flat;
             btnModificar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnModificar.ForeColor = Color.White;
@@ -146,7 +146,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = Color.FromArgb(18, 87, 150);
+            btnEliminar.BackColor = Color.FromArgb(46, 17, 39);
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
@@ -165,7 +165,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.White;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(43, 24);
             lblTitulo.Margin = new Padding(0);
             lblTitulo.Name = "lblTitulo";
@@ -198,7 +198,7 @@
             // 
             // btnAsignarPermiso
             // 
-            btnAsignarPermiso.BackColor = Color.FromArgb(18, 87, 150);
+            btnAsignarPermiso.BackColor = Color.FromArgb(46, 17, 39);
             btnAsignarPermiso.FlatStyle = FlatStyle.Flat;
             btnAsignarPermiso.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAsignarPermiso.ForeColor = Color.White;
@@ -214,7 +214,7 @@
             // 
             // btnAsignarFamilia
             // 
-            btnAsignarFamilia.BackColor = Color.FromArgb(18, 87, 150);
+            btnAsignarFamilia.BackColor = Color.FromArgb(46, 17, 39);
             btnAsignarFamilia.FlatStyle = FlatStyle.Flat;
             btnAsignarFamilia.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAsignarFamilia.ForeColor = Color.White;
@@ -233,7 +233,7 @@
             btnCrear.BackColor = Color.White;
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCrear.ForeColor = Color.FromArgb(18, 87, 150);
+            btnCrear.ForeColor = Color.FromArgb(46, 17, 39);
             btnCrear.Location = new Point(745, 37);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
@@ -250,7 +250,7 @@
             btnAplicar.BackColor = Color.White;
             btnAplicar.FlatStyle = FlatStyle.Flat;
             btnAplicar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAplicar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnAplicar.ForeColor = Color.FromArgb(46, 17, 39);
             btnAplicar.Location = new Point(43, 817);
             btnAplicar.Margin = new Padding(0);
             btnAplicar.Name = "btnAplicar";
@@ -272,7 +272,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(18, 87, 150);
+            button1.BackColor = Color.FromArgb(46, 17, 39);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.White;
@@ -305,7 +305,7 @@
             button2.BackColor = Color.White;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button2.ForeColor = Color.FromArgb(18, 87, 150);
+            button2.ForeColor = Color.FromArgb(46, 17, 39);
             button2.Location = new Point(185, 817);
             button2.Margin = new Padding(0);
             button2.Name = "button2";
@@ -435,7 +435,7 @@
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1297, 38);
             btnSalir.Margin = new Padding(0);
             btnSalir.Name = "btnSalir";
@@ -448,7 +448,7 @@
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(label5);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;

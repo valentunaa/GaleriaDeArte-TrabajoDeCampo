@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Servicio;
+
 
 namespace IU
 {
@@ -29,8 +29,9 @@ namespace IU
 
         private void Form_Especificacion_Obra_VM516_Load(object sender, EventArgs e)
         {
-            GestorIdioma.GetInstancia().Suscribir(this);
-            ActualizarIdioma();
+            GestorIdioma.GetInstancia().Suscribir(this);ActualizarIdioma();
+            dgvEspecificaciones.DataSource = null;
+
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
@@ -39,7 +40,7 @@ namespace IU
 
             BloquearCamposObra(false);
             CargarGrilla();
-
+            
         }
         public void ActualizarIdioma()
         {
@@ -48,7 +49,10 @@ namespace IU
             Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
 
             if (idioma == null)
+            {
+                
                 return;
+            }
 
             TraducirControles(this.Controls, idioma);
 
@@ -144,7 +148,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -240,7 +244,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

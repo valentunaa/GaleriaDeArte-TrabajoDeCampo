@@ -28,7 +28,7 @@ namespace IU
 
         private void Form_RegistroArtista_VM516_Load(object sender, EventArgs e)
         {
-            CargarGrilla();     
+            CargarGrilla();
             ActualizarIdioma();
         }
 
@@ -45,6 +45,8 @@ namespace IU
 
             // Traducimos el título del formulario manualmente
             this.Text = TraducirTexto("titulo_FormRegistroArtista");
+            FormatearGrilla();
+
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
@@ -85,6 +87,26 @@ namespace IU
             var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
             return etiqueta != null ? etiqueta.Texto : clave;
         }
+
+        private void FormatearGrilla()
+        {
+            if (dgvArtistas.Columns.Contains("DNI_VM516"))
+                dgvArtistas.Columns["DNI_VM516"].HeaderText = TraducirTexto("DNI_VM516");
+
+            if (dgvArtistas.Columns.Contains("Nombre_VM516"))
+                dgvArtistas.Columns["Nombre_VM516"].HeaderText = TraducirTexto("Nombre_VM516");
+
+            if (dgvArtistas.Columns.Contains("Apellido_VM516"))
+                dgvArtistas.Columns["Apellido_VM516"].HeaderText = TraducirTexto("Apellido_VM516");
+
+            if (dgvArtistas.Columns.Contains("Telefono_VM516"))
+                dgvArtistas.Columns["Telefono_VM516"].HeaderText = TraducirTexto("Telefono_VM516");
+
+            if (dgvArtistas.Columns.Contains("Email_VM516"))
+                dgvArtistas.Columns["Email_VM516"].HeaderText = TraducirTexto("Email_VM516");
+
+            dgvArtistas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void CargarGrilla()
         {
             try
@@ -99,8 +121,6 @@ namespace IU
             }
         }
 
-
-
         private void LimpiarCampos()
         {
             txtDNI.Clear();
@@ -111,7 +131,12 @@ namespace IU
             txtDNI.Focus();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void Form_RegistroArtista_VM516_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GestorIdioma.GetInstancia().Desuscribir(this);
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -148,39 +173,19 @@ namespace IU
         {
             try
             {
-                string dniBuscado = textBox1.Text.Trim();
+                string dni = textBox1.Text.Trim();
+                var artista = bllArtista.BuscarArtistaPorDNI_VM516(dni);
 
-                if (string.IsNullOrEmpty(dniBuscado))
+                if (artista != null)
                 {
-                    CargarGrilla();
-                    return;
+                    string mensajeVerificado = TraducirTexto("msg_ArtistaVerificado");
+                    lblNombreArtista.Text = string.Format(mensajeVerificado, artista.Nombre_VM516, artista.Apellido_VM516);
                 }
-
-                dgvArtistas.DataSource = null;
-                dgvArtistas.DataSource = bllArtista.BuscarArtistaPorDNI_VM516(dniBuscado);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvArtistas.DataSource = null;
-                dgvArtistas.DataSource = bllArtista.BuscarArtistaPorDNI_VM516(textBox1.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void Form_RegistroArtista_VM516_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            GestorIdioma.GetInstancia().Desuscribir(this);
         }
     }
 }

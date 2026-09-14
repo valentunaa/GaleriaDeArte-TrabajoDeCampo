@@ -245,7 +245,7 @@
             // 
             chkActivo.AutoSize = true;
             chkActivo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            chkActivo.ForeColor = Color.FromArgb(20, 70, 120);
+            chkActivo.ForeColor = Color.FromArgb(46, 17, 39);
             chkActivo.Location = new Point(185, 694);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(195, 23);
@@ -257,7 +257,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(30, 20);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(272, 37);
@@ -271,7 +271,7 @@
             dgvUsuarios.AllowUserToDeleteRows = false;
             dgvUsuarios.AllowUserToResizeRows = false;
             dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsuarios.BackgroundColor = Color.FromArgb(18, 87, 150);
+            dgvUsuarios.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvUsuarios.BorderStyle = BorderStyle.None;
             dgvUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -369,7 +369,7 @@
             // 
             // btnAplicar
             // 
-            btnAplicar.BackColor = Color.FromArgb(18, 87, 150);
+            btnAplicar.BackColor = Color.FromArgb(46, 17, 39);
             btnAplicar.FlatAppearance.BorderSize = 0;
             btnAplicar.FlatStyle = FlatStyle.Flat;
             btnAplicar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -388,7 +388,7 @@
             btnCancelar.BackColor = Color.White;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancelar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnCancelar.ForeColor = Color.FromArgb(46, 17, 39);
             btnCancelar.Location = new Point(825, 665);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(140, 42);
@@ -429,7 +429,7 @@
             // 
             lblTotalUsuarios.AutoSize = true;
             lblTotalUsuarios.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTotalUsuarios.ForeColor = Color.FromArgb(18, 87, 150);
+            lblTotalUsuarios.ForeColor = Color.FromArgb(46, 17, 39);
             lblTotalUsuarios.Location = new Point(940, 74);
             lblTotalUsuarios.Name = "lblTotalUsuarios";
             lblTotalUsuarios.Size = new Size(25, 19);
@@ -449,7 +449,7 @@
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(label1);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
@@ -489,8 +489,6 @@
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(245, 246, 248);
             ClientSize = new Size(1305, 816);
-            FormBorderStyle = FormBorderStyle.Sizable;
-            MaximizeBox = true;
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);

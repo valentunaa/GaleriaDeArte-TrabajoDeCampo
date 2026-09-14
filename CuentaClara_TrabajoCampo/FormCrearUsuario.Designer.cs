@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearUsuario));
             panelPrincipal = new Panel();
             picLogo = new PictureBox();
             lblTitulo = new Label();
@@ -71,18 +70,18 @@
             panelPrincipal.Controls.Add(btnGuardar);
             panelPrincipal.Location = new Point(26, 25);
             panelPrincipal.Name = "panelPrincipal";
-            panelPrincipal.Size = new Size(801, 632);
+            panelPrincipal.Size = new Size(651, 499);
             panelPrincipal.TabIndex = 0;
             panelPrincipal.Paint += panelPrincipal_Paint;
             // 
             // picLogo
             // 
             picLogo.BorderStyle = BorderStyle.FixedSingle;
-            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Image = IU.Properties.Resources.ImagenLogo;
             picLogo.Location = new Point(53, 14);
             picLogo.Margin = new Padding(0);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(71, 57);
+            picLogo.Size = new Size(80, 68);
             picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             picLogo.TabIndex = 18;
             picLogo.TabStop = false;
@@ -91,10 +90,10 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(146, 27);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(617, 81);
+            lblTitulo.Size = new Size(252, 32);
             lblTitulo.TabIndex = 0;
             lblTitulo.Tag = "lbl_TituloCrearNuevoUsuario";
             lblTitulo.Text = "Crear Nuevo Usuario";
@@ -105,7 +104,7 @@
             lblDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDNI.Location = new Point(53, 118);
             lblDNI.Name = "lblDNI";
-            lblDNI.Size = new Size(83, 46);
+            lblDNI.Size = new Size(34, 19);
             lblDNI.TabIndex = 1;
             lblDNI.Tag = "lbl_DNI";
             lblDNI.Text = "DNI";
@@ -114,16 +113,16 @@
             // 
             txtDNI.Location = new Point(53, 140);
             txtDNI.Name = "txtDNI";
-            txtDNI.Size = new Size(250, 52);
+            txtDNI.Size = new Size(250, 25);
             txtDNI.TabIndex = 2;
             // 
             // lblRol
             // 
             lblRol.AutoSize = true;
             lblRol.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblRol.Location = new Point(478, 108);
+            lblRol.Location = new Point(379, 108);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(232, 46);
+            lblRol.Size = new Size(98, 19);
             lblRol.TabIndex = 3;
             lblRol.Tag = "lbl_RolAsignado";
             lblRol.Text = "Rol Asignado";
@@ -132,9 +131,9 @@
             // 
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRol.Items.AddRange(new object[] { "Admin", "Operador" });
-            cmbRol.Location = new Point(478, 140);
+            cmbRol.Location = new Point(379, 140);
             cmbRol.Name = "cmbRol";
-            cmbRol.Size = new Size(250, 53);
+            cmbRol.Size = new Size(250, 25);
             cmbRol.TabIndex = 4;
             // 
             // lblNombre
@@ -143,7 +142,7 @@
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblNombre.Location = new Point(53, 193);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(167, 46);
+            lblNombre.Size = new Size(71, 19);
             lblNombre.TabIndex = 5;
             lblNombre.Tag = "lbl_Nombre";
             lblNombre.Text = "Nombres";
@@ -152,25 +151,25 @@
             // 
             txtNombre.Location = new Point(53, 230);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(250, 52);
+            txtNombre.Size = new Size(250, 25);
             txtNombre.TabIndex = 6;
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
             lblApellido.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblApellido.Location = new Point(478, 204);
+            lblApellido.Location = new Point(379, 204);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(170, 46);
+            lblApellido.Size = new Size(72, 19);
             lblApellido.TabIndex = 7;
             lblApellido.Tag = "lbl_Apellido";
             lblApellido.Text = "Apellidos";
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(478, 230);
+            txtApellido.Location = new Point(379, 230);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(250, 52);
+            txtApellido.Size = new Size(250, 25);
             txtApellido.TabIndex = 8;
             // 
             // lblCorreo
@@ -179,7 +178,7 @@
             lblCorreo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblCorreo.Location = new Point(53, 281);
             lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(316, 46);
+            lblCorreo.Size = new Size(134, 19);
             lblCorreo.TabIndex = 9;
             lblCorreo.Tag = "lbl_Correo";
             lblCorreo.Text = "Correo Electrónico";
@@ -188,17 +187,17 @@
             // 
             txtCorreo.Location = new Point(53, 314);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(250, 52);
+            txtCorreo.Size = new Size(250, 25);
             txtCorreo.TabIndex = 10;
             // 
             // chkActivo
             // 
             chkActivo.AutoSize = true;
             chkActivo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            chkActivo.ForeColor = Color.FromArgb(20, 70, 120);
-            chkActivo.Location = new Point(53, 384);
+            chkActivo.ForeColor = Color.FromArgb(46, 17, 39);
+            chkActivo.Location = new Point(53, 366);
             chkActivo.Name = "chkActivo";
-            chkActivo.Size = new Size(454, 50);
+            chkActivo.Size = new Size(195, 23);
             chkActivo.TabIndex = 15;
             chkActivo.Tag = "chk_Activo";
             chkActivo.Text = "Habilitar Acceso (Activo)";
@@ -210,8 +209,8 @@
             btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(18, 87, 150);
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancelar.ForeColor = Color.FromArgb(18, 87, 150);
-            btnCancelar.Location = new Point(83, 520);
+            btnCancelar.ForeColor = Color.FromArgb(46, 17, 39);
+            btnCancelar.Location = new Point(79, 417);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(204, 52);
             btnCancelar.TabIndex = 16;
@@ -222,12 +221,12 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = Color.FromArgb(18, 87, 150);
+            btnGuardar.BackColor = Color.FromArgb(46, 17, 39);
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(478, 520);
+            btnGuardar.Location = new Point(390, 417);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(212, 52);
             btnGuardar.TabIndex = 17;
@@ -238,7 +237,7 @@
             // 
             // FormCrearUsuario
             // 
-            AutoScaleDimensions = new SizeF(18F, 45F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
             ClientSize = new Size(856, 669);
@@ -249,7 +248,7 @@
             Name = "FormCrearUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_FormCrearUsuario";
-            Text = "CuentaClara - Crear Usuario";
+            Text = "Vanguardia Arte - Crear Usuario";
             FormClosed += FormCrearUsuario_FormClosed;
             Load += FormCrearUsuario_Load_1;
             Resize += FormCrearUsuario_Resize;

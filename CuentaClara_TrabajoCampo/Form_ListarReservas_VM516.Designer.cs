@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             dgvReservas = new DataGridView();
             btnActualizar = new Button();
@@ -44,7 +44,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(30, 25);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(253, 32);
@@ -57,24 +57,24 @@
             dgvReservas.AllowUserToAddRows = false;
             dgvReservas.AllowUserToDeleteRows = false;
             dgvReservas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvReservas.BackgroundColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvReservas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvReservas.BackgroundColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvReservas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvReservas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvReservas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvReservas.DefaultCellStyle = dataGridViewCellStyle4;
             dgvReservas.Location = new Point(36, 85);
             dgvReservas.Name = "dgvReservas";
             dgvReservas.ReadOnly = true;
@@ -85,7 +85,7 @@
             // btnActualizar
             // 
             btnActualizar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnActualizar.BackColor = Color.FromArgb(18, 87, 150);
+            btnActualizar.BackColor = Color.FromArgb(46, 17, 39);
             btnActualizar.FlatAppearance.BorderSize = 0;
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -106,7 +106,7 @@
             btnSalir.FlatAppearance.BorderColor = Color.FromArgb(15, 45, 75);
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(886, 25);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(100, 35);
@@ -118,7 +118,7 @@
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Dock = DockStyle.Bottom;
             panelInferior.Location = new Point(0, 580);
@@ -154,7 +154,7 @@
             MaximizeBox = false;
             Name = "Form_ListarReservas_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Historial de Reservas";
+            Text = "Vanguardia Arte - Historial de Reservas";
             Load += Form_ListarReservas_VM516_Load;
             ((System.ComponentModel.ISupportInitialize)dgvReservas).EndInit();
             panelInferior.ResumeLayout(false);

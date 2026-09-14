@@ -31,27 +31,27 @@ namespace BLL_Negocio
                 string.IsNullOrWhiteSpace(telefono) ||
                 string.IsNullOrWhiteSpace(email))
             {
-                throw new Exception("Campos incompletos. Por favor, ingrese todos los datos del artista.");
+                throw new Exception("err_CamposIncompletosArtista");
             }
 
             if (!Regex.IsMatch(dni, @"^\d{7,8}$"))
             {
-                throw new Exception("El DNI debe contener solo números y tener entre 7 y 8 dígitos.");
+                throw new Exception("err_DNIInvalidoArtista");
             }
 
             if (!Regex.IsMatch(telefono, @"^\d{7,15}$"))
             {
-                throw new Exception("El teléfono debe contener solo números.");
+                throw new Exception("err_TelefonoInvalidoArtista");
             }
 
             if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                throw new Exception("El formato del email no es válido.");
+                throw new Exception("err_EmailInvalidoArtista");
             }
 
             if (dalArtista_VM516.ExisteArtista_VM516(dni))
             {
-                throw new Exception("El artista ya se encuentra registrado.");
+                throw new Exception("err_ArtistaDuplicado");
             }
 
             BE_Artista_VM516 artista_VM516 = new BE_Artista_VM516(dni, nombre, apellido, telefono, email);
@@ -68,12 +68,15 @@ namespace BLL_Negocio
         }
         public BE_Artista_VM516 BuscarArtistaPorDNI_VM516(string dni)
         {
-            if (string.IsNullOrEmpty(dni)) throw new Exception("El DNI no puede estar vacío.");
+            if (string.IsNullOrWhiteSpace(dni))
+                throw new Exception("err_DniVacioArtista");
 
-            var aux = ListarArtistas_VM516().Find(x => x.DNI_VM516 == dni);
-            if (aux == null) throw new Exception("No se encontró un artista con el DNI proporcionado.");
-            return aux;
+            var artista = dalArtista_VM516.BuscarArtistaPorDNI_VM516(dni);
 
+            if (artista == null)
+                throw new Exception("err_ArtistaNoEncontrado");
+
+            return artista;
 
         }
     }

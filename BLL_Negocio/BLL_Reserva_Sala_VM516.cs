@@ -25,7 +25,7 @@ namespace BLL_Negocio
         {
             if (string.IsNullOrWhiteSpace(codigoReserva))
             {
-                throw new Exception("Por favor, ingrese un código de reserva para buscar.");
+                throw new Exception("err_CodigoReservaVacio");
             }
 
             var listaReservas = dalReserva_VM516.ListarReservas_VM516();
@@ -33,7 +33,12 @@ namespace BLL_Negocio
 
             if (reserva == null)
             {
-                throw new Exception("No se registran reservas vigentes en etapa de cierre para el criterio ingresado.");
+                throw new Exception("err_ReservaNoEncontradaPeritaje");
+            }
+
+            if (reserva.Estado_Pago_VM516.Equals("Pendiente_Sena", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception("err_ReservaPendienteSenaPeritaje");
             }
 
             return reserva;
@@ -42,7 +47,7 @@ namespace BLL_Negocio
         {
             if (string.IsNullOrWhiteSpace(codigoReserva))
             {
-                throw new Exception("Debe ingresar un código de reserva válido.");
+                throw new Exception("err_CodigoReservaVacio");
             }
 
             var reserva = dalReserva_VM516.ListarReservas_VM516()
@@ -50,7 +55,7 @@ namespace BLL_Negocio
 
             if (reserva == null)
             {
-                throw new Exception("No se registra ninguna reserva activa para el código ingresado.");
+                throw new Exception("err_ReservaNoEncontrada");
             }
 
             decimal montoACobrar = 0;
@@ -69,7 +74,7 @@ namespace BLL_Negocio
             }
             else
             {
-                throw new Exception($"La reserva ya se encuentra liquidada bajo el estado: {reserva.Estado_Pago_VM516}");
+                throw new Exception("err_ReservaYaLiquidada");
             }
 
             return (montoACobrar, tipoPago, reserva.Estado_Pago_VM516);
@@ -78,7 +83,7 @@ namespace BLL_Negocio
         {
             if (string.IsNullOrWhiteSpace(codigoReserva))
             {
-                throw new Exception("Por favor, ingrese un código de reserva para realizar la búsqueda.");
+                throw new Exception("err_CodigoReservaVacio");
             }
 
             var lista = dalReserva_VM516.ListarReservas_VM516();
@@ -86,16 +91,16 @@ namespace BLL_Negocio
 
             if (reserva == null)
             {
-                throw new Exception("No se registran reservas vigentes en etapa de cierre para el criterio ingresado.");
+                throw new Exception("err_ReservaNoEncontradaPeritaje");
             }
 
             return reserva;
         }
-        public List<BE_Sala_VM516> ObtenerSalasDisponiblesPorObra(int idObra, DateTime inicio, DateTime fin)
+        public List<BE_Sala_VM516> ObtenerSalasDisponiblesPorObra_VM516(int idObra, DateTime inicio, DateTime fin)
         {
             if (inicio >= fin)
             {
-                throw new Exception("El rango de fechas ingresado es cronológicamente incorrecto. La fecha de inicio debe ser anterior a la fecha de fin.");
+                throw new Exception("err_FechasCronologicamenteIncorrectas");
             }
 
             var listaObras = bllObra_VM516.ListarEspecificaciones();
@@ -112,7 +117,7 @@ namespace BLL_Negocio
 
             if (obraSeleccionada == null)
             {
-                throw new Exception("No se encontró ninguna especificación de obra registrada con el ID ingresado.");
+                throw new Exception("err_ObraNoEncontrada");
             }
 
             return dalReserva_VM516.ObtenerSalasDisponiblesPorObra_VM516(
@@ -129,22 +134,22 @@ namespace BLL_Negocio
         {
             if (string.IsNullOrWhiteSpace(codigoSala))
             {
-                throw new Exception("Debe seleccionar una sala de la grilla interactiva para continuar.");
+                throw new Exception("err_SeleccionarSalaGrilla");
             }
 
             if (string.IsNullOrWhiteSpace(idObraStr) || !int.TryParse(idObraStr.Trim(), out int idObra))
             {
-                throw new Exception("El ID de obra está vacío o no posee un formato numérico válido.");
+                throw new Exception("err_IdObraNumerico");
             }
 
             if (fechaInicio >= fechaFin)
             {
-                throw new Exception("El rango de fechas ingresado es cronológicamente incorrecto.");
+                throw new Exception("err_FechasCronologicamenteIncorrectas");
             }
 
             if (!decimal.TryParse(montoTotalStr.Trim(), out decimal montoTotal) || montoTotal <= 0)
             {
-                throw new Exception("El monto total del alquiler debe ser un valor numérico superior a cero.");
+                throw new Exception("err_MontoTotalInvalido");
             }
 
             if (!decimal.TryParse(porcentajeSenaStr.Trim(), out decimal porcentajeSena) || porcentajeSena < 1 || porcentajeSena > 100)
@@ -185,7 +190,58 @@ namespace BLL_Negocio
                 );
             }
         }
-        public List<BE_Reserva_Sala_VM516> ListarReservas()
+        public BE_Reserva_Sala_VM516 BuscarReservaParaCobranza_VM516(string codigoReserva)
+        {
+            if (string.IsNullOrWhiteSpace(codigoReserva))
+            {
+                throw new Exception("err_CodigoReservaVacio");
+            }
+
+            var reservas = dalReserva_VM516.ListarReservas_VM516();
+            var reserva = reservas.FirstOrDefault(r => r.Codigo_Reserva_VM516 == codigoReserva);
+
+            if (reserva == null)
+            {
+                throw new Exception("err_ReservaNoEncontrada");
+            }
+
+            if (reserva.Estado_Pago_VM516 != "Pendiente_Sena" && reserva.Estado_Pago_VM516 != "Sena_Abonada")
+            {
+                throw new Exception("err_ReservaSinSaldoPendiente");
+            }
+
+            // Precondición exclusiva para el Pago Final: Verificar que la inspección/peritaje esté hecha
+            if (reserva.Estado_Pago_VM516 == "Sena_Abonada")
+            {
+                bool inspeccionLista = VerificarInspeccionRegistrada_VM516(codigoReserva);
+                if (!inspeccionLista)
+                {
+                    throw new Exception("err_InspeccionEgresoPendiente");
+                }
+            }
+
+            return reserva;
+        }
+        private bool VerificarInspeccionRegistrada_VM516(string codigoReserva)
+        {
+            DAL_Inspeccion_Obra_VM516 dalInspeccion = new DAL_Inspeccion_Obra_VM516();
+            return dalInspeccion.ExisteInspeccionPorReserva_VM516(codigoReserva);
+        }
+        public void ActualizarEstadoPagoReserva_VM516(string codigoReserva, string nuevoEstadoPago)
+        {
+            
+            dalReserva_VM516.ActualizarEstadoPago_VM516(codigoReserva, nuevoEstadoPago);
+
+            // Recalcula y actualiza los dígitos verificadores (DVH y DVV) de la tabla Reserva_Sala_VM516
+            List<BE_Reserva_Sala_VM516> listaReservas = dalReserva_VM516.ListarReservas_VM516();
+            BE_Reserva_Sala_VM516 reservaModificada = listaReservas.FirstOrDefault(r => r.Codigo_Reserva_VM516 == codigoReserva);
+
+            if (reservaModificada != null)
+            {
+                bllDigito_VM516.ActualizarDigitos<BE_Reserva_Sala_VM516>(reservaModificada, listaReservas, "Reserva_Sala_VM516");
+            }
+        }
+        public List<BE_Reserva_Sala_VM516> ListarReservas_VM516()
         {
             return dalReserva_VM516.ListarReservas_VM516();
         }

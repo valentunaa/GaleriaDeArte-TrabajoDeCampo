@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            picLogo = new PictureBox();
             dgvInspecciones = new DataGridView();
             btnConfirmarPeritaje = new Button();
             txtObservaciones = new TextBox();
@@ -46,6 +47,7 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvInspecciones).BeginInit();
             panelInferior.SuspendLayout();
             SuspendLayout();
@@ -54,6 +56,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(dgvInspecciones);
             panelContenedor.Controls.Add(btnConfirmarPeritaje);
             panelContenedor.Controls.Add(txtObservaciones);
@@ -66,10 +69,22 @@
             panelContenedor.Controls.Add(lblCodigoReserva);
             panelContenedor.Controls.Add(btnSalir);
             panelContenedor.Controls.Add(lblTitulo);
-            panelContenedor.Location = new Point(12, 12);
+            panelContenedor.Location = new Point(12, 24);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1316, 745);
+            panelContenedor.Size = new Size(1316, 776);
             panelContenedor.TabIndex = 1;
+            // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(37, 11);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(63, 60);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 23;
+            picLogo.TabStop = false;
             // 
             // dgvInspecciones
             // 
@@ -78,7 +93,7 @@
             dgvInspecciones.AllowUserToResizeRows = false;
             dgvInspecciones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvInspecciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvInspecciones.BackgroundColor = Color.FromArgb(18, 87, 150);
+            dgvInspecciones.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvInspecciones.BorderStyle = BorderStyle.None;
             dgvInspecciones.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvInspecciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -93,28 +108,29 @@
             dgvInspecciones.ColumnHeadersHeight = 45;
             dgvInspecciones.EnableHeadersVisualStyles = false;
             dgvInspecciones.GridColor = Color.FromArgb(220, 220, 220);
-            dgvInspecciones.Location = new Point(34, 380);
+            dgvInspecciones.Location = new Point(37, 411);
             dgvInspecciones.MultiSelect = false;
             dgvInspecciones.Name = "dgvInspecciones";
             dgvInspecciones.ReadOnly = true;
             dgvInspecciones.RowHeadersVisible = false;
             dgvInspecciones.RowTemplate.Height = 28;
             dgvInspecciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvInspecciones.Size = new Size(1235, 335);
+            dgvInspecciones.Size = new Size(1235, 319);
             dgvInspecciones.TabIndex = 11;
             // 
             // btnConfirmarPeritaje
             // 
-            btnConfirmarPeritaje.BackColor = Color.FromArgb(18, 87, 150);
+            btnConfirmarPeritaje.BackColor = Color.FromArgb(46, 17, 39);
             btnConfirmarPeritaje.Enabled = false;
             btnConfirmarPeritaje.FlatAppearance.BorderSize = 0;
             btnConfirmarPeritaje.FlatStyle = FlatStyle.Flat;
             btnConfirmarPeritaje.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnConfirmarPeritaje.ForeColor = Color.White;
-            btnConfirmarPeritaje.Location = new Point(1079, 320);
+            btnConfirmarPeritaje.Location = new Point(1082, 349);
             btnConfirmarPeritaje.Name = "btnConfirmarPeritaje";
             btnConfirmarPeritaje.Size = new Size(190, 40);
             btnConfirmarPeritaje.TabIndex = 10;
+            btnConfirmarPeritaje.Tag = "btnConfirmarPeritaje";
             btnConfirmarPeritaje.Text = "Confirmar Peritaje";
             btnConfirmarPeritaje.UseVisualStyleBackColor = false;
             btnConfirmarPeritaje.Click += btnConfirmarPeritaje_Click;
@@ -124,7 +140,7 @@
             txtObservaciones.BorderStyle = BorderStyle.FixedSingle;
             txtObservaciones.Enabled = false;
             txtObservaciones.Font = new Font("Segoe UI", 10F);
-            txtObservaciones.Location = new Point(270, 220);
+            txtObservaciones.Location = new Point(273, 249);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.Size = new Size(999, 85);
@@ -134,11 +150,12 @@
             // 
             lblObservaciones.AutoSize = true;
             lblObservaciones.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblObservaciones.ForeColor = Color.FromArgb(15, 45, 75);
-            lblObservaciones.Location = new Point(270, 195);
+            lblObservaciones.ForeColor = Color.FromArgb(46, 17, 39);
+            lblObservaciones.Location = new Point(273, 224);
             lblObservaciones.Name = "lblObservaciones";
             lblObservaciones.Size = new Size(154, 19);
             lblObservaciones.TabIndex = 8;
+            lblObservaciones.Tag = "lblObservaciones";
             lblObservaciones.Text = "Observaciones Físicas";
             // 
             // cboEstadoExhibicion
@@ -147,7 +164,7 @@
             cboEstadoExhibicion.Enabled = false;
             cboEstadoExhibicion.Font = new Font("Segoe UI", 10F);
             cboEstadoExhibicion.Items.AddRange(new object[] { "Intacto", "Dañado" });
-            cboEstadoExhibicion.Location = new Point(34, 220);
+            cboEstadoExhibicion.Location = new Point(37, 249);
             cboEstadoExhibicion.Name = "cboEstadoExhibicion";
             cboEstadoExhibicion.Size = new Size(220, 25);
             cboEstadoExhibicion.TabIndex = 7;
@@ -156,11 +173,12 @@
             // 
             lblEstadoExhibicion.AutoSize = true;
             lblEstadoExhibicion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblEstadoExhibicion.ForeColor = Color.FromArgb(15, 45, 75);
-            lblEstadoExhibicion.Location = new Point(34, 195);
+            lblEstadoExhibicion.ForeColor = Color.FromArgb(46, 17, 39);
+            lblEstadoExhibicion.Location = new Point(37, 224);
             lblEstadoExhibicion.Name = "lblEstadoExhibicion";
             lblEstadoExhibicion.Size = new Size(159, 19);
             lblEstadoExhibicion.TabIndex = 6;
+            lblEstadoExhibicion.Tag = "lblEstadoExhibicion";
             lblEstadoExhibicion.Text = "Estado Post-Exhibición";
             // 
             // lblInfoReserva
@@ -168,23 +186,25 @@
             lblInfoReserva.AutoSize = true;
             lblInfoReserva.Font = new Font("Segoe UI", 10F, FontStyle.Italic);
             lblInfoReserva.ForeColor = Color.FromArgb(50, 50, 50);
-            lblInfoReserva.Location = new Point(34, 150);
+            lblInfoReserva.Location = new Point(37, 179);
             lblInfoReserva.Name = "lblInfoReserva";
             lblInfoReserva.Size = new Size(245, 19);
             lblInfoReserva.TabIndex = 5;
+            lblInfoReserva.Tag = "lblInfoReserva";
             lblInfoReserva.Text = "Información de la reserva: [Pendiente]";
             // 
             // btnBuscarReserva
             // 
-            btnBuscarReserva.BackColor = Color.FromArgb(18, 87, 150);
+            btnBuscarReserva.BackColor = Color.FromArgb(46, 17, 39);
             btnBuscarReserva.FlatAppearance.BorderSize = 0;
             btnBuscarReserva.FlatStyle = FlatStyle.Flat;
             btnBuscarReserva.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnBuscarReserva.ForeColor = Color.White;
-            btnBuscarReserva.Location = new Point(270, 98);
+            btnBuscarReserva.Location = new Point(273, 127);
             btnBuscarReserva.Name = "btnBuscarReserva";
             btnBuscarReserva.Size = new Size(130, 35);
             btnBuscarReserva.TabIndex = 4;
+            btnBuscarReserva.Tag = "btnBuscarReserva";
             btnBuscarReserva.Text = "Buscar Reserva";
             btnBuscarReserva.UseVisualStyleBackColor = false;
             btnBuscarReserva.Click += btnBuscarReserva_Click;
@@ -193,7 +213,7 @@
             // 
             txtCodigoReserva.BorderStyle = BorderStyle.FixedSingle;
             txtCodigoReserva.Font = new Font("Segoe UI", 10F);
-            txtCodigoReserva.Location = new Point(34, 105);
+            txtCodigoReserva.Location = new Point(37, 134);
             txtCodigoReserva.Name = "txtCodigoReserva";
             txtCodigoReserva.Size = new Size(220, 25);
             txtCodigoReserva.TabIndex = 3;
@@ -202,11 +222,12 @@
             // 
             lblCodigoReserva.AutoSize = true;
             lblCodigoReserva.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblCodigoReserva.ForeColor = Color.FromArgb(15, 45, 75);
-            lblCodigoReserva.Location = new Point(34, 80);
+            lblCodigoReserva.ForeColor = Color.FromArgb(46, 17, 39);
+            lblCodigoReserva.Location = new Point(37, 109);
             lblCodigoReserva.Name = "lblCodigoReserva";
             lblCodigoReserva.Size = new Size(137, 19);
             lblCodigoReserva.TabIndex = 2;
+            lblCodigoReserva.Tag = "lblCodigoReserva";
             lblCodigoReserva.Text = "Código de Reserva";
             // 
             // btnSalir
@@ -214,32 +235,35 @@
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1129, 21);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 22;
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(30, 20);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTitulo.Location = new Point(123, 27);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(292, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "titulo_FormInspeccion";
             lblTitulo.Text = "Registro Post-Exhibición";
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 750);
+            panelInferior.Location = new Point(0, 775);
             panelInferior.Name = "panelInferior";
             panelInferior.Size = new Size(1340, 38);
             panelInferior.TabIndex = 0;
@@ -264,6 +288,7 @@
             lblUsuarioActivo.Name = "lblUsuarioActivo";
             lblUsuarioActivo.Size = new Size(92, 15);
             lblUsuarioActivo.TabIndex = 0;
+            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
             // Form_Inspeccion_Obra_VM516
@@ -271,7 +296,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1340, 788);
+            ClientSize = new Size(1340, 813);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -279,15 +304,16 @@
             MaximizeBox = false;
             Name = "Form_Inspeccion_Obra_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Peritaje Post-Exhibición";
+            Text = "Vanguardia Arte - Peritaje Post-Exhibición";
+            FormClosed += Form_Inspeccion_Obra_VM516_FormClosed;
             Load += Form_Inspeccion_Obra_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvInspecciones).EndInit();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
             ResumeLayout(false);
-
         }
 
         #endregion
@@ -308,5 +334,6 @@
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
+        private PictureBox picLogo;
     }
 }

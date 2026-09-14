@@ -136,12 +136,17 @@ namespace IU
 
                 if (obra != null)
                 {
-                    string detalle = $"--- Especificaciones de la Obra ---\n" +
-                                     $"Título: {obra.Titulo_Obra_VM516}\n" +
-                                     $"Artista DNI: {obra.DNI_Artista_VM516}\n" +
-                                     $"Alto: {obra.Alto_VM516} | Ancho: {obra.Ancho_VM516} | Peso: {obra.Peso_VM516}\n" +
-                                     $"Iluminación: {obra.Req_Iluminacion_VM516}\n" +
-                                     $"Seguro: {obra.Categoria_Seguro_VM516}";
+                    string formatoDetalle = TraducirTexto("msg_DetalleEspecificacionObra");
+                    string detalle = string.Format(
+                        formatoDetalle,
+                        obra.Titulo_Obra_VM516,
+                        obra.DNI_Artista_VM516,
+                        obra.Alto_VM516,
+                        obra.Ancho_VM516,
+                        obra.Peso_VM516,
+                        obra.Req_Iluminacion_VM516,
+                        obra.Categoria_Seguro_VM516
+                    );
 
                     MessageBox.Show(detalle, TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -153,7 +158,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -175,7 +180,7 @@ namespace IU
                 DateTime inicio = dtpFechaInicio.Value;
                 DateTime fin = dtpFechaFin.Value;
 
-                var listSalas = bllReserva.ObtenerSalasDisponiblesPorObra(idObra, inicio, fin);
+                var listSalas = bllReserva.ObtenerSalasDisponiblesPorObra_VM516(idObra, inicio, fin);
 
                 if (listSalas.Count == 0)
                 {
@@ -188,7 +193,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -219,7 +224,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

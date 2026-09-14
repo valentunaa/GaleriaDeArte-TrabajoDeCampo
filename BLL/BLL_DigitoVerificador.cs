@@ -21,6 +21,9 @@ namespace BLL
         private DAL_Especificacion_Obra_VM516 dalObra_VM516;
         private DAL_Reserva_Sala_VM516 dalReserva_VM516;
         private DAL_Sala_VM516 dalSala_VM516;
+        private DAL_Comprobante_Pago_VM516 dalComprobante_VM516;
+        private DAL_Inspeccion_Obra_VM516 dalInspeccion_VM516;
+        private DAL_Retiro_Obra_VM516 dalRetiro_VM516;
         private Servicio_VerificadorDigito servicioVerificador;
         public BLL_DigitoVerificador()
         {
@@ -35,6 +38,9 @@ namespace BLL
             dalObra_VM516 = new DAL_Especificacion_Obra_VM516();
             dalReserva_VM516 = new DAL_Reserva_Sala_VM516();
             dalSala_VM516 = new DAL_Sala_VM516();
+            dalComprobante_VM516 = new DAL_Comprobante_Pago_VM516();
+            dalInspeccion_VM516 = new DAL_Inspeccion_Obra_VM516();
+            dalRetiro_VM516 = new DAL_Retiro_Obra_VM516();
 
         }
 
@@ -217,6 +223,15 @@ namespace BLL
             var errorSala = ValidarIntegridad(dalSala_VM516.ListarSalas_VM516(), "Sala_VM516");
             if (errorSala != null) errores.Add(errorSala);
 
+            var errorComprobante = ValidarIntegridad(dalComprobante_VM516.ListarComprobantes_VM516(), "Comprobante_Pago_VM516");
+            if (errorComprobante != null) errores.Add(errorComprobante);
+
+            var errorInspeccion = ValidarIntegridad(dalInspeccion_VM516.ListarInspecciones_VM516(), "Inspeccion_Fisica_VM516");
+            if (errorInspeccion != null) errores.Add(errorInspeccion);
+
+            var errorRetiro = ValidarIntegridad(dalRetiro_VM516.ListarRetiros_VM516(), "Retiro_Obra_VM516");
+            if (errorRetiro != null) errores.Add(errorRetiro);
+
             if (errores.Count > 0)
                 throw new ExcepcionIntegridad(errores);
         }
@@ -286,6 +301,9 @@ namespace BLL
             RecalcularObras(log);
             RecalcularReservas(log);
             RecalcularSalas(log);
+            RecalcularComprobantes(log);
+            RecalcularInspecciones(log);
+            RecalcularRetiros(log);
         }
 
         private void RecalcularUsuarios(string log)
@@ -460,7 +478,7 @@ namespace BLL
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
 
-            Servicio_DigitoVerificador maestro =new Servicio_DigitoVerificador();
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
                 
 
             maestro.Nombre = "Permiso_MAESTRO";
@@ -613,6 +631,80 @@ namespace BLL
             dalDigito.GuardarDVV(maestro);
 
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Salas", log, "Seguridad", 1);
+        }
+        private void RecalcularComprobantes(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Comprobante_Pago_VM516");
+            List<BE_Comprobante_Pago_VM516> comprobantes = dalComprobante_VM516.ListarComprobantes_VM516().OrderBy(c => c.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Comprobante_Pago_VM516 comprobante in comprobantes)
+            {
+                string dvh = servicioCalcular.CalcularDVH(comprobante);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
+                reg.Nombre = "Comprobante_Pago_VM516_" + comprobante.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
+            maestro.Nombre = "Comprobante_Pago_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Comprobantes", log, "Seguridad", 1);
+        }
+
+        private void RecalcularInspecciones(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Inspeccion_Fisica_VM516");
+            List<BE_Inspeccion_Fisica_VM516> inspecciones = dalInspeccion_VM516.ListarInspecciones_VM516().OrderBy(i => i.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Inspeccion_Fisica_VM516 inspeccion in inspecciones)
+            {
+                string dvh = servicioCalcular.CalcularDVH(inspeccion);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
+                reg.Nombre = "Inspeccion_Fisica_VM516_" + inspeccion.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
+            maestro.Nombre = "Inspeccion_Fisica_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Inspecciones", log, "Seguridad", 1);
+        }
+
+        private void RecalcularRetiros(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Retiro_Obra_VM516");
+            List<BE_Retiro_Obra_VM516> retiros = dalRetiro_VM516.ListarRetiros_VM516().OrderBy(r => r.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Retiro_Obra_VM516 retiro in retiros)
+            {
+                string dvh = servicioCalcular.CalcularDVH(retiro);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador();
+                reg.Nombre = "Retiro_Obra_VM516_" + retiro.ObtenerIdentificadorFila();
+                reg.DVH = dvh;
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
+            maestro.Nombre = "Retiro_Obra_VM516_MAESTRO";
+            maestro.DVV = dvv;
+            dalDigito.GuardarDVV(maestro);
+
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Retiros de Obra", log, "Seguridad", 1);
         }
     }
 }

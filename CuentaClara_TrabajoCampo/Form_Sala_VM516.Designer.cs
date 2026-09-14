@@ -30,6 +30,8 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            picLogo = new PictureBox();
+            comboBox1 = new ComboBox();
             btn_Modificar = new Button();
             lblTitulo = new Label();
             dgvSalas = new DataGridView();
@@ -51,8 +53,8 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
-            comboBox1 = new ComboBox();
             panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).BeginInit();
             panelInferior.SuspendLayout();
             SuspendLayout();
@@ -61,6 +63,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(comboBox1);
             panelContenedor.Controls.Add(btn_Modificar);
             panelContenedor.Controls.Add(lblTitulo);
@@ -85,17 +88,39 @@
             panelContenedor.Size = new Size(1316, 745);
             panelContenedor.TabIndex = 1;
             // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(31, 21);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(63, 60);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 24;
+            picLogo.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Natural (o Luz natural / Cenital)", "Artificial (o Luz fría / Cálida / LED)", "Mixta (combinación de ambas)" });
+            comboBox1.Location = new Point(31, 305);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(380, 23);
+            comboBox1.TabIndex = 23;
+            // 
             // btn_Modificar
             // 
-            btn_Modificar.BackColor = Color.FromArgb(18, 87, 150);
+            btn_Modificar.BackColor = Color.FromArgb(46, 17, 39);
             btn_Modificar.FlatAppearance.BorderSize = 0;
             btn_Modificar.FlatStyle = FlatStyle.Flat;
             btn_Modificar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_Modificar.ForeColor = Color.White;
-            btn_Modificar.Location = new Point(234, 310);
+            btn_Modificar.Location = new Point(231, 361);
             btn_Modificar.Name = "btn_Modificar";
             btn_Modificar.Size = new Size(180, 40);
             btn_Modificar.TabIndex = 22;
+            btn_Modificar.Tag = "btn_ModificarSala";
             btn_Modificar.Text = "Modificar";
             btn_Modificar.UseVisualStyleBackColor = false;
             btn_Modificar.Click += btn_Modificar_Click;
@@ -104,11 +129,12 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(30, 20);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTitulo.Location = new Point(102, 37);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(280, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "titulo_FormGestionSalas";
             lblTitulo.Text = "Gestión de Salas Físicas";
             // 
             // dgvSalas
@@ -117,7 +143,7 @@
             dgvSalas.AllowUserToDeleteRows = false;
             dgvSalas.AllowUserToResizeRows = false;
             dgvSalas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSalas.BackgroundColor = Color.FromArgb(18, 87, 150);
+            dgvSalas.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvSalas.BorderStyle = BorderStyle.None;
             dgvSalas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvSalas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -132,7 +158,7 @@
             dgvSalas.ColumnHeadersHeight = 58;
             dgvSalas.EnableHeadersVisualStyles = false;
             dgvSalas.GridColor = Color.FromArgb(220, 220, 220);
-            dgvSalas.Location = new Point(480, 80);
+            dgvSalas.Location = new Point(480, 131);
             dgvSalas.MultiSelect = false;
             dgvSalas.Name = "dgvSalas";
             dgvSalas.ReadOnly = true;
@@ -140,25 +166,27 @@
             dgvSalas.RowHeadersWidth = 102;
             dgvSalas.RowTemplate.Height = 28;
             dgvSalas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSalas.Size = new Size(789, 580);
+            dgvSalas.Size = new Size(789, 568);
             dgvSalas.TabIndex = 21;
+            dgvSalas.RowEnter += dgvSalas_RowEnter;
             // 
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
             lblCodigo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblCodigo.ForeColor = Color.FromArgb(15, 45, 75);
-            lblCodigo.Location = new Point(34, 80);
+            lblCodigo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblCodigo.Location = new Point(31, 131);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(90, 19);
             lblCodigo.TabIndex = 2;
+            lblCodigo.Tag = "lbl_CodigoSala";
             lblCodigo.Text = "Código Sala";
             // 
             // txtCodigo
             // 
             txtCodigo.BorderStyle = BorderStyle.FixedSingle;
             txtCodigo.Font = new Font("Segoe UI", 10F);
-            txtCodigo.Location = new Point(34, 105);
+            txtCodigo.Location = new Point(31, 156);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(180, 25);
             txtCodigo.TabIndex = 3;
@@ -167,18 +195,19 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblNombre.ForeColor = Color.FromArgb(15, 45, 75);
-            lblNombre.Location = new Point(234, 80);
+            lblNombre.ForeColor = Color.FromArgb(46, 17, 39);
+            lblNombre.Location = new Point(231, 131);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(97, 19);
             lblNombre.TabIndex = 4;
+            lblNombre.Tag = "lbl_NombreSala";
             lblNombre.Text = "Nombre Sala";
             // 
             // txtNombre
             // 
             txtNombre.BorderStyle = BorderStyle.FixedSingle;
             txtNombre.Font = new Font("Segoe UI", 10F);
-            txtNombre.Location = new Point(234, 105);
+            txtNombre.Location = new Point(231, 156);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(180, 25);
             txtNombre.TabIndex = 5;
@@ -187,18 +216,19 @@
             // 
             lblAlto.AutoSize = true;
             lblAlto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblAlto.ForeColor = Color.FromArgb(15, 45, 75);
-            lblAlto.Location = new Point(34, 150);
+            lblAlto.ForeColor = Color.FromArgb(46, 17, 39);
+            lblAlto.Location = new Point(31, 201);
             lblAlto.Name = "lblAlto";
             lblAlto.Size = new Size(96, 19);
             lblAlto.TabIndex = 6;
+            lblAlto.Tag = "lbl_AltoMaximo";
             lblAlto.Text = "Alto Máximo";
             // 
             // txtAlto
             // 
             txtAlto.BorderStyle = BorderStyle.FixedSingle;
             txtAlto.Font = new Font("Segoe UI", 10F);
-            txtAlto.Location = new Point(34, 175);
+            txtAlto.Location = new Point(31, 226);
             txtAlto.Name = "txtAlto";
             txtAlto.Size = new Size(110, 25);
             txtAlto.TabIndex = 7;
@@ -207,18 +237,19 @@
             // 
             lblAncho.AutoSize = true;
             lblAncho.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblAncho.ForeColor = Color.FromArgb(15, 45, 75);
-            lblAncho.Location = new Point(169, 150);
+            lblAncho.ForeColor = Color.FromArgb(46, 17, 39);
+            lblAncho.Location = new Point(166, 201);
             lblAncho.Name = "lblAncho";
             lblAncho.Size = new Size(110, 19);
             lblAncho.TabIndex = 8;
+            lblAncho.Tag = "lbl_AnchoMaximo";
             lblAncho.Text = "Ancho Máximo";
             // 
             // txtAncho
             // 
             txtAncho.BorderStyle = BorderStyle.FixedSingle;
             txtAncho.Font = new Font("Segoe UI", 10F);
-            txtAncho.Location = new Point(169, 175);
+            txtAncho.Location = new Point(166, 226);
             txtAncho.Name = "txtAncho";
             txtAncho.Size = new Size(110, 25);
             txtAncho.TabIndex = 9;
@@ -227,18 +258,19 @@
             // 
             lblPeso.AutoSize = true;
             lblPeso.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblPeso.ForeColor = Color.FromArgb(15, 45, 75);
-            lblPeso.Location = new Point(304, 150);
+            lblPeso.ForeColor = Color.FromArgb(46, 17, 39);
+            lblPeso.Location = new Point(301, 201);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(100, 19);
             lblPeso.TabIndex = 10;
+            lblPeso.Tag = "lbl_PesoMaximo";
             lblPeso.Text = "Peso Máximo";
             // 
             // txtPeso
             // 
             txtPeso.BorderStyle = BorderStyle.FixedSingle;
             txtPeso.Font = new Font("Segoe UI", 10F);
-            txtPeso.Location = new Point(304, 175);
+            txtPeso.Location = new Point(301, 226);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(110, 25);
             txtPeso.TabIndex = 11;
@@ -247,24 +279,26 @@
             // 
             lblIluminacion.AutoSize = true;
             lblIluminacion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblIluminacion.ForeColor = Color.FromArgb(15, 45, 75);
-            lblIluminacion.Location = new Point(34, 220);
+            lblIluminacion.ForeColor = Color.FromArgb(46, 17, 39);
+            lblIluminacion.Location = new Point(31, 271);
             lblIluminacion.Name = "lblIluminacion";
             lblIluminacion.Size = new Size(161, 19);
             lblIluminacion.TabIndex = 12;
+            lblIluminacion.Tag = "lbl_IluminacionDisponible";
             lblIluminacion.Text = "Iluminación Disponible";
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = Color.FromArgb(18, 87, 150);
+            btnGuardar.BackColor = Color.FromArgb(46, 17, 39);
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(34, 310);
+            btnGuardar.Location = new Point(31, 361);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(180, 40);
             btnGuardar.TabIndex = 14;
+            btnGuardar.Tag = "btn_GuardarSala";
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -276,10 +310,11 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(34, 365);
+            btnEliminar.Location = new Point(31, 416);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(180, 40);
             btnEliminar.TabIndex = 16;
+            btnEliminar.Tag = "btn_EliminarSala";
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
@@ -289,11 +324,12 @@
             btnLimpiar.BackColor = Color.White;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnLimpiar.ForeColor = Color.FromArgb(18, 87, 150);
-            btnLimpiar.Location = new Point(234, 365);
+            btnLimpiar.ForeColor = Color.FromArgb(46, 17, 39);
+            btnLimpiar.Location = new Point(231, 416);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(180, 40);
             btnLimpiar.TabIndex = 17;
+            btnLimpiar.Tag = "btn_LimpiarSala";
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -303,18 +339,19 @@
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1129, 21);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 18;
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
@@ -343,16 +380,8 @@
             lblUsuarioActivo.Name = "lblUsuarioActivo";
             lblUsuarioActivo.Size = new Size(92, 15);
             lblUsuarioActivo.TabIndex = 0;
+            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Natural (o Luz natural / Cenital)", "Artificial (o Luz fría / Cálida / LED)", "Mixta (combinación de ambas)" });
-            comboBox1.Location = new Point(34, 254);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(380, 23);
-            comboBox1.TabIndex = 23;
             // 
             // Form_Sala_VM516
             // 
@@ -365,10 +394,12 @@
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Sala_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CuentaClara - Gestión de Salas Físicas";
+            Text = "Vanguardia Arte - Gestión de Salas Físicas";
+            FormClosed += Form_Sala_VM516_FormClosed;
             Load += Form_Sala_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).EndInit();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
@@ -400,5 +431,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private Button btn_Modificar;
         private ComboBox comboBox1;
+        private PictureBox picLogo;
     }
 }

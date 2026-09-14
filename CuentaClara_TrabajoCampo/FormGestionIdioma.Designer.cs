@@ -410,7 +410,7 @@ namespace IU
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(12, 74, 144);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(51, 69);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(288, 41);
@@ -422,7 +422,7 @@ namespace IU
             // 
             lblSeccionIdioma.AutoSize = true;
             lblSeccionIdioma.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblSeccionIdioma.ForeColor = Color.FromArgb(12, 74, 144);
+            lblSeccionIdioma.ForeColor = Color.FromArgb(46, 17, 39);
             lblSeccionIdioma.Location = new Point(54, 144);
             lblSeccionIdioma.Name = "lblSeccionIdioma";
             lblSeccionIdioma.Size = new Size(154, 20);
@@ -447,7 +447,7 @@ namespace IU
             dgvEtiquetas.AllowUserToDeleteRows = false;
             dgvEtiquetas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvEtiquetas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvEtiquetas.BackgroundColor = Color.FromArgb(12, 74, 144);
+            dgvEtiquetas.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvEtiquetas.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(12, 74, 144);
@@ -522,7 +522,7 @@ namespace IU
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(12, 74, 144);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuario);
             panelInferior.Dock = DockStyle.Bottom;
@@ -557,7 +557,7 @@ namespace IU
             // btnNuevoIdioma
             // 
             btnNuevoIdioma.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnNuevoIdioma.BackColor = Color.FromArgb(12, 74, 144);
+            btnNuevoIdioma.BackColor = Color.FromArgb(46, 17, 39);
             btnNuevoIdioma.FlatStyle = FlatStyle.Flat;
             btnNuevoIdioma.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNuevoIdioma.ForeColor = Color.White;
@@ -576,7 +576,7 @@ namespace IU
             btnAgregarEtiqueta.BackColor = Color.White;
             btnAgregarEtiqueta.FlatStyle = FlatStyle.Flat;
             btnAgregarEtiqueta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAgregarEtiqueta.ForeColor = Color.FromArgb(12, 74, 144);
+            btnAgregarEtiqueta.ForeColor = Color.FromArgb(46, 17, 39);
             btnAgregarEtiqueta.Location = new Point(955, 271);
             btnAgregarEtiqueta.Name = "btnAgregarEtiqueta";
             btnAgregarEtiqueta.Size = new Size(163, 52);
@@ -592,7 +592,7 @@ namespace IU
             btnModificarEtiqueta.BackColor = Color.White;
             btnModificarEtiqueta.FlatStyle = FlatStyle.Flat;
             btnModificarEtiqueta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnModificarEtiqueta.ForeColor = Color.FromArgb(12, 74, 144);
+            btnModificarEtiqueta.ForeColor = Color.FromArgb(46, 17, 39);
             btnModificarEtiqueta.Location = new Point(955, 346);
             btnModificarEtiqueta.Name = "btnModificarEtiqueta";
             btnModificarEtiqueta.Size = new Size(163, 52);
@@ -608,7 +608,7 @@ namespace IU
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(12, 74, 144);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(984, 641);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(128, 44);
@@ -624,7 +624,7 @@ namespace IU
             btnAplicar.BackColor = Color.White;
             btnAplicar.FlatStyle = FlatStyle.Flat;
             btnAplicar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAplicar.ForeColor = Color.FromArgb(12, 74, 144);
+            btnAplicar.ForeColor = Color.FromArgb(46, 17, 39);
             btnAplicar.Location = new Point(512, 640);
             btnAplicar.Name = "btnAplicar";
             btnAplicar.Size = new Size(128, 44);
@@ -651,7 +651,7 @@ namespace IU
             btnCancelar.BackColor = Color.White;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancelar.ForeColor = Color.FromArgb(12, 74, 144);
+            btnCancelar.ForeColor = Color.FromArgb(46, 17, 39);
             btnCancelar.Location = new Point(655, 640);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(128, 44);

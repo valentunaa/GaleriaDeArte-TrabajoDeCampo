@@ -182,6 +182,7 @@ namespace CuentaClara_TrabajoCampo
                 return;
 
             TraducirControles(this.Controls, idioma);
+            this.Text = TraducirTexto("titulo_FormLogin");
         }
         private string TraducirTexto(string clave)
         {

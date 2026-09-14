@@ -146,7 +146,25 @@ namespace DAL
             }
             return tabla;
         }
+        public void ActualizarEstadoPago_VM516(string codigoReserva, string nuevoEstadoPago)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Reserva_Sala_VM516 WHERE Codigo_Reserva_VM516 = @Codigo", conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@Codigo", codigoReserva);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "Reserva_Sala_VM516");
 
+                if (ds.Tables["Reserva_Sala_VM516"].Rows.Count > 0)
+                {
+                    DataRow row = ds.Tables["Reserva_Sala_VM516"].Rows[0];
+                    row["Estado_Pago_VM516"] = nuevoEstadoPago;
+
+                    SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                    adapter.Update(ds, "Reserva_Sala_VM516");
+                }
+            }
+        }
         public List<BE_Reserva_Sala_VM516> ListarReservas_VM516()
         {
             DataTable dt = new DataTable();

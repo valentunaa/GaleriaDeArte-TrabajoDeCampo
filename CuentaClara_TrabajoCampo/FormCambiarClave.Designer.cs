@@ -38,13 +38,16 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            picLogo = new PictureBox();
             panelContenedor.SuspendLayout();
             panelInferior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(lblClaveActual);
             panelContenedor.Controls.Add(txtClaveActual);
@@ -60,8 +63,8 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(35, 25);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTitulo.Location = new Point(129, 23);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(245, 32);
             lblTitulo.TabIndex = 0;
@@ -72,7 +75,7 @@
             // 
             lblClaveActual.AutoSize = true;
             lblClaveActual.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblClaveActual.ForeColor = Color.FromArgb(15, 45, 75);
+            lblClaveActual.ForeColor = Color.FromArgb(46, 17, 39);
             lblClaveActual.Location = new Point(40, 95);
             lblClaveActual.Name = "lblClaveActual";
             lblClaveActual.Size = new Size(106, 19);
@@ -94,7 +97,7 @@
             // 
             lblNuevaClave.AutoSize = true;
             lblNuevaClave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblNuevaClave.ForeColor = Color.FromArgb(15, 45, 75);
+            lblNuevaClave.ForeColor = Color.FromArgb(46, 17, 39);
             lblNuevaClave.Location = new Point(40, 170);
             lblNuevaClave.Name = "lblNuevaClave";
             lblNuevaClave.Size = new Size(93, 19);
@@ -114,7 +117,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = Color.FromArgb(18, 87, 150);
+            btnGuardar.BackColor = Color.FromArgb(46, 17, 39);
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -130,7 +133,7 @@
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
@@ -163,6 +166,18 @@
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = IU.Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(44, 9);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(67, 62);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 19;
+            picLogo.TabStop = false;
+            // 
             // FormCambiarClave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,13 +192,14 @@
             Name = "FormCambiarClave";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_FormCambiarClave";
-            Text = "CuentaClara - Cambiar Contraseña";
+            Text = "Vanguardia Arte - Cambiar Contraseña";
             FormClosed += FormCambiarClave_FormClosed;
             Load += FormCambiarClave_Load_1;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -199,5 +215,6 @@
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Label lblUsuarioActivo;
         private Label lblUsuarioValor;
+        private PictureBox picLogo;
     }
 }

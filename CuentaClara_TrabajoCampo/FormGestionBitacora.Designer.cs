@@ -113,7 +113,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label1.ForeColor = Color.FromArgb(15, 45, 75);
+            label1.ForeColor = Color.FromArgb(46, 17, 39);
             label1.Location = new Point(598, 438);
             label1.Name = "label1";
             label1.Size = new Size(145, 19);
@@ -125,7 +125,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(30, 20);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(239, 32);
@@ -139,7 +139,7 @@
             dgvBitacora.AllowUserToDeleteRows = false;
             dgvBitacora.AllowUserToResizeRows = false;
             dgvBitacora.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvBitacora.BackgroundColor = Color.FromArgb(18, 87, 150);
+            dgvBitacora.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvBitacora.BorderStyle = BorderStyle.None;
             dgvBitacora.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBitacora.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -170,7 +170,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblNombre.ForeColor = Color.FromArgb(15, 45, 75);
+            lblNombre.ForeColor = Color.FromArgb(46, 17, 39);
             lblNombre.Location = new Point(34, 438);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(65, 19);
@@ -192,7 +192,7 @@
             // 
             lblApellido.AutoSize = true;
             lblApellido.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblApellido.ForeColor = Color.FromArgb(15, 45, 75);
+            lblApellido.ForeColor = Color.FromArgb(46, 17, 39);
             lblApellido.Location = new Point(254, 438);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(66, 19);
@@ -214,7 +214,7 @@
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblLogin.ForeColor = Color.FromArgb(15, 45, 75);
+            lblLogin.ForeColor = Color.FromArgb(46, 17, 39);
             lblLogin.Location = new Point(30, 509);
             lblLogin.Name = "lblLogin";
             lblLogin.Size = new Size(46, 19);
@@ -235,7 +235,7 @@
             // 
             lblFechaInicio.AutoSize = true;
             lblFechaInicio.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblFechaInicio.ForeColor = Color.FromArgb(15, 45, 75);
+            lblFechaInicio.ForeColor = Color.FromArgb(46, 17, 39);
             lblFechaInicio.Location = new Point(253, 509);
             lblFechaInicio.Name = "lblFechaInicio";
             lblFechaInicio.Size = new Size(87, 19);
@@ -255,7 +255,7 @@
             // 
             lblFechaFin.AutoSize = true;
             lblFechaFin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblFechaFin.ForeColor = Color.FromArgb(15, 45, 75);
+            lblFechaFin.ForeColor = Color.FromArgb(46, 17, 39);
             lblFechaFin.Location = new Point(463, 509);
             lblFechaFin.Name = "lblFechaFin";
             lblFechaFin.Size = new Size(70, 19);
@@ -275,7 +275,7 @@
             // 
             lblModulo.AutoSize = true;
             lblModulo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblModulo.ForeColor = Color.FromArgb(15, 45, 75);
+            lblModulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblModulo.Location = new Point(673, 509);
             lblModulo.Name = "lblModulo";
             lblModulo.Size = new Size(61, 19);
@@ -297,7 +297,7 @@
             // 
             lblEvento.AutoSize = true;
             lblEvento.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblEvento.ForeColor = Color.FromArgb(15, 45, 75);
+            lblEvento.ForeColor = Color.FromArgb(46, 17, 39);
             lblEvento.Location = new Point(823, 509);
             lblEvento.Name = "lblEvento";
             lblEvento.Size = new Size(54, 19);
@@ -320,7 +320,7 @@
             // 
             lblCriticidad.AutoSize = true;
             lblCriticidad.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblCriticidad.ForeColor = Color.FromArgb(15, 45, 75);
+            lblCriticidad.ForeColor = Color.FromArgb(46, 17, 39);
             lblCriticidad.Location = new Point(1104, 512);
             lblCriticidad.Name = "lblCriticidad";
             lblCriticidad.Size = new Size(74, 19);
@@ -353,7 +353,7 @@
             btnLimpiar.BackColor = Color.White;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnLimpiar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnLimpiar.ForeColor = Color.FromArgb(46, 17, 39);
             btnLimpiar.Location = new Point(393, 653);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(120, 38);
@@ -365,7 +365,7 @@
             // 
             // btnAplicar
             // 
-            btnAplicar.BackColor = Color.FromArgb(18, 87, 150);
+            btnAplicar.BackColor = Color.FromArgb(46, 17, 39);
             btnAplicar.FlatAppearance.BorderSize = 0;
             btnAplicar.FlatStyle = FlatStyle.Flat;
             btnAplicar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -384,7 +384,7 @@
             btnImprimir.BackColor = Color.White;
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnImprimir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnImprimir.ForeColor = Color.FromArgb(46, 17, 39);
             btnImprimir.Location = new Point(673, 653);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(120, 38);
@@ -399,7 +399,7 @@
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1129, 21);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
@@ -411,7 +411,7 @@
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;

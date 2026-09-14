@@ -114,8 +114,9 @@ namespace CuentaClara_TrabajoCampo
             btn_Estado_PostExhibicion.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P46");
             btnReserva.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Reserva");
             btnTesoreria_Cobros.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Tesoreria_Cobro");
-            btn_Salas_Calendario.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "Salas_Calendario");
+            btn_Salas_Calendario.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P45");
             button7.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P36");
+            button9.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P47");
         }
 
         public void ActualizarIdioma()
@@ -129,7 +130,9 @@ namespace CuentaClara_TrabajoCampo
             if (idioma == null)
                 return;
 
+
             TraducirControles(this.Controls, idioma);
+            this.Text = TraducirTexto("titulo_FormMenu");
 
         }
 
@@ -196,7 +199,7 @@ namespace CuentaClara_TrabajoCampo
             if (usuarioActual != null && usuarioActual.ModoEmergencia && usuarioActual.ErrorIntegridad != null)
 
             {
-               
+
                 string mensaje =
                 TraducirTexto("Atencion") +
                 Environment.NewLine + Environment.NewLine +
@@ -385,6 +388,28 @@ namespace CuentaClara_TrabajoCampo
         private void btn_Estado_PostExhibicion_Click(object sender, EventArgs e)
         {
             Form_Inspeccion_Obra_VM516 frm = new Form_Inspeccion_Obra_VM516();
+            frm.ShowDialog();
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTesoreria_Cobros_Click(object sender, EventArgs e)
+        {
+            Form_Cobro_VM516 frm = new Form_Cobro_VM516();
+            frm.ShowDialog();
+        }
+
+        private void btn_Salas_Calendario_Click(object sender, EventArgs e)
+        {
+            Form_Retiro_Obra_VM516 frm = new Form_Retiro_Obra_VM516();
             frm.ShowDialog();
         }
     }

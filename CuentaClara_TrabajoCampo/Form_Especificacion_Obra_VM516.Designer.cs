@@ -57,15 +57,18 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            picLogo = new PictureBox();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEspecificaciones).BeginInit();
             panelInferior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
             // panelContenedor
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(comboBox2);
             panelContenedor.Controls.Add(comboBox1);
             panelContenedor.Controls.Add(lblTitulo);
@@ -99,16 +102,16 @@
             // 
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Básico", "Estándar", "Premium" });
-            comboBox2.Location = new Point(234, 457);
+            comboBox2.Location = new Point(246, 506);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(180, 23);
+            comboBox2.Size = new Size(168, 23);
             comboBox2.TabIndex = 25;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Natural (o Luz natural / Cenital)", "Artificial (o Luz fría / Cálida / LED)", "Mixta (combinación de ambas)" });
-            comboBox1.Location = new Point(34, 387);
+            comboBox1.Location = new Point(34, 436);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(380, 23);
             comboBox1.TabIndex = 24;
@@ -117,12 +120,12 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(30, 20);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTitulo.Location = new Point(102, 20);
             lblTitulo.Name = "lblTitulo";
+            lblTitulo.Tag = "titulo_FormEspecificacionObra";
             lblTitulo.Size = new Size(414, 32);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Tag = "titulo_FormEspecificacionObra";
             lblTitulo.Text = "Catalogar Especificaciones de Obra";
             // 
             // dgvEspecificaciones
@@ -131,7 +134,7 @@
             dgvEspecificaciones.AllowUserToDeleteRows = false;
             dgvEspecificaciones.AllowUserToResizeRows = false;
             dgvEspecificaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvEspecificaciones.BackgroundColor = Color.FromArgb(18, 87, 150);
+            dgvEspecificaciones.BackgroundColor = Color.FromArgb(46, 17, 39);
             dgvEspecificaciones.BorderStyle = BorderStyle.None;
             dgvEspecificaciones.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvEspecificaciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -146,7 +149,7 @@
             dgvEspecificaciones.ColumnHeadersHeight = 58;
             dgvEspecificaciones.EnableHeadersVisualStyles = false;
             dgvEspecificaciones.GridColor = Color.FromArgb(220, 220, 220);
-            dgvEspecificaciones.Location = new Point(480, 80);
+            dgvEspecificaciones.Location = new Point(480, 129);
             dgvEspecificaciones.MultiSelect = false;
             dgvEspecificaciones.Name = "dgvEspecificaciones";
             dgvEspecificaciones.ReadOnly = true;
@@ -154,42 +157,42 @@
             dgvEspecificaciones.RowHeadersWidth = 102;
             dgvEspecificaciones.RowTemplate.Height = 28;
             dgvEspecificaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEspecificaciones.Size = new Size(789, 580);
+            dgvEspecificaciones.Size = new Size(789, 531);
             dgvEspecificaciones.TabIndex = 21;
             // 
             // lblDNI
             // 
             lblDNI.AutoSize = true;
             lblDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblDNI.ForeColor = Color.FromArgb(15, 45, 75);
-            lblDNI.Location = new Point(34, 80);
+            lblDNI.ForeColor = Color.FromArgb(46, 17, 39);
+            lblDNI.Location = new Point(34, 129);
             lblDNI.Name = "lblDNI";
+            lblDNI.Tag = "lbl_DNIArtista";
             lblDNI.Size = new Size(82, 19);
             lblDNI.TabIndex = 2;
-            lblDNI.Tag = "lbl_DNIArtista";
             lblDNI.Text = "DNI Artista";
             // 
             // txtDNIBuscar
             // 
             txtDNIBuscar.BorderStyle = BorderStyle.FixedSingle;
             txtDNIBuscar.Font = new Font("Segoe UI", 10F);
-            txtDNIBuscar.Location = new Point(34, 105);
+            txtDNIBuscar.Location = new Point(34, 154);
             txtDNIBuscar.Name = "txtDNIBuscar";
             txtDNIBuscar.Size = new Size(180, 25);
             txtDNIBuscar.TabIndex = 3;
             // 
             // btnBuscarArtista
             // 
-            btnBuscarArtista.BackColor = Color.FromArgb(18, 87, 150);
+            btnBuscarArtista.BackColor = Color.FromArgb(46, 17, 39);
             btnBuscarArtista.FlatAppearance.BorderSize = 0;
             btnBuscarArtista.FlatStyle = FlatStyle.Flat;
             btnBuscarArtista.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnBuscarArtista.ForeColor = Color.White;
-            btnBuscarArtista.Location = new Point(230, 103);
+            btnBuscarArtista.Location = new Point(230, 152);
             btnBuscarArtista.Name = "btnBuscarArtista";
+            btnBuscarArtista.Tag = "btn_BuscarArtista";
             btnBuscarArtista.Size = new Size(140, 28);
             btnBuscarArtista.TabIndex = 4;
-            btnBuscarArtista.Tag = "btn_BuscarArtista";
             btnBuscarArtista.Text = "Buscar Artista";
             btnBuscarArtista.UseVisualStyleBackColor = false;
             btnBuscarArtista.Click += btnBuscarArtista_Click_1;
@@ -199,30 +202,30 @@
             lblNombreArtista.AutoSize = true;
             lblNombreArtista.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             lblNombreArtista.ForeColor = Color.FromArgb(15, 45, 75);
-            lblNombreArtista.Location = new Point(34, 145);
+            lblNombreArtista.Location = new Point(34, 194);
             lblNombreArtista.Name = "lblNombreArtista";
+            lblNombreArtista.Tag = "lbl_EstadoArtistaPendiente";
             lblNombreArtista.Size = new Size(185, 17);
             lblNombreArtista.TabIndex = 5;
-            lblNombreArtista.Tag = "lbl_EstadoArtistaPendiente";
             lblNombreArtista.Text = "Estado del artista: Pendiente";
             // 
             // lblTituloObra
             // 
             lblTituloObra.AutoSize = true;
             lblTituloObra.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTituloObra.ForeColor = Color.FromArgb(15, 45, 75);
-            lblTituloObra.Location = new Point(34, 180);
+            lblTituloObra.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTituloObra.Location = new Point(34, 229);
             lblTituloObra.Name = "lblTituloObra";
+            lblTituloObra.Tag = "lbl_TituloObra";
             lblTituloObra.Size = new Size(106, 19);
             lblTituloObra.TabIndex = 6;
-            lblTituloObra.Tag = "lbl_TituloObra";
             lblTituloObra.Text = "Título de Obra";
             // 
             // txtTitulo
             // 
             txtTitulo.BorderStyle = BorderStyle.FixedSingle;
             txtTitulo.Font = new Font("Segoe UI", 10F);
-            txtTitulo.Location = new Point(34, 205);
+            txtTitulo.Location = new Point(34, 254);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(380, 25);
             txtTitulo.TabIndex = 7;
@@ -231,19 +234,19 @@
             // 
             lblTecnica.AutoSize = true;
             lblTecnica.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTecnica.ForeColor = Color.FromArgb(15, 45, 75);
-            lblTecnica.Location = new Point(34, 240);
+            lblTecnica.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTecnica.Location = new Point(34, 289);
             lblTecnica.Name = "lblTecnica";
+            lblTecnica.Tag = "lbl_Tecnica";
             lblTecnica.Size = new Size(58, 19);
             lblTecnica.TabIndex = 8;
-            lblTecnica.Tag = "lbl_Tecnica";
             lblTecnica.Text = "Técnica";
             // 
             // txtTecnica
             // 
             txtTecnica.BorderStyle = BorderStyle.FixedSingle;
             txtTecnica.Font = new Font("Segoe UI", 10F);
-            txtTecnica.Location = new Point(34, 265);
+            txtTecnica.Location = new Point(34, 314);
             txtTecnica.Name = "txtTecnica";
             txtTecnica.Size = new Size(380, 25);
             txtTecnica.TabIndex = 9;
@@ -252,19 +255,19 @@
             // 
             lblAlto.AutoSize = true;
             lblAlto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblAlto.ForeColor = Color.FromArgb(15, 45, 75);
-            lblAlto.Location = new Point(34, 300);
+            lblAlto.ForeColor = Color.FromArgb(46, 17, 39);
+            lblAlto.Location = new Point(34, 349);
             lblAlto.Name = "lblAlto";
+            lblAlto.Tag = "lbl_Alto";
             lblAlto.Size = new Size(37, 19);
             lblAlto.TabIndex = 10;
-            lblAlto.Tag = "lbl_Alto";
             lblAlto.Text = "Alto";
             // 
             // txtAlto
             // 
             txtAlto.BorderStyle = BorderStyle.FixedSingle;
             txtAlto.Font = new Font("Segoe UI", 10F);
-            txtAlto.Location = new Point(34, 325);
+            txtAlto.Location = new Point(34, 374);
             txtAlto.Name = "txtAlto";
             txtAlto.Size = new Size(110, 25);
             txtAlto.TabIndex = 11;
@@ -273,19 +276,19 @@
             // 
             lblAncho.AutoSize = true;
             lblAncho.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblAncho.ForeColor = Color.FromArgb(15, 45, 75);
-            lblAncho.Location = new Point(169, 300);
+            lblAncho.ForeColor = Color.FromArgb(46, 17, 39);
+            lblAncho.Location = new Point(169, 349);
             lblAncho.Name = "lblAncho";
+            lblAncho.Tag = "lbl_Ancho";
             lblAncho.Size = new Size(51, 19);
             lblAncho.TabIndex = 12;
-            lblAncho.Tag = "lbl_Ancho";
             lblAncho.Text = "Ancho";
             // 
             // txtAncho
             // 
             txtAncho.BorderStyle = BorderStyle.FixedSingle;
             txtAncho.Font = new Font("Segoe UI", 10F);
-            txtAncho.Location = new Point(169, 325);
+            txtAncho.Location = new Point(169, 374);
             txtAncho.Name = "txtAncho";
             txtAncho.Size = new Size(110, 25);
             txtAncho.TabIndex = 13;
@@ -294,19 +297,19 @@
             // 
             lblPeso.AutoSize = true;
             lblPeso.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblPeso.ForeColor = Color.FromArgb(15, 45, 75);
-            lblPeso.Location = new Point(304, 300);
+            lblPeso.ForeColor = Color.FromArgb(46, 17, 39);
+            lblPeso.Location = new Point(304, 349);
             lblPeso.Name = "lblPeso";
+            lblPeso.Tag = "lbl_Peso";
             lblPeso.Size = new Size(41, 19);
             lblPeso.TabIndex = 14;
-            lblPeso.Tag = "lbl_Peso";
             lblPeso.Text = "Peso";
             // 
             // txtPeso
             // 
             txtPeso.BorderStyle = BorderStyle.FixedSingle;
             txtPeso.Font = new Font("Segoe UI", 10F);
-            txtPeso.Location = new Point(304, 325);
+            txtPeso.Location = new Point(304, 374);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(110, 25);
             txtPeso.TabIndex = 15;
@@ -315,31 +318,31 @@
             // 
             lblReqIluminacion.AutoSize = true;
             lblReqIluminacion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblReqIluminacion.ForeColor = Color.FromArgb(15, 45, 75);
-            lblReqIluminacion.Location = new Point(34, 365);
+            lblReqIluminacion.ForeColor = Color.FromArgb(46, 17, 39);
+            lblReqIluminacion.Location = new Point(34, 414);
             lblReqIluminacion.Name = "lblReqIluminacion";
+            lblReqIluminacion.Tag = "lbl_ReqIluminacion";
             lblReqIluminacion.Size = new Size(173, 19);
             lblReqIluminacion.TabIndex = 16;
-            lblReqIluminacion.Tag = "lbl_ReqIluminacion";
             lblReqIluminacion.Text = "Requisito de Iluminación";
             // 
             // lblValorMercado
             // 
             lblValorMercado.AutoSize = true;
             lblValorMercado.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblValorMercado.ForeColor = Color.FromArgb(15, 45, 75);
-            lblValorMercado.Location = new Point(34, 430);
+            lblValorMercado.ForeColor = Color.FromArgb(46, 17, 39);
+            lblValorMercado.Location = new Point(34, 479);
             lblValorMercado.Name = "lblValorMercado";
+            lblValorMercado.Tag = "lbl_ValorMercado";
             lblValorMercado.Size = new Size(206, 19);
             lblValorMercado.TabIndex = 18;
-            lblValorMercado.Tag = "lbl_ValorMercado";
             lblValorMercado.Text = "Valor Declarado del Mercado";
             // 
             // txtValorMercado
             // 
             txtValorMercado.BorderStyle = BorderStyle.FixedSingle;
             txtValorMercado.Font = new Font("Segoe UI", 10F);
-            txtValorMercado.Location = new Point(34, 455);
+            txtValorMercado.Location = new Point(34, 504);
             txtValorMercado.Name = "txtValorMercado";
             txtValorMercado.Size = new Size(180, 25);
             txtValorMercado.TabIndex = 19;
@@ -348,26 +351,26 @@
             // 
             lblCategoriaSeguro.AutoSize = true;
             lblCategoriaSeguro.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblCategoriaSeguro.ForeColor = Color.FromArgb(15, 45, 75);
-            lblCategoriaSeguro.Location = new Point(234, 430);
+            lblCategoriaSeguro.ForeColor = Color.FromArgb(46, 17, 39);
+            lblCategoriaSeguro.Location = new Point(246, 479);
             lblCategoriaSeguro.Name = "lblCategoriaSeguro";
+            lblCategoriaSeguro.Tag = "lbl_CategoriaSeguro";
             lblCategoriaSeguro.Size = new Size(148, 19);
             lblCategoriaSeguro.TabIndex = 20;
-            lblCategoriaSeguro.Tag = "lbl_CategoriaSeguro";
             lblCategoriaSeguro.Text = "Categoría de Seguro";
             // 
             // btnConfirmarRegistro
             // 
-            btnConfirmarRegistro.BackColor = Color.FromArgb(18, 87, 150);
+            btnConfirmarRegistro.BackColor = Color.FromArgb(46, 17, 39);
             btnConfirmarRegistro.FlatAppearance.BorderSize = 0;
             btnConfirmarRegistro.FlatStyle = FlatStyle.Flat;
             btnConfirmarRegistro.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnConfirmarRegistro.ForeColor = Color.White;
-            btnConfirmarRegistro.Location = new Point(34, 510);
+            btnConfirmarRegistro.Location = new Point(34, 559);
             btnConfirmarRegistro.Name = "btnConfirmarRegistro";
+            btnConfirmarRegistro.Tag = "btn_ConfirmarRegistroObra";
             btnConfirmarRegistro.Size = new Size(380, 40);
             btnConfirmarRegistro.TabIndex = 22;
-            btnConfirmarRegistro.Tag = "btn_ConfirmarRegistroObra";
             btnConfirmarRegistro.Text = "Confirmar Registro";
             btnConfirmarRegistro.UseVisualStyleBackColor = false;
             btnConfirmarRegistro.Click += btnConfirmarRegistro_Click_1;
@@ -377,19 +380,19 @@
             btnSalir.BackColor = Color.White;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1129, 21);
             btnSalir.Name = "btnSalir";
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 23;
-            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click_1;
             // 
             // panelInferior
             // 
-            panelInferior.BackColor = Color.FromArgb(18, 87, 150);
+            panelInferior.BackColor = Color.FromArgb(46, 17, 39);
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
@@ -416,10 +419,22 @@
             lblUsuarioActivo.ForeColor = Color.White;
             lblUsuarioActivo.Location = new Point(20, 10);
             lblUsuarioActivo.Name = "lblUsuarioActivo";
+            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Size = new Size(92, 15);
             lblUsuarioActivo.TabIndex = 0;
-            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
+            // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(34, 10);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(63, 60);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 26;
+            picLogo.TabStop = false;
             // 
             // Form_Especificacion_Obra_VM516
             // 
@@ -432,7 +447,7 @@
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Especificacion_Obra_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Catalogar Especificaciones de Obra";
+            Text = "Vanguardia Arte - Catalogar Especificaciones de Obra";
             FormClosed += Form_Especificacion_Obra_VM516_FormClosed;
             Load += Form_Especificacion_Obra_VM516_Load;
             panelContenedor.ResumeLayout(false);
@@ -440,6 +455,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvEspecificaciones).EndInit();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -473,5 +489,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private ComboBox comboBox2;
         private ComboBox comboBox1;
+        private PictureBox picLogo;
     }
 }

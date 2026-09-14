@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionRespaldo));
             btnAplicar = new Button();
             button1 = new Button();
             folderBrowserDialog1 = new FolderBrowserDialog();
@@ -43,14 +42,14 @@
             // 
             // btnAplicar
             // 
-            btnAplicar.BackColor = Color.FromArgb(18, 87, 150);
+            btnAplicar.BackColor = Color.FromArgb(46, 17, 39);
             btnAplicar.FlatAppearance.BorderSize = 0;
             btnAplicar.FlatStyle = FlatStyle.Flat;
             btnAplicar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAplicar.ForeColor = Color.White;
             btnAplicar.Location = new Point(40, 204);
             btnAplicar.Name = "btnAplicar";
-            btnAplicar.Size = new Size(140, 42);
+            btnAplicar.Size = new Size(192, 42);
             btnAplicar.TabIndex = 7;
             btnAplicar.Tag = "btn_Restaurar";
             btnAplicar.Text = "Restaurar\r\n";
@@ -59,14 +58,14 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(18, 87, 150);
+            button1.BackColor = Color.FromArgb(46, 17, 39);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(248, 204);
+            button1.Location = new Point(275, 204);
             button1.Name = "button1";
-            button1.Size = new Size(140, 42);
+            button1.Size = new Size(191, 42);
             button1.TabIndex = 8;
             button1.Tag = "btn_BackUp";
             button1.Text = "BackUp\r\n";
@@ -75,16 +74,16 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(40, 97);
+            textBox1.Location = new Point(40, 109);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(348, 23);
+            textBox1.Size = new Size(426, 23);
             textBox1.TabIndex = 9;
             // 
             // progresoBackup
             // 
-            progresoBackup.Location = new Point(40, 140);
+            progresoBackup.Location = new Point(40, 150);
             progresoBackup.Name = "progresoBackup";
-            progresoBackup.Size = new Size(348, 23);
+            progresoBackup.Size = new Size(426, 23);
             progresoBackup.TabIndex = 10;
             // 
             // btnSeleccionar
@@ -92,10 +91,10 @@
             btnSeleccionar.BackColor = Color.White;
             btnSeleccionar.FlatStyle = FlatStyle.Flat;
             btnSeleccionar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSeleccionar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnSeleccionar.ForeColor = Color.FromArgb(46, 17, 39);
             btnSeleccionar.Location = new Point(40, 269);
             btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.Size = new Size(140, 52);
+            btnSeleccionar.Size = new Size(192, 52);
             btnSeleccionar.TabIndex = 11;
             btnSeleccionar.Tag = "btn_Seleccionar";
             btnSeleccionar.Text = "Seleccionar\r\n";
@@ -104,14 +103,14 @@
             // 
             // btn_RecalcularDv
             // 
-            btn_RecalcularDv.BackColor = Color.FromArgb(18, 87, 150);
+            btn_RecalcularDv.BackColor = Color.FromArgb(46, 17, 39);
             btn_RecalcularDv.FlatAppearance.BorderSize = 0;
             btn_RecalcularDv.FlatStyle = FlatStyle.Flat;
             btn_RecalcularDv.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_RecalcularDv.ForeColor = Color.White;
-            btn_RecalcularDv.Location = new Point(248, 269);
+            btn_RecalcularDv.Location = new Point(274, 269);
             btn_RecalcularDv.Name = "btn_RecalcularDv";
-            btn_RecalcularDv.Size = new Size(140, 52);
+            btn_RecalcularDv.Size = new Size(192, 52);
             btn_RecalcularDv.TabIndex = 12;
             btn_RecalcularDv.Tag = "btn_RecalcularDigitosVerificadores";
             btn_RecalcularDv.Text = "Recalcular Digitos Verificadores";
@@ -121,11 +120,11 @@
             // picLogo
             // 
             picLogo.BorderStyle = BorderStyle.FixedSingle;
-            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(40, 9);
+            picLogo.Image = Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(40, 20);
             picLogo.Margin = new Padding(0);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(71, 57);
+            picLogo.Size = new Size(71, 63);
             picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             picLogo.TabIndex = 13;
             picLogo.TabStop = false;
@@ -134,8 +133,8 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
-            lblTitulo.Location = new Point(114, 20);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
+            lblTitulo.Location = new Point(123, 32);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(279, 37);
             lblTitulo.TabIndex = 14;
@@ -147,7 +146,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(434, 373);
+            ClientSize = new Size(515, 373);
             Controls.Add(lblTitulo);
             Controls.Add(picLogo);
             Controls.Add(btn_RecalcularDv);

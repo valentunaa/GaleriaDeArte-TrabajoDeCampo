@@ -137,7 +137,7 @@ namespace IU
             try
             {
                 dgvReservas.DataSource = null;
-                dgvReservas.DataSource = bllReserva_VM516.ListarReservas();
+                dgvReservas.DataSource = bllReserva_VM516.ListarReservas_VM516();
                 FormatearGrillaReservas();
             }
             catch (Exception ex)

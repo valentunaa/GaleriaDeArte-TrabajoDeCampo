@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearPrimerUsuario));
             panelPrincipal = new Panel();
             label1 = new Label();
             txt_Login = new TextBox();
@@ -68,14 +67,14 @@
             panelPrincipal.Controls.Add(btnGuardar);
             panelPrincipal.Location = new Point(12, 29);
             panelPrincipal.Name = "panelPrincipal";
-            panelPrincipal.Size = new Size(644, 427);
+            panelPrincipal.Size = new Size(606, 427);
             panelPrincipal.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label1.Location = new Point(363, 165);
+            label1.Location = new Point(325, 165);
             label1.Name = "label1";
             label1.Size = new Size(46, 19);
             label1.TabIndex = 18;
@@ -85,7 +84,7 @@
             // txt_Login
             // 
             txt_Login.Enabled = false;
-            txt_Login.Location = new Point(363, 202);
+            txt_Login.Location = new Point(325, 202);
             txt_Login.Name = "txt_Login";
             txt_Login.Size = new Size(250, 23);
             txt_Login.TabIndex = 19;
@@ -93,11 +92,11 @@
             // picLogo
             // 
             picLogo.BorderStyle = BorderStyle.FixedSingle;
-            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Image = Properties.Resources.ImagenLogo;
             picLogo.Location = new Point(35, 16);
             picLogo.Margin = new Padding(0);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(71, 56);
+            picLogo.Size = new Size(71, 63);
             picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             picLogo.TabIndex = 2;
             picLogo.TabStop = false;
@@ -106,7 +105,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(20, 70, 120);
+            lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(109, 30);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(252, 32);
@@ -156,7 +155,7 @@
             // 
             lblApellido.AutoSize = true;
             lblApellido.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblApellido.Location = new Point(363, 90);
+            lblApellido.Location = new Point(325, 90);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(72, 19);
             lblApellido.TabIndex = 7;
@@ -165,7 +164,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(363, 112);
+            txtApellido.Location = new Point(325, 112);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(250, 23);
             txtApellido.TabIndex = 8;
@@ -194,7 +193,7 @@
             btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(18, 87, 150);
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancelar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnCancelar.ForeColor = Color.FromArgb(46, 17, 39);
             btnCancelar.Location = new Point(35, 344);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(204, 52);
@@ -206,7 +205,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = Color.FromArgb(18, 87, 150);
+            btnGuardar.BackColor = Color.FromArgb(46, 17, 39);
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -222,16 +221,16 @@
             // 
             // FormCrearPrimerUsuario
             // 
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(670, 483);
+            ClientSize = new Size(635, 483);
             Controls.Add(panelPrincipal);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FormCrearPrimerUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_Form_CrearPrimerUsuario";
-            Text = "CuentaClara - Crear Primer Usuario";
+            Text = "Vanguardia Arte - Crear Primer Usuario";
             Load += FormCrearPrimerUsuario_Load;
             panelPrincipal.ResumeLayout(false);
             panelPrincipal.PerformLayout();

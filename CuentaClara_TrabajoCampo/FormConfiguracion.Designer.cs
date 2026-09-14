@@ -51,7 +51,7 @@
             btnGuardarr.FlatAppearance.BorderColor = Color.FromArgb(18, 87, 150);
             btnGuardarr.FlatStyle = FlatStyle.Flat;
             btnGuardarr.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnGuardarr.ForeColor = Color.FromArgb(18, 87, 150);
+            btnGuardarr.ForeColor = Color.FromArgb(46, 17, 39);
             btnGuardarr.Location = new Point(180, 34);
             btnGuardarr.Margin = new Padding(1);
             btnGuardarr.Name = "btnGuardarr";
@@ -68,7 +68,7 @@
             button1.FlatAppearance.BorderColor = Color.FromArgb(18, 87, 150);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button1.ForeColor = Color.FromArgb(18, 87, 150);
+            button1.ForeColor = Color.FromArgb(46, 17, 39);
             button1.Location = new Point(180, 99);
             button1.Margin = new Padding(1);
             button1.Name = "button1";
@@ -104,7 +104,7 @@
             Margin = new Padding(1);
             Name = "FormConfiguracion";
             Tag = "lbl_FormConfIdioma";
-            Text = "CuentaClara - Configuración Idioma";
+            Text = "Vanguardia Arte - Configuración Idioma";
             FormClosed += FormConfiguracion_FormClosed;
             Load += FormConfiguracion_Load;
             panelLogin.ResumeLayout(false);
