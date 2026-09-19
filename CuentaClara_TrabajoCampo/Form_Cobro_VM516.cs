@@ -218,8 +218,10 @@ namespace IU
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Servicio_PDF servicioPdf = new Servicio_PDF();
-                    servicioPdf.GenerarComprobantePDF_VM516(
+                   
+                    BLL_PDF bllPdf = new BLL_PDF();
+
+                    bllPdf.GenerarComprobante_VM516(
                         comprobante.Nro_Comprobante_VM516,
                         comprobante.Fecha_Pago_VM516,
                         comprobante.Monto_Abonado_VM516,

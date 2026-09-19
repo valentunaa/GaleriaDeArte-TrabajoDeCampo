@@ -33,8 +33,28 @@ namespace BLL
             DataTable tabla = ConvertirListaADateTable(listaEventos);
             servicioPdf.GenerarBitacoraPDF(tabla, ruta);
 
-            bllBitacora.RegistrarBitacora("Impresión/Exportación de Bitácora", login,"Adminitración",3);  
+            bllBitacora.RegistrarBitacora("Impresión/Exportación de Bitácora", login,"Administración",4);  
                 
+        }
+        public void GenerarComprobante_VM516(string nroComprobante, DateTime fechaPago, decimal montoAbonado, string dni, string nombre, string apellido, string medioPago, decimal porcentajeSena, string codigoReserva, string ruta, bool esPagoFinal)
+        {
+
+            servicioPdf.GenerarComprobantePDF_VM516(nroComprobante, fechaPago, montoAbonado, dni, nombre, apellido, medioPago, porcentajeSena, codigoReserva, ruta, esPagoFinal);
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string tipoDoc = esPagoFinal ? "Factura Final" : "Comprobante de Seña";
+
+            bllBitacora.RegistrarBitacora($"Impresión/Exportación de {tipoDoc} Nro: {nroComprobante}", loginActual, "Negocio - Tesorería", 4);
+        }
+
+        public void GenerarConstanciaLibreDeuda_VM516(string codigoReserva, string dniResponsable, DateTime fechaRetiro, string ruta)
+        {
+
+            servicioPdf.GenerarConstanciaLibreDeudaPDF(codigoReserva, dniResponsable, fechaRetiro, ruta);
+
+
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+
+            bllBitacora.RegistrarBitacora($"Impresión/Exportación de Constancia Libre Deuda - Reserva: {codigoReserva}", loginActual, "Negocio - Tesorería", 4);
         }
     }
 }

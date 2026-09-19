@@ -113,32 +113,30 @@ namespace DAL
                 StringBuilder sql = new StringBuilder("SELECT * FROM Bitacora WHERE 1=1 ");
                 SqlCommand cmd = new SqlCommand();
 
-                if (!string.IsNullOrWhiteSpace(login))
+                if (!string.IsNullOrWhiteSpace(login) && login != "Todos")
                 {
                     sql.Append("AND Login LIKE @Login ");
                     cmd.Parameters.AddWithValue("@Login", "%" + login.Trim() + "%");
                 }
 
-                if (!string.IsNullOrWhiteSpace(modulo))
+                if (!string.IsNullOrWhiteSpace(modulo) && modulo != "Todos")
                 {
                     sql.Append("AND Modulo LIKE @Modulo ");
                     cmd.Parameters.AddWithValue("@Modulo", "%" + modulo.Trim() + "%");
                 }
 
-                if (!string.IsNullOrWhiteSpace(evento))
+                if (!string.IsNullOrWhiteSpace(evento) && evento != "Todos")
                 {
                     sql.Append("AND Evento LIKE @Evento ");
-                    cmd.Parameters.AddWithValue("@Evento", "%" + evento.Trim() + "%");
+                    cmd.Parameters.AddWithValue("@Evento", evento.Trim() + "%");
                 }
 
-                // Criticidad sigue siendo igual (es un número exacto)
                 if (criticidad.HasValue)
                 {
                     sql.Append("AND Criticidad = @Criticidad ");
                     cmd.Parameters.AddWithValue("@Criticidad", criticidad.Value);
                 }
 
-                // Filtro de fechas (es obligatorio)
                 sql.Append("AND Fecha BETWEEN @Desde AND @Hasta ");
                 cmd.Parameters.AddWithValue("@Desde", desde.Date);
                 cmd.Parameters.AddWithValue("@Hasta", hasta.Date.AddHours(23).AddMinutes(59).AddSeconds(59));

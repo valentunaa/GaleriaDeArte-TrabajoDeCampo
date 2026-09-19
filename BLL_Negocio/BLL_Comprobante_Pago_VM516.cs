@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using DAL;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace BLL_Negocio
     {
         private DAL_Comprobante_Pago_VM516 dalComprobante_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
+        private BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_Comprobante_Pago_VM516()
         {
             dalComprobante_VM516 = new DAL_Comprobante_Pago_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
+            bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
 
         public BE_Comprobante_Pago_VM516 ProcesarYRegistrarCobro_VM516(BE_Reserva_Sala_VM516 reserva, string medioPago, decimal montoAbonado)
@@ -81,6 +84,10 @@ namespace BLL_Negocio
 
             BLL_Reserva_Sala_VM516 bllReserva = new BLL_Reserva_Sala_VM516();
             bllReserva.ActualizarEstadoPagoReserva_VM516(reserva.Codigo_Reserva_VM516, nuevoEstadoReserva);
+
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string detalleEvento = $"Cobro: {comprobante.Nro_Comprobante_VM516}";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Tesorería", 3);
 
             return comprobante;
         }

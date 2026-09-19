@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using DAL;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,13 @@ namespace BLL_Negocio
         private DAL_Sala_VM516 dalSala_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_Reserva_Sala_VM516 bllReserva_VM516;
+        private BLL_BitacoraEvento bllBitacora_VM516;
         public BLL_Sala_VM516()
         {
             dalSala_VM516 = new DAL_Sala_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllReserva_VM516 = new BLL_Reserva_Sala_VM516();
+            bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
 
         private void ValidarSalaAsignada(string codigoSala)
@@ -56,6 +59,9 @@ namespace BLL_Negocio
                 {
                     bllDigito_VM516.ActualizarDigitos<BE_Sala_VM516>(ultimaSala, lista, "Sala_VM516");
                 }
+                string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+                string detalleEvento = $"Registro de nueva Sala - Código: {sala.Codigo_Sala_VM516}";
+                bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Sala", 3);
             }
             catch (Exception ex)
             {
@@ -95,6 +101,9 @@ namespace BLL_Negocio
             {
                 bllDigito_VM516.ActualizarDigitos<BE_Sala_VM516>(salaModificada, lista, "Sala_VM516");
             }
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string detalleEvento = $"Modificación de Sala - Código: {sala.Codigo_Sala_VM516}";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Sala", 3);
         }
 
         public void EliminarSala_VM516(string codigo)
@@ -111,6 +120,10 @@ namespace BLL_Negocio
             {
                 bllDigito_VM516.ActualizarDigitos<BE_Sala_VM516>(lista.First(), lista, "Sala_VM516");
             }
+
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string detalleEvento = $"Eliminación de Sala - Código: {codigo}";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Sala", 3);
         }
 
         public List<BE_Sala_VM516> ListarSalas()

@@ -67,7 +67,7 @@ namespace CuentaClara_TrabajoCampo
                 return;
             }
 
-            btnAplicar.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P6"); // Bitacora_Consultar
+            btnAplicar.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P6");  // Bitacora_Consultar
             btnImprimir.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P7"); // Bitacora_Exportar
 
             btnLimpiar.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P6");
@@ -76,10 +76,27 @@ namespace CuentaClara_TrabajoCampo
         }
         private void CargarLogins()
         {
-            cboLogin.DataSource = bllUsuario.ListarLogins();
+            var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
+            bool esAdmin = usuarioActual != null && (usuarioActual.IdRol == "R1" || usuarioActual.IdRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase));
+            var listaCompleta = bllUsuario.ListarLogins();
+            cboLogin.DataSource = null;
+
+            if (esAdmin)
+            {
+                cboLogin.DataSource = listaCompleta;
+            }
+            else
+            {
+ 
+                var usuariosNegocio = listaCompleta.Cast<Servicio_Usuario>()
+                    .Where(u => u.IdRol != "R1" && !u.IdRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                cboLogin.DataSource = usuariosNegocio;
+            }
+
             cboLogin.DisplayMember = "Login";
             cboLogin.ValueMember = "Login";
-
             cboLogin.SelectedIndex = -1;
         }
         private void CargarUltimos3Dias()
@@ -93,39 +110,70 @@ namespace CuentaClara_TrabajoCampo
             dgvBitacora.Columns["Fecha"].HeaderText = TraducirTexto("Fecha");
             dgvBitacora.Columns["Hora"].HeaderText = TraducirTexto("Hora");
 
-
             lstMensajes.Items.Clear();
-            //lstMensajes.Items.Add("Se cargaron los eventos de los últimos 3 días.");
             lstMensajes.Items.Add(TraducirTexto("EventosUltimos3Dias"));
             if (dgvBitacora.Rows.Count > 0) dgvBitacora.Rows[0].Selected = true;
             ActualizarContador();
 
         }
 
+        private void CargarModulos()
+        {
+            var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
+            bool esAdmin = usuarioActual != null && (usuarioActual.IdRol == "R1" || usuarioActual.IdRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase));
 
+          
+            cboModulo.DataSource = null;
+            cboModulo.Items.Clear();
+
+        
+            cboModulo.Items.Add("Todos");
+
+            if (esAdmin)
+            {
+                cboModulo.Items.Add("Administración");
+                cboModulo.Items.Add("Seguridad");
+                cboModulo.Items.Add("Gestión de Perfiles y Autorización");
+                cboModulo.Items.Add("Negocio - Artísta");
+                cboModulo.Items.Add("Negocio - Obra");
+                cboModulo.Items.Add("Negocio - Reserva");
+                cboModulo.Items.Add("Negocio - Retiro");
+                cboModulo.Items.Add("Negocio - Tesorería");
+                cboModulo.Items.Add("Operación");
+            }
+            else
+            {
+                cboModulo.Items.Add("Negocio - Artísta");
+                cboModulo.Items.Add("Negocio - Obra");
+                cboModulo.Items.Add("Negocio - Reserva");
+                cboModulo.Items.Add("Negocio - Retiro");
+                cboModulo.Items.Add("Negocio - Tesorería");
+                cboModulo.Items.Add("Administración");
+            }
+
+            if (cboModulo.Items.Count > 0)
+            {
+                cboModulo.SelectedIndex = 0;
+            }
+        }
         private void FormGestionBitacora_Load_1(object sender, EventArgs e)
         {
-
             FormGestionBitacora_Resize(null, null);
-
             RefrescarSesionUsuario();
             List<string> listaEventos = bll.ObtenerEventosBase();
-
             listaEventos.Insert(0, "Todos");
-
             cboEvento.DataSource = listaEventos;
             cboEvento.SelectedIndex = 0;
             var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol(); BloquearBotonesSegunPermisos(usuarioActual);
-
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
-
             lblUsuarioActivo.Text = $"Usuario:";
             lblUsuarioValor.Text = $"{usuarioActual.Login}-{nombreLegibleDelRol}";
 
             CargarUltimos3Dias();
             ActualizarContador();
             CargarLogins();
+            CargarModulos();
             ActualizarIdioma();
 
         }
@@ -133,17 +181,12 @@ namespace CuentaClara_TrabajoCampo
         private void dgvBitacora_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvBitacora.SelectedRows.Count == 0 && dgvBitacora.CurrentRow == null) return;
-
             try
             {
                 DataGridViewRow row = dgvBitacora.CurrentRow;
-
-
                 if (row.Cells["Login"].Value != null)
                 {
                     string login = row.Cells["Login"].Value.ToString();
-
-
                     Servicio_Usuario user = bllUsuario.ObtenerUsuarioPorLogin(login);
 
                     if (user != null)
@@ -153,7 +196,6 @@ namespace CuentaClara_TrabajoCampo
                     }
                     else
                     {
-
                         txtNombre.Text = "N/A";
                         txtApellido.Text = "N/A";
                     }
@@ -179,11 +221,9 @@ namespace CuentaClara_TrabajoCampo
             lstMensajes.Items.Clear();
 
             if (dgvBitacora.Rows.Count > 0)
-                //lstMensajes.Items.Add("Filtro aplicado correctamente. Registros encontrados: " + dgvBitacora.Rows.Count);
                 lstMensajes.Items.Add(TraducirTexto("FiltroAplicado") + " " + dgvBitacora.Rows.Count);
 
             else
-                //lstMensajes.Items.Add("No se encontraron registros para los filtros seleccionados.");
                 lstMensajes.Items.Add(TraducirTexto("SinRegistros"));
 
         }
@@ -204,7 +244,6 @@ namespace CuentaClara_TrabajoCampo
             dtpFechaFin.Value = DateTime.Today;
 
             lstMensajes.Items.Clear();
-            //lstMensajes.Items.Add("Filtros restablecidos.");
             lstMensajes.Items.Add(TraducirTexto("FiltrosRestablecidos"));
             CargarUltimos3Dias();
 
@@ -226,16 +265,12 @@ namespace CuentaClara_TrabajoCampo
                     List<Servicio_Bitacora> lista = (List<Servicio_Bitacora>)dgvBitacora.DataSource;
 
                     bllPdf.ExportarBitacora(lista, save.FileName, login);
-
-
-                    //MessageBox.Show("PDF generado correctamente.");
                     MessageBox.Show(TraducirTexto("PdfGenerado"));
                 }
             }
             catch (Exception ex)
             {
                 string mensaje = TraducirExcepcion(ex);
-                //MessageBox.Show("Error al generar el PDF: " + ex.Message);
                 MessageBox.Show(TraducirTexto("ErrorPdf") + ": " + mensaje);
             }
         }
@@ -260,6 +295,7 @@ namespace CuentaClara_TrabajoCampo
 
             TraducirControles(this.Controls, idioma);
         }
+
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
         {

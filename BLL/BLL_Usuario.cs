@@ -473,7 +473,7 @@ namespace BLL
            
         }
       
-        public DataTable ListarLogins()
+        public List<Servicio_Usuario> ListarLogins()
         {
             return _dalUsuario.ListarLogins();
         }

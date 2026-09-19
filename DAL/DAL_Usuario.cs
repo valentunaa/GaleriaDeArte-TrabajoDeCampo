@@ -393,18 +393,29 @@ namespace DAL
             }
         }
 
-        public DataTable ListarLogins()
+        public List<Servicio_Usuario> ListarLogins()
         {
+            List<Servicio_Usuario> lista = new List<Servicio_Usuario>();
+
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                SqlDataAdapter adapter =
-                    new SqlDataAdapter("SELECT DISTINCT Login FROM Usuario", conn);
+                // Traemos Login e IdRol para que la interfaz pueda ocultar a los administradores
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Login, IdRol FROM Usuario", conn);
 
                 DataTable tabla = new DataTable();
                 adapter.Fill(tabla);
 
-                return tabla;
+                foreach (DataRow row in tabla.Rows)
+                {
+                    Servicio_Usuario u = new Servicio_Usuario();
+                    u.Login = row["Login"].ToString();
+                    u.IdRol = row["IdRol"] != DBNull.Value ? row["IdRol"].ToString() : "";
+
+                    lista.Add(u);
+                }
             }
+
+            return lista;
         }
     
 

@@ -15,16 +15,17 @@ namespace BLL_Negocio
     {
         private DAL_Artista_VM516 dalArtista_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
+        private BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_Artista_VM516()
         {
             dalArtista_VM516 = new DAL_Artista_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
+            bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
 
         public void RegistrarArtista_VM516(string dni, string nombre, string apellido, string telefono, string email)
         {
-            // 1. Validaciones de negocio sobre los datos crudos
             if (string.IsNullOrWhiteSpace(dni) ||
                 string.IsNullOrWhiteSpace(nombre) ||
                 string.IsNullOrWhiteSpace(apellido) ||
@@ -60,6 +61,10 @@ namespace BLL_Negocio
 
             List<BE_Artista_VM516> listaBE_VM516 = dalArtista_VM516.ListarArtistas_VM516();
             bllDigito_VM516.ActualizarDigitos(artista_VM516, listaBE_VM516.Cast<IVerificable>().ToList(), "Artista_VM516");
+
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().Login;
+            string detalleEvento = $"Alta Artista: {dni}";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Artísta", 3);
         }
 
         public List<BE_Artista_VM516> ListarArtistas_VM516()

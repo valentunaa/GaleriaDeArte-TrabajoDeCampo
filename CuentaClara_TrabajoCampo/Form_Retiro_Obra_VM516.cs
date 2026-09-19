@@ -144,8 +144,9 @@ namespace IU
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Servicio_PDF servicioPdf = new Servicio_PDF();
-                    servicioPdf.GenerarConstanciaLibreDeudaPDF(
+                    BLL_PDF bllPdf = new BLL_PDF();
+
+                    bllPdf.GenerarConstanciaLibreDeuda_VM516(
                         reservaVerificada.Codigo_Reserva_VM516,
                         dniResponsable,
                         DateTime.Now,

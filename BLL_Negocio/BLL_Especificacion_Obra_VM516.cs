@@ -15,12 +15,14 @@ namespace BLL_Negocio
         private DAL_Especificacion_Obra_VM516 dalObra_VM516;
         private DAL_Artista_VM516 dalArtista_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
+        private BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_Especificacion_Obra_VM516()
         {
             dalObra_VM516 = new DAL_Especificacion_Obra_VM516();
             dalArtista_VM516 = new DAL_Artista_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
+            bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
 
         public bool ExisteArtista(string dni)
@@ -74,6 +76,10 @@ namespace BLL_Negocio
             {
                 bllDigito_VM516.ActualizarDigitos(ultimaObra, lista, "Especificacion_Obra_VM516");
             }
+
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string detalleEvento = $"Alta Obra, DNI Artista: {dni}";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Obra", 3);
         }
 
         public List<BE_Especificacion_Obra_VM516> ListarEspecificaciones()

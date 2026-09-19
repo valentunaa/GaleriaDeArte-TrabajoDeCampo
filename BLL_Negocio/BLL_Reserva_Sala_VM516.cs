@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using DAL;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,11 +16,13 @@ namespace BLL_Negocio
         private DAL_Reserva_Sala_VM516 dalReserva_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_Especificacion_Obra_VM516 bllObra_VM516;
+        private BLL_BitacoraEvento bllBitacora_VM516;
         public BLL_Reserva_Sala_VM516()
         {
             dalReserva_VM516 = new DAL_Reserva_Sala_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllObra_VM516 = new BLL_Especificacion_Obra_VM516();
+            bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
         public BE_Reserva_Sala_VM516 BuscarReservaParaPeritaje_VM516(string codigoReserva)
         {
@@ -189,6 +192,9 @@ namespace BLL_Negocio
                     "Reserva_Sala_VM516"
                 );
             }
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string detalleEvento = $"Alta Reserva: {codigoReserva}";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Reserva", 3);
         }
         public BE_Reserva_Sala_VM516 BuscarReservaParaCobranza_VM516(string codigoReserva)
         {
@@ -210,7 +216,6 @@ namespace BLL_Negocio
                 throw new Exception("err_ReservaSinSaldoPendiente");
             }
 
-            // Precondición exclusiva para el Pago Final: Verificar que la inspección/peritaje esté hecha
             if (reserva.Estado_Pago_VM516 == "Sena_Abonada")
             {
                 bool inspeccionLista = VerificarInspeccionRegistrada_VM516(codigoReserva);
@@ -232,7 +237,6 @@ namespace BLL_Negocio
             
             dalReserva_VM516.ActualizarEstadoPago_VM516(codigoReserva, nuevoEstadoPago);
 
-            // Recalcula y actualiza los dígitos verificadores (DVH y DVV) de la tabla Reserva_Sala_VM516
             List<BE_Reserva_Sala_VM516> listaReservas = dalReserva_VM516.ListarReservas_VM516();
             BE_Reserva_Sala_VM516 reservaModificada = listaReservas.FirstOrDefault(r => r.Codigo_Reserva_VM516 == codigoReserva);
 
@@ -240,6 +244,10 @@ namespace BLL_Negocio
             {
                 bllDigito_VM516.ActualizarDigitos<BE_Reserva_Sala_VM516>(reservaModificada, listaReservas, "Reserva_Sala_VM516");
             }
+
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            string detalleEvento = $"Estado Pago: {codigoReserva} [{nuevoEstadoPago}]";
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Reserva", 3);
         }
         public List<BE_Reserva_Sala_VM516> ListarReservas_VM516()
         {
