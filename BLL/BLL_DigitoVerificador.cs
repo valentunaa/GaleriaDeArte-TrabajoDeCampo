@@ -206,8 +206,8 @@ namespace BLL
             if (errorFamilia != null)
                 errores.Add(errorFamilia);
 
-            if (errores.Count > 0)
-                throw new ExcepcionIntegridad(errores);
+            //if (errores.Count > 0)
+            //    throw new ExcepcionIntegridad(errores);
             // ==========================================
             // NUEVAS ENTIDADES DE NEGOCIO (GALERÍA)
             // ==========================================
