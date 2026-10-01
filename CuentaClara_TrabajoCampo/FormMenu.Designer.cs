@@ -486,6 +486,8 @@
             // 
             panelMovimientos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelMovimientos.BackColor = Color.White;
+            panelMovimientos.BackgroundImage = IU.Properties.Resources.imagenGaleria;
+            panelMovimientos.BackgroundImageLayout = ImageLayout.Stretch;
             panelMovimientos.Location = new Point(245, 0);
             panelMovimientos.Margin = new Padding(0);
             panelMovimientos.Name = "panelMovimientos";

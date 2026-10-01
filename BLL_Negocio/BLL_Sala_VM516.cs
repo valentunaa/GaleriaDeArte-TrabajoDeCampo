@@ -112,6 +112,7 @@ namespace BLL_Negocio
             {
                 throw new Exception("err_SeleccionarSalaEliminar");
             }
+
             ValidarSalaAsignada(codigo);
             dalSala_VM516.EliminarSala_VM516(codigo);
 

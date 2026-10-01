@@ -215,10 +215,10 @@ namespace BLL_Negocio
             {
                 throw new Exception("err_ReservaSinSaldoPendiente");
             }
-
+            BLL_Inspeccion_Obra_VM516 bllInspeccion =new BLL_Inspeccion_Obra_VM516();
             if (reserva.Estado_Pago_VM516 == "Sena_Abonada")
             {
-                bool inspeccionLista = VerificarInspeccionRegistrada_VM516(codigoReserva);
+                bool inspeccionLista = bllInspeccion.VerificarInspeccionRegistrada_VM516(codigoReserva);
                 if (!inspeccionLista)
                 {
                     throw new Exception("err_InspeccionEgresoPendiente");
@@ -227,11 +227,7 @@ namespace BLL_Negocio
 
             return reserva;
         }
-        private bool VerificarInspeccionRegistrada_VM516(string codigoReserva)
-        {
-            DAL_Inspeccion_Obra_VM516 dalInspeccion = new DAL_Inspeccion_Obra_VM516();
-            return dalInspeccion.ExisteInspeccionPorReserva_VM516(codigoReserva);
-        }
+       
         public void ActualizarEstadoPagoReserva_VM516(string codigoReserva, string nuevoEstadoPago)
         {
             

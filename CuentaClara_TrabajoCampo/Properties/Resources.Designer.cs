@@ -73,6 +73,26 @@ namespace IU.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap galerias_de_arte {
+            get {
+                object obj = ResourceManager.GetObject("galerias-de-arte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imagenGaleria {
+            get {
+                object obj = ResourceManager.GetObject("imagenGaleria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImagenLogo {
             get {
                 object obj = ResourceManager.GetObject("ImagenLogo", resourceCulture);

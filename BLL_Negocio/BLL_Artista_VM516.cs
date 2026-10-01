@@ -67,6 +67,10 @@ namespace BLL_Negocio
             bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Artísta", 3);
         }
 
+        public bool ExisteArtista(string dni)
+        {
+            return dalArtista_VM516.ExisteArtista_VM516(dni);
+        }
         public List<BE_Artista_VM516> ListarArtistas_VM516()
         {
             return dalArtista_VM516.ListarArtistas_VM516();

@@ -15,12 +15,14 @@ namespace BLL_Negocio
         private DAL_Comprobante_Pago_VM516 dalComprobante_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_BitacoraEvento bllBitacora_VM516;
-
+        private BLL_Artista_VM516 bllArtista_VM516;
+        
         public BLL_Comprobante_Pago_VM516()
         {
             dalComprobante_VM516 = new DAL_Comprobante_Pago_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
+            bllArtista_VM516 = new BLL_Artista_VM516();
         }
 
         public BE_Comprobante_Pago_VM516 ProcesarYRegistrarCobro_VM516(BE_Reserva_Sala_VM516 reserva, string medioPago, decimal montoAbonado)
@@ -36,7 +38,6 @@ namespace BLL_Negocio
 
             if (reserva.Porcentaje_Sena_VM516 < 0 || reserva.Porcentaje_Sena_VM516 > 100)
                 throw new Exception("err_PorcentajeSenaInvalido");
-
             
             BLL_Especificacion_Obra_VM516 bllObra_VM516 = new BLL_Especificacion_Obra_VM516();
             var obraAsociada = bllObra_VM516.ObtenerPorId_VM516(reserva.Id_Obra_VM516);
@@ -44,7 +45,7 @@ namespace BLL_Negocio
             if (obraAsociada == null)
                 throw new Exception("err_ObraNoEncontrada");
 
-            BLL_Artista_VM516 bllArtista_VM516 = new BLL_Artista_VM516();
+            
             var artista = bllArtista_VM516.BuscarArtistaPorDNI_VM516(obraAsociada.DNI_Artista_VM516);
 
             BE_Comprobante_Pago_VM516 comprobante = new BE_Comprobante_Pago_VM516

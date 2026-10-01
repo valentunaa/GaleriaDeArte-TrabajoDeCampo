@@ -121,6 +121,12 @@
   <data name="Captura de pantalla 2026-09-11 191840" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Captura de pantalla 2026-09-11 191840.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="galerias-de-arte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\galerias-de-arte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imagenGaleria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mick-haupt-VbI0LMaGMlg-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ImagenLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImagenLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

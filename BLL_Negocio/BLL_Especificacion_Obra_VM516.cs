@@ -13,22 +13,18 @@ namespace BLL_Negocio
     public class BLL_Especificacion_Obra_VM516
     {
         private DAL_Especificacion_Obra_VM516 dalObra_VM516;
-        private DAL_Artista_VM516 dalArtista_VM516;
+        private BLL_Artista_VM516 bllArtista_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_Especificacion_Obra_VM516()
         {
             dalObra_VM516 = new DAL_Especificacion_Obra_VM516();
-            dalArtista_VM516 = new DAL_Artista_VM516();
+            bllArtista_VM516 = new BLL_Artista_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
 
-        public bool ExisteArtista(string dni)
-        {
-            return dalArtista_VM516.ExisteArtista_VM516(dni);
-        }
 
         public BE_Especificacion_Obra_VM516 ObtenerPorId_VM516(int idObra)
         {
@@ -47,7 +43,7 @@ namespace BLL_Negocio
                 throw new Exception("err_CamposObligatoriosObra");
             }
 
-            if (!dalArtista_VM516.ExisteArtista_VM516(dni))
+            if (!bllArtista_VM516.ExisteArtista(dni))
             {
                 throw new Exception("err_ArtistaNoRegistradoObra");
             }

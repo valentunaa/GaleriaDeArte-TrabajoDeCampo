@@ -73,6 +73,10 @@ namespace BLL_Negocio
                 throw;
             }
         }
+        public bool VerificarInspeccionRegistrada_VM516(string codigoReserva)
+        {
+            return dalInspeccion_VM516.ExisteInspeccionPorReserva_VM516(codigoReserva);
+        }
 
         public List<BE_Inspeccion_Fisica_VM516> ListarInspecciones_VM516()
         {
