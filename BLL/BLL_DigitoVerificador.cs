@@ -254,7 +254,10 @@ namespace BLL
             string dvvFinal = servicioCalcular.CalcularHash(cadenaAcumulada);
             string nombreMaestro = $"{nombreTabla}_MAESTRO";
 
-            Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
+            //Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
+            Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador();
+            nuevoDVV.Nombre = nombreMaestro;
+            nuevoDVV.DVV = dvvFinal;
             dalDigito.GuardarDVV(nuevoDVV);
         }
 
@@ -284,8 +287,10 @@ namespace BLL
             string nombreMaestro = $"{nombreTabla}_MAESTRO";
 
 
-            Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
-
+            //Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
+            Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador();
+            nuevoDVV.Nombre = nombreMaestro;
+            nuevoDVV.DVV = dvvFinal;
             dalDigito.GuardarDVV(nuevoDVV);
         }
 
@@ -384,7 +389,10 @@ namespace BLL
             //}
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Rol_MAESTRO");
+            //Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Rol_MAESTRO");
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
+            maestro.Nombre = "Rol_MAESTRO";
+            maestro.DVV = dvv;
             dalDigito.GuardarDVV(maestro);
 
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Roles", log , "Seguridad", 1);
@@ -444,7 +452,10 @@ namespace BLL
             //}
 
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Familia_MAESTRO");
+            //Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Familia_MAESTRO");
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
+            maestro.Nombre = "Familia_MAESTRO";
+            maestro.DVV = dvv;
             dalDigito.GuardarDVV(maestro);
 
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Familias", log, "Seguridad", 1);
