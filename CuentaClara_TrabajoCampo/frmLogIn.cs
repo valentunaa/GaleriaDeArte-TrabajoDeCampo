@@ -89,6 +89,90 @@ namespace CuentaClara_TrabajoCampo
                     string idIdioma = comboBox1.SelectedValue.ToString();
                     _bllUsuario.CambiarIdiomaEnSesion(idIdioma);
 
+                    Servicio_Usuario usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
+
+                    if (usuarioActual != null && usuarioActual.ModoEmergencia && usuarioActual.ErrorIntegridad != null)
+                    {
+                        // Reconstruimos el mensaje tal cual estaba en FormMenu.cs
+                        string mensaje =
+                        TraducirTexto("Atencion") +
+                        Environment.NewLine + Environment.NewLine +
+                        TraducirTexto("ViolacionIntegridad") +
+                        Environment.NewLine + Environment.NewLine;
+
+                        foreach (ExcepcionIntegridad error in usuarioActual.ErrorIntegridad.Errores)
+                        {
+                            mensaje += TraducirTexto("Tabla") + ": " + error.Tabla + Environment.NewLine;
+
+                            if (error.RegistrosModificados.Count > 0)
+                            {
+                                mensaje += TraducirTexto("RegistrosModificados") + Environment.NewLine;
+                                foreach (string reg in error.RegistrosModificados)
+                                {
+                                    mensaje += "- " + reg + Environment.NewLine;
+                                }
+                            }
+
+                            if (error.RegistrosEliminados.Count > 0)
+                            {
+                                mensaje += TraducirTexto("RegistrosEliminados") + Environment.NewLine;
+                                foreach (string reg in error.RegistrosEliminados)
+                                {
+                                    mensaje += "- " + reg + Environment.NewLine;
+                                }
+                            }
+
+                            if (error.ErrorDVV)
+                            {
+                                mensaje += TraducirTexto("ErrorDVV") + Environment.NewLine;
+                            }
+
+                            if (error.RegistrosModificados.Count == 0 &&
+                                error.RegistrosEliminados.Count == 0 &&
+                                !error.ErrorDVV)
+                            {
+                                mensaje += TraducirTexto("AlteracionEstructural") + Environment.NewLine;
+                            }
+
+                            mensaje += Environment.NewLine;
+                        }
+
+                        mensaje += Environment.NewLine + TraducirTexto("ModoEmergenciaFinal");
+
+                        // Mostramos el mensaje con las traducciones
+                        MessageBox.Show(mensaje, TraducirTexto("ModoEmergencia"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        // Mostramos el formulario de respaldo y ocultamos el login
+                        FormGestionRespaldo formRespaldo = new FormGestionRespaldo();
+                        this.Hide();
+                        formRespaldo.ShowDialog();
+
+                        // Al cerrar el formulario de respaldo, verificamos nuevamente
+                        try
+                        {
+                            BLL_DigitoVerificador validador = new BLL_DigitoVerificador();
+                            validador.ValidarTodaLaBase();
+
+                            // Si se soluciona, se quita la bandera y la alerta
+                            usuarioActual.ModoEmergencia = false;
+                            usuarioActual.ErrorIntegridad = null;
+                            SessionManager.GetInstancia().SetUsuarioActual(usuarioActual);
+
+                            ConfigurarMenu();
+                            MostrarPantallaPrincipal();
+                            this.Close();
+                            return;
+                        }
+                        catch (ExcepcionIntegridad)
+                        {
+                            // Si no se soluciona, cerramos la sesión y no permitimos el ingreso
+                            _bllUsuario.CerrarSesion();
+                            this.Show();
+                            return;
+                        }
+                    }
+
+                    // Flujo normal sin error de integridad
                     ConfigurarMenu();
                     MostrarPantallaPrincipal();
                     this.Close();

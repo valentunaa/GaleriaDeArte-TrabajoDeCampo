@@ -164,6 +164,40 @@ namespace BLL
 
         private bool IniciarSesion(string nombreUsuario, string hash)
         {
+            Servicio_Usuario usuarioExistente = _dalUsuario.ObtenerUsuarioPorLogin(nombreUsuario);
+            if (usuarioExistente == null)
+            {
+                throw new Exception("err_UsuarioNoRegistrado");
+            }
+
+            int intentos = _dalUsuario.ObtenerIntentos(nombreUsuario);
+            if (intentos >= 3)
+            {
+                _bitacoraServicio.RegistrarBitacora("Intento de login bloqueado", nombreUsuario, "Seguridad", 1);
+                throw new Exception("err_UsuarioBloqueado");
+            }
+
+            Servicio_Usuario usuario = _dalUsuario.AutenticarUsuario(nombreUsuario, hash);
+            if (usuario == null)
+            {
+                IncrementarIntentos(nombreUsuario);
+                int intentosActualizados = _dalUsuario.ObtenerIntentos(nombreUsuario);
+                throw new Exception("err_IntentosRestantes| " + (3 - intentosActualizados));
+            }
+
+            // 3. USUARIO BLOQUEADO / ESTADO (Como en tu diagrama)
+            if (!VerificarEstadoUsuario(usuario))
+            {
+                _bitacoraServicio.RegistrarBitacora("Usuario bloqueado o inactivo", nombreUsuario, "Seguridad", 1);
+                throw new Exception("err_UsuarioInactivoBloqueado");
+            }
+
+            if (string.IsNullOrWhiteSpace(usuario.IdRol))
+            {
+                _bitacoraServicio.RegistrarBitacora("Intento de login sin rol asignado", nombreUsuario, "Seguridad", 2);
+                throw new Exception("err_UsuarioSinRol");
+            }
+
             try
             {
                 BLL_DigitoVerificador bllDV = new BLL_DigitoVerificador();
@@ -171,101 +205,32 @@ namespace BLL
             }
             catch (ExcepcionIntegridad ex)
             {
-                Servicio_Usuario usuarioAdmin = _dalUsuario.ObtenerUsuarioPorLogin(nombreUsuario);
-
-                if (usuarioAdmin != null && usuarioAdmin.IdRol == "R1")
+                // Si salta el error acá, ya sabemos que la contraseña era perfecta
+                if (usuario.IdRol == "R1") // Administrador
                 {
-                    usuarioAdmin.ModoEmergencia = true;
-                    usuarioAdmin.ErrorIntegridad = ex;
+                    usuario.ModoEmergencia = true;
+                    usuario.ErrorIntegridad = ex;
 
-                    usuarioAdmin = ConstruirPermisos(usuarioAdmin);
+                    usuario = ConstruirPermisos(usuario);
+                    _sm.CrearSesion(usuario);
 
-                    _sm.CrearSesion(usuarioAdmin);
-
-                    _bitacoraServicio.RegistrarBitacora(
-                        "Acceso de emergencia por violación de integridad",
-                        nombreUsuario,
-                        "Seguridad",
-                        1);
-
+                    _bitacoraServicio.RegistrarBitacora("Acceso de emergencia por violación de integridad", nombreUsuario, "Seguridad", 1);
                     return true;
                 }
-
-                _bitacoraServicio.RegistrarBitacora(
-                    "Violación de integridad detectada: " + ex.Message,
-                    nombreUsuario,
-                    "Seguridad",
-                    1);
-
-                throw new Exception("err_SistemaMantenimiento");
+                else // Usuario Normal
+                {
+                    _bitacoraServicio.RegistrarBitacora("Violación de integridad detectada: " + ex.Message, nombreUsuario, "Seguridad", 1);
+                    throw new Exception("err_SistemaMantenimiento");
+                }
             }
-
-            Servicio_Usuario usuarioExistente = _dalUsuario.ObtenerUsuarioPorLogin(nombreUsuario);
-
-            if (usuarioExistente == null)
-            {
-                // El usuario no existe. Cortamos el flujo aquí. No se descuentan intentos a nadie.
-                throw new Exception("err_UsuarioNoRegistrado");
-            }
-
-
-            int intentos = _dalUsuario.ObtenerIntentos(nombreUsuario);
-
-            if (intentos >= 3)
-            {
-                _bitacoraServicio.RegistrarBitacora(
-                    "Intento de login bloqueado",
-                    nombreUsuario,
-                    "Seguridad",
-                    1);
-
-                throw new Exception("err_UsuarioBloqueado");
-            }
-
-            Servicio_Usuario usuario = _dalUsuario.AutenticarUsuario(nombreUsuario, hash);
-
-            if (usuario == null)
-            {
-                IncrementarIntentos(nombreUsuario);
-
-                int intentosActualizados = _dalUsuario.ObtenerIntentos(nombreUsuario);
-
-                throw new Exception("err_IntentosRestantes| " + ( 3 - intentosActualizados)); 
-                    
-            }
-
-
-            if (!VerificarEstadoUsuario(usuario))
-            {
-                _bitacoraServicio.RegistrarBitacora("Usuario bloqueado o inactivo",nombreUsuario,"Seguridad",1);
-
-                throw new Exception("err_UsuarioInactivoBloqueado");
-                    
-            }
-
-            if (string.IsNullOrWhiteSpace(usuario.IdRol))
-            {
-                _bitacoraServicio.RegistrarBitacora(
-                    "Intento de login sin rol asignado",
-                    nombreUsuario,
-                    "Seguridad",
-                    2);
-
-                throw new Exception("err_UsuarioSinRol");
-                   
-            }
-
 
             BLL_Rol bllRol = new BLL_Rol();
             BLL_Familia bllFamilia = new BLL_Familia();
             BLL_Permiso bllPermiso = new BLL_Permiso();
 
-
-
-            usuario.Permisos =new Servicio_Familia(usuario.IdRol,"Raíz_Permisos_" + usuario.Login);
+            usuario.Permisos = new Servicio_Familia(usuario.IdRol, "Raíz_Permisos_" + usuario.Login);
 
             List<Servicio_Permiso> permisosDirectos = bllPermiso.ObtenerPermisosPorRol(usuario.IdRol);
- 
             if (permisosDirectos != null)
             {
                 foreach (Servicio_Permiso permiso in permisosDirectos)
@@ -274,36 +239,18 @@ namespace BLL
                 }
             }
 
-            List<Servicio_Familia> familiasDelRol =bllRol.ObtenerFamiliasPorRol(usuario.IdRol);
- 
+            List<Servicio_Familia> familiasDelRol = bllRol.ObtenerFamiliasPorRol(usuario.IdRol);
             if (familiasDelRol != null)
             {
                 foreach (Servicio_Familia familiaLigera in familiasDelRol)
                 {
-
-                    Servicio_Familia familiaCompleta =
-                        bllFamilia.ObtenerFamiliaCompleta(familiaLigera.IdRol);
-
-
+                    Servicio_Familia familiaCompleta = bllFamilia.ObtenerFamiliaCompleta(familiaLigera.IdRol);
                     usuario.Permisos.AgregarRol(familiaCompleta);
                 }
             }
 
-
-
-
             _sm.CrearSesion(usuario);
-
-
-
-            _bitacoraServicio.RegistrarBitacora("Login correcto",
-                
-                usuario.Login,
-                "Seguridad",
-                1);
-
-
-
+            _bitacoraServicio.RegistrarBitacora("Login correcto", usuario.Login, "Seguridad", 1);
 
             return true;
         }
