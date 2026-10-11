@@ -85,6 +85,45 @@ namespace DAL
                 da_VM516.Update(dt_VM516);
             }
         }
+        public void ModificarCliente_VM516(BE_Cliente_VM516 cliente_VM516)
+        {
+            using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(
+                    "SELECT Dni_VM516, Nombre_VM516, Apellido_VM516, Telefono_VM516, Email_VM516 FROM Cliente_VM516 WHERE Dni_VM516 = @Dni_VM516",
+                    conn_VM516);
+                da_VM516.SelectCommand.Parameters.Add("@Dni_VM516", SqlDbType.VarChar, 15).Value = cliente_VM516.Dni_VM516;
+
+                da_VM516.UpdateCommand = new SqlCommand(
+                    @"UPDATE Cliente_VM516 
+                      SET Nombre_VM516 = @Nombre_VM516, 
+                          Apellido_VM516 = @Apellido_VM516, 
+                          Telefono_VM516 = @Telefono_VM516, 
+                          Email_VM516 = @Email_VM516 
+                      WHERE Dni_VM516 = @Dni_VM516",
+                    conn_VM516);
+
+                da_VM516.UpdateCommand.Parameters.Add("@Nombre_VM516", SqlDbType.VarChar, 100, "Nombre_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@Apellido_VM516", SqlDbType.VarChar, 100, "Apellido_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@Telefono_VM516", SqlDbType.VarChar, 30, "Telefono_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@Email_VM516", SqlDbType.VarChar, 120, "Email_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@Dni_VM516", SqlDbType.VarChar, 15, "Dni_VM516");
+
+                DataTable dt_VM516 = new DataTable();
+                da_VM516.Fill(dt_VM516);
+
+                if (dt_VM516.Rows.Count > 0)
+                {
+                    DataRow fila_VM516 = dt_VM516.Rows[0];
+                    fila_VM516["Nombre_VM516"] = cliente_VM516.Nombre_VM516;
+                    fila_VM516["Apellido_VM516"] = cliente_VM516.Apellido_VM516;
+                    fila_VM516["Telefono_VM516"] = cliente_VM516.Telefono_VM516;
+                    fila_VM516["Email_VM516"] = cliente_VM516.Email_VM516;
+
+                    da_VM516.Update(dt_VM516);
+                }
+            }
+        }
     }
 
 }

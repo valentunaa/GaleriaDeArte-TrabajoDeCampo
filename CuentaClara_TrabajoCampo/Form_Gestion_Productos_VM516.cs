@@ -20,6 +20,7 @@ namespace IU
         public Form_Gestion_Productos_VM516()
         {
             InitializeComponent();
+            bllProducto_VM516 = new BLL_Producto_VM516();
         }
         private void Form_Gestion_Productos_VM516_Load(object sender, EventArgs e)
         {
