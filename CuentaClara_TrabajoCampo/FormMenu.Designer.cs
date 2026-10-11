@@ -19,7 +19,6 @@
             button12 = new Button();
             button11 = new Button();
             label2 = new Label();
-            button10 = new Button();
             pictureBox1 = new PictureBox();
             lblSeccionSistema = new Label();
             lblSeccionOperacion = new Label();
@@ -61,7 +60,6 @@
             panelMenu.Controls.Add(button12);
             panelMenu.Controls.Add(button11);
             panelMenu.Controls.Add(label2);
-            panelMenu.Controls.Add(button10);
             panelMenu.Controls.Add(pictureBox1);
             panelMenu.Controls.Add(lblSeccionSistema);
             panelMenu.Controls.Add(lblSeccionOperacion);
@@ -136,23 +134,6 @@
             label2.TabIndex = 24;
             label2.Tag = "";
             label2.Text = "CAFETERÍA";
-            // 
-            // button10
-            // 
-            button10.BackColor = Color.FromArgb(46, 17, 39);
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button10.ForeColor = Color.FromArgb(245, 235, 240);
-            button10.Location = new Point(87, 102);
-            button10.Margin = new Padding(1);
-            button10.Name = "button10";
-            button10.Size = new Size(210, 30);
-            button10.TabIndex = 23;
-            button10.Tag = "btn_Salas";
-            button10.Text = "SALAS";
-            button10.TextAlign = ContentAlignment.MiddleLeft;
-            button10.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -646,7 +627,6 @@
         private Label lblSeccionSistema;
         private PictureBox pictureBox1;
         private Label label2;
-        private Button button10;
         private Button button12;
         private Button button11;
     }

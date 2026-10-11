@@ -93,7 +93,67 @@ namespace DAL
                 da_VM516.Update(ds_VM516, "Producto_VM516");
             }
         }
+        public void ModificarProducto_VM516(BE_Producto_VM516 producto_VM516)
+        {
+            using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(
+                    "SELECT CodigoProducto_VM516, Descripcion_VM516, StockDisponible_VM516, PrecioVigente_VM516 FROM Producto_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                    conn_VM516);
+                da_VM516.SelectCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50).Value = producto_VM516.CodigoProducto_VM516;
 
+                da_VM516.UpdateCommand = new SqlCommand(
+                    @"UPDATE Producto_VM516 
+                      SET Descripcion_VM516 = @Descripcion_VM516, 
+                          StockDisponible_VM516 = @StockDisponible_VM516, 
+                          PrecioVigente_VM516 = @PrecioVigente_VM516 
+                      WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                    conn_VM516);
+
+                da_VM516.UpdateCommand.Parameters.Add("@Descripcion_VM516", SqlDbType.VarChar, 255, "Descripcion_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@StockDisponible_VM516", SqlDbType.Int, 4, "StockDisponible_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@PrecioVigente_VM516", SqlDbType.Decimal, 18, "PrecioVigente_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50, "CodigoProducto_VM516");
+
+                DataTable dt_VM516 = new DataTable();
+                da_VM516.Fill(dt_VM516);
+
+                if (dt_VM516.Rows.Count > 0)
+                {
+                    DataRow fila_VM516 = dt_VM516.Rows[0];
+                    fila_VM516["Descripcion_VM516"] = producto_VM516.Descripcion_VM516;
+                    fila_VM516["StockDisponible_VM516"] = producto_VM516.StockDisponible_VM516;
+                    fila_VM516["PrecioVigente_VM516"] = producto_VM516.PrecioVigente_VM516;
+
+                    da_VM516.Update(dt_VM516);
+                }
+            }
+        }
+
+        public void EliminarProducto_VM516(string codigoProducto_VM516)
+        {
+            using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(
+                    "SELECT CodigoProducto_VM516 FROM Producto_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                    conn_VM516);
+                da_VM516.SelectCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50).Value = codigoProducto_VM516;
+
+                da_VM516.DeleteCommand = new SqlCommand(
+                    "DELETE FROM Producto_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                    conn_VM516);
+                da_VM516.DeleteCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50, "CodigoProducto_VM516");
+
+                DataTable dt_VM516 = new DataTable();
+                da_VM516.Fill(dt_VM516);
+
+                if (dt_VM516.Rows.Count > 0)
+                {
+                    dt_VM516.Rows[0].Delete();
+                    da_VM516.Update(dt_VM516);
+                }
+            }
+        }
         public void ActualizarStockProducto_VM516(BE_Producto_VM516 producto_VM516)
         {
             using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
@@ -117,6 +177,21 @@ namespace DAL
                     dt_VM516.Rows[0]["StockDisponible_VM516"] = producto_VM516.StockDisponible_VM516;
                     da_VM516.Update(dt_VM516);
                 }
+            }
+        }
+        public bool EstaProductoEnUso_VM516(string codigoProducto_VM516)
+        {
+            using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(
+                    "SELECT TOP 1 CodigoProducto_VM516 FROM LineaDetalle_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                    conn_VM516);
+                da_VM516.SelectCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50).Value = codigoProducto_VM516;
+
+                DataTable dt_VM516 = new DataTable();
+                da_VM516.Fill(dt_VM516);
+
+                return dt_VM516.Rows.Count > 0;
             }
         }
     }

@@ -153,7 +153,13 @@ namespace IU
             foreach (var linea_VM516 in pedido_VM516.LineasDetalle_VM516)
             {
                 var prod_VM516 = catalogo_VM516.FirstOrDefault(p => p.CodigoProducto_VM516 == linea_VM516.CodigoProducto_VM516);
-                string desc_VM516 = prod_VM516 != null ? prod_VM516.Descripcion_VM516 : linea_VM516.CodigoProducto_VM516;
+
+                // Traducimos el nombre del producto buscando "prod_CODIGO" en el JSON
+                string claveProd_VM516 = $"prod_{linea_VM516.CodigoProducto_VM516}";
+                string traduccion_VM516 = TraducirTexto(claveProd_VM516);
+                string desc_VM516 = traduccion_VM516 != claveProd_VM516
+                    ? traduccion_VM516
+                    : (prod_VM516 != null ? prod_VM516.Descripcion_VM516 : linea_VM516.CodigoProducto_VM516);
 
                 dgvDetallePedido_VM516.Rows.Add(
                     linea_VM516.CodigoProducto_VM516,

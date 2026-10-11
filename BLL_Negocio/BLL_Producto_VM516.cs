@@ -4,6 +4,7 @@ using DAL;
 using Servicio;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,93 @@ namespace BLL_Negocio
             string detalleEvento = $"Alta Producto Cafetería: {codigo_VM516}";
             bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Cafetería", 3);
         }
+        public void ModificarProducto_VM516(string codigo_VM516, string descripcion_VM516, string stockTxt_VM516, string precioTxt_VM516)
+        {
+            if (string.IsNullOrWhiteSpace(codigo_VM516) ||
+                string.IsNullOrWhiteSpace(descripcion_VM516) ||
+                string.IsNullOrWhiteSpace(stockTxt_VM516) ||
+                string.IsNullOrWhiteSpace(precioTxt_VM516))
+            {
+                throw new Exception("err_CamposObligatoriosProducto");
+            }
 
+            if (!int.TryParse(stockTxt_VM516.Trim(), out int stock_VM516) || stock_VM516 < 0)
+            {
+                throw new Exception("err_StockProductoInvalido");
+            }
+
+            string precioNormalizado_VM516 = precioTxt_VM516.Trim().Replace(",", ".");
+            if (!decimal.TryParse(precioNormalizado_VM516, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal precio_VM516) || precio_VM516 <= 0)
+            {
+                throw new Exception("err_PrecioProductoInvalido");
+            }
+
+            string codigoLimpio_VM516 = codigo_VM516.Trim().ToUpper();
+            if (dalProducto_VM516.ObtenerProducto_VM516(codigoLimpio_VM516) == null)
+            {
+                throw new Exception("err_ProductoNoEncontrado");
+            }
+
+            BE_Producto_VM516 prodModificado_VM516 = new BE_Producto_VM516(
+                codigoLimpio_VM516,
+                descripcion_VM516.Trim(),
+                stock_VM516,
+                precio_VM516
+            );
+
+            dalProducto_VM516.ModificarProducto_VM516(prodModificado_VM516);
+
+            // Actualizar Dígitos Verificadores (DVH y DVV)
+            List<BE_Producto_VM516> lista_VM516 = dalProducto_VM516.ListarProductos_VM516();
+            BE_Producto_VM516 prodActualizado_VM516 = lista_VM516.LastOrDefault(p => p.CodigoProducto_VM516 == codigoLimpio_VM516);
+            if (prodActualizado_VM516 != null)
+            {
+                bllDigito_VM516.ActualizarDigitos<BE_Producto_VM516>(prodActualizado_VM516, lista_VM516, "Producto_VM516");
+            }
+
+            // Registrar en Bitácora
+            string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            bllBitacora_VM516.RegistrarBitacora(
+                $"Modificación Producto Cafetería: {prodModificado_VM516.CodigoProducto_VM516} (Stock: {stock_VM516} | Precio: ${precio_VM516:0.00})",
+                loginActual_VM516,
+                "Negocio - Cafetería",
+                3);
+        }
+
+        public void EliminarProducto_VM516(string codigo_VM516)
+        {
+            if (string.IsNullOrWhiteSpace(codigo_VM516))
+            {
+                throw new Exception("err_SeleccionarProductoEliminar");
+            }
+
+            string codigoLimpio_VM516 = codigo_VM516.Trim().ToUpper();
+
+            if (dalProducto_VM516.ObtenerProducto_VM516(codigoLimpio_VM516) == null)
+            {
+                throw new Exception("err_ProductoNoEncontrado");
+            }
+
+            // Validación de integridad referencial: No permitir borrar si está asociado a pedidos
+            if (dalProducto_VM516.EstaProductoEnUso_VM516(codigoLimpio_VM516))
+            {
+                throw new Exception("err_ProductoEnUsoPedido");
+            }
+
+            dalProducto_VM516.EliminarProducto_VM516(codigoLimpio_VM516);
+
+            // Actualizar Dígitos Verificadores usando tu método exacto de BLL_DigitoVerificador:
+            List<BE_Producto_VM516> listaRestante_VM516 = dalProducto_VM516.ListarProductos_VM516();
+            bllDigito_VM516.EliminarDigitoYRecalcular<BE_Producto_VM516>(codigoLimpio_VM516, listaRestante_VM516, "Producto_VM516");
+
+            // Registrar en Bitácora
+            string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            bllBitacora_VM516.RegistrarBitacora(
+                $"Baja Producto Cafetería: {codigoLimpio_VM516}",
+                loginActual_VM516,
+                "Negocio - Cafetería",
+                4);
+        }
         public List<BE_Producto_VM516> ListarProductos_VM516()
         {
             return dalProducto_VM516.ListarProductos_VM516();
