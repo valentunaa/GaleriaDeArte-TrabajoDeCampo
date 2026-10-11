@@ -185,7 +185,13 @@ namespace IU
             foreach (var item_VM516 in carrito_VM516)
             {
                 var prod_VM516 = catalogo_VM516.FirstOrDefault(p => p.CodigoProducto_VM516 == item_VM516.CodigoProducto_VM516);
-                string desc_VM516 = prod_VM516 != null ? prod_VM516.Descripcion_VM516 : item_VM516.CodigoProducto_VM516;
+
+                string claveProd_VM516 = $"prod_{item_VM516.CodigoProducto_VM516}";
+                string traduccion_VM516 = TraducirTexto(claveProd_VM516);
+                string desc_VM516 = traduccion_VM516 != claveProd_VM516
+                    ? traduccion_VM516
+                    : (prod_VM516 != null ? prod_VM516.Descripcion_VM516 : item_VM516.CodigoProducto_VM516);
+
                 decimal subtotal_VM516 = item_VM516.Cantidad_VM516 * item_VM516.PrecioUnitario_VM516;
 
                 dgvCarrito_VM516.Rows.Add(
@@ -360,19 +366,34 @@ namespace IU
             CargarGrilla_VM516();
         }
 
-        private void Form_Cafeteria_VM516_Resize(object sender, EventArgs e)
-        {
-            //if (WindowState == FormWindowState.Minimized) return;
-            //int altoDisponible_VM516 = ClientSize.Height - panelInferior_VM516.Height;
-            //panelContenedor_VM516.Location = new Point(
-            //    (ClientSize.Width - panelContenedor_VM516.Width) / 2,
-            //    (altoDisponible_VM516 - panelContenedor_VM516.Height) / 2
-            //);
-        }
 
         private void Form_Cafeteria_VM516_FormClosed(object sender, FormClosedEventArgs e)
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
+        }
+
+        private void dgvProductos_VM516_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvProductos_VM516.Columns[e.ColumnIndex].Name == "Descripcion_VM516")
+            {
+                if (dgvProductos_VM516.Rows[e.RowIndex].DataBoundItem is BE_Producto_VM516 prod_VM516)
+                {
+                    string claveProducto = $"prod_{prod_VM516.CodigoProducto_VM516}";
+                    string traduccion = TraducirTexto(claveProducto);
+
+                    // Si existe la etiqueta en el JSON la muestra traducida; si no, deja la descripción original de la BD
+                    if (traduccion != claveProducto)
+                    {
+                        e.Value = traduccion;
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void btnSalir_VM516_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -226,5 +226,14 @@ namespace IU
         {
             this.Close();
         }
+
+        private void btnVerEntregados_VM516_Click(object sender, EventArgs e)
+        {
+            using (Form_Historial_Entregados_VM516 frmHistorial_VM516 = new Form_Historial_Entregados_VM516())
+            {
+                frmHistorial_VM516.ShowDialog();
+            }
+        }
+
     }
 }

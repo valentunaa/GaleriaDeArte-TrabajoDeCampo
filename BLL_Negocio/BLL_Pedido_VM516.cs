@@ -258,6 +258,23 @@ namespace BLL_Negocio
             string detalleEvento_VM516 = $"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado";
             bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginActual_VM516, "Negocio - Cafetería", 3);
         }
+        public List<BE_Pedido_VM516> ListarPedidosEntregados_VM516(string filtro_VM516 = "")
+        {
+            var listaEntregados_VM516 = dalPedido_VM516.ListarPedidos_VM516()
+                .Where(p => p.EstadoPedido_VM516.Equals("Entregado", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (!string.IsNullOrWhiteSpace(filtro_VM516))
+            {
+                string busq_VM516 = filtro_VM516.Trim();
+                listaEntregados_VM516 = listaEntregados_VM516
+                    .Where(p => p.NumeroPedido_VM516.ToString().Contains(busq_VM516) ||
+                                (p.Dni_Cliente_VM516 != null && p.Dni_Cliente_VM516.IndexOf(busq_VM516, StringComparison.OrdinalIgnoreCase) >= 0))
+                    .ToList();
+            }
+
+            return listaEntregados_VM516;
+        }
     }
 
 }

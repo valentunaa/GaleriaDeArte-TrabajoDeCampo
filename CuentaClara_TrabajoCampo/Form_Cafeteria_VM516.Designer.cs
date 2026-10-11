@@ -110,6 +110,7 @@
             lblTitulo_VM516.Name = "lblTitulo_VM516";
             lblTitulo_VM516.Size = new Size(252, 41);
             lblTitulo_VM516.TabIndex = 1;
+            lblTitulo_VM516.Tag = "titulo_FormRegistrarPedido";
             lblTitulo_VM516.Text = "Registrar Pedido";
             // 
             // btnSalir_VM516
@@ -118,7 +119,7 @@
             btnSalir_VM516.FlatAppearance.BorderColor = Color.Silver;
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSalir_VM516.ForeColor = Color.DimGray;
+            btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir_VM516.Location = new Point(1280, 36);
             btnSalir_VM516.Name = "btnSalir_VM516";
             btnSalir_VM516.Size = new Size(140, 40);
@@ -126,6 +127,7 @@
             btnSalir_VM516.Tag = "btn_Salir";
             btnSalir_VM516.Text = "Salir";
             btnSalir_VM516.UseVisualStyleBackColor = false;
+            btnSalir_VM516.Click += btnSalir_VM516_Click;
             // 
             // panelCliente_VM516
             // 
@@ -158,6 +160,7 @@
             lblDniCliente_VM516.Name = "lblDniCliente_VM516";
             lblDniCliente_VM516.Size = new Size(174, 19);
             lblDniCliente_VM516.TabIndex = 1;
+            lblDniCliente_VM516.Tag = "lbl_DniCliente";
             lblDniCliente_VM516.Text = "Identificación del Cliente";
             // 
             // txtDniCliente_VM516
@@ -180,6 +183,7 @@
             btnBuscarCliente_VM516.Name = "btnBuscarCliente_VM516";
             btnBuscarCliente_VM516.Size = new Size(165, 27);
             btnBuscarCliente_VM516.TabIndex = 3;
+            btnBuscarCliente_VM516.Tag = "btn_BuscarCliente";
             btnBuscarCliente_VM516.Text = "Buscar";
             btnBuscarCliente_VM516.UseVisualStyleBackColor = false;
             btnBuscarCliente_VM516.Click += btnBuscarCliente_VM516_Click;
@@ -193,6 +197,7 @@
             lblNombreCliente_VM516.Name = "lblNombreCliente_VM516";
             lblNombreCliente_VM516.Size = new Size(182, 20);
             lblNombreCliente_VM516.TabIndex = 4;
+            lblNombreCliente_VM516.Tag = "lbl_NombreClienteInfo";
             lblNombreCliente_VM516.Text = "👤 Seleccione un cliente...";
             // 
             // panelOperacion_VM516
@@ -226,6 +231,7 @@
             lblCantidad_VM516.Name = "lblCantidad_VM516";
             lblCantidad_VM516.Size = new Size(145, 19);
             lblCantidad_VM516.TabIndex = 1;
+            lblCantidad_VM516.Tag = "lbl_Cantidad";
             lblCantidad_VM516.Text = "Cantidad a Comprar";
             // 
             // txtCantidad_VM516
@@ -251,6 +257,7 @@
             btnAgregarCarrito_VM516.Name = "btnAgregarCarrito_VM516";
             btnAgregarCarrito_VM516.Size = new Size(245, 36);
             btnAgregarCarrito_VM516.TabIndex = 3;
+            btnAgregarCarrito_VM516.Tag = "btn_AgregarCarrito";
             btnAgregarCarrito_VM516.Text = "\U0001f6d2 Agregar al Carrito";
             btnAgregarCarrito_VM516.UseVisualStyleBackColor = false;
             btnAgregarCarrito_VM516.Click += btnAgregarCarrito_VM516_Click;
@@ -266,6 +273,7 @@
             btnQuitarCarrito_VM516.Name = "btnQuitarCarrito_VM516";
             btnQuitarCarrito_VM516.Size = new Size(380, 40);
             btnQuitarCarrito_VM516.TabIndex = 4;
+            btnQuitarCarrito_VM516.Tag = "btn_QuitarCarrito";
             btnQuitarCarrito_VM516.Text = "Quitar Artículo Seleccionado";
             btnQuitarCarrito_VM516.UseVisualStyleBackColor = false;
             btnQuitarCarrito_VM516.Click += btnQuitarCarrito_VM516_Click;
@@ -300,6 +308,7 @@
             lblTotalTitulo_VM516.Name = "lblTotalTitulo_VM516";
             lblTotalTitulo_VM516.Size = new Size(160, 25);
             lblTotalTitulo_VM516.TabIndex = 1;
+            lblTotalTitulo_VM516.Tag = "lbl_TotalTitulo";
             lblTotalTitulo_VM516.Text = "TOTAL A ABONAR";
             // 
             // lblTotalMonto_VM516
@@ -324,6 +333,7 @@
             btnConfirmarPedido_VM516.Name = "btnConfirmarPedido_VM516";
             btnConfirmarPedido_VM516.Size = new Size(380, 50);
             btnConfirmarPedido_VM516.TabIndex = 3;
+            btnConfirmarPedido_VM516.Tag = "btn_ConfirmarPedido";
             btnConfirmarPedido_VM516.Text = "Confirmar y Pasar a Caja";
             btnConfirmarPedido_VM516.UseVisualStyleBackColor = false;
             btnConfirmarPedido_VM516.Click += btnConfirmarPedido_VM516_Click;
@@ -337,6 +347,7 @@
             lblProductosTitulo_VM516.Name = "lblProductosTitulo_VM516";
             lblProductosTitulo_VM516.Size = new Size(202, 21);
             lblProductosTitulo_VM516.TabIndex = 5;
+            lblProductosTitulo_VM516.Tag = "lbl_CatalogoProductos";
             lblProductosTitulo_VM516.Text = "☕ Catálogo de Cafetería";
             // 
             // dgvProductos_VM516
@@ -376,6 +387,7 @@
             dgvProductos_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProductos_VM516.Size = new Size(940, 270);
             dgvProductos_VM516.TabIndex = 6;
+            dgvProductos_VM516.CellFormatting += dgvProductos_VM516_CellFormatting;
             dgvProductos_VM516.SelectionChanged += dgvProductos_VM516_SelectionChanged;
             // 
             // lblCarritoTitulo_VM516
@@ -387,6 +399,7 @@
             lblCarritoTitulo_VM516.Name = "lblCarritoTitulo_VM516";
             lblCarritoTitulo_VM516.Size = new Size(142, 21);
             lblCarritoTitulo_VM516.TabIndex = 7;
+            lblCarritoTitulo_VM516.Tag = "lbl_CarritoCompras";
             lblCarritoTitulo_VM516.Text = "🛍️ Carrito Actual";
             // 
             // dgvCarrito_VM516
@@ -458,6 +471,7 @@
             lblUsuarioActivo_VM516.Name = "lblUsuarioActivo_VM516";
             lblUsuarioActivo_VM516.Size = new Size(92, 15);
             lblUsuarioActivo_VM516.TabIndex = 1;
+            lblUsuarioActivo_VM516.Tag = "lbl_Usuario";
             lblUsuarioActivo_VM516.Text = "Usuario activo: ";
             // 
             // Form_Cafeteria_VM516
@@ -474,7 +488,6 @@
             Text = "Vanguardia Arte - Registrar Pedido de Cafetería";
             FormClosed += Form_Cafeteria_VM516_FormClosed;
             Load += Form_Cafeteria_VM516_Load;
-            Resize += Form_Cafeteria_VM516_Resize;
             panelContenedor_VM516.ResumeLayout(false);
             panelContenedor_VM516.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();

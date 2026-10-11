@@ -56,18 +56,34 @@ namespace BLL
 
             bllBitacora.RegistrarBitacora($"Impresión/Exportación de Constancia Libre Deuda - Reserva: {codigoReserva}", loginActual, "Negocio - Tesorería", 4);
         }
-        public void GenerarTicketCafeteria_VM516(int numeroTicket_VM516,DateTime fechaHora_VM516,decimal montoAbonado_VM516,string medioPago_VM516,int numeroPedido_VM516,string ruta_VM516)
+        public void GenerarTicketCafeteria_VM516(
+            int numeroTicket_VM516,
+            DateTime fechaHora_VM516,
+            decimal montoAbonado_VM516,
+            string medioPago_VM516,
+            int numeroPedido_VM516,
+            string dniCliente_VM516,
+            string nombreCliente_VM516,
+            string apellidoCliente_VM516,
+            DataTable detalleItems_VM516,
+            string ruta_VM516)
         {
+            string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login ?? "Cajero";
+
             servicioPdf.GenerarTicketCafeteriaPDF_VM516(
                 numeroTicket_VM516,
                 fechaHora_VM516,
                 montoAbonado_VM516,
                 medioPago_VM516,
                 numeroPedido_VM516,
+                dniCliente_VM516,
+                nombreCliente_VM516,
+                apellidoCliente_VM516,
+                loginActual_VM516,
+                detalleItems_VM516,
                 ruta_VM516
             );
 
-            string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
             bllBitacora.RegistrarBitacora(
                 $"Impresión/Exportación de Ticket de Cafetería Nro: {numeroTicket_VM516}",
                 loginActual_VM516,

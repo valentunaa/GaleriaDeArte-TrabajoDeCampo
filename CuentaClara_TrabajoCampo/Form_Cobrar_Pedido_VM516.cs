@@ -22,6 +22,7 @@ namespace IU
         public Form_Cobrar_Pedido_VM516()
         {
             InitializeComponent();
+            bllComprobante_VM516 = new BLL_ComprobanteCafeteria_VM516();
         }
         public Form_Cobrar_Pedido_VM516(BE_Pedido_VM516 pedido_VM516, decimal montoTotal_VM516) : this()
         {
@@ -166,6 +167,34 @@ namespace IU
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
+                    // 1. Obtenemos los datos del cliente que hizo el pedido
+                    BLL_Cliente_VM516 bllCliente_VM516 = new BLL_Cliente_VM516();
+                    BE_Cliente_VM516 cliente_VM516 = bllCliente_VM516.BuscarClientePorDNI_VM516(pedidoVerificado_VM516.Dni_Cliente_VM516);
+
+                    // 2. Armamos el DataTable con la descripción, cantidad, precio unitario y subtotal de cada producto
+                    BLL_Producto_VM516 bllProducto_VM516 = new BLL_Producto_VM516();
+                    var catalogo_VM516 = bllProducto_VM516.ListarProductos_VM516();
+
+                    DataTable dtItems_VM516 = new DataTable();
+                    dtItems_VM516.Columns.Add("Cantidad", typeof(int));
+                    dtItems_VM516.Columns.Add("Descripcion", typeof(string));
+                    dtItems_VM516.Columns.Add("PrecioUnitario", typeof(decimal));
+                    dtItems_VM516.Columns.Add("Subtotal", typeof(decimal));
+
+                    foreach (var linea_VM516 in pedidoVerificado_VM516.LineasDetalle_VM516)
+                    {
+                        var prod_VM516 = catalogo_VM516.FirstOrDefault(p => p.CodigoProducto_VM516 == linea_VM516.CodigoProducto_VM516);
+                        string descripcion_VM516 = prod_VM516 != null ? $"{prod_VM516.CodigoProducto_VM516} - {prod_VM516.Descripcion_VM516}" : linea_VM516.CodigoProducto_VM516;
+                        decimal subtotal_VM516 = linea_VM516.Cantidad_VM516 * linea_VM516.PrecioUnitario_VM516;
+
+                        dtItems_VM516.Rows.Add(
+                            linea_VM516.Cantidad_VM516,
+                            descripcion_VM516,
+                            linea_VM516.PrecioUnitario_VM516,
+                            subtotal_VM516
+                        );
+                    }
+
                     BLL_PDF bllPdf = new BLL_PDF();
 
                     bllPdf.GenerarTicketCafeteria_VM516(
@@ -174,6 +203,10 @@ namespace IU
                         comprobante.MontoAbonado_VM516,
                         comprobante.MedioPago_VM516,
                         comprobante.NumeroPedido_VM516,
+                        cliente_VM516.Dni_VM516,
+                        cliente_VM516.Nombre_VM516,
+                        cliente_VM516.Apellido_VM516,
+                        dtItems_VM516,
                         saveDialog.FileName
                     );
 

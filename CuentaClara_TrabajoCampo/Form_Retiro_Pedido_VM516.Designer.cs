@@ -29,9 +29,10 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
+            btnVerEntregados_VM516 = new Button();
             picLogo_VM516 = new PictureBox();
             lblTitulo_VM516 = new Label();
             lblNumeroPedido_VM516 = new Label();
@@ -58,6 +59,7 @@
             // 
             panelContenedor_VM516.Anchor = AnchorStyles.None;
             panelContenedor_VM516.BackColor = Color.White;
+            panelContenedor_VM516.Controls.Add(btnVerEntregados_VM516);
             panelContenedor_VM516.Controls.Add(picLogo_VM516);
             panelContenedor_VM516.Controls.Add(lblTitulo_VM516);
             panelContenedor_VM516.Controls.Add(lblNumeroPedido_VM516);
@@ -74,6 +76,23 @@
             panelContenedor_VM516.Name = "panelContenedor_VM516";
             panelContenedor_VM516.Size = new Size(1493, 745);
             panelContenedor_VM516.TabIndex = 1;
+
+            // 
+            // btnVerEntregados_VM516
+            // 
+            btnVerEntregados_VM516.BackColor = Color.FromArgb(46, 17, 39);
+            btnVerEntregados_VM516.FlatAppearance.BorderSize = 0;
+            btnVerEntregados_VM516.FlatStyle = FlatStyle.Flat;
+            btnVerEntregados_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnVerEntregados_VM516.ForeColor = Color.White;
+            btnVerEntregados_VM516.Location = new Point(31, 325);
+            btnVerEntregados_VM516.Name = "btnVerEntregados_VM516";
+            btnVerEntregados_VM516.Size = new Size(383, 50);
+            btnVerEntregados_VM516.TabIndex = 27;
+            btnVerEntregados_VM516.Tag = "btn_VerPedidosEntregados";
+            btnVerEntregados_VM516.Text = "Ver Pedidos Entregados";
+            btnVerEntregados_VM516.UseVisualStyleBackColor = false;
+            btnVerEntregados_VM516.Click += btnVerEntregados_VM516_Click;
             // 
             // picLogo_VM516
             // 
@@ -201,14 +220,14 @@
             dgvPedidosPendientes_VM516.BorderStyle = BorderStyle.None;
             dgvPedidosPendientes_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidosPendientes_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPedidosPendientes_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPedidosPendientes_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPedidosPendientes_VM516.ColumnHeadersHeight = 45;
             dgvPedidosPendientes_VM516.EnableHeadersVisualStyles = false;
             dgvPedidosPendientes_VM516.GridColor = Color.FromArgb(220, 220, 220);
@@ -244,14 +263,14 @@
             dgvDetallePedido_VM516.BorderStyle = BorderStyle.None;
             dgvDetallePedido_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDetallePedido_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvDetallePedido_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvDetallePedido_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvDetallePedido_VM516.ColumnHeadersHeight = 45;
             dgvDetallePedido_VM516.EnableHeadersVisualStyles = false;
             dgvDetallePedido_VM516.GridColor = Color.FromArgb(220, 220, 220);
@@ -341,5 +360,6 @@
         private System.Windows.Forms.Panel panelInferior_VM516;
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
+        private Button btnVerEntregados_VM516;
     }
 }

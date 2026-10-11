@@ -86,7 +86,7 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Margin = new Padding(0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(406, 913);
+            panelMenu.Size = new Size(483, 913);
             panelMenu.TabIndex = 2;
             // 
             // button12
@@ -99,7 +99,7 @@
             button12.Location = new Point(223, 236);
             button12.Margin = new Padding(2, 3, 2, 3);
             button12.Name = "button12";
-            button12.Size = new Size(181, 62);
+            button12.Size = new Size(244, 62);
             button12.TabIndex = 26;
             button12.Tag = "btn_RegistrarEntrega";
             button12.Text = "REGISTRAR ENTREGA DE PEDIDO";
@@ -169,7 +169,7 @@
             lblSeccionSistema.AutoSize = true;
             lblSeccionSistema.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblSeccionSistema.ForeColor = Color.FromArgb(210, 150, 180);
-            lblSeccionSistema.Location = new Point(18, 498);
+            lblSeccionSistema.Location = new Point(18, 476);
             lblSeccionSistema.Name = "lblSeccionSistema";
             lblSeccionSistema.Size = new Size(57, 15);
             lblSeccionSistema.TabIndex = 22;
@@ -267,7 +267,7 @@
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button7.ForeColor = Color.FromArgb(245, 235, 240);
-            button7.Location = new Point(18, 738);
+            button7.Location = new Point(18, 716);
             button7.Margin = new Padding(0);
             button7.Name = "button7";
             button7.Size = new Size(210, 30);
@@ -285,7 +285,7 @@
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button6.ForeColor = Color.FromArgb(245, 235, 240);
-            button6.Location = new Point(18, 699);
+            button6.Location = new Point(18, 677);
             button6.Margin = new Padding(0);
             button6.Name = "button6";
             button6.Size = new Size(210, 30);
@@ -316,7 +316,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button2.ForeColor = Color.FromArgb(245, 235, 240);
-            button2.Location = new Point(18, 630);
+            button2.Location = new Point(18, 608);
             button2.Margin = new Padding(2, 3, 2, 3);
             button2.Name = "button2";
             button2.Size = new Size(210, 30);
@@ -334,7 +334,7 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button5.ForeColor = Color.FromArgb(245, 235, 240);
-            button5.Location = new Point(18, 666);
+            button5.Location = new Point(18, 644);
             button5.Margin = new Padding(2, 3, 2, 3);
             button5.Name = "button5";
             button5.Size = new Size(210, 30);
@@ -352,7 +352,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button4.ForeColor = Color.FromArgb(245, 235, 240);
-            button4.Location = new Point(18, 524);
+            button4.Location = new Point(18, 502);
             button4.Margin = new Padding(1);
             button4.Name = "button4";
             button4.Size = new Size(210, 30);
@@ -370,7 +370,7 @@
             btnCerrarSesion.FlatStyle = FlatStyle.Flat;
             btnCerrarSesion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnCerrarSesion.ForeColor = Color.FromArgb(255, 140, 140);
-            btnCerrarSesion.Location = new Point(18, 814);
+            btnCerrarSesion.Location = new Point(18, 817);
             btnCerrarSesion.Margin = new Padding(1);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(210, 30);
@@ -442,7 +442,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button3.ForeColor = Color.FromArgb(245, 235, 240);
-            button3.Location = new Point(18, 594);
+            button3.Location = new Point(18, 572);
             button3.Margin = new Padding(2, 3, 2, 3);
             button3.Name = "button3";
             button3.Size = new Size(210, 30);
@@ -478,7 +478,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.FromArgb(245, 235, 240);
-            button1.Location = new Point(18, 558);
+            button1.Location = new Point(18, 536);
             button1.Margin = new Padding(2, 3, 2, 3);
             button1.Name = "button1";
             button1.Size = new Size(210, 30);
@@ -498,10 +498,10 @@
             panelUsuario.Controls.Add(lblUsuario);
             panelUsuario.Controls.Add(lblBD);
             panelUsuario.Dock = DockStyle.Bottom;
-            panelUsuario.Location = new Point(406, 873);
+            panelUsuario.Location = new Point(483, 873);
             panelUsuario.Margin = new Padding(0);
             panelUsuario.Name = "panelUsuario";
-            panelUsuario.Size = new Size(838, 40);
+            panelUsuario.Size = new Size(1031, 40);
             panelUsuario.TabIndex = 3;
             // 
             // label1
@@ -561,10 +561,10 @@
             panelMovimientos.BackColor = Color.White;
             panelMovimientos.BackgroundImage = IU.Properties.Resources.imagenGaleria;
             panelMovimientos.BackgroundImageLayout = ImageLayout.Stretch;
-            panelMovimientos.Location = new Point(406, 0);
+            panelMovimientos.Location = new Point(483, 0);
             panelMovimientos.Margin = new Padding(0);
             panelMovimientos.Name = "panelMovimientos";
-            panelMovimientos.Size = new Size(838, 872);
+            panelMovimientos.Size = new Size(1031, 878);
             panelMovimientos.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -593,7 +593,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1244, 913);
+            ClientSize = new Size(1514, 913);
             Controls.Add(panelUsuario);
             Controls.Add(panelMovimientos);
             Controls.Add(panelMenu);
