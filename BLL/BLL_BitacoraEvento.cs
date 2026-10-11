@@ -32,51 +32,21 @@ namespace BLL
             bool guardadoExitoso = _dal.GuardarBitacora(bitacora);
         }
 
-        private List<Servicio_Bitacora> AplicarFiltroSeguridad(List<Servicio_Bitacora> listaOriginal)
-        {
-            Servicio_Usuario usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
-
-            if (usuarioActual == null) return new List<Servicio_Bitacora>();
-
-            if (usuarioActual.IdRol == "R1" || usuarioActual.IdRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
-            {
-                return listaOriginal;
-            }
-            else
-            {
-                return listaOriginal.Where(b =>
-            (!b.Modulo.Equals("Administración", StringComparison.OrdinalIgnoreCase) &&
-             !b.Modulo.Equals("Seguridad", StringComparison.OrdinalIgnoreCase) &&
-             !b.Modulo.Equals("Gestión de Perfiles y Autorización", StringComparison.OrdinalIgnoreCase))
-
-            || 
-
-            b.Evento.Equals("Impresión/Exportación de Bitácora", StringComparison.OrdinalIgnoreCase)
-
-            || 
-
-            b.Login == usuarioActual.Login
-
-        ).ToList();
-            }
-        }
-
+       
         public List<Servicio_Bitacora> ListarBitacora()
         {
-            var lista = _dal.ListarBitacora();
-            return AplicarFiltroSeguridad(lista);
+            return _dal.ListarBitacora();
+            
         }
 
         public List<Servicio_Bitacora> ListarUltimos3Dias()
         {
-            var lista = _dal.ListarUltimos3Dias();
-            return AplicarFiltroSeguridad(lista);
+            return _dal.ListarUltimos3Dias();
         }
 
         public List<Servicio_Bitacora> FiltrarBitacora(string login, DateTime desde, DateTime hasta, string modulo, string evento, int? criticidad)
         {
-            var lista = _dal.FiltrarBitacora(login, desde, hasta, modulo, evento, criticidad);
-            return AplicarFiltroSeguridad(lista);
+            return _dal.FiltrarBitacora(login, desde, hasta, modulo, evento, criticidad);
         }
 
         public List<string> ObtenerEventosBase()
