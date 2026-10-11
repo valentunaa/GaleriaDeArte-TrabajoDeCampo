@@ -24,6 +24,10 @@ namespace BLL
         private DAL_Comprobante_Pago_VM516 dalComprobante_VM516;
         private DAL_Inspeccion_Obra_VM516 dalInspeccion_VM516;
         private DAL_Retiro_Obra_VM516 dalRetiro_VM516;
+        private DAL_Cliente_VM516 dalCliente_VM516;
+        private DAL_Producto_VM516 dalProducto_VM516;
+        private DAL_Pedido_VM516 dalPedido_VM516;
+        private DAL_ComprobanteCafeteria_VM516 dalComprobanteCafeteria_VM516;
         private Servicio_VerificadorDigito servicioVerificador;
         public BLL_DigitoVerificador()
         {
@@ -41,7 +45,10 @@ namespace BLL
             dalComprobante_VM516 = new DAL_Comprobante_Pago_VM516();
             dalInspeccion_VM516 = new DAL_Inspeccion_Obra_VM516();
             dalRetiro_VM516 = new DAL_Retiro_Obra_VM516();
-
+            dalCliente_VM516 = new DAL_Cliente_VM516();
+            dalProducto_VM516 = new DAL_Producto_VM516();
+            dalPedido_VM516 = new DAL_Pedido_VM516();
+            dalComprobanteCafeteria_VM516 = new DAL_ComprobanteCafeteria_VM516();
         }
 
 
@@ -231,6 +238,20 @@ namespace BLL
 
             var errorRetiro = ValidarIntegridad(dalRetiro_VM516.ListarRetiros_VM516(), "Retiro_Obra_VM516");
             if (errorRetiro != null) errores.Add(errorRetiro);
+            var errorCliente = ValidarIntegridad(dalCliente_VM516.ListarClientes_VM516(), "Cliente_VM516");
+            if (errorCliente != null) errores.Add(errorCliente);
+
+            var errorProducto = ValidarIntegridad(dalProducto_VM516.ListarProductos_VM516(), "Producto_VM516");
+            if (errorProducto != null) errores.Add(errorProducto);
+
+            var errorPedido = ValidarIntegridad(dalPedido_VM516.ListarPedidos_VM516(), "Pedido_VM516");
+            if (errorPedido != null) errores.Add(errorPedido);
+
+            var errorLineaDetalle = ValidarIntegridad(dalPedido_VM516.ListarLineasDetalle_VM516(), "LineaDetalle_VM516");
+            if (errorLineaDetalle != null) errores.Add(errorLineaDetalle);
+
+            var errorTicketCafe = ValidarIntegridad(dalComprobanteCafeteria_VM516.ListarComprobantes_VM516(), "ComprobanteCafeteria_VM516");
+            if (errorTicketCafe != null) errores.Add(errorTicketCafe);
 
             if (errores.Count > 0)
                 throw new ExcepcionIntegridad(errores);
@@ -309,6 +330,11 @@ namespace BLL
             RecalcularComprobantes(log);
             RecalcularInspecciones(log);
             RecalcularRetiros(log);
+            RecalcularClientes(log);
+            RecalcularProductos(log);
+            RecalcularPedidos(log);
+            RecalcularLineasDetalle(log);
+            RecalcularComprobantesCafeteria(log);
         }
 
         private void RecalcularUsuarios(string log)
@@ -716,6 +742,144 @@ namespace BLL
             dalDigito.GuardarDVV(maestro);
 
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Retiros de Obra", log, "Seguridad", 1);
+        }
+        private void RecalcularClientes(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Cliente_VM516");
+            List<BE_Cliente_VM516> clientes = dalCliente_VM516.ListarClientes_VM516().OrderBy(c => c.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Cliente_VM516 cliente in clientes)
+            {
+                string dvh = servicioCalcular.CalcularDVH(cliente);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador
+                {
+                    Nombre = "Cliente_VM516_" + cliente.ObtenerIdentificadorFila(),
+                    DVH = dvh
+                };
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador
+            {
+                Nombre = "Cliente_VM516_MAESTRO",
+                DVV = dvv
+            };
+            dalDigito.GuardarDVV(maestro);
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Clientes", log, "Seguridad", 1);
+        }
+
+        private void RecalcularProductos(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Producto_VM516");
+            List<BE_Producto_VM516> productos = dalProducto_VM516.ListarProductos_VM516().OrderBy(p => p.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Producto_VM516 prod in productos)
+            {
+                string dvh = servicioCalcular.CalcularDVH(prod);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador
+                {
+                    Nombre = "Producto_VM516_" + prod.ObtenerIdentificadorFila(),
+                    DVH = dvh
+                };
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador
+            {
+                Nombre = "Producto_VM516_MAESTRO",
+                DVV = dvv
+            };
+            dalDigito.GuardarDVV(maestro);
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Productos", log, "Seguridad", 1);
+        }
+
+        private void RecalcularPedidos(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("Pedido_VM516");
+            List<BE_Pedido_VM516> pedidos = dalPedido_VM516.ListarPedidos_VM516().OrderBy(p => p.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_Pedido_VM516 pedido in pedidos)
+            {
+                string dvh = servicioCalcular.CalcularDVH(pedido);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador
+                {
+                    Nombre = "Pedido_VM516_" + pedido.ObtenerIdentificadorFila(),
+                    DVH = dvh
+                };
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador
+            {
+                Nombre = "Pedido_VM516_MAESTRO",
+                DVV = dvv
+            };
+            dalDigito.GuardarDVV(maestro);
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Pedidos", log, "Seguridad", 1);
+        }
+
+        private void RecalcularLineasDetalle(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("LineaDetalle_VM516");
+            List<BE_LineaDetalle_VM516> lineas = dalPedido_VM516.ListarLineasDetalle_VM516().OrderBy(l => l.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_LineaDetalle_VM516 linea in lineas)
+            {
+                string dvh = servicioCalcular.CalcularDVH(linea);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador
+                {
+                    Nombre = "LineaDetalle_VM516_" + linea.ObtenerIdentificadorFila(),
+                    DVH = dvh
+                };
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador
+            {
+                Nombre = "LineaDetalle_VM516_MAESTRO",
+                DVV = dvv
+            };
+            dalDigito.GuardarDVV(maestro);
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Líneas de Detalle", log, "Seguridad", 1);
+        }
+        private void RecalcularComprobantesCafeteria(string log)
+        {
+            dalDigito.EliminarDVHDeTabla("ComprobanteCafeteria_VM516");
+            List<BE_ComprobanteCafeteria_VM516> tickets = dalComprobanteCafeteria_VM516.ListarComprobantes_VM516().OrderBy(t => t.ObtenerIdentificadorFila()).ToList();
+            string cadenaDVV = "";
+
+            foreach (BE_ComprobanteCafeteria_VM516 ticket in tickets)
+            {
+                string dvh = servicioCalcular.CalcularDVH(ticket);
+                Servicio_DigitoVerificador reg = new Servicio_DigitoVerificador
+                {
+                    Nombre = "ComprobanteCafeteria_VM516_" + ticket.ObtenerIdentificadorFila(),
+                    DVH = dvh
+                };
+                dalDigito.GuardarDVH(reg);
+                cadenaDVV += dvh;
+            }
+
+            string dvv = servicioCalcular.CalcularHash(cadenaDVV);
+            Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador
+            {
+                Nombre = "ComprobanteCafeteria_VM516_MAESTRO",
+                DVV = dvv
+            };
+            dalDigito.GuardarDVV(maestro);
+            bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Tickets de Cafetería", log, "Seguridad", 1);
         }
     }
 }

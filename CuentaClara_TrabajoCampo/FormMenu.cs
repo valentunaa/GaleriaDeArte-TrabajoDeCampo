@@ -117,6 +117,8 @@ namespace CuentaClara_TrabajoCampo
             btn_Salas_Calendario.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P45");
             button7.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P36");
             button9.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P47");
+            button11.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P48");
+            button12.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P49");
         }
 
         public void ActualizarIdioma()
@@ -313,6 +315,18 @@ namespace CuentaClara_TrabajoCampo
         private void btn_Salas_Calendario_Click(object sender, EventArgs e)
         {
             Form_Retiro_Obra_VM516 frm = new Form_Retiro_Obra_VM516();
+            frm.ShowDialog();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Form_Cafeteria_VM516 frm = new Form_Cafeteria_VM516();
+            frm.ShowDialog();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Form_Retiro_Pedido_VM516 frm = new Form_Retiro_Pedido_VM516();
             frm.ShowDialog();
         }
     }

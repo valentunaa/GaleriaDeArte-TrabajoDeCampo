@@ -197,8 +197,49 @@ namespace Servicio
             })
             .GeneratePdf(ruta);
         }
-    
-    public void GenerarConstanciaLibreDeudaPDF(string codigoReserva, string dniResponsable, DateTime fechaRetiro, string ruta)
+        public void GenerarTicketCafeteriaPDF_VM516(
+             int numeroTicket_VM516,
+             DateTime fechaHora_VM516,
+             decimal montoAbonado_VM516,
+             string medioPago_VM516,
+             int numeroPedido_VM516,
+             string ruta_VM516)
+        {
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
+            QuestPDF.Fluent.Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(QuestPDF.Helpers.PageSizes.A6);
+                    page.Margin(1, QuestPDF.Infrastructure.Unit.Centimetre);
+                    page.PageColor(QuestPDF.Helpers.Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Segoe UI"));
+
+                    page.Header().Column(col =>
+                    {
+                        col.Item().AlignCenter().Text("VANGUARDIA ARTE - CAFETERÍA").Bold().FontSize(13);
+                        col.Item().AlignCenter().Text("TICKET FISCAL DE VENTA").FontSize(10);
+                        col.Item().PaddingVertical(5).LineHorizontal(1);
+                    });
+
+                    page.Content().PaddingVertical(5).Column(col =>
+                    {
+                        col.Spacing(6);
+                        col.Item().Text($"Nro. de Ticket: #{numeroTicket_VM516:D6}").Bold();
+                        col.Item().Text($"Nro. de Pedido: #{numeroPedido_VM516}");
+                        col.Item().Text($"Fecha: {fechaHora_VM516:dd/MM/yyyy}");
+                        col.Item().Text($"Hora: {fechaHora_VM516:HH:mm:ss}");
+                        col.Item().Text($"Medio de Pago: {medioPago_VM516}");
+                        col.Item().PaddingVertical(5).LineHorizontal(1);
+                        col.Item().AlignRight().Text($"TOTAL ABONADO: $ {montoAbonado_VM516:0.00}").Bold().FontSize(14);
+                    });
+
+                    page.Footer().AlignCenter().Text("Presente este ticket en la barra para retirar su pedido.").FontSize(8).Italic();
+                });
+            }).GeneratePdf(ruta_VM516);
+        }
+        public void GenerarConstanciaLibreDeudaPDF(string codigoReserva, string dniResponsable, DateTime fechaRetiro, string ruta)
         {
             QuestPDF.Settings.License = LicenseType.Community;
 

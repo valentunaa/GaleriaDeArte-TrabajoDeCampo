@@ -16,6 +16,10 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
+            button12 = new Button();
+            button11 = new Button();
+            label2 = new Label();
+            button10 = new Button();
             pictureBox1 = new PictureBox();
             lblSeccionSistema = new Label();
             lblSeccionOperacion = new Label();
@@ -54,6 +58,10 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(46, 17, 39);
+            panelMenu.Controls.Add(button12);
+            panelMenu.Controls.Add(button11);
+            panelMenu.Controls.Add(label2);
+            panelMenu.Controls.Add(button10);
             panelMenu.Controls.Add(pictureBox1);
             panelMenu.Controls.Add(lblSeccionSistema);
             panelMenu.Controls.Add(lblSeccionOperacion);
@@ -78,8 +86,73 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Margin = new Padding(0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(245, 913);
+            panelMenu.Size = new Size(406, 913);
             panelMenu.TabIndex = 2;
+            // 
+            // button12
+            // 
+            button12.BackColor = Color.FromArgb(46, 17, 39);
+            button12.FlatAppearance.BorderSize = 0;
+            button12.FlatStyle = FlatStyle.Flat;
+            button12.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button12.ForeColor = Color.FromArgb(245, 235, 240);
+            button12.Location = new Point(223, 236);
+            button12.Margin = new Padding(2, 3, 2, 3);
+            button12.Name = "button12";
+            button12.Size = new Size(181, 62);
+            button12.TabIndex = 26;
+            button12.Tag = "btn_RegistrarEntrega";
+            button12.Text = "REGISTRAR ENTREGA DE PEDIDO";
+            button12.TextAlign = ContentAlignment.MiddleLeft;
+            button12.UseVisualStyleBackColor = false;
+            button12.Click += button12_Click;
+            // 
+            // button11
+            // 
+            button11.BackColor = Color.FromArgb(46, 17, 39);
+            button11.FlatAppearance.BorderSize = 0;
+            button11.FlatStyle = FlatStyle.Flat;
+            button11.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button11.ForeColor = Color.FromArgb(245, 235, 240);
+            button11.Location = new Point(223, 204);
+            button11.Margin = new Padding(2, 3, 2, 3);
+            button11.Name = "button11";
+            button11.Size = new Size(181, 30);
+            button11.TabIndex = 25;
+            button11.Tag = "btn_RegistrarPedido";
+            button11.Text = "REGISTRAR PEDIDO";
+            button11.TextAlign = ContentAlignment.MiddleLeft;
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(210, 150, 180);
+            label2.Location = new Point(223, 186);
+            label2.Name = "label2";
+            label2.Size = new Size(67, 15);
+            label2.TabIndex = 24;
+            label2.Tag = "";
+            label2.Text = "CAFETERÍA";
+            // 
+            // button10
+            // 
+            button10.BackColor = Color.FromArgb(46, 17, 39);
+            button10.FlatAppearance.BorderSize = 0;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button10.ForeColor = Color.FromArgb(245, 235, 240);
+            button10.Location = new Point(87, 102);
+            button10.Margin = new Padding(1);
+            button10.Name = "button10";
+            button10.Size = new Size(210, 30);
+            button10.TabIndex = 23;
+            button10.Tag = "btn_Salas";
+            button10.Text = "SALAS";
+            button10.TextAlign = ContentAlignment.MiddleLeft;
+            button10.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -96,7 +169,7 @@
             lblSeccionSistema.AutoSize = true;
             lblSeccionSistema.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblSeccionSistema.ForeColor = Color.FromArgb(210, 150, 180);
-            lblSeccionSistema.Location = new Point(18, 474);
+            lblSeccionSistema.Location = new Point(18, 498);
             lblSeccionSistema.Name = "lblSeccionSistema";
             lblSeccionSistema.Size = new Size(57, 15);
             lblSeccionSistema.TabIndex = 22;
@@ -194,7 +267,7 @@
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button7.ForeColor = Color.FromArgb(245, 235, 240);
-            button7.Location = new Point(18, 714);
+            button7.Location = new Point(18, 738);
             button7.Margin = new Padding(0);
             button7.Name = "button7";
             button7.Size = new Size(210, 30);
@@ -212,7 +285,7 @@
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button6.ForeColor = Color.FromArgb(245, 235, 240);
-            button6.Location = new Point(18, 675);
+            button6.Location = new Point(18, 699);
             button6.Margin = new Padding(0);
             button6.Name = "button6";
             button6.Size = new Size(210, 30);
@@ -243,7 +316,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button2.ForeColor = Color.FromArgb(245, 235, 240);
-            button2.Location = new Point(18, 606);
+            button2.Location = new Point(18, 630);
             button2.Margin = new Padding(2, 3, 2, 3);
             button2.Name = "button2";
             button2.Size = new Size(210, 30);
@@ -261,7 +334,7 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button5.ForeColor = Color.FromArgb(245, 235, 240);
-            button5.Location = new Point(18, 642);
+            button5.Location = new Point(18, 666);
             button5.Margin = new Padding(2, 3, 2, 3);
             button5.Name = "button5";
             button5.Size = new Size(210, 30);
@@ -279,7 +352,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button4.ForeColor = Color.FromArgb(245, 235, 240);
-            button4.Location = new Point(18, 500);
+            button4.Location = new Point(18, 524);
             button4.Margin = new Padding(1);
             button4.Name = "button4";
             button4.Size = new Size(210, 30);
@@ -369,7 +442,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button3.ForeColor = Color.FromArgb(245, 235, 240);
-            button3.Location = new Point(18, 570);
+            button3.Location = new Point(18, 594);
             button3.Margin = new Padding(2, 3, 2, 3);
             button3.Name = "button3";
             button3.Size = new Size(210, 30);
@@ -405,7 +478,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.FromArgb(245, 235, 240);
-            button1.Location = new Point(18, 534);
+            button1.Location = new Point(18, 558);
             button1.Margin = new Padding(2, 3, 2, 3);
             button1.Name = "button1";
             button1.Size = new Size(210, 30);
@@ -425,10 +498,10 @@
             panelUsuario.Controls.Add(lblUsuario);
             panelUsuario.Controls.Add(lblBD);
             panelUsuario.Dock = DockStyle.Bottom;
-            panelUsuario.Location = new Point(245, 873);
+            panelUsuario.Location = new Point(406, 873);
             panelUsuario.Margin = new Padding(0);
             panelUsuario.Name = "panelUsuario";
-            panelUsuario.Size = new Size(999, 40);
+            panelUsuario.Size = new Size(838, 40);
             panelUsuario.TabIndex = 3;
             // 
             // label1
@@ -488,10 +561,10 @@
             panelMovimientos.BackColor = Color.White;
             panelMovimientos.BackgroundImage = IU.Properties.Resources.imagenGaleria;
             panelMovimientos.BackgroundImageLayout = ImageLayout.Stretch;
-            panelMovimientos.Location = new Point(245, 0);
+            panelMovimientos.Location = new Point(406, 0);
             panelMovimientos.Margin = new Padding(0);
             panelMovimientos.Name = "panelMovimientos";
-            panelMovimientos.Size = new Size(999, 872);
+            panelMovimientos.Size = new Size(838, 872);
             panelMovimientos.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -572,5 +645,9 @@
         private Label lblSeccionOperacion;
         private Label lblSeccionSistema;
         private PictureBox pictureBox1;
+        private Label label2;
+        private Button button10;
+        private Button button12;
+        private Button button11;
     }
 }

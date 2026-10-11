@@ -120,6 +120,76 @@ namespace DAL
             }
             return lista_VM516;
         }
+        public BE_Pedido_VM516 ObtenerPedidoPorNumero_VM516(int numeroPedido_VM516)
+        {
+            using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(
+                    "SELECT NumeroPedido_VM516, EstadoPedido_VM516, Dni_Cliente_VM516 FROM Pedido_VM516 WHERE NumeroPedido_VM516 = @NumeroPedido_VM516",
+                    conn_VM516);
+                da_VM516.SelectCommand.Parameters.Add("@NumeroPedido_VM516", SqlDbType.Int).Value = numeroPedido_VM516;
+
+                DataTable dt_VM516 = new DataTable();
+                da_VM516.Fill(dt_VM516);
+
+                if (dt_VM516.Rows.Count == 0) return null;
+
+                DataRow row_VM516 = dt_VM516.Rows[0];
+                BE_Pedido_VM516 pedido_VM516 = new BE_Pedido_VM516(
+                    Convert.ToInt32(row_VM516["NumeroPedido_VM516"]),
+                    row_VM516["EstadoPedido_VM516"].ToString(),
+                    row_VM516["Dni_Cliente_VM516"].ToString()
+                );
+
+                // Cargamos también sus líneas de detalle
+                SqlDataAdapter daDet_VM516 = new SqlDataAdapter(
+                    "SELECT NumeroPedido_VM516, CodigoProducto_VM516, Cantidad_VM516, PrecioUnitario_VM516 FROM LineaDetalle_VM516 WHERE NumeroPedido_VM516 = @NumeroPedido_VM516",
+                    conn_VM516);
+                daDet_VM516.SelectCommand.Parameters.Add("@NumeroPedido_VM516", SqlDbType.Int).Value = numeroPedido_VM516;
+
+                DataTable dtDet_VM516 = new DataTable();
+                daDet_VM516.Fill(dtDet_VM516);
+
+                foreach (DataRow rDet_VM516 in dtDet_VM516.Rows)
+                {
+                    pedido_VM516.LineasDetalle_VM516.Add(new BE_LineaDetalle_VM516(
+                        Convert.ToInt32(rDet_VM516["NumeroPedido_VM516"]),
+                        rDet_VM516["CodigoProducto_VM516"].ToString(),
+                        Convert.ToInt32(rDet_VM516["Cantidad_VM516"]),
+                        Convert.ToDecimal(rDet_VM516["PrecioUnitario_VM516"])
+                    ));
+                }
+
+                return pedido_VM516;
+            }
+        }
+
+        public void ActualizarEstadoPedido_VM516(BE_Pedido_VM516 pedido_VM516)
+        {
+            using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(
+                    "SELECT NumeroPedido_VM516, EstadoPedido_VM516, Dni_Cliente_VM516 FROM Pedido_VM516 WHERE NumeroPedido_VM516 = @NumeroPedido_VM516",
+                    conn_VM516);
+                da_VM516.SelectCommand.Parameters.Add("@NumeroPedido_VM516", SqlDbType.Int).Value = pedido_VM516.NumeroPedido_VM516;
+
+                da_VM516.UpdateCommand = new SqlCommand(
+                    "UPDATE Pedido_VM516 SET EstadoPedido_VM516 = @EstadoPedido_VM516 WHERE NumeroPedido_VM516 = @NumeroPedido_VM516",
+                    conn_VM516);
+                da_VM516.UpdateCommand.Parameters.Add("@EstadoPedido_VM516", SqlDbType.VarChar, 50, "EstadoPedido_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@NumeroPedido_VM516", SqlDbType.Int, 4, "NumeroPedido_VM516");
+
+                DataTable dt_VM516 = new DataTable();
+                da_VM516.Fill(dt_VM516);
+
+                if (dt_VM516.Rows.Count > 0)
+                {
+                    dt_VM516.Rows[0]["EstadoPedido_VM516"] = pedido_VM516.EstadoPedido_VM516;
+                    da_VM516.Update(dt_VM516);
+                }
+            }
+        }
     }
+
 }
 
