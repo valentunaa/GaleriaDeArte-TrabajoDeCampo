@@ -16,6 +16,7 @@ namespace BLL_Negocio
         private DAL_Reserva_Sala_VM516 dalReserva_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_Especificacion_Obra_VM516 bllObra_VM516;
+        private BLL_Inspeccion_Obra_VM516 bllInspeccion_VM516;
         private BLL_BitacoraEvento bllBitacora_VM516;
         public BLL_Reserva_Sala_VM516()
         {
@@ -23,6 +24,7 @@ namespace BLL_Negocio
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllObra_VM516 = new BLL_Especificacion_Obra_VM516();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
+            bllInspeccion_VM516 = new BLL_Inspeccion_Obra_VM516();
         }
         public BE_Reserva_Sala_VM516 BuscarReservaParaPeritaje_VM516(string codigoReserva)
         {
@@ -215,10 +217,10 @@ namespace BLL_Negocio
             {
                 throw new Exception("err_ReservaSinSaldoPendiente");
             }
-            BLL_Inspeccion_Obra_VM516 bllInspeccion =new BLL_Inspeccion_Obra_VM516();
+            
             if (reserva.Estado_Pago_VM516 == "Sena_Abonada")
             {
-                bool inspeccionLista = bllInspeccion.VerificarInspeccionRegistrada_VM516(codigoReserva);
+                bool inspeccionLista = bllInspeccion_VM516.VerificarInspeccionRegistrada_VM516(codigoReserva);
                 if (!inspeccionLista)
                 {
                     throw new Exception("err_InspeccionEgresoPendiente");

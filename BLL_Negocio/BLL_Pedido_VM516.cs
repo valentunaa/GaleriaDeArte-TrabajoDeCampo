@@ -25,11 +25,8 @@ namespace BLL_Negocio
             bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
 
-        public void AgregarItemAlCarrito_VM516(
-            List<BE_LineaDetalle_VM516> carrito_VM516,
-            List<string> productosInhabilitados_VM516,
-            BE_Producto_VM516 productoSeleccionado_VM516,
-            string cantidadTexto_VM516)
+        public void AgregarItemAlCarrito_VM516(List<BE_LineaDetalle_VM516> carrito_VM516, List<string> productosInhabilitados_VM516,BE_Producto_VM516 productoSeleccionado_VM516,string cantidadTexto_VM516)
+    
         {
             if (carrito_VM516 == null)
                 throw new Exception("err_PedidoSinArticulos");
@@ -67,12 +64,8 @@ namespace BLL_Negocio
             }
             else
             {
-                carrito_VM516.Add(new BE_LineaDetalle_VM516(
-                    0,
-                    productoBD_VM516.CodigoProducto_VM516,
-                    cantidad_VM516,
-                    productoBD_VM516.PrecioVigente_VM516
-                ));
+                carrito_VM516.Add(new BE_LineaDetalle_VM516(0,productoBD_VM516.CodigoProducto_VM516,cantidad_VM516,productoBD_VM516.PrecioVigente_VM516));       
+                
             }
         }
 
