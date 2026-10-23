@@ -13,14 +13,14 @@ namespace BLL_Negocio
     public class BLL_Pedido_VM516
     {
         private DAL_Pedido_VM516 dalPedido_VM516;
-        private DAL_Producto_VM516 dalProducto_VM516; // Para validar stock
+        private BLL_Producto_VM516 bllProducto_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_Pedido_VM516()
         {
             dalPedido_VM516 = new DAL_Pedido_VM516();
-            dalProducto_VM516 = new DAL_Producto_VM516();
+            bllProducto_VM516 = new BLL_Producto_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
         }
@@ -40,7 +40,7 @@ namespace BLL_Negocio
             if (string.IsNullOrWhiteSpace(cantidadTexto_VM516) || !int.TryParse(cantidadTexto_VM516.Trim(), out int cantidad_VM516) || cantidad_VM516 <= 0)
                 throw new Exception("err_CantidadInvalidaPedido");
 
-            BE_Producto_VM516 productoBD_VM516 = dalProducto_VM516.ObtenerProducto_VM516(productoSeleccionado_VM516.CodigoProducto_VM516);
+            BE_Producto_VM516 productoBD_VM516 = bllProducto_VM516.ObtenerProductoPorCodigo_VM516(productoSeleccionado_VM516.CodigoProducto_VM516);
             if (productoBD_VM516 == null)
                 throw new Exception("err_ProductoNoEncontrado");
 
@@ -99,7 +99,7 @@ namespace BLL_Negocio
             // Revalidación de stock antes de persistir
             foreach (var linea_VM516 in carrito_VM516)
             {
-                BE_Producto_VM516 producto_VM516 = dalProducto_VM516.ObtenerProducto_VM516(linea_VM516.CodigoProducto_VM516);
+                BE_Producto_VM516 producto_VM516 = bllProducto_VM516.ObtenerProductoPorCodigo_VM516(linea_VM516.CodigoProducto_VM516);
                 if (producto_VM516 == null)
                     throw new Exception("err_ProductoNoEncontrado");
 
@@ -153,9 +153,8 @@ namespace BLL_Negocio
         }
         public List<BE_Pedido_VM516> ListarPedidosPendientesEntrega_VM516()
         {
-            return dalPedido_VM516.ListarPedidos_VM516()
-                .Where(p => p.EstadoPedido_VM516.Equals("Pagado", StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            return dalPedido_VM516.ListarPedidos_VM516().Where(p => p.EstadoPedido_VM516.Equals("Pagado", StringComparison.OrdinalIgnoreCase)).ToList();
+      
         }
 
         // Paso 2, 3 y Flujo Alternativo 2.1: Localizar orden para retiro y traer su detalle
@@ -192,53 +191,21 @@ namespace BLL_Negocio
         // Paso 4, 5 y Postcondición: Actualizar a "Entregado", descontar inventario, actualizar DV y Bitácora
         public void RegistrarEntregaPedido_VM516(BE_Pedido_VM516 pedidoVerificado_VM516)
         {
-            if (pedidoVerificado_VM516 == null)
-            {
-                throw new Exception("err_DebeBuscarPedidoPrimero");
-            }
+            if (pedidoVerificado_VM516 == null) throw new Exception("err_DebeBuscarPedidoPrimero");
 
             BE_Pedido_VM516 pedidoBD_VM516 = dalPedido_VM516.ObtenerPedidoPorNumero_VM516(pedidoVerificado_VM516.NumeroPedido_VM516);
-            if (pedidoBD_VM516 == null)
-            {
-                throw new Exception("err_PedidoInexistenteRetiro");
-            }
+            if (pedidoBD_VM516 == null) throw new Exception("err_PedidoInexistenteRetiro");
+            if (pedidoBD_VM516.EstadoPedido_VM516.Equals("Entregado", StringComparison.OrdinalIgnoreCase)) throw new Exception("err_PedidoYaEntregado");
+            if (!pedidoBD_VM516.EstadoPedido_VM516.Equals("Pagado", StringComparison.OrdinalIgnoreCase)) throw new Exception("err_PedidoNoPagadoRetiro");
 
-            if (pedidoBD_VM516.EstadoPedido_VM516.Equals("Entregado", StringComparison.OrdinalIgnoreCase))
-            {
-                throw new Exception("err_PedidoYaEntregado");
-            }
-
-            if (!pedidoBD_VM516.EstadoPedido_VM516.Equals("Pagado", StringComparison.OrdinalIgnoreCase))
-            {
-                throw new Exception("err_PedidoNoPagadoRetiro");
-            }
-
-            // 1. Actualizar estado del pedido a "Entregado"
             pedidoBD_VM516.EstadoPedido_VM516 = "Entregado";
             dalPedido_VM516.ActualizarEstadoPedido_VM516(pedidoBD_VM516);
 
-            // 2. Postcondición: Descontar automáticamente el inventario de la cafetería
             foreach (var linea_VM516 in pedidoBD_VM516.LineasDetalle_VM516)
             {
-                BE_Producto_VM516 producto_VM516 = dalProducto_VM516.ObtenerProducto_VM516(linea_VM516.CodigoProducto_VM516);
-                if (producto_VM516 != null)
-                {
-                    producto_VM516.StockDisponible_VM516 -= linea_VM516.Cantidad_VM516;
-                    if (producto_VM516.StockDisponible_VM516 < 0)
-                        producto_VM516.StockDisponible_VM516 = 0;
-
-                    dalProducto_VM516.ActualizarStockProducto_VM516(producto_VM516);
-
-                    List<BE_Producto_VM516> listaProductos_VM516 = dalProducto_VM516.ListarProductos_VM516();
-                    BE_Producto_VM516 prodActualizado_VM516 = listaProductos_VM516.LastOrDefault(p => p.CodigoProducto_VM516 == producto_VM516.CodigoProducto_VM516);
-                    if (prodActualizado_VM516 != null)
-                    {
-                        bllDigito_VM516.ActualizarDigitos<BE_Producto_VM516>(prodActualizado_VM516, listaProductos_VM516, "Producto_VM516");
-                    }
-                }
+                bllProducto_VM516.DescontarStock_VM516(linea_VM516.CodigoProducto_VM516, linea_VM516.Cantidad_VM516);
             }
 
-            // 3. Actualizar Dígitos Verificadores de Pedido_VM516
             List<BE_Pedido_VM516> listaPedidos_VM516 = dalPedido_VM516.ListarPedidos_VM516();
             BE_Pedido_VM516 pedidoActualizado_VM516 = listaPedidos_VM516.LastOrDefault(p => p.NumeroPedido_VM516 == pedidoBD_VM516.NumeroPedido_VM516);
             if (pedidoActualizado_VM516 != null)
@@ -246,10 +213,8 @@ namespace BLL_Negocio
                 bllDigito_VM516.ActualizarDigitos<BE_Pedido_VM516>(pedidoActualizado_VM516, listaPedidos_VM516, "Pedido_VM516");
             }
 
-            // 4. Registrar en Bitácora
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            string detalleEvento_VM516 = $"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado";
-            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginActual_VM516, "Negocio - Cafetería", 3);
+            bllBitacora_VM516.RegistrarBitacora($"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado", loginActual_VM516, "Negocio - Cafetería", 3);
         }
         public List<BE_Pedido_VM516> ListarPedidosEntregados_VM516(string filtro_VM516 = "")
         {

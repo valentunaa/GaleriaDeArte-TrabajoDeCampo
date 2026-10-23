@@ -54,6 +54,31 @@ namespace BLL_Negocio
             string detalleEvento = $"Alta Producto Cafetería: {codigo_VM516}";
             bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Cafetería", 3);
         }
+
+        public void DescontarStock_VM516(string codigo_VM516, int cantidadADescontar_VM516)
+        {
+            BE_Producto_VM516 producto_VM516 = dalProducto_VM516.ObtenerProducto_VM516(codigo_VM516);
+
+            if (producto_VM516 != null)
+            {
+                // 1. Resta el stock asegurando que no quede negativo
+                producto_VM516.StockDisponible_VM516 -= cantidadADescontar_VM516;
+                if (producto_VM516.StockDisponible_VM516 < 0)
+                    producto_VM516.StockDisponible_VM516 = 0;
+
+                // 2. Persiste el cambio
+                dalProducto_VM516.ActualizarStockProducto_VM516(producto_VM516);
+
+                // 3. Recalcula el DV (Responsabilidad de la BLL de Producto)
+                List<BE_Producto_VM516> listaProductos_VM516 = dalProducto_VM516.ListarProductos_VM516();
+                BE_Producto_VM516 prodActualizado_VM516 = listaProductos_VM516.FirstOrDefault(p => p.CodigoProducto_VM516 == codigo_VM516);
+
+                if (prodActualizado_VM516 != null)
+                {
+                    bllDigito_VM516.ActualizarDigitos<BE_Producto_VM516>(prodActualizado_VM516, listaProductos_VM516, "Producto_VM516");
+                }
+            }
+        }
         public void ModificarProducto_VM516(string codigo_VM516, string descripcion_VM516, string stockTxt_VM516, string precioTxt_VM516)
         {
             if (string.IsNullOrWhiteSpace(codigo_VM516) ||

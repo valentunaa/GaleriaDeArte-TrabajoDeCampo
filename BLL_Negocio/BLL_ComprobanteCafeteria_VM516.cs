@@ -13,17 +13,15 @@ namespace BLL_Negocio
     public class BLL_ComprobanteCafeteria_VM516
     {
         private  DAL_ComprobanteCafeteria_VM516 dalComprobante_VM516;
-        private  DAL_Pedido_VM516 dalPedido_VM516;
-        private  DAL_Producto_VM516 dalProducto_VM516;
-        BLL_Cliente_VM516 bllCliente_VM516;
+        private BLL_Pedido_VM516 bllPedido_VM516;     
+        private BLL_Cliente_VM516 bllCliente_VM516;
         private  BLL_DigitoVerificador bllDigito_VM516;
         private  BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_ComprobanteCafeteria_VM516()
         {
             dalComprobante_VM516 = new DAL_ComprobanteCafeteria_VM516();
-            dalPedido_VM516 = new DAL_Pedido_VM516();
-            dalProducto_VM516 = new DAL_Producto_VM516();
+            bllPedido_VM516 = new BLL_Pedido_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
             bllCliente_VM516 = new BLL_Cliente_VM516();
@@ -87,7 +85,6 @@ namespace BLL_Negocio
                 bllDigito_VM516.ActualizarDigitos<BE_ComprobanteCafeteria_VM516>(ultimoComprobante_VM516, lista_VM516, "ComprobanteCafeteria_VM516");
             }
 
-            BLL_Pedido_VM516 bllPedido_VM516 = new BLL_Pedido_VM516();
             bllPedido_VM516.ActualizarEstadoPagoPedido_VM516(pedido_VM516.NumeroPedido_VM516, "Pagado");
 
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
