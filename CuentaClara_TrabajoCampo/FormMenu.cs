@@ -193,6 +193,11 @@ namespace CuentaClara_TrabajoCampo
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
+            this.WindowState = FormWindowState.Normal;
+            this.Width = Screen.FromControl(this).WorkingArea.Width;
+            this.Height = Screen.FromControl(this).WorkingArea.Height;
+            this.Location = new Point(0, 0);
             var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
@@ -342,6 +347,16 @@ namespace CuentaClara_TrabajoCampo
         {
             Form_Gestion_Clientes_VM516 frm = new Form_Gestion_Clientes_VM516();
             frm.ShowDialog();
+        }
+
+        private void FormMenu_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

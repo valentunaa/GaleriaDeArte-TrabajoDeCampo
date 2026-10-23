@@ -93,6 +93,12 @@ namespace CuentaClara_TrabajoCampo
         }
         private void FormGestionUsuarios_Load_1(object sender, EventArgs e)
         {
+            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
+            this.WindowState = FormWindowState.Normal;
+            this.Width = Screen.FromControl(this).WorkingArea.Width;
+            this.Height = Screen.FromControl(this).WorkingArea.Height;
+            this.Location = new Point(0, 0);
+
             FormGestionUsuarios_Resize(null, null);
             radioBtnTodosUser.Checked = true;
 

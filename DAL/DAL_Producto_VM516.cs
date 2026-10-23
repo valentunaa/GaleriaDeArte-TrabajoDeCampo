@@ -49,7 +49,7 @@ namespace DAL
         {
             using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
             {
-                SqlDataAdapter da_VM516 = new SqlDataAdapter("SELECT * FROM Producto_VM516", conn_VM516);
+                SqlDataAdapter da_VM516 = new SqlDataAdapter("SELECT * FROM Producto_VM516 WHERE Bit_Lo_Bo_VM516 = 0", conn_VM516);
                 DataTable dt_VM516 = new DataTable();
                 da_VM516.Fill(dt_VM516);
 
@@ -86,6 +86,7 @@ namespace DAL
                     nuevaFila_VM516["Descripcion_VM516"] = producto_VM516.Descripcion_VM516;
                     nuevaFila_VM516["StockDisponible_VM516"] = producto_VM516.StockDisponible_VM516;
                     nuevaFila_VM516["PrecioVigente_VM516"] = producto_VM516.PrecioVigente_VM516;
+                    nuevaFila_VM516["Bit_Lo_Bo_VM516"] = false;
                     ds_VM516.Tables["Producto_VM516"].Rows.Add(nuevaFila_VM516);
                 }
 
@@ -135,21 +136,21 @@ namespace DAL
             using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
             {
                 SqlDataAdapter da_VM516 = new SqlDataAdapter(
-                    "SELECT CodigoProducto_VM516 FROM Producto_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                    "SELECT CodigoProducto_VM516, Bit_Lo_Bo_VM516 FROM Producto_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
                     conn_VM516);
                 da_VM516.SelectCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50).Value = codigoProducto_VM516;
 
-                da_VM516.DeleteCommand = new SqlCommand(
-                    "DELETE FROM Producto_VM516 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
+                da_VM516.UpdateCommand = new SqlCommand(
+                    "UPDATE Producto_VM516 SET Bit_Lo_Bo_VM516 = 1 WHERE CodigoProducto_VM516 = @CodigoProducto_VM516",
                     conn_VM516);
-                da_VM516.DeleteCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50, "CodigoProducto_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@CodigoProducto_VM516", SqlDbType.VarChar, 50, "CodigoProducto_VM516");
 
                 DataTable dt_VM516 = new DataTable();
                 da_VM516.Fill(dt_VM516);
 
                 if (dt_VM516.Rows.Count > 0)
                 {
-                    dt_VM516.Rows[0].Delete();
+                    dt_VM516.Rows[0]["Bit_Lo_Bo_VM516"] = true; // Seteamos el bit de borrado lógico en memoria
                     da_VM516.Update(dt_VM516);
                 }
             }

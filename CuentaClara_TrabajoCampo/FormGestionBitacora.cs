@@ -158,6 +158,11 @@ namespace CuentaClara_TrabajoCampo
         }
         private void FormGestionBitacora_Load_1(object sender, EventArgs e)
         {
+            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
+            this.WindowState = FormWindowState.Normal;
+            this.Width = Screen.FromControl(this).WorkingArea.Width;
+            this.Height = Screen.FromControl(this).WorkingArea.Height;
+            this.Location = new Point(0, 0);
             FormGestionBitacora_Resize(null, null);
             RefrescarSesionUsuario();
             List<string> listaEventos = bll.ObtenerEventosBase();
