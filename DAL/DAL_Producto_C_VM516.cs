@@ -81,24 +81,41 @@ namespace DAL
         {
             using (SqlConnection conn_VM516 = new SqlConnection(_connectionString_VM516))
             {
-                SqlDataAdapter da_VM516 = new SqlDataAdapter(
-                    "SELECT Id_Cambio_VM516, CodigoProducto_VM516, Activo_VM516 FROM Producto_C_VM516 WHERE Id_Cambio_VM516 = @Id",
-                    conn_VM516);
+                // 1. Traemos a memoria todos los registros históricos del MISMO producto
+                string query = @"SELECT Id_Cambio_VM516, CodigoProducto_VM516, Activo_VM516 
+                         FROM Producto_C_VM516 
+                         WHERE CodigoProducto_VM516 = (SELECT CodigoProducto_VM516 FROM Producto_C_VM516 WHERE Id_Cambio_VM516 = @Id)";
+
+                SqlDataAdapter da_VM516 = new SqlDataAdapter(query, conn_VM516);
                 da_VM516.SelectCommand.Parameters.Add("@Id", SqlDbType.Int).Value = idCambio_VM516;
 
+                // 2. Configuramos el comando de actualización para sincronizar luego
                 da_VM516.UpdateCommand = new SqlCommand(
-                    "UPDATE Producto_C_VM516 SET Activo_VM516 = 1 WHERE Id_Cambio_VM516 = @IdCambio",
+                    "UPDATE Producto_C_VM516 SET Activo_VM516 = @Activo WHERE Id_Cambio_VM516 = @IdCambioUpd",
                     conn_VM516);
-                da_VM516.UpdateCommand.Parameters.Add("@IdCambio", SqlDbType.Int, 4, "Id_Cambio_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@Activo", SqlDbType.Bit, 1, "Activo_VM516");
+                da_VM516.UpdateCommand.Parameters.Add("@IdCambioUpd", SqlDbType.Int, 4, "Id_Cambio_VM516");
 
                 DataTable dt_VM516 = new DataTable();
                 da_VM516.Fill(dt_VM516);
 
-                if (dt_VM516.Rows.Count > 0)
+                // 3. Modificamos los estados en la memoria desconectada (DataTable)
+                foreach (DataRow row in dt_VM516.Rows)
                 {
-                    dt_VM516.Rows[0]["Activo_VM516"] = true;
-                    da_VM516.Update(dt_VM516);
+                    int currentId = Convert.ToInt32(row["Id_Cambio_VM516"]);
+
+                    if (currentId == idCambio_VM516)
+                    {
+                        row["Activo_VM516"] = true;  // Encendemos el registro que el usuario seleccionó
+                    }
+                    else
+                    {
+                        row["Activo_VM516"] = false; // Apagamos cualquier otra versión de este mismo producto
+                    }
                 }
+
+                // 4. Impactamos todos los cambios juntos en la base de datos
+                da_VM516.Update(dt_VM516);
             }
         }
     }

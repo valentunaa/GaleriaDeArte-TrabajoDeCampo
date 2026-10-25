@@ -25,31 +25,26 @@ namespace IU
 
         private void Form_Auditoria_Productos_VM516_Load(object sender, EventArgs e)
         {
-            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
-            this.WindowState = FormWindowState.Normal;
-            this.Width = Screen.FromControl(this).WorkingArea.Width;
-            this.Height = Screen.FromControl(this).WorkingArea.Height;
-            this.Location = new Point(0, 0);
             GestorIdioma.GetInstancia().Suscribir(this);
 
-            // Inicializar fechas por defecto (último mes hasta hoy)
+            // 1. Fechas por defecto correctas (cubriendo la diferencia horaria)
             dtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
-            dtpFechaFin.Value = DateTime.Now;
+            dtpFechaFin.Value = DateTime.Now.AddDays(1);
 
             CargarHistorial_VM516();
             ActualizarIdioma();
 
-            // Mostrar usuario activo en el panel inferior
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
-
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
-            lblUsuarioValor.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
 
+            // 2. Corregido el error de sintaxis y salto de línea
+            lblUsuarioValor.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
         }
 
         public void ActualizarIdioma()
         {
+            dtpFechaFin.Value = DateTime.Now.AddDays(1);
             var usuario = SessionManager.GetInstancia().GetUsuarioActual();
             if (usuario == null) return;
 
@@ -108,7 +103,7 @@ namespace IU
         {
             // Ocultar ID interno y traducir cabeceras de la grilla de productos históricos
             if (dgvBitacoraProducto.Columns.Contains("Id_Cambio_VM516"))
-                dgvBitacoraProducto.Columns["Id_Cambio_VM516"].Visible = false;
+                //dgvBitacoraProducto.Columns["Id_Cambio_VM516"].Visible = false;
 
             if (dgvBitacoraProducto.Columns.Contains("CodigoProducto_VM516"))
                 dgvBitacoraProducto.Columns["CodigoProducto_VM516"].HeaderText = TraducirTexto("CodigoProducto_VM516");
@@ -129,6 +124,8 @@ namespace IU
                 dgvBitacoraProducto.Columns["Activo_VM516"].HeaderText = TraducirTexto("Activo_VM516");
 
             dgvBitacoraProducto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBitacoraProducto.ReadOnly = true;
+
         }
 
         private void CargarHistorial_VM516()
@@ -163,11 +160,12 @@ namespace IU
                     var registroSeleccionado = dgvBitacoraProducto.SelectedRows[0].DataBoundItem as BE_Producto_C_VM516;
                     if (registroSeleccionado != null)
                     {
-                        // Ejecutamos la activación para resetear la tabla principal mediante el trigger
                         bllBitacoraProducto_VM516.ActivarRegistroHistorico_VM516(registroSeleccionado.Id_Cambio_VM516);
 
+                        // 2. Ejecutamos el recálculo de seguridad (BLL Principal)
+                        BLL_Producto_VM516 bllProducto = new BLL_Producto_VM516();
+                        bllProducto.RecalcularDigitosPostRestauracion_VM516(registroSeleccionado.CodigoProducto_VM516);
                         MessageBox.Show(TraducirTexto("msg_RegistroActivadoExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         CargarHistorial_VM516();
                     }
                 }
@@ -194,6 +192,37 @@ namespace IU
         private void Form_Auditoria_Productos_VM516_FormClosed(object sender, FormClosedEventArgs e)
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAplicar_Click(object sender, EventArgs e)
+        {
+            CargarHistorial_VM516();
+        }
+
+        private void dgvBitacoraProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verificamos que sea una fila válida y la columna de Descripción
+            if (e.RowIndex >= 0 && dgvBitacoraProducto.Columns[e.ColumnIndex].Name == "Descripcion_VM516")
+            {
+                if (dgvBitacoraProducto.Rows[e.RowIndex].DataBoundItem is BE_Producto_C_VM516 prodHistorico_VM516)
+                {
+                    // Generamos la misma clave de diccionario que usás en Gestión (ej: prod_CAF-01)
+                    string claveProducto = $"prod_{prodHistorico_VM516.CodigoProducto_VM516}";
+                    string traduccion = TraducirTexto(claveProducto);
+
+                    // Si encontró la traducción en la base de datos/diccionario, reemplaza el texto visual
+                    if (traduccion != claveProducto)
+                    {
+                        e.Value = traduccion;
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
     }
 }

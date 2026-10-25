@@ -75,9 +75,9 @@
             panelContenedor.Controls.Add(btnAplicar);
             panelContenedor.Controls.Add(btnActivar);
             panelContenedor.Controls.Add(btnSalir);
-            panelContenedor.Location = new Point(20, 14);
+            panelContenedor.Location = new Point(31, 29);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1240, 680);
+            panelContenedor.Size = new Size(1265, 743);
             panelContenedor.TabIndex = 1;
             // 
             // lblCantRegistrosValor
@@ -110,10 +110,10 @@
             lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(50, 20);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(248, 32);
+            lblTitulo.Size = new Size(361, 32);
             lblTitulo.TabIndex = 0;
             lblTitulo.Tag = "lbl_TituloBitacoraProducto";
-            lblTitulo.Text = "Bitácora de Cambios";
+            lblTitulo.Text = "Bitácora de Cambios Producto";
             // 
             // dgvBitacoraProducto
             // 
@@ -145,6 +145,7 @@
             dgvBitacoraProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBitacoraProducto.Size = new Size(1140, 350);
             dgvBitacoraProducto.TabIndex = 1;
+            dgvBitacoraProducto.CellFormatting += dgvBitacoraProducto_CellFormatting;
             // 
             // lblCodigoProducto
             // 
@@ -259,6 +260,7 @@
             btnAplicar.Tag = "btn_Aplicar";
             btnAplicar.Text = "Aplicar";
             btnAplicar.UseVisualStyleBackColor = false;
+            btnAplicar.Click += btnAplicar_Click;
             // 
             // btnActivar
             // 
@@ -288,6 +290,7 @@
             btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
             // 
             // panelInferior
             // 
@@ -295,9 +298,9 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 711);
+            panelInferior.Location = new Point(0, 765);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1280, 38);
+            panelInferior.Size = new Size(1325, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -328,14 +331,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1280, 749);
+            ClientSize = new Size(1325, 803);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Auditoria_Productos_VM516";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_FormBitacoraProducto";
-            Text = "CuentaClara - Auditoría de Cambios de Productos";
+            Text = "Vanguardia Arte - Auditoría de Cambios de Productos";
             FormClosed += Form_Auditoria_Productos_VM516_FormClosed;
             Load += Form_Auditoria_Productos_VM516_Load;
             panelContenedor.ResumeLayout(false);

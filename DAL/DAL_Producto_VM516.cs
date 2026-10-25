@@ -23,7 +23,8 @@ namespace DAL
                     row_VM516["CodigoProducto_VM516"].ToString(),
                     row_VM516["Descripcion_VM516"].ToString(),
                     Convert.ToInt32(row_VM516["StockDisponible_VM516"]),
-                    Convert.ToDecimal(row_VM516["PrecioVigente_VM516"])
+                    Convert.ToDecimal(row_VM516["PrecioVigente_VM516"]),
+                    Convert.ToBoolean(row_VM516["Bit_Lo_Bo_VM516"])
                 );
                 lista_VM516.Add(producto_VM516);
             }

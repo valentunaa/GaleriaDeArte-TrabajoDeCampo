@@ -40,17 +40,18 @@ namespace BLL_Negocio
                 throw new Exception("err_ProductoDuplicado");
 
             // 2. Armado de la Entidad
-            BE_Producto_VM516 producto_VM516 = new BE_Producto_VM516(codigo_VM516, descripcion_VM516, stock_VM516, precio_VM516);
+            BE_Producto_VM516 producto_VM516 = new BE_Producto_VM516(codigo_VM516, descripcion_VM516, stock_VM516, precio_VM516, false);
 
             // 3. Persistencia mediante DAL
             dalProducto_VM516.GuardarProducto_VM516(producto_VM516);
 
             // 4. Seguridad: Recálculo de Dígitos Verificadores
             List<BE_Producto_VM516> listaBE_VM516 = dalProducto_VM516.ListarProductos_VM516();
-            bllDigito_VM516.ActualizarDigitos(producto_VM516, listaBE_VM516.Cast<IVerificable>().ToList(), "Producto_VM516");
+            BE_Producto_VM516 prodInsertado = listaBE_VM516.FirstOrDefault(p => p.CodigoProducto_VM516 == codigo_VM516);
+            bllDigito_VM516.ActualizarDigitos(prodInsertado, listaBE_VM516.Cast<IVerificable>().ToList(), "Producto_VM516");
 
             // 5. Trazabilidad: Bitácora de Eventos
-            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login ?? "Sistema";
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().Login;
             string detalleEvento = $"Alta Producto Cafetería: {codigo_VM516}";
             bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Cafetería", 3);
         }
@@ -110,7 +111,7 @@ namespace BLL_Negocio
                 codigoLimpio_VM516,
                 descripcion_VM516.Trim(),
                 stock_VM516,
-                precio_VM516
+                precio_VM516, false
             );
 
             dalProducto_VM516.ModificarProducto_VM516(prodModificado_VM516);
@@ -170,7 +171,20 @@ namespace BLL_Negocio
         {
             return dalProducto_VM516.ListarProductos_VM516();
         }
+        public void RecalcularDigitosPostRestauracion_VM516(string codigo_VM516)
+        {
+            // Listamos el estado actual de la tabla principal (ya modificada por el trigger)
+            List<BE_Producto_VM516> lista_VM516 = dalProducto_VM516.ListarProductos_VM516();
 
+            // Buscamos el producto que acaba de ser restaurado
+            BE_Producto_VM516 prodRestaurado = lista_VM516.FirstOrDefault(p => p.CodigoProducto_VM516 == codigo_VM516);
+
+            if (prodRestaurado != null)
+            {
+                // Delegamos el recálculo al gestor de dígitos
+                bllDigito_VM516.ActualizarDigitos<BE_Producto_VM516>(prodRestaurado, lista_VM516, "Producto_VM516");
+            }
+        }
         public BE_Producto_VM516 ObtenerProductoPorCodigo_VM516(string codigo_VM516)
         {
             return dalProducto_VM516.ObtenerProducto_VM516(codigo_VM516);

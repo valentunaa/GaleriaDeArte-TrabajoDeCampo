@@ -108,6 +108,11 @@ namespace IU
             }
 
             dgvProductos_VM516.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (dgvProductos_VM516.Columns.Contains("Bit_Lo_Bo_VM516"))
+            {
+                dgvProductos_VM516.Columns["Bit_Lo_Bo_VM516"].Visible = false;
+            }
         }
 
         private void CargarGrilla_VM516()
@@ -132,12 +137,6 @@ namespace IU
             txtStockDisponible_VM516.Clear();
             txtPrecioVigente_VM516.Clear();
             dgvProductos_VM516.ClearSelection();
-        }
-
-
-        private void panelContenedor_VM516_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnGuardar_VM516_Click(object sender, EventArgs e)

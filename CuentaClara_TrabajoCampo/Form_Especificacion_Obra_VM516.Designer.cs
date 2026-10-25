@@ -30,6 +30,12 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button1 = new Button();
+            btnSerializar = new Button();
+            btnModificar_VM516 = new Button();
+            btnEliminar_VM516 = new Button();
+            btnLimpiar_VM516 = new Button();
+            picLogo = new PictureBox();
             comboBox2 = new ComboBox();
             comboBox1 = new ComboBox();
             lblTitulo = new Label();
@@ -57,17 +63,21 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
-            picLogo = new PictureBox();
             panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEspecificaciones).BeginInit();
             panelInferior.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
             // panelContenedor
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button1);
+            panelContenedor.Controls.Add(btnSerializar);
+            panelContenedor.Controls.Add(btnModificar_VM516);
+            panelContenedor.Controls.Add(btnEliminar_VM516);
+            panelContenedor.Controls.Add(btnLimpiar_VM516);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(comboBox2);
             panelContenedor.Controls.Add(comboBox1);
@@ -98,6 +108,95 @@
             panelContenedor.Size = new Size(1316, 745);
             panelContenedor.TabIndex = 1;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(18, 120, 50);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(643, 561);
+            button1.Name = "button1";
+            button1.Size = new Size(137, 38);
+            button1.TabIndex = 32;
+            button1.Tag = "btnDeserializar";
+            button1.Text = "DES-SERIALIZAR";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // btnSerializar
+            // 
+            btnSerializar.BackColor = Color.FromArgb(18, 120, 50);
+            btnSerializar.FlatStyle = FlatStyle.Flat;
+            btnSerializar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSerializar.ForeColor = Color.White;
+            btnSerializar.Location = new Point(480, 561);
+            btnSerializar.Name = "btnSerializar";
+            btnSerializar.Size = new Size(137, 38);
+            btnSerializar.TabIndex = 31;
+            btnSerializar.Tag = "btnSerializar";
+            btnSerializar.Text = "SERIALIZAR";
+            btnSerializar.UseVisualStyleBackColor = false;
+            btnSerializar.Click += btnSerializar_Click;
+            // 
+            // btnModificar_VM516
+            // 
+            btnModificar_VM516.BackColor = Color.FromArgb(18, 87, 150);
+            btnModificar_VM516.FlatAppearance.BorderSize = 0;
+            btnModificar_VM516.FlatStyle = FlatStyle.Flat;
+            btnModificar_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnModificar_VM516.ForeColor = Color.White;
+            btnModificar_VM516.Location = new Point(35, 605);
+            btnModificar_VM516.Name = "btnModificar_VM516";
+            btnModificar_VM516.Size = new Size(158, 40);
+            btnModificar_VM516.TabIndex = 28;
+            btnModificar_VM516.Tag = "btn_ModificarSala";
+            btnModificar_VM516.Text = "Modificar";
+            btnModificar_VM516.UseVisualStyleBackColor = false;
+            btnModificar_VM516.Click += btnModificar_VM516_Click;
+            // 
+            // btnEliminar_VM516
+            // 
+            btnEliminar_VM516.BackColor = Color.FromArgb(180, 40, 40);
+            btnEliminar_VM516.FlatAppearance.BorderSize = 0;
+            btnEliminar_VM516.FlatStyle = FlatStyle.Flat;
+            btnEliminar_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEliminar_VM516.ForeColor = Color.White;
+            btnEliminar_VM516.Location = new Point(256, 605);
+            btnEliminar_VM516.Name = "btnEliminar_VM516";
+            btnEliminar_VM516.Size = new Size(158, 40);
+            btnEliminar_VM516.TabIndex = 29;
+            btnEliminar_VM516.Tag = "btn_EliminarSala";
+            btnEliminar_VM516.Text = "Eliminar";
+            btnEliminar_VM516.UseVisualStyleBackColor = false;
+            btnEliminar_VM516.Click += btnEliminar_VM516_Click;
+            // 
+            // btnLimpiar_VM516
+            // 
+            btnLimpiar_VM516.BackColor = Color.White;
+            btnLimpiar_VM516.FlatStyle = FlatStyle.Flat;
+            btnLimpiar_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLimpiar_VM516.ForeColor = Color.FromArgb(46, 17, 39);
+            btnLimpiar_VM516.Location = new Point(807, 561);
+            btnLimpiar_VM516.Name = "btnLimpiar_VM516";
+            btnLimpiar_VM516.Size = new Size(137, 40);
+            btnLimpiar_VM516.TabIndex = 30;
+            btnLimpiar_VM516.Tag = "btn_LimpiarSala";
+            btnLimpiar_VM516.Text = "Limpiar";
+            btnLimpiar_VM516.UseVisualStyleBackColor = false;
+            btnLimpiar_VM516.Click += btnLimpiar_VM516_Click;
+            // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(34, 10);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(63, 60);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 26;
+            picLogo.TabStop = false;
+            // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
@@ -123,9 +222,9 @@
             lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo.Location = new Point(102, 20);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Tag = "titulo_FormEspecificacionObra";
             lblTitulo.Size = new Size(414, 32);
             lblTitulo.TabIndex = 0;
+            lblTitulo.Tag = "titulo_FormEspecificacionObra";
             lblTitulo.Text = "Catalogar Especificaciones de Obra";
             // 
             // dgvEspecificaciones
@@ -157,8 +256,9 @@
             dgvEspecificaciones.RowHeadersWidth = 102;
             dgvEspecificaciones.RowTemplate.Height = 28;
             dgvEspecificaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEspecificaciones.Size = new Size(789, 531);
+            dgvEspecificaciones.Size = new Size(789, 400);
             dgvEspecificaciones.TabIndex = 21;
+            dgvEspecificaciones.CellClick += dgvEspecificaciones_CellClick;
             // 
             // lblDNI
             // 
@@ -167,9 +267,9 @@
             lblDNI.ForeColor = Color.FromArgb(46, 17, 39);
             lblDNI.Location = new Point(34, 129);
             lblDNI.Name = "lblDNI";
-            lblDNI.Tag = "lbl_DNIArtista";
             lblDNI.Size = new Size(82, 19);
             lblDNI.TabIndex = 2;
+            lblDNI.Tag = "lbl_DNIArtista";
             lblDNI.Text = "DNI Artista";
             // 
             // txtDNIBuscar
@@ -190,9 +290,9 @@
             btnBuscarArtista.ForeColor = Color.White;
             btnBuscarArtista.Location = new Point(230, 152);
             btnBuscarArtista.Name = "btnBuscarArtista";
-            btnBuscarArtista.Tag = "btn_BuscarArtista";
             btnBuscarArtista.Size = new Size(140, 28);
             btnBuscarArtista.TabIndex = 4;
+            btnBuscarArtista.Tag = "btn_BuscarArtista";
             btnBuscarArtista.Text = "Buscar Artista";
             btnBuscarArtista.UseVisualStyleBackColor = false;
             btnBuscarArtista.Click += btnBuscarArtista_Click_1;
@@ -204,9 +304,9 @@
             lblNombreArtista.ForeColor = Color.FromArgb(15, 45, 75);
             lblNombreArtista.Location = new Point(34, 194);
             lblNombreArtista.Name = "lblNombreArtista";
-            lblNombreArtista.Tag = "lbl_EstadoArtistaPendiente";
             lblNombreArtista.Size = new Size(185, 17);
             lblNombreArtista.TabIndex = 5;
+            lblNombreArtista.Tag = "lbl_EstadoArtistaPendiente";
             lblNombreArtista.Text = "Estado del artista: Pendiente";
             // 
             // lblTituloObra
@@ -216,9 +316,9 @@
             lblTituloObra.ForeColor = Color.FromArgb(46, 17, 39);
             lblTituloObra.Location = new Point(34, 229);
             lblTituloObra.Name = "lblTituloObra";
-            lblTituloObra.Tag = "lbl_TituloObra";
             lblTituloObra.Size = new Size(106, 19);
             lblTituloObra.TabIndex = 6;
+            lblTituloObra.Tag = "lbl_TituloObra";
             lblTituloObra.Text = "Título de Obra";
             // 
             // txtTitulo
@@ -237,9 +337,9 @@
             lblTecnica.ForeColor = Color.FromArgb(46, 17, 39);
             lblTecnica.Location = new Point(34, 289);
             lblTecnica.Name = "lblTecnica";
-            lblTecnica.Tag = "lbl_Tecnica";
             lblTecnica.Size = new Size(58, 19);
             lblTecnica.TabIndex = 8;
+            lblTecnica.Tag = "lbl_Tecnica";
             lblTecnica.Text = "Técnica";
             // 
             // txtTecnica
@@ -258,9 +358,9 @@
             lblAlto.ForeColor = Color.FromArgb(46, 17, 39);
             lblAlto.Location = new Point(34, 349);
             lblAlto.Name = "lblAlto";
-            lblAlto.Tag = "lbl_Alto";
             lblAlto.Size = new Size(37, 19);
             lblAlto.TabIndex = 10;
+            lblAlto.Tag = "lbl_Alto";
             lblAlto.Text = "Alto";
             // 
             // txtAlto
@@ -279,9 +379,9 @@
             lblAncho.ForeColor = Color.FromArgb(46, 17, 39);
             lblAncho.Location = new Point(169, 349);
             lblAncho.Name = "lblAncho";
-            lblAncho.Tag = "lbl_Ancho";
             lblAncho.Size = new Size(51, 19);
             lblAncho.TabIndex = 12;
+            lblAncho.Tag = "lbl_Ancho";
             lblAncho.Text = "Ancho";
             // 
             // txtAncho
@@ -300,9 +400,9 @@
             lblPeso.ForeColor = Color.FromArgb(46, 17, 39);
             lblPeso.Location = new Point(304, 349);
             lblPeso.Name = "lblPeso";
-            lblPeso.Tag = "lbl_Peso";
             lblPeso.Size = new Size(41, 19);
             lblPeso.TabIndex = 14;
+            lblPeso.Tag = "lbl_Peso";
             lblPeso.Text = "Peso";
             // 
             // txtPeso
@@ -321,9 +421,9 @@
             lblReqIluminacion.ForeColor = Color.FromArgb(46, 17, 39);
             lblReqIluminacion.Location = new Point(34, 414);
             lblReqIluminacion.Name = "lblReqIluminacion";
-            lblReqIluminacion.Tag = "lbl_ReqIluminacion";
             lblReqIluminacion.Size = new Size(173, 19);
             lblReqIluminacion.TabIndex = 16;
+            lblReqIluminacion.Tag = "lbl_ReqIluminacion";
             lblReqIluminacion.Text = "Requisito de Iluminación";
             // 
             // lblValorMercado
@@ -333,9 +433,9 @@
             lblValorMercado.ForeColor = Color.FromArgb(46, 17, 39);
             lblValorMercado.Location = new Point(34, 479);
             lblValorMercado.Name = "lblValorMercado";
-            lblValorMercado.Tag = "lbl_ValorMercado";
             lblValorMercado.Size = new Size(206, 19);
             lblValorMercado.TabIndex = 18;
+            lblValorMercado.Tag = "lbl_ValorMercado";
             lblValorMercado.Text = "Valor Declarado del Mercado";
             // 
             // txtValorMercado
@@ -354,9 +454,9 @@
             lblCategoriaSeguro.ForeColor = Color.FromArgb(46, 17, 39);
             lblCategoriaSeguro.Location = new Point(246, 479);
             lblCategoriaSeguro.Name = "lblCategoriaSeguro";
-            lblCategoriaSeguro.Tag = "lbl_CategoriaSeguro";
             lblCategoriaSeguro.Size = new Size(148, 19);
             lblCategoriaSeguro.TabIndex = 20;
+            lblCategoriaSeguro.Tag = "lbl_CategoriaSeguro";
             lblCategoriaSeguro.Text = "Categoría de Seguro";
             // 
             // btnConfirmarRegistro
@@ -368,9 +468,9 @@
             btnConfirmarRegistro.ForeColor = Color.White;
             btnConfirmarRegistro.Location = new Point(34, 559);
             btnConfirmarRegistro.Name = "btnConfirmarRegistro";
-            btnConfirmarRegistro.Tag = "btn_ConfirmarRegistroObra";
             btnConfirmarRegistro.Size = new Size(380, 40);
             btnConfirmarRegistro.TabIndex = 22;
+            btnConfirmarRegistro.Tag = "btn_ConfirmarRegistroObra";
             btnConfirmarRegistro.Text = "Confirmar Registro";
             btnConfirmarRegistro.UseVisualStyleBackColor = false;
             btnConfirmarRegistro.Click += btnConfirmarRegistro_Click_1;
@@ -383,9 +483,9 @@
             btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
             btnSalir.Location = new Point(1129, 21);
             btnSalir.Name = "btnSalir";
-            btnSalir.Tag = "btn_Salir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 23;
+            btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click_1;
@@ -419,22 +519,10 @@
             lblUsuarioActivo.ForeColor = Color.White;
             lblUsuarioActivo.Location = new Point(20, 10);
             lblUsuarioActivo.Name = "lblUsuarioActivo";
-            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Size = new Size(92, 15);
             lblUsuarioActivo.TabIndex = 0;
+            lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
-            // 
-            // picLogo
-            // 
-            picLogo.BorderStyle = BorderStyle.FixedSingle;
-            picLogo.Image = Properties.Resources.ImagenLogo;
-            picLogo.Location = new Point(34, 10);
-            picLogo.Margin = new Padding(0);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(63, 60);
-            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            picLogo.TabIndex = 26;
-            picLogo.TabStop = false;
             // 
             // Form_Especificacion_Obra_VM516
             // 
@@ -452,10 +540,10 @@
             Load += Form_Especificacion_Obra_VM516_Load;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvEspecificaciones).EndInit();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -490,5 +578,10 @@
         private ComboBox comboBox2;
         private ComboBox comboBox1;
         private PictureBox picLogo;
+        private Button btnModificar_VM516;
+        private Button btnEliminar_VM516;
+        private Button btnLimpiar_VM516;
+        private Button button1;
+        private Button btnSerializar;
     }
 }

@@ -16,6 +16,7 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
+            button14 = new Button();
             lineaOperacion = new Panel();
             lineaCafeteria = new Panel();
             lineaVertical = new Panel();
@@ -32,20 +33,20 @@
             button9 = new Button();
             btn_Estado_PostExhibicion = new Button();
             btn_Salas_Calendario = new Button();
-            button8 = new Button();
             button7 = new Button();
             button6 = new Button();
             lblTitulo = new Label();
             button2 = new Button();
             button5 = new Button();
             button4 = new Button();
-            btnCerrarSesion = new Button();
             btnTesoreria_Cobros = new Button();
             btnArtista = new Button();
             btnReserva = new Button();
             button3 = new Button();
             btnCatalogo = new Button();
             button1 = new Button();
+            button8 = new Button();
+            btnCerrarSesion = new Button();
             panelUsuario = new Panel();
             label1 = new Label();
             lblUsuarioActivo = new Label();
@@ -64,6 +65,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(46, 17, 39);
+            panelMenu.Controls.Add(button14);
             panelMenu.Controls.Add(lineaOperacion);
             panelMenu.Controls.Add(lineaCafeteria);
             panelMenu.Controls.Add(lineaVertical);
@@ -96,9 +98,28 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Margin = new Padding(0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(483, 700);
+            panelMenu.Size = new Size(483, 799);
             panelMenu.TabIndex = 2;
             panelMenu.Paint += panelMenu_Paint_1;
+            // 
+            // button14
+            // 
+            button14.BackColor = Color.FromArgb(46, 17, 39);
+            button14.Cursor = Cursors.Hand;
+            button14.FlatAppearance.BorderSize = 0;
+            button14.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button14.FlatStyle = FlatStyle.Flat;
+            button14.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button14.ForeColor = Color.FromArgb(245, 235, 240);
+            button14.Location = new Point(227, 456);
+            button14.Name = "button14";
+            button14.Size = new Size(240, 32);
+            button14.TabIndex = 29;
+            button14.Tag = "btn_CambiarClave";
+            button14.Text = "Bitácora de Cambios";
+            button14.TextAlign = ContentAlignment.MiddleLeft;
+            button14.UseVisualStyleBackColor = false;
+            button14.Click += button14_Click;
             // 
             // lineaOperacion
             // 
@@ -319,25 +340,6 @@
             btn_Salas_Calendario.UseVisualStyleBackColor = false;
             btn_Salas_Calendario.Click += btn_Salas_Calendario_Click;
             // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(46, 17, 39);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(235, 170, 200);
-            button8.Location = new Point(794, 3);
-            button8.Name = "button8";
-            button8.Size = new Size(81, 32);
-            button8.TabIndex = 16;
-            button8.Tag = "btn_Ayuda";
-            button8.Text = "AYUDA";
-            button8.TextAlign = ContentAlignment.MiddleLeft;
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += button8_Click;
-            // 
             // button7
             // 
             button7.BackColor = Color.FromArgb(46, 17, 39);
@@ -445,25 +447,6 @@
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
-            // 
-            // btnCerrarSesion
-            // 
-            btnCerrarSesion.BackColor = Color.FromArgb(46, 17, 39);
-            btnCerrarSesion.Cursor = Cursors.Hand;
-            btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            btnCerrarSesion.FlatAppearance.MouseOverBackColor = Color.FromArgb(90, 25, 45);
-            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
-            btnCerrarSesion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCerrarSesion.ForeColor = Color.FromArgb(255, 140, 140);
-            btnCerrarSesion.Location = new Point(634, 3);
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(132, 32);
-            btnCerrarSesion.TabIndex = 10;
-            btnCerrarSesion.Tag = "btn_CerrarSesion";
-            btnCerrarSesion.Text = "CERRAR SESIÓN";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.UseVisualStyleBackColor = false;
-            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // btnTesoreria_Cobros
             // 
@@ -579,6 +562,44 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(794, 3);
+            button8.Name = "button8";
+            button8.Size = new Size(81, 32);
+            button8.TabIndex = 16;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.TextAlign = ContentAlignment.MiddleLeft;
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.FromArgb(46, 17, 39);
+            btnCerrarSesion.Cursor = Cursors.Hand;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatAppearance.MouseOverBackColor = Color.FromArgb(90, 25, 45);
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCerrarSesion.ForeColor = Color.FromArgb(255, 140, 140);
+            btnCerrarSesion.Location = new Point(645, 3);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(132, 32);
+            btnCerrarSesion.TabIndex = 10;
+            btnCerrarSesion.Tag = "btn_CerrarSesion";
+            btnCerrarSesion.Text = "CERRAR SESIÓN";
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // panelUsuario
             // 
             panelUsuario.BackColor = Color.FromArgb(46, 17, 39);
@@ -590,10 +611,10 @@
             panelUsuario.Controls.Add(lblBD);
             panelUsuario.Controls.Add(btnCerrarSesion);
             panelUsuario.Dock = DockStyle.Bottom;
-            panelUsuario.Location = new Point(483, 660);
+            panelUsuario.Location = new Point(483, 759);
             panelUsuario.Margin = new Padding(0);
             panelUsuario.Name = "panelUsuario";
-            panelUsuario.Size = new Size(887, 40);
+            panelUsuario.Size = new Size(902, 40);
             panelUsuario.TabIndex = 3;
             // 
             // label1
@@ -656,7 +677,7 @@
             panelMovimientos.Location = new Point(483, 0);
             panelMovimientos.Margin = new Padding(0);
             panelMovimientos.Name = "panelMovimientos";
-            panelMovimientos.Size = new Size(1031, 873);
+            panelMovimientos.Size = new Size(1046, 972);
             panelMovimientos.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -686,7 +707,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1370, 700);
+            ClientSize = new Size(1385, 799);
             Controls.Add(panelUsuario);
             Controls.Add(panelMovimientos);
             Controls.Add(panelMenu);
@@ -748,5 +769,6 @@
         private Button button11;
         private Button button10;
         private Button button13;
+        private Button button14;
     }
 }

@@ -119,8 +119,8 @@ namespace CuentaClara_TrabajoCampo
             button9.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P47");
             button11.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P48");
             button12.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P49");
-            button10.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P50");
-            button13.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P51");
+            button14.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P50");
+            //button14.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P51");
         }
 
         public void ActualizarIdioma()
@@ -193,11 +193,7 @@ namespace CuentaClara_TrabajoCampo
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
-            this.WindowState = FormWindowState.Normal;
-            this.Width = Screen.FromControl(this).WorkingArea.Width;
-            this.Height = Screen.FromControl(this).WorkingArea.Height;
-            this.Location = new Point(0, 0);
+          
             var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
@@ -213,7 +209,6 @@ namespace CuentaClara_TrabajoCampo
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
 
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -222,11 +217,6 @@ namespace CuentaClara_TrabajoCampo
             this.Hide();
             frm.ShowDialog();
             this.Show();
-        }
-
-        private void lblBD_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button6_Click(object sender, EventArgs e)//cambiar idioma
@@ -241,21 +231,12 @@ namespace CuentaClara_TrabajoCampo
             frm.ShowDialog();
         }
 
-        private void panelUsuario_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
             FormGestionRespaldo frm = new FormGestionRespaldo();
             frm.ShowDialog();
         }
 
-        private void panelMovimientos_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void button8_Click(object sender, EventArgs e)//boton de ayuda
         {
@@ -303,16 +284,6 @@ namespace CuentaClara_TrabajoCampo
             frm.ShowDialog();
         }
 
-        private void lblTitulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnTesoreria_Cobros_Click(object sender, EventArgs e)
         {
             Form_Cobro_VM516 frm = new Form_Cobro_VM516();
@@ -357,6 +328,12 @@ namespace CuentaClara_TrabajoCampo
         private void panelMenu_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Form_Bitacoras_Cambios_VM516 frm = new Form_Bitacoras_Cambios_VM516();
+            frm.ShowDialog();
         }
     }
 }

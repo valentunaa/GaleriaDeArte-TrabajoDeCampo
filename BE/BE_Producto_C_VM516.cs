@@ -17,9 +17,6 @@ namespace BE
         public DateTime Fecha_VM516 { get; set; }
         public bool Activo_VM516 { get; set; }
 
-        // Constructor vacio
-        public BE_Producto_C_VM516() { }
-
         // Constructor con parámetros para facilitar el mapeo
         public BE_Producto_C_VM516(int idCambio, string codigo, string descripcion, int stock, decimal precio, bool bitLoBo, DateTime fecha, bool activo)
         {

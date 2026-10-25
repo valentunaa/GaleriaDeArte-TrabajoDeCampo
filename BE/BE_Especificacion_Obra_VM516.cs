@@ -21,10 +21,14 @@ namespace BE
         public decimal Valor_Declarado_Mercado_VM516 { get; set; }
         public string Categoria_Seguro_VM516 { get; set; }
         public string Estado_Asignacion_VM516 { get; set; } = "Pendiente_Asignacion";
+        public bool Bit_Lo_Bo_VM516 { get; set; }
 
-        public BE_Especificacion_Obra_VM516() { }
+        public BE_Especificacion_Obra_VM516()
+        {
+            Bit_Lo_Bo_VM516 = false;
+        }
 
-        public BE_Especificacion_Obra_VM516(string dni, string titulo, string tecnica, decimal alto, decimal ancho, decimal peso, string reqIluminacion, decimal valorMercado, string categoriaSeguro)
+        public BE_Especificacion_Obra_VM516(string dni, string titulo, string tecnica, decimal alto, decimal ancho, decimal peso, string reqIluminacion, decimal valorMercado, string categoriaSeguro, bool bitLoBo = false)
         {
             DNI_Artista_VM516 = dni;
             Titulo_Obra_VM516 = titulo;
@@ -36,6 +40,7 @@ namespace BE
             Valor_Declarado_Mercado_VM516 = valorMercado;
             Categoria_Seguro_VM516 = categoriaSeguro;
             Estado_Asignacion_VM516 = "Pendiente_Asignacion";
+            Bit_Lo_Bo_VM516 = bitLoBo;
         }
 
         public string ObtenerIdentificadorFila()

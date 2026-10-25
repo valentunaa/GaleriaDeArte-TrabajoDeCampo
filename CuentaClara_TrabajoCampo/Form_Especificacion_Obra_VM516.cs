@@ -26,10 +26,10 @@ namespace IU
         private BLL_Especificacion_Obra_VM516 bllObra;
         private BLL_Artista_VM516 bllArtista;
         private string dniArtistaVerificado = "";
-
+        private int idObraSeleccionada = 0;
         private void Form_Especificacion_Obra_VM516_Load(object sender, EventArgs e)
         {
-            GestorIdioma.GetInstancia().Suscribir(this);ActualizarIdioma();
+            GestorIdioma.GetInstancia().Suscribir(this); ActualizarIdioma();
             dgvEspecificaciones.DataSource = null;
 
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
@@ -40,7 +40,7 @@ namespace IU
 
             BloquearCamposObra(false);
             CargarGrilla();
-            
+
         }
         public void ActualizarIdioma()
         {
@@ -50,7 +50,7 @@ namespace IU
 
             if (idioma == null)
             {
-                
+
                 return;
             }
 
@@ -132,10 +132,13 @@ namespace IU
 
             if (dgvEspecificaciones.Columns.Contains("Estado_Asignacion_VM516"))
                 dgvEspecificaciones.Columns["Estado_Asignacion_VM516"].HeaderText = TraducirTexto("Estado_Asignacion_VM516");
+            if (dgvEspecificaciones.Columns.Contains("Bit_Lo_Bo_VM516"))
+                dgvEspecificaciones.Columns["Bit_Lo_Bo_VM516"].Visible = false;
 
             dgvEspecificaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
         }
-       
+
 
 
         private void CargarGrilla()
@@ -256,6 +259,177 @@ namespace IU
         private void Form_Especificacion_Obra_VM516_FormClosed(object sender, FormClosedEventArgs e)
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
+        }
+
+        private void btnModificar_VM516_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idObraSeleccionada <= 0)
+                {
+                    throw new Exception("err_ObraNoEncontrada");
+                }
+
+                if (string.IsNullOrEmpty(dniArtistaVerificado))
+                {
+                    throw new Exception("err_DebeVerificarArtistaObra");
+                }
+
+                bllObra.ModificarEspecificacion_VM516(
+                    idObraSeleccionada,
+                    dniArtistaVerificado,
+                    txtTitulo.Text.Trim(),
+                    txtTecnica.Text.Trim(),
+                    txtAlto.Text.Trim(),
+                    txtAncho.Text.Trim(),
+                    txtPeso.Text.Trim(),
+                    comboBox1.Text.Trim(),
+                    txtValorMercado.Text.Trim(),
+                    comboBox2.Text.Trim()
+                );
+
+                MessageBox.Show(
+                    TraducirTexto("msg_SalaModificadaExito"), // O podés crear clave "msg_ObraModificadaExito"
+                    TraducirTexto("titulo_Exito"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                CargarGrilla();
+                LimpiarCamposObra();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminar_VM516_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idObraSeleccionada <= 0)
+                {
+                    throw new Exception("err_ObraNoEncontrada");
+                }
+
+                DialogResult resultado = MessageBox.Show(
+                    TraducirTexto("msg_ConfirmarRestauracion"),
+                    TraducirTexto("msg_Confirmacion"),
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    bllObra.EliminarEspecificacion_VM516(idObraSeleccionada);
+
+                    MessageBox.Show(
+                        TraducirTexto("msg_SalaEliminadaExito"),
+                        TraducirTexto("titulo_Exito"),
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    CargarGrilla();
+                    LimpiarCamposObra();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnLimpiar_VM516_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposObra();
+            CargarGrilla();
+        }
+
+        private void dgvEspecificaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvEspecificaciones.Rows[e.RowIndex].DataBoundItem is BE_Especificacion_Obra_VM516 obra)
+            {
+                idObraSeleccionada = obra.Id_Obra_VM516;
+                dniArtistaVerificado = obra.DNI_Artista_VM516;
+
+                txtDNIBuscar.Text = obra.DNI_Artista_VM516;
+                txtTitulo.Text = obra.Titulo_Obra_VM516;
+                txtTecnica.Text = obra.Tecnica_VM516;
+                txtAlto.Text = obra.Alto_VM516.ToString("0.00");
+                txtAncho.Text = obra.Ancho_VM516.ToString("0.00");
+                txtPeso.Text = obra.Peso_VM516.ToString("0.00");
+                txtValorMercado.Text = obra.Valor_Declarado_Mercado_VM516.ToString("0.00");
+                comboBox1.Text = obra.Req_Iluminacion_VM516;
+                comboBox2.Text = obra.Categoria_Seguro_VM516;
+
+                lblNombreArtista.Text = $"ID Obra Seleccionada: {obra.Id_Obra_VM516}";
+                lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(15, 45, 75);
+
+                BloquearCamposObra(true);
+            }
+        }
+
+        private void btnSerializar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<BE_Especificacion_Obra_VM516> listaObras = new List<BE_Especificacion_Obra_VM516>();
+
+                foreach (DataGridViewRow row in dgvEspecificaciones.SelectedRows)
+                {
+                    listaObras.Add((BE_Especificacion_Obra_VM516)row.DataBoundItem);
+                }
+
+                if (listaObras.Count == 0)
+                {
+                    throw new Exception("err_DebeSeleccionarObraParaSerializar");
+                }
+
+                // 2. Permitir al operador elegir la ubicación y nombre del archivo XML
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivo XML (*.xml)|*.xml";
+                saveFileDialog.Title = "Guardar Archivo XML de Obras";
+                saveFileDialog.FileName = "Obras_VanguardiaArte.xml";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    bllObra.SerializarXML_VM516(listaObras, saveFileDialog.FileName);
+                    MessageBox.Show(TraducirTexto("msg_ExitoSerializar"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Seleccionar el archivo XML desde el disco duro
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Archivo XML (*.xml)|*.xml";
+                openFileDialog.Title = "Seleccionar Archivo XML";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // 2. Deserializar el archivo y subirlo directamente a la matriz de datos de la pantalla
+                    List<BE_Especificacion_Obra_VM516> listaDeserializada = bllObra.DeserializarXML_VM516(openFileDialog.FileName);
+
+                    dgvEspecificaciones.DataSource = null;
+                    dgvEspecificaciones.DataSource = listaDeserializada;
+                    FormatearGrilla();
+
+                    MessageBox.Show(TraducirTexto("msg_ExitoDeserializar"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
