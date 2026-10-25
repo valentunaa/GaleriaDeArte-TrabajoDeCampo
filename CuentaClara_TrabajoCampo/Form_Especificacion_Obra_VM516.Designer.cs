@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             button1 = new Button();
             btnSerializar = new Button();
@@ -63,6 +63,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            listBox1 = new ListBox();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEspecificaciones).BeginInit();
@@ -73,6 +74,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(listBox1);
             panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(btnSerializar);
             panelContenedor.Controls.Add(btnModificar_VM516);
@@ -114,7 +116,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(643, 561);
+            button1.Location = new Point(642, 506);
             button1.Name = "button1";
             button1.Size = new Size(137, 38);
             button1.TabIndex = 32;
@@ -129,7 +131,7 @@
             btnSerializar.FlatStyle = FlatStyle.Flat;
             btnSerializar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSerializar.ForeColor = Color.White;
-            btnSerializar.Location = new Point(480, 561);
+            btnSerializar.Location = new Point(479, 506);
             btnSerializar.Name = "btnSerializar";
             btnSerializar.Size = new Size(137, 38);
             btnSerializar.TabIndex = 31;
@@ -176,7 +178,7 @@
             btnLimpiar_VM516.FlatStyle = FlatStyle.Flat;
             btnLimpiar_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLimpiar_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnLimpiar_VM516.Location = new Point(807, 561);
+            btnLimpiar_VM516.Location = new Point(806, 506);
             btnLimpiar_VM516.Name = "btnLimpiar_VM516";
             btnLimpiar_VM516.Size = new Size(137, 40);
             btnLimpiar_VM516.TabIndex = 30;
@@ -237,14 +239,14 @@
             dgvEspecificaciones.BorderStyle = BorderStyle.None;
             dgvEspecificaciones.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvEspecificaciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvEspecificaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvEspecificaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvEspecificaciones.ColumnHeadersHeight = 58;
             dgvEspecificaciones.EnableHeadersVisualStyles = false;
             dgvEspecificaciones.GridColor = Color.FromArgb(220, 220, 220);
@@ -256,7 +258,7 @@
             dgvEspecificaciones.RowHeadersWidth = 102;
             dgvEspecificaciones.RowTemplate.Height = 28;
             dgvEspecificaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEspecificaciones.Size = new Size(789, 400);
+            dgvEspecificaciones.Size = new Size(789, 341);
             dgvEspecificaciones.TabIndex = 21;
             dgvEspecificaciones.CellClick += dgvEspecificaciones_CellClick;
             // 
@@ -524,6 +526,15 @@
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(480, 559);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(789, 154);
+            listBox1.TabIndex = 33;
+            // 
             // Form_Especificacion_Obra_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -583,5 +594,6 @@
         private Button btnLimpiar_VM516;
         private Button button1;
         private Button btnSerializar;
+        private ListBox listBox1;
     }
 }

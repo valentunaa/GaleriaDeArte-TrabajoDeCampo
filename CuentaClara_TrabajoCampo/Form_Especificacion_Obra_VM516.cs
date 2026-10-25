@@ -345,6 +345,7 @@ namespace IU
         {
             LimpiarCamposObra();
             CargarGrilla();
+            listBox1.Items.Clear();
         }
 
         private void dgvEspecificaciones_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -416,12 +417,16 @@ namespace IU
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // 2. Deserializar el archivo y subirlo directamente a la matriz de datos de la pantalla
+                    // 2. Deserializar el archivo mediante la BLL
                     List<BE_Especificacion_Obra_VM516> listaDeserializada = bllObra.DeserializarXML_VM516(openFileDialog.FileName);
 
-                    dgvEspecificaciones.DataSource = null;
-                    dgvEspecificaciones.DataSource = listaDeserializada;
-                    FormatearGrilla();
+                    // 3. Mostrar el archivo deserializado EXCLUSIVAMENTE en el ListBox
+                    listBox1.Items.Clear();
+                    foreach (var obra in listaDeserializada)
+                    {
+                        string itemAMostrar = $"ID: {obra.Id_Obra_VM516} | Título: {obra.Titulo_Obra_VM516} | DNI: {obra.DNI_Artista_VM516}";
+                        listBox1.Items.Add(itemAMostrar);
+                    }
 
                     MessageBox.Show(TraducirTexto("msg_ExitoDeserializar"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
