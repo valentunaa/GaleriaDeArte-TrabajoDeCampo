@@ -233,7 +233,7 @@ namespace Servicio
                                     .Bold()
                                     .FontColor(Colors.Purple.Darken3);
 
-                                col.Item().Text("Cafetería & Boutique de Galería")
+                                col.Item().Text("Cafetería de Galería")
                                     .FontSize(9)
                                     .FontColor(Colors.Grey.Darken1);
 
@@ -244,7 +244,7 @@ namespace Servicio
 
                             row.ConstantItem(150).AlignRight().Column(col =>
                             {
-                                col.Item().Text("TICKET FISCAL (TIQUE B)")
+                                col.Item().Text("TICKET DE CAJA (TIQUE B)")
                                     .FontSize(10)
                                     .Bold()
                                     .FontColor(Colors.Blue.Darken3);

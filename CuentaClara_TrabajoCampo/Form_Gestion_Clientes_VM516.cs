@@ -20,6 +20,7 @@ namespace IU
         public Form_Gestion_Clientes_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllCliente_VM516 = new BLL_Cliente_VM516();
         }
         private void Form_Gestion_Clientes_VM516_Load(object sender, EventArgs e)
@@ -34,7 +35,16 @@ namespace IU
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
             lblUsuarioValor_VM516.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
+  
 
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipClientes.SetToolTip(btnBuscarCliente_VM516, TraducirTexto("Cliente_Tip_Buscar"));
+            toolTipClientes.SetToolTip(btnModificar_VM516, TraducirTexto("Cliente_Tip_Modificar"));
+            toolTipClientes.SetToolTip(btnLimpiar_VM516, TraducirTexto("Cliente_Tip_Limpiar"));
+            toolTipClientes.SetToolTip(btnSalir_VM516, TraducirTexto("Cliente_Tip_Salir"));
         }
         public void ActualizarIdioma()
         {
@@ -49,6 +59,7 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormGestionClientes");
             FormatearGrilla_VM516();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

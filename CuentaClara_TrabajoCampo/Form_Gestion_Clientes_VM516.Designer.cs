@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo_VM516 = new PictureBox();
@@ -53,6 +54,7 @@
             panelInferior_VM516 = new Panel();
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
+            toolTipClientes = new ToolTip(components);
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvClientes_VM516).BeginInit();
@@ -85,7 +87,7 @@
             panelContenedor_VM516.Controls.Add(dgvClientes_VM516);
             panelContenedor_VM516.Location = new Point(20, 12);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
-            panelContenedor_VM516.Size = new Size(1566, 745);
+            panelContenedor_VM516.Size = new Size(1489, 745);
             panelContenedor_VM516.TabIndex = 1;
             // 
             // picLogo_VM516
@@ -107,10 +109,10 @@
             lblTitulo_VM516.ForeColor = Color.FromArgb(46, 17, 39);
             lblTitulo_VM516.Location = new Point(108, 25);
             lblTitulo_VM516.Name = "lblTitulo_VM516";
-            lblTitulo_VM516.Size = new Size(423, 32);
+            lblTitulo_VM516.Size = new Size(104, 32);
             lblTitulo_VM516.TabIndex = 0;
             lblTitulo_VM516.Tag = "titulo_FormGestionClientes";
-            lblTitulo_VM516.Text = "Consulta y Modificación de Clientes";
+            lblTitulo_VM516.Text = "Clientes";
             // 
             // lblBuscarTitulo_VM516
             // 
@@ -305,7 +307,7 @@
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir_VM516.Location = new Point(1395, 25);
+            btnSalir_VM516.Location = new Point(1287, 25);
             btnSalir_VM516.Name = "btnSalir_VM516";
             btnSalir_VM516.Size = new Size(140, 38);
             btnSalir_VM516.TabIndex = 18;
@@ -342,7 +344,7 @@
             dgvClientes_VM516.RowHeadersVisible = false;
             dgvClientes_VM516.RowTemplate.Height = 30;
             dgvClientes_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvClientes_VM516.Size = new Size(1075, 600);
+            dgvClientes_VM516.Size = new Size(967, 500);
             dgvClientes_VM516.TabIndex = 19;
             dgvClientes_VM516.CellClick += dgvClientes_VM516_CellClick;
             // 
@@ -354,7 +356,7 @@
             panelInferior_VM516.Dock = DockStyle.Bottom;
             panelInferior_VM516.Location = new Point(0, 750);
             panelInferior_VM516.Name = "panelInferior_VM516";
-            panelInferior_VM516.Size = new Size(1598, 38);
+            panelInferior_VM516.Size = new Size(1534, 38);
             panelInferior_VM516.TabIndex = 0;
             // 
             // lblUsuarioValor_VM516
@@ -385,13 +387,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1598, 788);
+            ClientSize = new Size(1534, 788);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);
             Name = "Form_Gestion_Clientes_VM516";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Vanguardia Arte - Consulta y Modificación de Clientes";
+            Text = "Vanguardia Arte - Clientes";
             Load += Form_Gestion_Clientes_VM516_Load;
             panelContenedor_VM516.ResumeLayout(false);
             panelContenedor_VM516.PerformLayout();
@@ -428,5 +430,6 @@
         private System.Windows.Forms.Panel panelInferior_VM516;
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
+        private ToolTip toolTipClientes;
     }
 }

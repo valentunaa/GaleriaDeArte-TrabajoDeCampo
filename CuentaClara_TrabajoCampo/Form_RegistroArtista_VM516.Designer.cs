@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblTitulo = new Label();
             lblDNI = new Label();
             txtDNI = new TextBox();
@@ -45,6 +46,7 @@
             picLogo = new PictureBox();
             button1 = new Button();
             lblNombreArtista = new Label();
+            toolTipArtista = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dgvArtistas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
@@ -189,7 +191,7 @@
             dgvArtistas.Name = "dgvArtistas";
             dgvArtistas.ReadOnly = true;
             dgvArtistas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvArtistas.Size = new Size(990, 396);
+            dgvArtistas.Size = new Size(833, 396);
             dgvArtistas.TabIndex = 12;
             // 
             // textBox1
@@ -242,7 +244,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1329, 615);
+            ClientSize = new Size(1192, 615);
             Controls.Add(lblNombreArtista);
             Controls.Add(button1);
             Controls.Add(picLogo);
@@ -292,6 +294,7 @@
         private PictureBox picLogo;
         private Button button1;
         private Label lblNombreArtista;
+        private ToolTip toolTipArtista;
         //private Button button1;
     }
 }

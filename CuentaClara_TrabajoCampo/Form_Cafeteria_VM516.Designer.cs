@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo = new PictureBox();
             lblTitulo_VM516 = new Label();
@@ -60,6 +61,7 @@
             panelInferior_VM516 = new Panel();
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
+            toolTipPedido = new ToolTip(components);
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panelCliente_VM516.SuspendLayout();
@@ -360,22 +362,22 @@
             dgvProductos_VM516.BorderStyle = BorderStyle.None;
             dgvProductos_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvProductos_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dgvProductos_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dgvProductos_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvProductos_VM516.ColumnHeadersHeight = 45;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(235, 240, 245);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvProductos_VM516.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(235, 240, 245);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvProductos_VM516.DefaultCellStyle = dataGridViewCellStyle2;
             dgvProductos_VM516.EnableHeadersVisualStyles = false;
             dgvProductos_VM516.GridColor = Color.FromArgb(230, 230, 230);
             dgvProductos_VM516.Location = new Point(480, 110);
@@ -412,22 +414,22 @@
             dgvCarrito_VM516.BorderStyle = BorderStyle.None;
             dgvCarrito_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvCarrito_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dgvCarrito_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dgvCarrito_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvCarrito_VM516.ColumnHeadersHeight = 45;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 240, 245);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvCarrito_VM516.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 240, 245);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvCarrito_VM516.DefaultCellStyle = dataGridViewCellStyle4;
             dgvCarrito_VM516.EnableHeadersVisualStyles = false;
             dgvCarrito_VM516.GridColor = Color.FromArgb(230, 230, 230);
             dgvCarrito_VM516.Location = new Point(480, 430);
@@ -539,5 +541,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private PictureBox picLogo;
+        private ToolTip toolTipPedido;
     }
 }

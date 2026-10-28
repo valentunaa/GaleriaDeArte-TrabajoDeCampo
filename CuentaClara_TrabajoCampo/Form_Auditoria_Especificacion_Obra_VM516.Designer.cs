@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             lblCantRegistrosValor = new Label();
             lblCantRegistrosEtiqueta = new Label();
@@ -49,6 +50,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipAudit = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBitacoraObra).BeginInit();
             panelInferior.SuspendLayout();
@@ -125,14 +127,14 @@
             dgvBitacoraObra.BorderStyle = BorderStyle.None;
             dgvBitacoraObra.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBitacoraObra.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvBitacoraObra.ColumnHeadersHeight = 45;
             dgvBitacoraObra.EnableHeadersVisualStyles = false;
             dgvBitacoraObra.GridColor = Color.FromArgb(220, 220, 220);
@@ -370,5 +372,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private System.Windows.Forms.Label lblCantRegistrosValor;
         private System.Windows.Forms.Label lblCantRegistrosEtiqueta;
+        private ToolTip toolTipAudit;
     }
 }

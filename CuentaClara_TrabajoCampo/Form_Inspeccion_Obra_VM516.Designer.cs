@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             picLogo = new PictureBox();
             dgvInspecciones = new DataGridView();
@@ -46,6 +47,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipInspeccion = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvInspecciones).BeginInit();
@@ -97,14 +99,14 @@
             dgvInspecciones.BorderStyle = BorderStyle.None;
             dgvInspecciones.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvInspecciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvInspecciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvInspecciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvInspecciones.ColumnHeadersHeight = 45;
             dgvInspecciones.EnableHeadersVisualStyles = false;
             dgvInspecciones.GridColor = Color.FromArgb(220, 220, 220);
@@ -335,5 +337,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
         private PictureBox picLogo;
+        private ToolTip toolTipInspeccion;
     }
 }

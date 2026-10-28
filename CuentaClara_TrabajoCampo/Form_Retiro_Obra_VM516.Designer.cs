@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             picLogo = new PictureBox();
@@ -44,6 +45,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipRetiroObra = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvRetiros).BeginInit();
@@ -301,5 +303,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
         private System.Windows.Forms.PictureBox picLogo;
+        private ToolTip toolTipRetiroObra;
     }
 }

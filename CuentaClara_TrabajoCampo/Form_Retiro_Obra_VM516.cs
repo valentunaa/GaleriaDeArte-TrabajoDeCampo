@@ -28,6 +28,7 @@ namespace IU
             GestorIdioma.GetInstancia().Suscribir(this);
             ActualizarIdioma();
             CargarGrilla();
+            ConfigurarToolTips();
 
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
@@ -36,6 +37,7 @@ namespace IU
 
             BloquearAccionesDesmontaje(false);
         }
+
         public void ActualizarIdioma()
         {
             string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
@@ -47,6 +49,14 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormRetiroObra");
             FormatearGrilla();
+            ConfigurarToolTips();
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipRetiroObra.SetToolTip(btnBuscarReserva, TraducirTexto("RetiroObra_Tip_BuscarReserva"));
+            toolTipRetiroObra.SetToolTip(btnRegistrarDesmontaje, TraducirTexto("RetiroObra_Tip_RegistrarDesmontaje"));
+            toolTipRetiroObra.SetToolTip(btnSalir, TraducirTexto("RetiroObra_Tip_Salir"));
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

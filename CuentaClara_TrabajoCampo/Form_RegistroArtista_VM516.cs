@@ -23,6 +23,7 @@ namespace IU
         public Form_RegistroArtista_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllArtista = new BLL_Artista_VM516();
         }
 
@@ -30,6 +31,13 @@ namespace IU
         {
             CargarGrilla();
             ActualizarIdioma();
+        }
+
+
+        private void ConfigurarToolTips()
+        {
+            toolTipArtista.SetToolTip(btnGuardar, TraducirTexto("Artista_Tip_Registrar")); 
+            toolTipArtista.SetToolTip(button1, TraducirTexto("Artista_Tip_BuscarDNI"));          
         }
 
         public void ActualizarIdioma()
@@ -46,6 +54,7 @@ namespace IU
             // Traducimos el título del formulario manualmente
             this.Text = TraducirTexto("titulo_FormRegistroArtista");
             FormatearGrilla();
+            ConfigurarToolTips();
 
         }
 

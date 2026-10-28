@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             lblCantRegistrosValor = new Label();
@@ -49,6 +50,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipAuditProd = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBitacoraProducto).BeginInit();
             panelInferior.SuspendLayout();
@@ -371,5 +373,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private System.Windows.Forms.Label lblCantRegistrosValor;
         private System.Windows.Forms.Label lblCantRegistrosEtiqueta;
+        private ToolTip toolTipAuditProd;
     }
 }

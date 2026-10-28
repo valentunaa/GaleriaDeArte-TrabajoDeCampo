@@ -29,8 +29,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             btnVerEntregados_VM516 = new Button();
             picLogo_VM516 = new PictureBox();
@@ -48,6 +49,7 @@
             panelInferior_VM516 = new Panel();
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
+            toolTipRetiro = new ToolTip(components);
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPedidosPendientes_VM516).BeginInit();
@@ -76,7 +78,6 @@
             panelContenedor_VM516.Name = "panelContenedor_VM516";
             panelContenedor_VM516.Size = new Size(1493, 745);
             panelContenedor_VM516.TabIndex = 1;
-
             // 
             // btnVerEntregados_VM516
             // 
@@ -220,14 +221,14 @@
             dgvPedidosPendientes_VM516.BorderStyle = BorderStyle.None;
             dgvPedidosPendientes_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPedidosPendientes_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvPedidosPendientes_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPedidosPendientes_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPedidosPendientes_VM516.ColumnHeadersHeight = 45;
             dgvPedidosPendientes_VM516.EnableHeadersVisualStyles = false;
             dgvPedidosPendientes_VM516.GridColor = Color.FromArgb(220, 220, 220);
@@ -238,7 +239,7 @@
             dgvPedidosPendientes_VM516.RowHeadersVisible = false;
             dgvPedidosPendientes_VM516.RowTemplate.Height = 28;
             dgvPedidosPendientes_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPedidosPendientes_VM516.Size = new Size(958, 250);
+            dgvPedidosPendientes_VM516.Size = new Size(895, 250);
             dgvPedidosPendientes_VM516.TabIndex = 21;
             // 
             // lblDetallePedido_VM516
@@ -263,14 +264,14 @@
             dgvDetallePedido_VM516.BorderStyle = BorderStyle.None;
             dgvDetallePedido_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDetallePedido_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvDetallePedido_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvDetallePedido_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvDetallePedido_VM516.ColumnHeadersHeight = 45;
             dgvDetallePedido_VM516.EnableHeadersVisualStyles = false;
             dgvDetallePedido_VM516.GridColor = Color.FromArgb(220, 220, 220);
@@ -281,7 +282,7 @@
             dgvDetallePedido_VM516.RowHeadersVisible = false;
             dgvDetallePedido_VM516.RowTemplate.Height = 28;
             dgvDetallePedido_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDetallePedido_VM516.Size = new Size(958, 250);
+            dgvDetallePedido_VM516.Size = new Size(895, 250);
             dgvDetallePedido_VM516.TabIndex = 25;
             // 
             // panelInferior_VM516
@@ -361,5 +362,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private Button btnVerEntregados_VM516;
+        private ToolTip toolTipRetiro;
     }
 }

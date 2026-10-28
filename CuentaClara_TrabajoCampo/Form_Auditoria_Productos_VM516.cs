@@ -20,6 +20,7 @@ namespace IU
         public Form_Auditoria_Productos_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllBitacoraProducto_VM516 = new BLL_Producto_C_VM516();
         }
 
@@ -42,6 +43,14 @@ namespace IU
             lblUsuarioValor.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
         }
 
+        private void ConfigurarToolTips()
+        {
+            toolTipAuditProd.SetToolTip(btnAplicar, TraducirTexto("AuditProd_Tip_Aplicar"));
+            toolTipAuditProd.SetToolTip(btnLimpiar, TraducirTexto("AuditProd_Tip_Limpiar"));
+            toolTipAuditProd.SetToolTip(btnActivar, TraducirTexto("AuditProd_Tip_Activar"));
+            toolTipAuditProd.SetToolTip(btnSalir, TraducirTexto("AuditProd_Tip_Salir"));
+        }
+
         public void ActualizarIdioma()
         {
             dtpFechaFin.Value = DateTime.Now.AddDays(1);
@@ -57,6 +66,7 @@ namespace IU
             this.Text = TraducirTexto("lbl_FormBitacoraProducto");
             FormatearGrilla_VM516();
             dgvBitacoraProducto.Refresh();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

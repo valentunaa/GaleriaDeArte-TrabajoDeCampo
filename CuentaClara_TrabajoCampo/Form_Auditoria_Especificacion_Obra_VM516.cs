@@ -21,8 +21,18 @@ namespace IU
         public Form_Auditoria_Especificacion_Obra_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllBitacoraObra_VM516 = new BLL_Especificacion_Obra_C_VM516();
             bllObraPrincipal_VM516 = new BLL_Especificacion_Obra_VM516();
+        }
+
+
+        private void ConfigurarToolTips()
+        {
+            toolTipAudit.SetToolTip(btnAplicar, TraducirTexto("AuditObra_Tip_Aplicar"));
+            toolTipAudit.SetToolTip(btnLimpiar, TraducirTexto("AuditObra_Tip_Limpiar"));
+            toolTipAudit.SetToolTip(btnActivar, TraducirTexto("AuditObra_Tip_Activar"));
+            toolTipAudit.SetToolTip(btnSalir, TraducirTexto("AuditObra_Tip_Salir"));
         }
 
         private void Form_Auditoria_Especificacion_Obra_VM516_Load(object sender, EventArgs e)
@@ -41,6 +51,8 @@ namespace IU
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
             lblUsuarioValor.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
         }
+
+
         public void ActualizarIdioma()
         {
             string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
@@ -52,6 +64,7 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("lbl_FormBitacoraObra");
             FormatearGrilla();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

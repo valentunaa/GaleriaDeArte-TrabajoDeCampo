@@ -20,6 +20,7 @@ namespace IU
         public Form_Especificacion_Obra_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllObra = new BLL_Especificacion_Obra_VM516();
             bllArtista = new BLL_Artista_VM516();
         }
@@ -27,6 +28,9 @@ namespace IU
         private BLL_Artista_VM516 bllArtista;
         private string dniArtistaVerificado = "";
         private int idObraSeleccionada = 0;
+        private bool esModoVistaXML = false;
+
+
         private void Form_Especificacion_Obra_VM516_Load(object sender, EventArgs e)
         {
             GestorIdioma.GetInstancia().Suscribir(this); ActualizarIdioma();
@@ -40,7 +44,21 @@ namespace IU
 
             BloquearCamposObra(false);
             CargarGrilla();
+            ConfigurarToolTips();
 
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipObras.SetToolTip(btnBuscarArtista, TraducirTexto("Obra_Tip_BuscarArtista"));
+            toolTipObras.SetToolTip(btnConfirmarRegistro, TraducirTexto("Obra_Tip_Confirmar"));
+            toolTipObras.SetToolTip(btnModificar_VM516, TraducirTexto("Obra_Tip_Modificar"));
+            toolTipObras.SetToolTip(btnEliminar_VM516, TraducirTexto("Obra_Tip_Eliminar"));
+            toolTipObras.SetToolTip(btnSerializar, TraducirTexto("Obra_Tip_Serializar"));
+            toolTipObras.SetToolTip(button1, TraducirTexto("Obra_Tip_Deserializar")); 
+            toolTipObras.SetToolTip(btnLimpiar_VM516, TraducirTexto("Obra_Tip_Limpiar"));
+            toolTipObras.SetToolTip(button2, TraducirTexto("Obra_Tip_Actualizar"));   
+            toolTipObras.SetToolTip(btnSalir, TraducirTexto("Obra_Tip_Salir")); 
         }
         public void ActualizarIdioma()
         {
@@ -98,6 +116,14 @@ namespace IU
             var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
             return etiqueta != null ? etiqueta.Texto : clave;
         }
+
+        private void BloquearBotonesABM(bool estado)
+        {
+            btnConfirmarRegistro.Enabled = estado;
+            btnModificar_VM516.Enabled = estado;
+            btnEliminar_VM516.Enabled = estado;
+        }
+
         private void FormatearGrilla()
         {
             if (dgvEspecificaciones.Columns.Contains("Id_Obra_VM516"))
@@ -201,6 +227,12 @@ namespace IU
                     lblNombreArtista.Text = $"Artista verificado: {artista.Nombre_VM516} {artista.Apellido_VM516}";
                     lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(18, 120, 50);
                     BloquearCamposObra(true);
+
+                    // Mantenemos la protección de la BD si estamos viendo un XML
+                    if (esModoVistaXML)
+                    {
+                        BloquearBotonesABM(false);
+                    }
                 }
             }
             catch (Exception ex)
@@ -235,18 +267,16 @@ namespace IU
                     comboBox2.Text.Trim()
                 );
 
-                MessageBox.Show(
-                    TraducirTexto("msg_ExitoRegistroObra"),
-                    TraducirTexto("titulo_Exito"),
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogAltaObra")}");
+
+                MessageBox.Show(TraducirTexto("msg_ExitoRegistroObra"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 CargarGrilla();
                 LimpiarCamposObra();
             }
             catch (Exception ex)
             {
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogErrorAlta")}: {TraducirTexto(ex.Message)}");
                 MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -288,18 +318,16 @@ namespace IU
                     comboBox2.Text.Trim()
                 );
 
-                MessageBox.Show(
-                    TraducirTexto("msg_SalaModificadaExito"), // O podés crear clave "msg_ObraModificadaExito"
-                    TraducirTexto("titulo_Exito"),
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogModificacionObra")}");
+
+                MessageBox.Show(TraducirTexto("msg_SalaModificadaExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 CargarGrilla();
                 LimpiarCamposObra();
             }
             catch (Exception ex)
             {
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogErrorModificacion")}: {TraducirTexto(ex.Message)}");
                 MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -324,12 +352,9 @@ namespace IU
                 {
                     bllObra.EliminarEspecificacion_VM516(idObraSeleccionada);
 
-                    MessageBox.Show(
-                        TraducirTexto("msg_SalaEliminadaExito"),
-                        TraducirTexto("titulo_Exito"),
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
+                    listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogBajaObra")}");
+
+                    MessageBox.Show(TraducirTexto("msg_SalaEliminadaExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     CargarGrilla();
                     LimpiarCamposObra();
@@ -337,15 +362,16 @@ namespace IU
             }
             catch (Exception ex)
             {
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogErrorBaja")}: {TraducirTexto(ex.Message)}");
                 MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnLimpiar_VM516_Click(object sender, EventArgs e)
         {
-            LimpiarCamposObra();
-            CargarGrilla();
-            listBox1.Items.Clear();
+            LimpiarCamposObra(); BloquearBotonesABM(false); esModoVistaXML = false;
+            dgvEspecificaciones.DataSource = null; // Vacía la matriz visualmente
+            listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogGrillaLimpiada")}");
         }
 
         private void dgvEspecificaciones_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -368,7 +394,17 @@ namespace IU
                 lblNombreArtista.Text = $"ID Obra Seleccionada: {obra.Id_Obra_VM516}";
                 lblNombreArtista.ForeColor = System.Drawing.Color.FromArgb(15, 45, 75);
 
-                BloquearCamposObra(true);
+                if (!esModoVistaXML)
+                {
+                    BloquearCamposObra(true);
+                    btnModificar_VM516.Enabled = true;
+                    btnEliminar_VM516.Enabled = true;
+                }
+                else
+                {
+                    // Si es XML, solo dejamos que vea los datos en los TextBox, pero mantenemos los botones bloqueados.
+                    BloquearBotonesABM(false);
+                }
             }
         }
 
@@ -376,19 +412,14 @@ namespace IU
         {
             try
             {
-                List<BE_Especificacion_Obra_VM516> listaObras = new List<BE_Especificacion_Obra_VM516>();
+                // Se toma toda la información visualizada en la matriz (grilla)
+                List<BE_Especificacion_Obra_VM516> listaObras = (List<BE_Especificacion_Obra_VM516>)dgvEspecificaciones.DataSource;
 
-                foreach (DataGridViewRow row in dgvEspecificaciones.SelectedRows)
+                if (listaObras == null || listaObras.Count == 0)
                 {
-                    listaObras.Add((BE_Especificacion_Obra_VM516)row.DataBoundItem);
+                    throw new Exception("No hay datos en la grilla para serializar.");
                 }
 
-                if (listaObras.Count == 0)
-                {
-                    throw new Exception("err_DebeSeleccionarObraParaSerializar");
-                }
-
-                // 2. Permitir al operador elegir la ubicación y nombre del archivo XML
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Archivo XML (*.xml)|*.xml";
                 saveFileDialog.Title = "Guardar Archivo XML de Obras";
@@ -397,12 +428,15 @@ namespace IU
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     bllObra.SerializarXML_VM516(listaObras, saveFileDialog.FileName);
+
+                    listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogSerializacionExito")}: {saveFileDialog.FileName}");
                     MessageBox.Show(TraducirTexto("msg_ExitoSerializar"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogErrorSerializacion")}: {TraducirTexto(ex.Message)}");
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -410,31 +444,36 @@ namespace IU
         {
             try
             {
-                // 1. Seleccionar el archivo XML desde el disco duro
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "Archivo XML (*.xml)|*.xml";
                 openFileDialog.Title = "Seleccionar Archivo XML";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // 2. Deserializar el archivo mediante la BLL
                     List<BE_Especificacion_Obra_VM516> listaDeserializada = bllObra.DeserializarXML_VM516(openFileDialog.FileName);
 
-                    // 3. Mostrar el archivo deserializado EXCLUSIVAMENTE en el ListBox
-                    listBox1.Items.Clear();
-                    foreach (var obra in listaDeserializada)
-                    {
-                        string itemAMostrar = $"ID: {obra.Id_Obra_VM516} | Título: {obra.Titulo_Obra_VM516} | DNI: {obra.DNI_Artista_VM516}";
-                        listBox1.Items.Add(itemAMostrar);
-                    }
+                    // Subir el archivo deserializado directamente a la matriz de datos de la pantalla
+                    dgvEspecificaciones.DataSource = null;
+                    dgvEspecificaciones.DataSource = listaDeserializada;
+                    FormatearGrilla();
+                    BloquearBotonesABM(false);
+                    esModoVistaXML = true;
 
+                    listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogDeserializacionExito")}");
                     MessageBox.Show(TraducirTexto("msg_ExitoDeserializar"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogErrorDeserializacion")}: {TraducirTexto(ex.Message)}");
+                MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(); BloquearBotonesABM(true);
+            listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogGrillaActualizada")}");
         }
     }
 }

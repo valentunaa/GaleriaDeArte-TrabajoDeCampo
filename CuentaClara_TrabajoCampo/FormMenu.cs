@@ -13,10 +13,43 @@ namespace CuentaClara_TrabajoCampo
         public FormMenu()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
 
         }
 
+
+        private void ConfigurarToolTips()
+        {
+            // Módulo Operación
+            toolTipMenu.SetToolTip(btnArtista, TraducirTexto("Menu_Tip_Artistas"));
+            toolTipMenu.SetToolTip(btnCatalogo, TraducirTexto("Menu_Tip_CatalogoObras"));
+            toolTipMenu.SetToolTip(btnReserva, TraducirTexto("Menu_Tip_Reservas"));
+            toolTipMenu.SetToolTip(btnTesoreria_Cobros, TraducirTexto("Menu_Tip_Tesoreria"));
+            toolTipMenu.SetToolTip(btn_Estado_PostExhibicion, TraducirTexto("Menu_Tip_EstadoPostExhibicion"));
+            toolTipMenu.SetToolTip(btn_Salas_Calendario, TraducirTexto("Menu_Tip_RetiroObra")); // Nota: ajustalo si el botón es otro
+            // toolTipMenu.SetToolTip(btnSalas, TraducirTexto("Menu_Tip_Salas")); // Descomentar si tenés el botón mapeado
+
+            // Módulo Cafetería (Asumiendo nombres de botones según tu código)
+            toolTipMenu.SetToolTip(button11, TraducirTexto("Menu_Tip_RegistrarPedido"));
+            toolTipMenu.SetToolTip(button12, TraducirTexto("Menu_Tip_RetiroPedido"));
+            toolTipMenu.SetToolTip(button10, TraducirTexto("Menu_Tip_ProductosCafeteria"));
+            toolTipMenu.SetToolTip(button13, TraducirTexto("Menu_Tip_ClientesCafeteria"));
+
+            // Módulo Sistema
+            toolTipMenu.SetToolTip(button1, TraducirTexto("Menu_Tip_GestionUsuarios"));
+            toolTipMenu.SetToolTip(button7, TraducirTexto("Menu_Tip_GestionRespaldo"));
+            toolTipMenu.SetToolTip(button4, TraducirTexto("Menu_Tip_CambiarContrasenia"));
+            toolTipMenu.SetToolTip(button3, TraducirTexto("Menu_Tip_GestionPerfiles"));
+            toolTipMenu.SetToolTip(button2, TraducirTexto("Menu_Tip_GestionBitacora"));
+            toolTipMenu.SetToolTip(button5, TraducirTexto("Menu_Tip_GestionIdioma"));
+            toolTipMenu.SetToolTip(button6, TraducirTexto("Menu_Tip_CambiarIdioma"));
+            toolTipMenu.SetToolTip(button14, TraducirTexto("Menu_Tip_BitacoraCambios"));
+
+            // Botones Generales
+            // toolTipMenu.SetToolTip(btnCerrarSesion, TraducirTexto("Menu_Tip_CerrarSesion"));
+            // toolTipMenu.SetToolTip(btnAyudaGeneral, TraducirTexto("Menu_Tip_Ayuda"));
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             FormGestionBitacora frm = new FormGestionBitacora();
@@ -137,6 +170,7 @@ namespace CuentaClara_TrabajoCampo
 
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormMenu");
+            ConfigurarToolTips();
 
         }
 

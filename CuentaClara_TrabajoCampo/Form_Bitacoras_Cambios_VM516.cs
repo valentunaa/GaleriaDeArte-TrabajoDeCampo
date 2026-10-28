@@ -16,7 +16,8 @@ namespace IU
     {
         public Form_Bitacoras_Cambios_VM516()
         {
-            InitializeComponent();
+            
+            InitializeComponent();ConfigurarToolTips();
         }
 
         public void ActualizarIdioma()
@@ -33,9 +34,15 @@ namespace IU
 
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormMenu");
+            ConfigurarToolTips();
 
         }
 
+        private void ConfigurarToolTips()
+        {
+            toolTipMenuBitacoras.SetToolTip(btnBitacoraProductos, TraducirTexto("MenuBitacoras_Tip_Producto"));
+            toolTipMenuBitacoras.SetToolTip(btnBitacoraObras, TraducirTexto("MenuBitacoras_Tip_Obra"));
+        }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
         {

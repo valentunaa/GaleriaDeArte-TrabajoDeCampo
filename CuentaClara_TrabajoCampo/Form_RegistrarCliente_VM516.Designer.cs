@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblTitulo_VM516 = new Label();
             lblDNI_VM516 = new Label();
             txtDNI_VM516 = new TextBox();
@@ -42,6 +43,7 @@
             btnGuardar_VM516 = new Button();
             picLogo_VM516 = new PictureBox();
             button1 = new Button();
+            toolTipRegCliente = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             SuspendLayout();
             // 
@@ -250,5 +252,6 @@
         private System.Windows.Forms.Button btnGuardar_VM516;
         private System.Windows.Forms.PictureBox picLogo_VM516;
         private Button button1;
+        private ToolTip toolTipRegCliente;
     }
 }

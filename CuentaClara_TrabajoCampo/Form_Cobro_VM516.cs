@@ -25,13 +25,9 @@ namespace IU
         public Form_Cobro_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllComprobante_VM516 = new BLL_Comprobante_Pago_VM516();
             bllReserva_VM516 = new BLL_Reserva_Sala_VM516();
-        }
-
-        private void lblTitulo_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Form_Cobro_VM516_Load(object sender, EventArgs e)
@@ -39,7 +35,7 @@ namespace IU
             GestorIdioma.GetInstancia().Suscribir(this);
             ActualizarIdioma();
             CargarGrilla();
-
+            ConfigurarToolTips();
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
@@ -47,6 +43,14 @@ namespace IU
 
             BloquearAccionesPago(false);
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipCobroReserva.SetToolTip(btnBuscarReserva, TraducirTexto("CobroReserva_Tip_BuscarReserva"));
+            toolTipCobroReserva.SetToolTip(btnRegistrarCobro, TraducirTexto("CobroReserva_Tip_RegistrarCobro"));
+            toolTipCobroReserva.SetToolTip(btnSalir, TraducirTexto("CobroReserva_Tip_Cancelar"));
+        }
+
         public void ActualizarIdioma()
         {
             string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;

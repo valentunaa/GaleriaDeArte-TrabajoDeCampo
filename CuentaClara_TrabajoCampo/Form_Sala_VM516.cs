@@ -23,12 +23,20 @@ namespace IU
             bllSala = new BLL_Sala_VM516();
         }
 
-
+        private void ConfigurarToolTips()
+        {
+            toolTipSalas.SetToolTip(btnGuardar, TraducirTexto("Sala_Tip_Guardar"));
+            toolTipSalas.SetToolTip(btn_Modificar, TraducirTexto("Sala_Tip_Modificar"));
+            toolTipSalas.SetToolTip(btnEliminar, TraducirTexto("Sala_Tip_Eliminar"));
+            toolTipSalas.SetToolTip(btnLimpiar, TraducirTexto("Sala_Tip_Limpiar"));
+            toolTipSalas.SetToolTip(btnSalir, TraducirTexto("Sala_Tip_Salir"));
+        }
 
         private void Form_Sala_VM516_Load(object sender, EventArgs e)
         {
             GestorIdioma.GetInstancia().Suscribir(this);
             ActualizarIdioma();
+            ConfigurarToolTips();
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
@@ -49,6 +57,7 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormGestionSalas");
             FormatearGrilla();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

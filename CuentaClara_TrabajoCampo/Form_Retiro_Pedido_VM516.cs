@@ -22,6 +22,7 @@ namespace IU
         public Form_Retiro_Pedido_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllPedido_VM516 = new BLL_Pedido_VM516();
             bllProducto_VM516 = new BLL_Producto_VM516();
         }
@@ -32,6 +33,7 @@ namespace IU
             ConfigurarGrillaDetalle_VM516();
             CargarGrillaPendientes_VM516();
             ActualizarIdioma();
+            ConfigurarToolTips();
 
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
@@ -40,6 +42,15 @@ namespace IU
 
             BloquearAccionEntrega_VM516(false);
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipRetiro.SetToolTip(btnBuscarPedido_VM516, TraducirTexto("Retiro_Tip_BuscarPedido"));
+            toolTipRetiro.SetToolTip(btnRegistrarEntrega_VM516, TraducirTexto("Retiro_Tip_RegistrarEntrega"));
+            toolTipRetiro.SetToolTip(btnVerEntregados_VM516, TraducirTexto("Retiro_Tip_VerEntregados"));
+            toolTipRetiro.SetToolTip(btnSalir_VM516, TraducirTexto("Retiro_Tip_Salir"));
+        }
+
         public void ActualizarIdioma()
         {
             var usuario = SessionManager.GetInstancia().GetUsuarioActual();

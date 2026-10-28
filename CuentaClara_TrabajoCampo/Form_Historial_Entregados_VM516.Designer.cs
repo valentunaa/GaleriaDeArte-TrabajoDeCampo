@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo_VM516 = new PictureBox();
@@ -38,6 +39,7 @@
             btnLimpiar_VM516 = new Button();
             btnSalir_VM516 = new Button();
             dgvEntregados_VM516 = new DataGridView();
+            toolTipHistorialEntregados = new ToolTip(components);
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEntregados_VM516).BeginInit();
@@ -96,7 +98,6 @@
             lblFiltro_VM516.Tag = "lbl_FiltroEntregados";
             lblFiltro_VM516.Text = "Filtrar por N° de Pedido o DNI Cliente:";
             lblFiltro_VM516.TextChanged += lblFiltro_VM516_TextChanged;
-
             // 
             // txtFiltro_VM516
             // 
@@ -219,5 +220,6 @@
         private System.Windows.Forms.Button btnLimpiar_VM516;
         private System.Windows.Forms.Button btnSalir_VM516;
         private System.Windows.Forms.DataGridView dgvEntregados_VM516;
+        private ToolTip toolTipHistorialEntregados;
     }
 }

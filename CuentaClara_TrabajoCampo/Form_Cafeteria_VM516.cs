@@ -28,6 +28,7 @@ namespace IU
         public Form_Cafeteria_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllProducto_VM516 = new BLL_Producto_VM516();
             bllPedido_VM516 = new BLL_Pedido_VM516();
             bllCliente_VM516 = new BLL_Cliente_VM516();
@@ -51,6 +52,16 @@ namespace IU
                 lblUsuarioValor_VM516.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
             }
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipPedido.SetToolTip(btnBuscarCliente_VM516, TraducirTexto("Pedido_Tip_BuscarCliente"));
+            toolTipPedido.SetToolTip(btnAgregarCarrito_VM516, TraducirTexto("Pedido_Tip_AgregarCarrito"));
+            toolTipPedido.SetToolTip(btnQuitarCarrito_VM516, TraducirTexto("Pedido_Tip_QuitarCarrito"));
+            toolTipPedido.SetToolTip(btnConfirmarPedido_VM516, TraducirTexto("Pedido_Tip_Confirmar"));
+            toolTipPedido.SetToolTip(btnSalir_VM516, TraducirTexto("Pedido_Tip_Salir"));
+        }
+
         public void ActualizarIdioma()
         {
             var usuario = SessionManager.GetInstancia().GetUsuarioActual();
@@ -69,6 +80,7 @@ namespace IU
             {
                 lblNombreCliente_VM516.Text = $"👤 {clienteSeleccionado_VM516.Nombre_VM516} {clienteSeleccionado_VM516.Apellido_VM516}";
             }
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
@@ -148,6 +160,11 @@ namespace IU
 
             dgvProductos_VM516.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCarrito_VM516.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (dgvProductos_VM516.Columns.Contains("Bit_Lo_Bo_VM516"))
+                dgvProductos_VM516.Columns["Bit_Lo_Bo_VM516"].Visible = false;
+
+            if (dgvCarrito_VM516.Columns.Contains("Bit_Lo_Bo_VM516"))
+                dgvCarrito_VM516.Columns["Bit_Lo_Bo_VM516"].Visible = false;
         }
 
         private void ConfigurarGrillaCarrito_VM516()
@@ -320,7 +337,21 @@ namespace IU
                 // Paso 6: Ejecuta <<include>> ECU10 - Cobrar Pedido
                 using (Form_Cobrar_Pedido_VM516 frmCobro_VM516 = new Form_Cobrar_Pedido_VM516(nuevoPedido_VM516, montoTotal_VM516))
                 {
-                    frmCobro_VM516.ShowDialog();
+                    DialogResult resultado = frmCobro_VM516.ShowDialog();
+
+                    // Si el usuario cerró la ventana sin concretar el pago (con la X o botón salir)
+                    if (resultado != DialogResult.OK)
+                    {
+                        // Llamada a la BLL para cambiar el estado a "Cancelado" o aplicar borrado lógico
+                        bllPedido_VM516.CancelarPedido_VM516(nuevoPedido_VM516.NumeroPedido_VM516);
+
+                        MessageBox.Show(
+                            TraducirTexto("msg_CobroAbortadoCancelado"),
+                            TraducirTexto("titulo_Informacion"),
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                    }
                 }
 
                 LimpiarOperacionCompleta_VM516();

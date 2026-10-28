@@ -22,6 +22,7 @@ namespace IU
         public Form_Inspeccion_Obra_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllInspeccion_VM516 = new BLL_Inspeccion_Obra_VM516();
             bllReserva_VM516 = new BLL_Reserva_Sala_VM516();
         }
@@ -37,7 +38,12 @@ namespace IU
             lblUsuarioValor.Text = $"Usuario activo: {usuario.Login} - {nombreLegibleDelRol}";
 
         }
-
+        private void ConfigurarToolTips()
+        {
+            toolTipInspeccion.SetToolTip(btnBuscarReserva, TraducirTexto("Inspeccion_Tip_BuscarReserva"));
+            toolTipInspeccion.SetToolTip(btnConfirmarPeritaje, TraducirTexto("Inspeccion_Tip_Confirmar"));
+            toolTipInspeccion.SetToolTip(btnSalir, TraducirTexto("Inspeccion_Tip_Salir"));
+        }
         public void ActualizarIdioma()
         {
             string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
@@ -49,6 +55,7 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormInspeccion");
             FormatearGrilla();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
@@ -194,5 +201,7 @@ namespace IU
         {
             this.Close();
         }
+
+
     }
 }

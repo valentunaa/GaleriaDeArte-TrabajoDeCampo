@@ -19,7 +19,15 @@ namespace IU
         public Form_Historial_Entregados_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllPedido_VM516 = new BLL_Pedido_VM516();
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipHistorialEntregados.SetToolTip(btnFiltrar_VM516, TraducirTexto("HistorialEntregados_Tip_Filtrar"));
+            toolTipHistorialEntregados.SetToolTip(btnLimpiar_VM516, TraducirTexto("HistorialEntregados_Tip_VerTodos")); // btnLimpiar_VM516 es el botón "Ver Todos" según tu código
+            toolTipHistorialEntregados.SetToolTip(btnSalir_VM516, TraducirTexto("HistorialEntregados_Tip_Salir"));
         }
 
         private void Form_Historial_Entregados_VM516_Load(object sender, EventArgs e)
@@ -41,6 +49,7 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormHistorialEntregados");
             FormatearGrilla_VM516();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

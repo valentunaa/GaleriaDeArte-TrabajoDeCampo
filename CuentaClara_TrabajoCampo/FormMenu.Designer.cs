@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelMenu = new Panel();
             button14 = new Button();
             lineaOperacion = new Panel();
@@ -57,6 +58,7 @@
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            toolTipMenu = new ToolTip(components);
             panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelUsuario.SuspendLayout();
@@ -115,7 +117,7 @@
             button14.Name = "button14";
             button14.Size = new Size(240, 32);
             button14.TabIndex = 29;
-            button14.Tag = "btn_CambiarClave";
+            button14.Tag = "btn_BC";
             button14.Text = "Bitácora de Cambios";
             button14.TextAlign = ContentAlignment.MiddleLeft;
             button14.UseVisualStyleBackColor = false;
@@ -770,5 +772,6 @@
         private Button button10;
         private Button button13;
         private Button button14;
+        private ToolTip toolTipMenu;
     }
 }

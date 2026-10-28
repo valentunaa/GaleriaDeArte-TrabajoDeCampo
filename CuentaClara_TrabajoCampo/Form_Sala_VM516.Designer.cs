@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             picLogo = new PictureBox();
@@ -53,6 +54,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipSalas = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).BeginInit();
@@ -432,5 +434,6 @@
         private Button btn_Modificar;
         private ComboBox comboBox1;
         private PictureBox picLogo;
+        private ToolTip toolTipSalas;
     }
 }

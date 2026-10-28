@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo_VM516 = new PictureBox();
@@ -49,6 +50,7 @@
             panelInferior_VM516 = new Panel();
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
+            toolTipGestionProd = new ToolTip(components);
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos_VM516).BeginInit();
@@ -378,5 +380,6 @@
         private System.Windows.Forms.Panel panelInferior_VM516;
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
+        private ToolTip toolTipGestionProd;
     }
 }

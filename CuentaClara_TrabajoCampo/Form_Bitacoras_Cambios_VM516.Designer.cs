@@ -30,6 +30,7 @@ namespace IU
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelContenedor = new Panel();
             lblTitulo = new Label();
             btnBitacoraProductos = new Button();
@@ -37,6 +38,7 @@ namespace IU
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipMenuBitacoras = new ToolTip(components);
             panelContenedor.SuspendLayout();
             panelInferior.SuspendLayout();
             SuspendLayout();
@@ -161,5 +163,6 @@ namespace IU
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
+        private ToolTip toolTipMenuBitacoras;
     }
 }

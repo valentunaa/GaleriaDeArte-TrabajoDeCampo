@@ -129,7 +129,7 @@ namespace BLL_Negocio
             // Registrar en Bitácora
             string loginUsuario_VM516 = SessionManager.GetInstancia().GetUsuarioActual().Login;
             string detalleEvento_VM516 = $"Alta Pedido: {pedido_VM516.NumeroPedido_VM516} - Estado: {pedido_VM516.EstadoPedido_VM516}";
-            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginUsuario_VM516, "Negocio - Cafetería", 2);
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginUsuario_VM516, "Negocio - Cafetería", 4);
 
             return pedido_VM516;
         }
@@ -201,11 +201,6 @@ namespace BLL_Negocio
             pedidoBD_VM516.EstadoPedido_VM516 = "Entregado";
             dalPedido_VM516.ActualizarEstadoPedido_VM516(pedidoBD_VM516);
 
-            foreach (var linea_VM516 in pedidoBD_VM516.LineasDetalle_VM516)
-            {
-                bllProducto_VM516.DescontarStock_VM516(linea_VM516.CodigoProducto_VM516, linea_VM516.Cantidad_VM516);
-            }
-
             List<BE_Pedido_VM516> listaPedidos_VM516 = dalPedido_VM516.ListarPedidos_VM516();
             BE_Pedido_VM516 pedidoActualizado_VM516 = listaPedidos_VM516.LastOrDefault(p => p.NumeroPedido_VM516 == pedidoBD_VM516.NumeroPedido_VM516);
             if (pedidoActualizado_VM516 != null)
@@ -214,7 +209,7 @@ namespace BLL_Negocio
             }
 
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora_VM516.RegistrarBitacora($"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado", loginActual_VM516, "Negocio - Cafetería", 3);
+            bllBitacora_VM516.RegistrarBitacora($"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado", loginActual_VM516, "Negocio - Cafetería", 4);
         }
         public List<BE_Pedido_VM516> ListarPedidosEntregados_VM516(string filtro_VM516 = "")
         {
@@ -232,6 +227,20 @@ namespace BLL_Negocio
             }
 
             return listaEntregados_VM516;
+        }
+
+        public void CancelarPedido_VM516(int numeroPedido_VM516)
+        {
+            // Reutilizamos tu método existente para cambiarle el estado y recalcular dígitos
+            ActualizarEstadoPagoPedido_VM516(numeroPedido_VM516, "Cancelado");
+
+            // Registro de auditoría
+            string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
+            bllBitacora_VM516.RegistrarBitacora(
+                $"Pedido Abortado/Cancelado en Caja: {numeroPedido_VM516}",
+                loginActual_VM516,
+                "Negocio - Cafetería",
+                4);
         }
     }
 

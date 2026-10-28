@@ -20,6 +20,7 @@ namespace IU
         public Form_Gestion_Productos_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllProducto_VM516 = new BLL_Producto_VM516();
         }
         private void Form_Gestion_Productos_VM516_Load(object sender, EventArgs e)
@@ -37,6 +38,15 @@ namespace IU
 
         }
 
+        private void ConfigurarToolTips()
+        {
+            toolTipGestionProd.SetToolTip(btnGuardar_VM516, TraducirTexto("Prod_Tip_Guardar"));
+            toolTipGestionProd.SetToolTip(btnModificar_VM516, TraducirTexto("Prod_Tip_Modificar"));
+            toolTipGestionProd.SetToolTip(btnEliminar_VM516, TraducirTexto("Prod_Tip_Eliminar"));
+            toolTipGestionProd.SetToolTip(btnLimpiar_VM516, TraducirTexto("Prod_Tip_Limpiar"));
+            toolTipGestionProd.SetToolTip(btnSalir_VM516, TraducirTexto("Prod_Tip_Salir"));
+        }
+
         public void ActualizarIdioma()
         {
             var usuario = SessionManager.GetInstancia().GetUsuarioActual();
@@ -51,6 +61,7 @@ namespace IU
             this.Text = TraducirTexto("titulo_FormGestionProductos");
             FormatearGrilla_VM516();
             dgvProductos_VM516.Refresh();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

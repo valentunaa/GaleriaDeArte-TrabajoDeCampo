@@ -20,6 +20,7 @@ namespace IU
         public Form_RegistrarCliente_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllCliente_VM516 = new BLL_Cliente_VM516();
 
         }
@@ -29,6 +30,13 @@ namespace IU
             txtDNI_VM516.ReadOnly = true;
 
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipRegCliente.SetToolTip(btnGuardar_VM516, TraducirTexto("RegCliente_Tip_Guardar"));
+            toolTipRegCliente.SetToolTip(button1, TraducirTexto("RegCliente_Tip_Cancelar")); 
+        }
+
         private void Form_RegistrarCliente_VM516_Load(object sender, EventArgs e)
         {
             GestorIdioma.GetInstancia().Suscribir(this);
@@ -47,7 +55,7 @@ namespace IU
 
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormRegistroCliente");
-
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

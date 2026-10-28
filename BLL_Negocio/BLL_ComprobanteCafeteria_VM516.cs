@@ -16,6 +16,7 @@ namespace BLL_Negocio
         private BLL_Pedido_VM516 bllPedido_VM516;     
         private BLL_Cliente_VM516 bllCliente_VM516;
         private  BLL_DigitoVerificador bllDigito_VM516;
+        private BLL_Producto_VM516 bllProducto_VM516;
         private  BLL_BitacoraEvento bllBitacora_VM516;
 
         public BLL_ComprobanteCafeteria_VM516()
@@ -25,6 +26,7 @@ namespace BLL_Negocio
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
             bllCliente_VM516 = new BLL_Cliente_VM516();
+            bllProducto_VM516 = new BLL_Producto_VM516();
         }
 
         public BE_ComprobanteCafeteria_VM516 ProcesarYRegistrarCobro_VM516(
@@ -87,9 +89,15 @@ namespace BLL_Negocio
 
             bllPedido_VM516.ActualizarEstadoPagoPedido_VM516(pedido_VM516.NumeroPedido_VM516, "Pagado");
 
+            // NUEVO: El sistema descuenta las existencias del inventario en este momento
+            foreach (var linea_VM516 in pedido_VM516.LineasDetalle_VM516)
+            {
+                bllProducto_VM516.DescontarStock_VM516(linea_VM516.CodigoProducto_VM516, linea_VM516.Cantidad_VM516);
+            }
+
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
             string detalleEvento_VM516 = $"Cobro Ticket: {comprobante_VM516.NumeroTicket_VM516} - Pedido: {comprobante_VM516.NumeroPedido_VM516}";
-            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginActual_VM516, "Negocio - Tesorería", 3);
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginActual_VM516, "Negocio - Tesorería", 4);
 
             return comprobante_VM516;
         }

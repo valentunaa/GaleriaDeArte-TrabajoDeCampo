@@ -23,6 +23,7 @@
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo_VM516 = new PictureBox();
@@ -40,6 +41,7 @@
             panelInferior_VM516 = new Panel();
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
+            toolTipCobro = new ToolTip(components);
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvComprobantes_VM516).BeginInit();
@@ -62,9 +64,9 @@
             panelContenedor_VM516.Controls.Add(lblMedioPago_VM516);
             panelContenedor_VM516.Controls.Add(btnRegistrarCobro_VM516);
             panelContenedor_VM516.Controls.Add(btnSalir_VM516);
-            panelContenedor_VM516.Location = new Point(20, 12);
+            panelContenedor_VM516.Location = new Point(12, 12);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
-            panelContenedor_VM516.Size = new Size(1566, 745);
+            panelContenedor_VM516.Size = new Size(1281, 745);
             panelContenedor_VM516.TabIndex = 1;
             // 
             // picLogo_VM516
@@ -131,7 +133,7 @@
             dgvComprobantes_VM516.RowHeadersWidth = 102;
             dgvComprobantes_VM516.RowTemplate.Height = 28;
             dgvComprobantes_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvComprobantes_VM516.Size = new Size(1055, 531);
+            dgvComprobantes_VM516.Size = new Size(775, 421);
             dgvComprobantes_VM516.TabIndex = 21;
             // 
             // lblNumeroPedido_VM516
@@ -224,9 +226,9 @@
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir_VM516.Location = new Point(1395, 20);
+            btnSalir_VM516.Location = new Point(31, 441);
             btnSalir_VM516.Name = "btnSalir_VM516";
-            btnSalir_VM516.Size = new Size(140, 38);
+            btnSalir_VM516.Size = new Size(383, 38);
             btnSalir_VM516.TabIndex = 23;
             btnSalir_VM516.Tag = "btn_Salir";
             btnSalir_VM516.Text = "Cancelar";
@@ -241,7 +243,7 @@
             panelInferior_VM516.Dock = DockStyle.Bottom;
             panelInferior_VM516.Location = new Point(0, 750);
             panelInferior_VM516.Name = "panelInferior_VM516";
-            panelInferior_VM516.Size = new Size(1598, 38);
+            panelInferior_VM516.Size = new Size(1313, 38);
             panelInferior_VM516.TabIndex = 0;
             // 
             // lblUsuarioValor_VM516
@@ -272,7 +274,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1598, 788);
+            ClientSize = new Size(1313, 788);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);
@@ -308,5 +310,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private System.Windows.Forms.PictureBox picLogo_VM516;
+        private ToolTip toolTipCobro;
     }
 }

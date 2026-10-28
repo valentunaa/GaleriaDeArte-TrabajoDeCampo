@@ -22,6 +22,7 @@ namespace IU
         public Form_Cobrar_Pedido_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllComprobante_VM516 = new BLL_ComprobanteCafeteria_VM516();
         }
         public Form_Cobrar_Pedido_VM516(BE_Pedido_VM516 pedido_VM516, decimal montoTotal_VM516) : this()
@@ -54,6 +55,13 @@ namespace IU
                 BloquearAccionesPago(false);
             }
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipCobro.SetToolTip(btnRegistrarCobro_VM516, TraducirTexto("Cobro_Tip_Registrar"));
+            toolTipCobro.SetToolTip(btnSalir_VM516, TraducirTexto("Cobro_Tip_Cancelar"));
+        }
+
         public void ActualizarIdioma()
         {
             string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
@@ -65,6 +73,7 @@ namespace IU
             TraducirControles(this.Controls, idioma);
             this.Text = TraducirTexto("titulo_FormCobroCafeteria");
             FormatearGrilla();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
@@ -156,7 +165,7 @@ namespace IU
                     montoAbonado,
                     transaccionAprobadaPorBanco);
 
-                MessageBox.Show(TraducirTexto("msg_CobroRegistradoExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(TraducirTexto("msg_CobroPedidoExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 CargarGrilla();
                 lblEstadoPedido_VM516.Text = TraducirTexto("lbl_EstadoPedidoPagado");
