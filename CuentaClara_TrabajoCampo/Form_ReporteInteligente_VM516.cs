@@ -10,16 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LiveCharts;
-using LiveCharts.Wpf;
-using LiveCharts.WinForms;
+
 
 
 namespace IU
 {
     public partial class Form_ReporteInteligente_VM516 : Form, IObserverIdioma
     {
-        //private CartesianChart graficoReporte_VM516;
         private BLL_Pedido_VM516 bllPedido_VM516;
         private BLL_Reserva_Sala_VM516 bllReserva_VM516;
         private BLL_PDF bllPdf_VM516;
@@ -33,18 +30,14 @@ namespace IU
         private void Form_ReporteInteligente_VM516_Load(object sender, EventArgs e)
         {
             GestorIdioma.GetInstancia().Suscribir(this);
-
-            // Mostrar el usuario logueado en la sesión y su rol
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
-            string nombreLegibleDelRol = usuario != null ? bllRol.ObtenerNombreRol(usuario.IdRol) : "Admin";
-            lblUsuarioValor_VM516.Text = $"{usuario?.Login ?? "Administrador"} | {nombreLegibleDelRol}";
+            string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
+            lblUsuarioValor_VM516.Text = $"{usuario.Login} | {nombreLegibleDelRol}";
 
-            // Cargar las opciones del ComboBox y aplicar idioma inicial
             ActualizarIdioma();
             CargarOpcionesComboBox();
 
-            // Seleccionar la primera opción por defecto (Dispara CargarDatosSeleccionados)
             if (cmbTipoReporte_VM516.Items.Count > 0)
             {
                 cmbTipoReporte_VM516.SelectedIndex = 0;
@@ -103,8 +96,6 @@ namespace IU
         private void FormatearGrilla()
         {
             if (dgvReporteInteligente_VM516.Columns.Count == 0) return;
-
-            // Formato para Reporte de Cafetería
             if (dgvReporteInteligente_VM516.Columns.Contains("Descripcion"))
                 dgvReporteInteligente_VM516.Columns["Descripcion"].HeaderText = TraducirTexto("col_Rep_Descripcion");
 
@@ -117,7 +108,6 @@ namespace IU
                 dgvReporteInteligente_VM516.Columns["RecaudacionTotal"].DefaultCellStyle.Format = "N2";
             }
 
-            // Formato para Reporte de Salas
             if (dgvReporteInteligente_VM516.Columns.Contains("CodigoSala"))
                 dgvReporteInteligente_VM516.Columns["CodigoSala"].HeaderText = TraducirTexto("col_Rep_CodigoSala");
 

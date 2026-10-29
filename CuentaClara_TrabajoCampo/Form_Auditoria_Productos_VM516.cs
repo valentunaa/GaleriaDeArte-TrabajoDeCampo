@@ -28,7 +28,6 @@ namespace IU
         {
             GestorIdioma.GetInstancia().Suscribir(this);
 
-            // 1. Fechas por defecto correctas (cubriendo la diferencia horaria)
             dtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
             dtpFechaFin.Value = DateTime.Now.AddDays(1);
 
@@ -39,7 +38,6 @@ namespace IU
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
 
-            // 2. Corregido el error de sintaxis y salto de línea
             lblUsuarioValor.Text = $"{usuario.Login} - {nombreLegibleDelRol}";
         }
 

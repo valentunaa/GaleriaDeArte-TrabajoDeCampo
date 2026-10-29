@@ -1,0 +1,3444 @@
+{
+  "Nombre": "Español",
+  "Etiquetas": [
+    {
+      "Clave": "btn_IniciarSesion",
+      "Texto": "Iniciar Sesion"
+    },
+    {
+      "Clave": "btn_CerrarSesion",
+      "Texto": "Cerrar Sesion"
+    },
+    {
+      "Clave": "titulo_FormMenu",
+      "Texto": "Vanguardia Arte - Sistema de Gestión de Galería"
+    },
+    {
+      "Clave": "lbl_SeccionOperacion",
+      "Texto": "ALQUILER DE ESPACIO"
+    },
+    {
+      "Clave": "lbl_SeccionSistema",
+      "Texto": "SISTEMA"
+    },
+    {
+      "Clave": "btn_Artistas",
+      "Texto": "ARTISTAS"
+    },
+    {
+      "Clave": "btn_CatalogoObras",
+      "Texto": "CATÁLOGO DE OBRAS"
+    },
+    {
+      "Clave": "btn_Reservas",
+      "Texto": "RESERVAS"
+    },
+    {
+      "Clave": "btn_TesoreriaCobros",
+      "Texto": "TESORERÍA/COBROS"
+    },
+    {
+      "Clave": "btn_SalasCalendario",
+      "Texto": "RETIRO OBRA"
+    },
+    {
+      "Clave": "btn_EstadoPostExhibicion",
+      "Texto": "ESTADO POST-EXHIBICIÓN"
+    },
+    {
+      "Clave": "btn_Salas",
+      "Texto": "SALAS"
+    },
+    {
+      "Clave": "btn_CerrarSesion",
+      "Texto": "Cerrar sesión"
+    },
+    {
+      "Clave": "btn_CambiarClave",
+      "Texto": "Cambiar contraseña"
+    },
+    {
+      "Clave": "Ayuda",
+      "Texto": "Ayuda"
+    },
+    {
+      "Clave": "dgv_Menu",
+      "Texto": "Menú"
+    },
+    {
+      "Clave": "lbl_Usuario",
+      "Texto": "Usuario activo:"
+    },
+    {
+      "Clave": "lbl_LogInNombreUsuario",
+      "Texto": "Nombre de usuario:"
+    },
+    {
+      "Clave": "lbl_LogInClave",
+      "Texto": "Contraseña"
+    },
+    {
+      "Clave": "btn_Salir",
+      "Texto": "Salir"
+    },
+    {
+      "Clave": "btn_Ingresar",
+      "Texto": "Iniciar sesión"
+    },
+    {
+      "Clave": "lbl_TituloCambiarContraseña",
+      "Texto": "Cambiar contraseña"
+    },
+    {
+      "Clave": "lbl_ClaveAnterior",
+      "Texto": "Contraseña anterior"
+    },
+    {
+      "Clave": "lbl_NuevaClave",
+      "Texto": "Nueva contraseña"
+    },
+    {
+      "Clave": "btn_Guardar",
+      "Texto": "Guardar"
+    },
+    {
+      "Clave": "lbl_TituloCrearNuevoUsuario",
+      "Texto": "Crear nuevo usuario"
+    },
+    {
+      "Clave": "lbl_DNI",
+      "Texto": "DNI"
+    },
+    {
+      "Clave": "lbl_RolAsignado",
+      "Texto": "Rol asignado"
+    },
+    {
+      "Clave": "lbl_Nombre",
+      "Texto": "Nombre"
+    },
+    {
+      "Clave": "lbl_Apellido",
+      "Texto": "Apellido"
+    },
+    {
+      "Clave": "lbl_Correo",
+      "Texto": "Correo electrónico"
+    },
+    {
+      "Clave": "lbl_NomdeLogin",
+      "Texto": "Nombre de usuario"
+    },
+    {
+      "Clave": "chk_Activo",
+      "Texto": "Habilitar acceso (Activo)"
+    },
+    {
+      "Clave": "btn_Cancelar",
+      "Texto": "Cancelar"
+    },
+    {
+      "Clave": "EventosUltimos3Dias",
+      "Texto": "Eventos de los últimos 3 días cargados."
+    },
+    {
+      "Clave": "FiltroAplicado",
+      "Texto": "Filtro aplicado correctamente. Registros encontrados:"
+    },
+    {
+      "Clave": "SinRegistros",
+      "Texto": "No se encontraron registros para los filtros seleccionados."
+    },
+    {
+      "Clave": "FiltrosRestablecidos",
+      "Texto": "Filtros restablecidos."
+    },
+    {
+      "Clave": "PdfGenerado",
+      "Texto": "PDF generado correctamente."
+    },
+    {
+      "Clave": "lbl_TituloBitacoradeEventos",
+      "Texto": "Bitácora de eventos"
+    },
+    {
+      "Clave": "lbl_FechaInicio",
+      "Texto": "Fecha de inicio"
+    },
+    {
+      "Clave": "lbl_FechaFin",
+      "Texto": "Fecha de fin"
+    },
+    {
+      "Clave": "lbl_Modulo",
+      "Texto": "Módulo"
+    },
+    {
+      "Clave": "lbl_Evento",
+      "Texto": "Evento"
+    },
+    {
+      "Clave": "lbl_Criticidad",
+      "Texto": "Criticidad"
+    },
+    {
+      "Clave": "lbl_CantidadEventos",
+      "Texto": "Cantidad de eventos"
+    },
+    {
+      "Clave": "btn_Limpiar",
+      "Texto": "Limpiar"
+    },
+    {
+      "Clave": "btn_Aplicar",
+      "Texto": "Aplicar"
+    },
+    {
+      "Clave": "btn_Imprimir",
+      "Texto": "Imprimir"
+    },
+    {
+      "Clave": "Login",
+      "Texto": "Usuario"
+    },
+    {
+      "Clave": "Evento",
+      "Texto": "Evento"
+    },
+    {
+      "Clave": "Modulo",
+      "Texto": "Módulo"
+    },
+    {
+      "Clave": "Criticidad",
+      "Texto": "Criticidad"
+    },
+    {
+      "Clave": "Fecha",
+      "Texto": "Fecha"
+    },
+    {
+      "Clave": "Hora",
+      "Texto": "Hora"
+    },
+    {
+      "Clave": "idEvento",
+      "Texto": "Id de evento"
+    },
+    {
+      "Clave": "ModoCrearIdioma",
+      "Texto": "Modo actual: CREAR IDIOMA"
+    },
+    {
+      "Clave": "IngreseNombreIdioma",
+      "Texto": "Ingrese el nombre del idioma en el campo texto."
+    },
+    {
+      "Clave": "PresioneAplicarConfirmar",
+      "Texto": "Presione Aplicar para confirmar."
+    },
+    {
+      "Clave": "IngreseNombreParaIdioma",
+      "Texto": "Ingrese un nombre para el idioma"
+    },
+    {
+      "Clave": "IdiomaCreadoCorrectamente",
+      "Texto": "Idioma creado correctamente"
+    },
+    {
+      "Clave": "IdiomaYaExiste",
+      "Texto": "El idioma ya existe"
+    },
+    {
+      "Clave": "ErrorCrearIdioma",
+      "Texto": "Error al crear el idioma"
+    },
+    {
+      "Clave": "Error",
+      "Texto": "Error"
+    },
+    {
+      "Clave": "SeleccioneIdioma",
+      "Texto": "Seleccione un idioma"
+    },
+    {
+      "Clave": "IngreseTexto",
+      "Texto": "Ingrese un texto"
+    },
+    {
+      "Clave": "EtiquetaModificadaCorrectamente",
+      "Texto": "Etiqueta modificada correctamente"
+    },
+    {
+      "Clave": "NoSePudoModificarEtiqueta",
+      "Texto": "No se pudo modificar la etiqueta"
+    },
+    {
+      "Clave": "IngreseClave",
+      "Texto": "Ingrese una clave"
+    },
+    {
+      "Clave": "EtiquetaAgregadaCorrectamente",
+      "Texto": "Etiqueta agregada correctamente"
+    },
+    {
+      "Clave": "ClaveYaExiste",
+      "Texto": "La clave ya existe"
+    },
+    {
+      "Clave": "ModoCrearEtiqueta",
+      "Texto": "Modo actual: CREAR ETIQUETA"
+    },
+    {
+      "Clave": "IngreseLaClave",
+      "Texto": "Ingrese la clave"
+    },
+    {
+      "Clave": "IngreseElTexto",
+      "Texto": "Ingrese el texto"
+    },
+    {
+      "Clave": "SeleccioneEtiqueta",
+      "Texto": "Seleccione una etiqueta"
+    },
+    {
+      "Clave": "ModoModificarEtiqueta",
+      "Texto": "Modo actual: MODIFICAR ETIQUETA"
+    },
+    {
+      "Clave": "ModifiqueTexto",
+      "Texto": "Modifique el texto"
+    },
+    {
+      "Clave": "ClaveNoPuedeCambiarse",
+      "Texto": "La clave no puede cambiarse"
+    },
+    {
+      "Clave": "Clave",
+      "Texto": "Clave"
+    },
+    {
+      "Clave": "Texto",
+      "Texto": "Texto"
+    },
+    {
+      "Clave": "lbl_TituloGestiondeIdiomas",
+      "Texto": "Gestión de idiomas"
+    },
+    {
+      "Clave": "lbl_SeleccioneElIdioma",
+      "Texto": "Seleccione idioma"
+    },
+    {
+      "Clave": "btn_NuevoIdioma",
+      "Texto": "Nuevo idioma"
+    },
+    {
+      "Clave": "btn_AgregarEtiqueta",
+      "Texto": "Agregar etiqueta"
+    },
+    {
+      "Clave": "btn_ModificarEtiqueta",
+      "Texto": "Editar etiqueta"
+    },
+    {
+      "Clave": "btn_GestionPerfiles",
+      "Texto": "Gestión de perfiles"
+    },
+    {
+      "Clave": "btn_GestionUsuarios",
+      "Texto": "Gestión de usuarios"
+    },
+    {
+      "Clave": "btn_GestionDeBitacora",
+      "Texto": "Gestión de Bitácora de Eventos"
+    },
+    {
+      "Clave": "btn_GestionDeIdioma",
+      "Texto": "Gestión de idiomas"
+    },
+    {
+      "Clave": "btn_RegistrarNuevoEgreso",
+      "Texto": "Registrar nuevo egreso"
+    },
+    {
+      "Clave": "btn_RegistrarNuevoIngreso",
+      "Texto": "Registrar nuevo ingreso"
+    },
+    {
+      "Clave": "lbl_SaldosConciliados",
+      "Texto": "Saldos conciliados: hogar en equilibrio y armonía"
+    },
+    {
+      "Clave": "lbl_GestionDeUsuarios",
+      "Texto": "Gestión de usuarios"
+    },
+    {
+      "Clave": "btn_UsuarioActivos",
+      "Texto": "Usuarios activos"
+    },
+    {
+      "Clave": "btn_TodosUsuarios",
+      "Texto": "Todos los usuarios"
+    },
+    {
+      "Clave": "lbl_TotalDeUsuarios",
+      "Texto": "Total de usuarios"
+    },
+    {
+      "Clave": "btn_Crear",
+      "Texto": "Crear"
+    },
+    {
+      "Clave": "btn_Desbloquear",
+      "Texto": "Desbloquear"
+    },
+    {
+      "Clave": "btn_Modificar",
+      "Texto": "Modificar"
+    },
+    {
+      "Clave": "btn_Activar/Desactivar",
+      "Texto": "Activar/Desactivar"
+    },
+    {
+      "Clave": "ModoConsulta",
+      "Texto": "Modo consulta"
+    },
+    {
+      "Clave": "ModoModificar",
+      "Texto": "Modo edición"
+    },
+    {
+      "Clave": "ModoDesbloquear",
+      "Texto": "Modo desbloquear"
+    },
+    {
+      "Clave": "ModoActivarDesactivar",
+      "Texto": "Modo activar/desactivar"
+    },
+    {
+      "Clave": "UsuarioModificado",
+      "Texto": "Usuario actualizado correctamente"
+    },
+    {
+      "Clave": "NoSePudoModificar",
+      "Texto": "No se pudo actualizar el usuario"
+    },
+    {
+      "Clave": "UsuarioNoBloqueado",
+      "Texto": "El usuario seleccionado no está bloqueado"
+    },
+    {
+      "Clave": "UsuarioDesbloqueado",
+      "Texto": "Usuario desbloqueado correctamente"
+    },
+    {
+      "Clave": "EstadoActualizado",
+      "Texto": "Estado actualizado correctamente"
+    },
+    {
+      "Clave": "ModoCreacion",
+      "Texto": "Modo creación"
+    },
+    {
+      "Clave": "DNI",
+      "Texto": "DNI"
+    },
+    {
+      "Clave": "Apellido",
+      "Texto": "Apellido"
+    },
+    {
+      "Clave": "Nombre",
+      "Texto": "Nombre"
+    },
+    {
+      "Clave": "Email",
+      "Texto": "Correo electrónico"
+    },
+    {
+      "Clave": "Login",
+      "Texto": "Usuario"
+    },
+    {
+      "Clave": "Rol",
+      "Texto": "Rol"
+    },
+    {
+      "Clave": "Activo",
+      "Texto": "Activo"
+    },
+    {
+      "Clave": "Password",
+      "Texto": "Contraseña"
+    },
+    {
+      "Clave": "Bloqueo",
+      "Texto": "Bloqueo"
+    },
+    {
+      "Clave": "Idioma",
+      "Texto": "Idioma"
+    },
+    {
+      "Clave": "btn_Eliminar",
+      "Texto": "Eliminar"
+    },
+    {
+      "Clave": "btn_AsignarFamilia",
+      "Texto": "Asignar familia"
+    },
+    {
+      "Clave": "btn_AsignarPermiso",
+      "Texto": "Asignar permiso"
+    },
+    {
+      "Clave": "btn_Desasignar",
+      "Texto": "Desasignar"
+    },
+    {
+      "Clave": "lbl_GestionDePerfiles",
+      "Texto": "Gestión de perfiles"
+    },
+    {
+      "Clave": "cmb_Rol",
+      "Texto": "Rol"
+    },
+    {
+      "Clave": "cmb_Familia",
+      "Texto": "Familia"
+    },
+    {
+      "Clave": "lbl_Rol",
+      "Texto": "Rol"
+    },
+    {
+      "Clave": "lbl_Familia",
+      "Texto": "Familia"
+    },
+    {
+      "Clave": "lbl_FamiliaHija",
+      "Texto": "Familia hija"
+    },
+    {
+      "Clave": "msg_ErrorVistaPrevia",
+      "Texto": "Error al cargar vista previa"
+    },
+    {
+      "Clave": "msg_SeleccioneFamilia",
+      "Texto": "Seleccione al menos una familia"
+    },
+    {
+      "Clave": "msg_ConflictoPermisos",
+      "Texto": "Conflicto de permisos"
+    },
+    {
+      "Clave": "msg_FamiliaContienePermisos",
+      "Texto": "La familia {0} contiene los siguientes permisos: {1}"
+    },
+    {
+      "Clave": "msg_FamiliasAsignadasRol",
+      "Texto": "Familias asignadas al rol correctamente"
+    },
+    {
+      "Clave": "msg_FamiliaAsignadaCorrectamente",
+      "Texto": "Familia asignada correctamente"
+    },
+    {
+      "Clave": "msg_SeleccioneRolOFamilia",
+      "Texto": "Seleccione Rol o Familia"
+    },
+
+    {
+      "Clave": "msg_ErrorAutenticacion",
+      "Texto": "Error de autenticación"
+    },
+    {
+      "Clave": "err_IntentosRestantes",
+      "Texto": "Error de autenticación. Intentos restantes: "
+    },
+    {
+      "Clave": "msg_UsuarioCreadoCorrectamente",
+      "Texto": "Usuario creado correctamente"
+    },
+    {
+      "Clave": "msg_SeleccionePermiso",
+      "Texto": "Seleccione al menos un permiso"
+    },
+    {
+      "Clave": "msg_RolYaPoseePermiso",
+      "Texto": "El rol ya tiene el permiso '{0}'"
+    },
+    {
+      "Clave": "msg_AvisoRedundancia",
+      "Texto": "Advertencia de redundancia"
+    },
+    {
+      "Clave": "msg_PermisosAsignadosCorrectamente",
+      "Texto": "Se asignaron correctamente {0} permisos"
+    },
+    {
+      "Clave": "msg_FamiliaYaPoseePermiso",
+      "Texto": "La familia ya tiene el permiso '{0}'"
+    },
+    {
+      "Clave": "msg_PermisoAsignadoCorrectamente",
+      "Texto": "Permiso asignado correctamente"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaArbol",
+      "Texto": "Seleccione una familia [F] del árbol para modificar"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaArbolSimple",
+      "Texto": "Seleccione una familia del árbol"
+    },
+    {
+      "Clave": "msg_IngreseNuevoNombre",
+      "Texto": "Ingrese el nuevo nombre"
+    },
+    {
+      "Clave": "msg_ModificarFamilia",
+      "Texto": "Modificar familia"
+    },
+    {
+      "Clave": "msg_FamiliaYaExiste",
+      "Texto": "Ya existe una familia con ese nombre"
+    },
+    {
+      "Clave": "msg_FamiliaModificadaCorrectamente",
+      "Texto": "Familia modificada correctamente"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaArbolEliminar",
+      "Texto": "Seleccione una familia [F] del árbol para eliminar"
+    },
+    {
+      "Clave": "msg_FamiliaEliminadaCorrectamente",
+      "Texto": "Familia eliminada correctamente"
+    },
+    {
+      "Clave": "msg_FamiliaMinComponentes",
+      "Texto": "Una familia debe contener al menos 2 componentes desde su creación. Seleccione más elementos."
+    },
+    {
+      "Clave": "msg_Validacion",
+      "Texto": "Validación"
+    },
+    {
+      "Clave": "msg_IngreseNombreFamilia",
+      "Texto": "Ingrese nombre de la familia"
+    },
+    {
+      "Clave": "msg_NuevaFamilia",
+      "Texto": "Nueva familia"
+    },
+    {
+      "Clave": "msg_FamiliaGuardadaCorrectamente",
+      "Texto": "Familia estructurada y guardada correctamente"
+    },
+    {
+      "Clave": "msg_SeleccioneElementoArbolQuitar",
+      "Texto": "Seleccione un elemento del árbol para quitar"
+    },
+    {
+      "Clave": "msg_NoQuitarRolPrincipal",
+      "Texto": "No se puede quitar un rol principal desde aquí"
+    },
+    {
+      "Clave": "msg_ElementoDesvinculadoCorrectamente",
+      "Texto": "Elemento desvinculado correctamente"
+    },
+    {
+      "Clave": "msg_ErrorDesasignar",
+      "Texto": "Error al intentar desasignar"
+    },
+    {
+      "Clave": "msg_RolVacioNoPermitido",
+      "Texto": "No se permiten roles vacíos. Seleccione al menos un permiso o familia inicial"
+    },
+    {
+      "Clave": "msg_IngreseNombreRol",
+      "Texto": "Ingrese nombre del rol"
+    },
+    {
+      "Clave": "msg_NuevoRol",
+      "Texto": "Nuevo rol"
+    },
+    {
+      "Clave": "msg_RolYaExiste",
+      "Texto": "Ya existe un rol con ese nombre"
+    },
+    {
+      "Clave": "msg_RolCreadoExito",
+      "Texto": "Rol creado correctamente."
+    },
+    {
+      "Clave": "msg_NuevoNombreRol",
+      "Texto": "Nuevo nombre de rol"
+    },
+    {
+      "Clave": "msg_ModificarRol",
+      "Texto": "Modificar rol"
+    },
+    {
+      "Clave": "msg_RolYaExisteNombre",
+      "Texto": "Ya existe un rol con ese nombre. Elija otro"
+    },
+    {
+      "Clave": "msg_RolModificadoCorrectamente",
+      "Texto": "Rol modificado correctamente"
+    },
+    {
+      "Clave": "msg_EliminarPerfil",
+      "Texto": "¿Eliminar perfil?"
+    },
+    {
+      "Clave": "msg_Confirmacion",
+      "Texto": "Confirmación"
+    },
+    {
+      "Clave": "msg_PerfilEliminadoCorrectamente",
+      "Texto": "Perfil eliminado correctamente"
+    },
+    {
+      "Clave": "lst_AsignarPermisoInstruccion1",
+      "Texto": "1. Seleccione si asignará a un ROL o a una FAMILIA"
+    },
+    {
+      "Clave": "lst_ModoAsignarPermiso",
+      "Texto": "Modo asignación de permisos"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaInstruccion1",
+      "Texto": "1. Seleccione si asignará a un ROL o a otra FAMILIA"
+    },
+    {
+      "Clave": "lst_ModoAsignarFamilia",
+      "Texto": "Modo asignación de familia"
+    },
+    {
+      "Clave": "lst_ModoModificarFamilia",
+      "Texto": "Modo modificación de familia"
+    },
+    {
+      "Clave": "lst_ModificarFamiliaPaso1",
+      "Texto": "1. Seleccione una familia [F] o rol [R] en el árbol"
+    },
+    {
+      "Clave": "lst_ModificarFamiliaPaso2",
+      "Texto": "2. Presione Aplicar"
+    },
+    {
+      "Clave": "lst_ModificarFamiliaPaso3",
+      "Texto": "3. Ingrese el nuevo nombre en la ventana"
+    },
+    {
+      "Clave": "lst_ModoEliminarFamiliaRol",
+      "Texto": "Modo eliminar familia/rol (eliminación total)"
+    },
+    {
+      "Clave": "lst_EliminarPaso1",
+      "Texto": "1. Seleccione una familia [F] o rol [R] en el árbol"
+    },
+    {
+      "Clave": "lst_EliminarPaso2",
+      "Texto": "2. Presione Aplicar para eliminarlo del sistema"
+    },
+    {
+      "Clave": "lst_ModoCrear",
+      "Texto": "Modo creación"
+    },
+    {
+      "Clave": "lst_CrearPaso1",
+      "Texto": "1. Seleccione Rol/Familia"
+    },
+    {
+      "Clave": "lst_ModoCrearPerfilRolTitulo",
+      "Texto": ">>> MODO: CREAR NUEVO PERFIL (ROL) <<<"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso1",
+      "Texto": "1. Seleccione permisos y/o familias iniciales"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso2",
+      "Texto": "2. Debe seleccionar al menos uno"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso3",
+      "Texto": "3. Presione el botón Aplicar"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso4",
+      "Texto": "4. Ingrese el nombre del perfil"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolTitulo",
+      "Texto": "Asignación de permisos a ROL:"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolPaso1",
+      "Texto": "1. Seleccione el rol"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolPaso2",
+      "Texto": "2. Seleccione el permiso"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolPaso3",
+      "Texto": "3. Presione Aplicar"
+    },
+    {
+      "Clave": "lst_ModoAsignarFamiliaRol",
+      "Texto": "Modo asignar familia a rol"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaRolPaso1",
+      "Texto": "1. Seleccione el rol"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaRolPaso2",
+      "Texto": "2. Seleccione la familia"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaRolPaso3",
+      "Texto": "3. Presione Aplicar"
+    },
+    {
+      "Clave": "lst_ModoCrearFamiliaTitulo",
+      "Texto": ">>> MODO: CREAR NUEVA FAMILIA <<<"
+    },
+    {
+      "Clave": "lst_CrearFamiliaPaso1",
+      "Texto": "1. Seleccione permisos y/o subfamilias"
+    },
+    {
+      "Clave": "lst_CrearFamiliaPaso2",
+      "Texto": "2. Es obligatorio seleccionar al menos uno"
+    },
+    {
+      "Clave": "lst_CrearFamiliaPaso3",
+      "Texto": "3. Presione Aplicar e ingrese el nombre"
+    },
+    {
+      "Clave": "lst_ModoAsignarPermisoFamilia",
+      "Texto": "Modo asignar permiso a familia"
+    },
+    {
+      "Clave": "lst_AsignarPermisoFamiliaPaso1",
+      "Texto": "1. Seleccione la familia"
+    },
+    {
+      "Clave": "lst_AsignarPermisoFamiliaPaso2",
+      "Texto": "2. Seleccione el permiso"
+    },
+    {
+      "Clave": "lst_AsignarPermisoFamiliaPaso3",
+      "Texto": "3. Presione Aplicar"
+    },
+    {
+      "Clave": "lst_ModoAsignarFamiliaFamilia",
+      "Texto": "Modo asignar familia a familia"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaFamiliaPaso1",
+      "Texto": "1. Seleccione familia contenedora"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaFamiliaPaso2",
+      "Texto": "2. Seleccione familia a insertar"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaFamiliaPaso3",
+      "Texto": "3. Presione Aplicar"
+    },
+    {
+      "Clave": "lst_ModoDesasignarSeleccionado",
+      "Texto": "Modo desasignar seleccionado"
+    },
+    {
+      "Clave": "lst_DesasignarPaso1",
+      "Texto": "1. Seleccione un [P] o [F] del árbol"
+    },
+    {
+      "Clave": "lst_DesasignarPaso2",
+      "Texto": "2. Presione Aplicar para quitarlo"
+    },
+    {
+      "Clave": "msg_DebeCompletarCampos",
+      "Texto": "Debe completar todos los campos"
+    },
+    {
+      "Clave": "msg_UsuarioContrasenaIncorrectos",
+      "Texto": "Usuario o contraseña inválidos"
+    },
+    {
+      "Clave": "btn_CambiarIdioma",
+      "Texto": "Cambiar Idioma Actual"
+    },
+    {
+      "Clave": "lbl_SaldosConciliados:HogarenEquilibrioyArmonia",
+      "Texto": "Saldos Conciliados:Hogar en Equilibrio y Armonia"
+    },
+    {
+      "Clave": "lbl_Permiso",
+      "Texto": "Permiso"
+    },
+    {
+      "Clave": "lbl_CantEventos",
+      "Texto": "Cantidad de Eventos"
+    },
+    {
+      "Clave": "btn_Restaurar",
+      "Texto": "Restaurar"
+    },
+    {
+      "Clave": "btn_BackUp",
+      "Texto": "Copia de seguridad"
+    },
+    {
+      "Clave": "btn_Seleccionar",
+      "Texto": "Seleccionar"
+    },
+    {
+      "Clave": "btn_RecalcularDigitosVerificadores",
+      "Texto": "Recalcular dígitos verificadores"
+    },
+    {
+      "Clave": "btn_GestionDeRespaldo",
+      "Texto": "Gestion de respaldo"
+    },
+    {
+      "Clave": "Atencion",
+      "Texto": "ATENCIÓN"
+    },
+    {
+      "Clave": "ViolacionIntegridad",
+      "Texto": "El sistema detectó una violación de integridad."
+    },
+    {
+      "Clave": "Tabla",
+      "Texto": "Tabla"
+    },
+    {
+      "Clave": "RegistrosModificados",
+      "Texto": "Registros modificados:"
+    },
+    {
+      "Clave": "RegistrosEliminados",
+      "Texto": "Registros eliminados:"
+    },
+    {
+      "Clave": "ErrorDVV",
+      "Texto": "Se detectó un error en el DVV de la tabla."
+    },
+    {
+      "Clave": "AlteracionEstructural",
+      "Texto": "Se detectó una alteración estructural de la tabla."
+    },
+    {
+      "Clave": "ModoEmergenciaFinal",
+      "Texto": "El sistema está funcionando en Modo Emergencia.\n\nRevise la base de datos antes de continuar."
+    },
+    {
+      "Clave": "ModoEmergencia",
+      "Texto": "Modo Emergencia"
+    },
+    {
+      "Clave": "err_IntentosRestantes",
+      "Texto": "Intentos restantes:"
+    },
+    {
+      "Clave": "err_NombreApellidoObligatorios",
+      "Texto": "El nombre y el apellido son obligatorios."
+    },
+    {
+      "Clave": "err_NombreApellidoSoloLetras",
+      "Texto": "El nombre y el apellido solo pueden contener letras."
+    },
+    {
+      "Clave": "err_DniFormatoInvalido",
+      "Texto": "El DNI debe contener exactamente 8 números."
+    },
+    {
+      "Clave": "err_EmailFormatoInvalido",
+      "Texto": "El formato del correo electrónico no es válido."
+    },
+    {
+      "Clave": "err_UsuarioYaExiste",
+      "Texto": "El usuario ya existe."
+    },
+    {
+      "Clave": "err_ErrorActualizacionDV",
+      "Texto": "Se produjo un error al actualizar la verificación de integridad de los datos."
+    },
+    {
+      "Clave": "err_SistemaMantenimiento",
+      "Texto": "El sistema se encuentra en mantenimiento. Espere unos segundos..."
+    },
+    {
+      "Clave": "err_UsuarioNoRegistrado",
+      "Texto": "Usuario no registrado."
+    },
+    {
+      "Clave": "err_UsuarioBloqueado",
+      "Texto": "Usuario bloqueado debido a múltiples intentos fallidos de inicio de sesión."
+    },
+    {
+      "Clave": "err_UsuarioInactivoBloqueado",
+      "Texto": "El usuario se encuentra inactivo o bloqueado."
+    },
+    {
+      "Clave": "err_UsuarioSinRol",
+      "Texto": "Error de configuración: El usuario no tiene un rol asignado. Contacte al Administrador."
+    },
+    {
+      "Clave": "err_UsuarioNoEncontrado",
+      "Texto": "No se encontró el usuario a modificar."
+    },
+    {
+      "Clave": "err_UsuarioEstadoInvalido",
+      "Texto": "El usuario no se encuentra en un estado válido para ser modificado."
+    },
+    {
+      "Clave": "msg_CamposObligatorios",
+      "Texto": "Por favor, complete todos los campos."
+    },
+    {
+      "Clave": "msg_Atencion",
+      "Texto": "Atención"
+    },
+    {
+      "Clave": "msg_ClaveModificadaCorrectamente",
+      "Texto": "Contraseña modificada correctamente."
+    },
+    {
+      "Clave": "msg_Exito",
+      "Texto": "Éxito"
+    },
+    {
+      "Clave": "msg_ErrorCambioClave",
+      "Texto": "No se pudo cambiar la contraseña. Verifique que su contraseña actual sea correcta o intente nuevamente más tarde."
+    },
+    {
+      "Clave": "msg_Error",
+      "Texto": "Error"
+    },
+    {
+      "Clave": "msg_UsuarioCreadoCorrectamente",
+      "Texto": "Usuario creado correctamente."
+    },
+    {
+      "Clave": "err_ErrorCrearRol",
+      "Texto": "Error al crear el rol."
+    },
+    {
+      "Clave": "msg_RolEliminadoCorrectamente",
+      "Texto": "Rol eliminado correctamente."
+    },
+    {
+      "Clave": "msg_ErrorIntegridadFamiliaPermisos",
+      "Texto": "Error de integridad: La familia seleccionada contiene permisos que este Rol ya posee. Por favor, elimine la redundancia antes de asignarla."
+    },
+    {
+      "Clave": "msg_RedundanciaDetectada",
+      "Texto": "Redundancia detectada"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaPadreHija",
+      "Texto": "Por favor, seleccione una familia padre y una familia hija en los combos."
+    },
+    {
+      "Clave": "msg_FamiliaNoPuedeAsignarseMisma",
+      "Texto": "Una familia no puede asignarse a sí misma."
+    },
+    {
+      "Clave": "msg_RelacionFamiliasYaExisteOCiclo",
+      "Texto": "Esta relación ya existe o provocaría un ciclo."
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaModificar",
+      "Texto": "Por favor, seleccione una familia de la lista de la izquierda."
+    },
+    {
+      "Clave": "msg_SoloUnaFamiliaModificar",
+      "Texto": "Por favor, seleccione solo una familia a la vez para modificar."
+    },
+    {
+      "Clave": "msg_ErrorEliminar",
+      "Texto": "Error al eliminar."
+    },
+    {
+      "Clave": "msg_SeleccioneRolCombo",
+      "Texto": "Por favor, seleccione un rol del combo."
+    },
+    {
+      "Clave": "msg_ModoModificarFamilia",
+      "Texto": "Modo modificar FAMILIA"
+    },
+    {
+      "Clave": "msg_ElijaFamiliaLista",
+      "Texto": "1. Elija la FAMILIA de la lista."
+    },
+    {
+      "Clave": "msg_PresioneAplicar",
+      "Texto": "2. Presione Aplicar."
+    },
+    {
+      "Clave": "msg_ConfirmarRestauracion",
+      "Texto": "¿Está seguro? Esto sobrescribirá los datos actuales."
+    },
+    {
+      "Clave": "msg_RestauracionExitosaCerrar",
+      "Texto": "La base de datos fue restaurada correctamente.\n\nLa aplicación se cerrará para aplicar los cambios."
+    },
+    {
+      "Clave": "msg_Restauracion",
+      "Texto": "Restauración"
+    },
+    {
+      "Clave": "msg_ErrorRestauracion",
+      "Texto": "Error en la restauración"
+    },
+    {
+      "Clave": "msg_BackupGeneradoExitosamente",
+      "Texto": "Copia de seguridad generada exitosamente."
+    },
+    {
+      "Clave": "msg_Error",
+      "Texto": "Error"
+    },
+    {
+      "Clave": "msg_ConfirmarRecalculoDV",
+      "Texto": "Se recalcularán todos los Dígitos Verificadores.\n\n¿Desea continuar?"
+    },
+    {
+      "Clave": "msg_Confirmacion",
+      "Texto": "Confirmación"
+    },
+    {
+      "Clave": "msg_DVRecalculadosCorrectamente",
+      "Texto": "Los Dígitos Verificadores fueron recalculados correctamente."
+    },
+    {
+      "Clave": "msg_Exito",
+      "Texto": "Éxito"
+    },
+    {
+      "Clave": "msg_Atencion",
+      "Texto": "Atención"
+    },
+    {
+      "Clave": "ErrorDesbloquearUsuario",
+      "Texto": "Error: No se pudo desbloquear el usuario."
+    },
+    {
+      "Clave": "err_NoSePudoActualizarEstadoUsuario",
+      "Texto": "Error: No se pudo actualizar el estado del usuario."
+    },
+    {
+      "Clave": "err_NombreFamiliaObligatorio",
+      "Texto": "Ingrese un nombre."
+    },
+    {
+      "Clave": "err_FamiliaNombreExistente",
+      "Texto": "Ya existe una familia con ese nombre."
+    },
+    {
+      "Clave": "err_FamiliaSinContenido",
+      "Texto": "Una familia no puede crearse vacía. Debe seleccionar al menos dos permisos o subfamilias iniciales."
+    },
+    {
+      "Clave": "err_RedundanciaPermisoSuelto",
+      "Texto": "Error de integridad: Ha seleccionado un permiso suelto que ya está contenido dentro de una de las familias seleccionadas."
+    },
+    {
+      "Clave": "err_RedundanciaPermisoFamilia",
+      "Texto": "Error de integridad: La selección es redundante. El permiso está repetido dentro de las familias seleccionadas."
+    },
+    {
+      "Clave": "err_SeleccionarFamiliaEliminar",
+      "Texto": "Seleccione una familia para eliminar."
+    },
+    {
+      "Clave": "err_FamiliaEnUso",
+      "Texto": "No se puede eliminar la familia porque está siendo utilizada por:"
+    },
+    {
+      "Clave": "err_SeleccionarFamiliaPadre",
+      "Texto": "Seleccione una familia padre."
+    },
+    {
+      "Clave": "err_SeleccionarFamiliaHija",
+      "Texto": "Seleccione una familia hija."
+    },
+    {
+      "Clave": "err_FamiliaNoPuedeAsignarseSiMisma",
+      "Texto": "Una familia no puede asignarse a sí misma."
+    },
+    {
+      "Clave": "err_CicloFamilias",
+      "Texto": "Error: Esto crearía un ciclo infinito de familias."
+    },
+    {
+      "Clave": "err_AsignacionFamiliaRedundanteRoles",
+      "Texto": "Operación cancelada. La familia hija contiene permisos que ya existen en los siguientes Roles, los cuales utilizan la familia padre:"
+    },
+    {
+      "Clave": "err_PermisosRedundantesFamilia",
+      "Texto": "No se puede realizar la asignación. Los siguientes permisos de la familia hija ya están presentes en la familia padre:"
+    },
+    {
+      "Clave": "err_FamiliaUnSoloElemento",
+      "Texto": "Una familia no puede quedar con un solo elemento."
+    },
+    {
+      "Clave": "err_CicloFamilia",
+      "Texto": "Error de integridad: Se detectó un ciclo en la familia:"
+    },
+    {
+      "Clave": "err_FamiliaRepetidaJerarquia",
+      "Texto": "Error de integridad: La familia aparece más de una vez dentro de la misma jerarquía:"
+    },
+    {
+      "Clave": "err_PermisoRepetidoJerarquia",
+      "Texto": "Error de integridad: El permiso está repetido dentro de la jerarquía:"
+    },
+    {
+      "Clave": "err_ArchivoNoExiste",
+      "Texto": "El archivo seleccionado no existe."
+    },
+    {
+      "Clave": "err_ExtensionBackupInvalida",
+      "Texto": "Debe seleccionar un archivo .bak."
+    },
+    {
+      "Clave": "err_RolNombreExiste",
+      "Texto": "Ya existe un rol con ese nombre."
+    },
+    {
+      "Clave": "err_RolVacio",
+      "Texto": "Un rol no puede crearse vacío. Debe asignarle al menos un Permiso o una Familia."
+    },
+    {
+      "Clave": "err_PermisosSueltosRedundantes",
+      "Texto": "Error de integridad: Ha seleccionado permisos sueltos que ya están incluidos dentro de las familias seleccionadas."
+    },
+    {
+      "Clave": "err_RolPermisosRedundantes",
+      "Texto": "No se puede crear el Rol. Las familias seleccionadas tienen los siguientes permisos cruzados/redundantes:"
+    },
+    {
+      "Clave": "err_SeleccioneRol",
+      "Texto": "Seleccione un rol."
+    },
+    {
+      "Clave": "err_SeleccionePermiso",
+      "Texto": "Seleccione un permiso."
+    },
+    {
+      "Clave": "err_RolYaPoseePermiso",
+      "Texto": "El rol ya posee ese permiso."
+    },
+    {
+      "Clave": "err_SeleccioneFamilia",
+      "Texto": "Seleccione una familia."
+    },
+    {
+      "Clave": "err_FamiliaYaAsignada",
+      "Texto": "La familia ya está asignada."
+    },
+    {
+      "Clave": "err_FamiliaPermisosRedundantes",
+      "Texto": "No se puede asignar la familia porque el rol ya posee los siguientes permisos:"
+    },
+    {
+      "Clave": "err_PermisoRepetidoRol",
+      "Texto": "Error de integridad: El permiso está repetido dentro del rol:"
+    },
+    {
+      "Clave": "err_CicloFamiliaRol",
+      "Texto": "Error de integridad: Se detectó un ciclo en la familia dentro del rol:"
+    },
+    {
+      "Clave": "err_FamiliaRepetidaRol",
+      "Texto": "Error de integridad: La familia aparece más de una vez dentro del rol:"
+    },
+    {
+      "Clave": "err_PermisoRepetidoRol",
+      "Texto": "Error de integridad: El permiso está repetido dentro del rol:"
+    },
+    {
+      "Clave": "lbl_GestionDeRespaldo",
+      "Texto": "Gestión de respaldo"
+    },
+    {
+      "Clave": "err_EmailYaExiste",
+      "Texto": "El correo electrónico ya está registrado."
+    },
+    {
+      "Clave": "btn_Ayuda",
+      "Texto": "Ayuda"
+    },
+    {
+      "Clave": "err_ManualNoEncontrado",
+      "Texto": "No se encontró el manual de usuario."
+    },
+    {
+      "Clave": "lbl_TituloRegistroArtista",
+      "Texto": "Registro de Artistas"
+    },
+    {
+      "Clave": "lbl_Telefono",
+      "Texto": "Teléfono:"
+    },
+    {
+      "Clave": "lbl_Email",
+      "Texto": "Correo electrónico:"
+    },
+    {
+      "Clave": "btn_RegistrarArtista",
+      "Texto": "Registrar Artista"
+    },
+    {
+      "Clave": "lbl_BuscarArtistaDNI",
+      "Texto": "BUSCAR ARTISTA POR DNI"
+    },
+    {
+      "Clave": "titulo_FormRegistroArtista",
+      "Texto": "Vanguardia Arte - Gestión de Artistas"
+    },
+    {
+      "Clave": "err_CamposIncompletos",
+      "Texto": "Campos incompletos. Por favor, ingrese todos los datos del artista."
+    },
+    {
+      "Clave": "err_DNI_Invalido",
+      "Texto": "El DNI debe contener solo números y tener entre 7 y 8 dígitos."
+    },
+    {
+      "Clave": "err_Telefono_Invalido",
+      "Texto": "El teléfono debe contener solo números."
+    },
+    {
+      "Clave": "err_ArtistaDuplicado",
+      "Texto": "El artista ya se encuentra registrado."
+    },
+    {
+      "Clave": "msg_RegistroArtistaExito",
+      "Texto": "¡Artista registrado con éxito!"
+    },
+    {
+      "Clave": "titulo_Exito",
+      "Texto": "Información"
+    },
+    {
+      "Clave": "titulo_Error",
+      "Texto": "Validación / Error"
+    },
+    {
+      "Clave": "DNI_VM516",
+      "Texto": "DNI"
+    },
+    {
+      "Clave": "Nombre_VM516",
+      "Texto": "Nombre"
+    },
+    {
+      "Clave": "Apellido_VM516",
+      "Texto": "Apellido"
+    },
+    {
+      "Clave": "Telefono_VM516",
+      "Texto": "Teléfono"
+    },
+    {
+      "Clave": "Email_VM516",
+      "Texto": "Correo Electrónico"
+    },
+    {
+      "Clave": "titulo_FormEspecificacionObra",
+      "Texto": "Catalogar Especificaciones de Obra"
+    },
+    {
+      "Clave": "lbl_DNIArtista",
+      "Texto": "DNI Artista"
+    },
+    {
+      "Clave": "btn_BuscarArtista",
+      "Texto": "Buscar Artista"
+    },
+    {
+      "Clave": "lbl_EstadoArtistaPendiente",
+      "Texto": "Estado del artista: Pendiente"
+    },
+    {
+      "Clave": "lbl_TituloObra",
+      "Texto": "Título de Obra"
+    },
+    {
+      "Clave": "lbl_Tecnica",
+      "Texto": "Técnica"
+    },
+    {
+      "Clave": "lbl_Alto",
+      "Texto": "Alto"
+    },
+    {
+      "Clave": "lbl_Ancho",
+      "Texto": "Ancho"
+    },
+    {
+      "Clave": "lbl_Peso",
+      "Texto": "Peso"
+    },
+    {
+      "Clave": "lbl_ReqIluminacion",
+      "Texto": "Requisito de Iluminación"
+    },
+    {
+      "Clave": "lbl_ValorMercado",
+      "Texto": "Valor Declarado del Mercado"
+    },
+    {
+      "Clave": "lbl_CategoriaSeguro",
+      "Texto": "Categoría de Seguro"
+    },
+    {
+      "Clave": "btn_ConfirmarRegistroObra",
+      "Texto": "Confirmar Registro"
+    },
+    {
+      "Clave": "msg_ExitoRegistroObra",
+      "Texto": "¡Especificación de obra registrada con éxito bajo el estado [Pendiente_Asignacion]!"
+    },
+    {
+      "Clave": "err_CamposObligatoriosObra",
+      "Texto": "Existen campos obligatorios incompletos."
+    },
+    {
+      "Clave": "err_ArtistaNoRegistradoObra",
+      "Texto": "El artista no se encuentra registrado."
+    },
+    {
+      "Clave": "err_DimensionesInvalidasObra",
+      "Texto": "El Alto, Ancho y Peso deben ser valores numéricos válidos y mayores a cero."
+    },
+    {
+      "Clave": "err_ValorMercadoNegativoObra",
+      "Texto": "El valor declarado de mercado debe ser un número válido y no puede ser negativo."
+    },
+    {
+      "Clave": "err_DebeVerificarArtistaObra",
+      "Texto": "Debe verificar un artista registrado antes de confirmar la obra."
+    },
+    {
+      "Clave": "err_IngreseDniArtista",
+      "Texto": "Por favor, ingrese el DNI del artista a buscar."
+    },
+    {
+      "Clave": "Id_Obra_VM516",
+      "Texto": "ID"
+    },
+    {
+      "Clave": "DNI_Artista_VM516",
+      "Texto": "DNI Artista"
+    },
+    {
+      "Clave": "Titulo_Obra_VM516",
+      "Texto": "Título"
+    },
+    {
+      "Clave": "Tecnica_VM516",
+      "Texto": "Técnica"
+    },
+    {
+      "Clave": "Alto_VM516",
+      "Texto": "Alto"
+    },
+    {
+      "Clave": "Ancho_VM516",
+      "Texto": "Ancho"
+    },
+    {
+      "Clave": "Peso_VM516",
+      "Texto": "Peso"
+    },
+    {
+      "Clave": "Req_Iluminacion_VM516",
+      "Texto": "Iluminación"
+    },
+    {
+      "Clave": "Valor_Declarado_Mercado_VM516",
+      "Texto": "Valor Mercado"
+    },
+    {
+      "Clave": "Categoria_Seguro_VM516",
+      "Texto": "Seguro"
+    },
+    {
+      "Clave": "Estado_Asignacion_VM516",
+      "Texto": "Estado"
+    },
+    {
+      "Clave": "titulo_FormReservaSala",
+      "Texto": "Registrar Reserva"
+    },
+    {
+      "Clave": "btn_VerHistorialReservas",
+      "Texto": "Ver Historial de Reservas"
+    },
+    {
+      "Clave": "lbl_IdObra",
+      "Texto": "ID Obra"
+    },
+    {
+      "Clave": "lbl_FechaInicio",
+      "Texto": "Fecha Inicio"
+    },
+    {
+      "Clave": "lbl_FechaFin",
+      "Texto": "Fecha Fin"
+    },
+    {
+      "Clave": "btn_ConsultarDisponibilidad",
+      "Texto": "Consultar Disponibilidad de Salas"
+    },
+    {
+      "Clave": "lbl_MontoTotal",
+      "Texto": "Monto Total Alquiler"
+    },
+    {
+      "Clave": "lbl_PorcentajeSena",
+      "Texto": "Porcentaje Seña"
+    },
+    {
+      "Clave": "btn_ConfirmarReserva",
+      "Texto": "Confirmar Reserva"
+    },
+    {
+      "Clave": "Codigo_Sala_VM516",
+      "Texto": "Código Sala"
+    },
+    {
+      "Clave": "Nombre_Sala_VM516",
+      "Texto": "Nombre"
+    },
+    {
+      "Clave": "Alto_Max_Soportado_VM516",
+      "Texto": "Alto Máx"
+    },
+    {
+      "Clave": "Ancho_Max_Soportado_VM516",
+      "Texto": "Ancho Máx"
+    },
+    {
+      "Clave": "Peso_Max_Soportado_VM516",
+      "Texto": "Peso Máx"
+    },
+    {
+      "Clave": "Tipo_Iluminacion_Disponible_VM516",
+      "Texto": "Iluminación"
+    },
+    {
+      "Clave": "err_IdObraNumerico",
+      "Texto": "El ID de obra debe ser un valor numérico."
+    },
+    {
+      "Clave": "err_ObraNoEncontrada",
+      "Texto": "No se encontró ninguna obra registrada con ese ID."
+    },
+    {
+      "Clave": "err_SinSalasDisponibles",
+      "Texto": "No existen salas compatibles disponibles en el período solicitado."
+    },
+    {
+      "Clave": "err_SeleccionarSalaGrilla",
+      "Texto": "Debe seleccionar una sala de la grilla interactiva para continuar."
+    },
+    {
+      "Clave": "err_MontoTotalInvalido",
+      "Texto": "El monto total del alquiler debe ser un valor numérico superior a cero."
+    },
+    {
+      "Clave": "err_PorcentajeSenaInvalido",
+      "Texto": "El porcentaje de seña requerido debe ser mayor a 0% y menor o igual al 100%."
+    },
+    {
+      "Clave": "err_FechasCronologicamenteIncorrectas",
+      "Texto": "El rango de fechas ingresado es cronológicamente incorrecto."
+    },
+    {
+      "Clave": "msg_ReservaExitosa",
+      "Texto": "Espacio de exhibición adjudicado con éxito. La reserva ha sido registrada y se encuentra en espera para el cobro de la seña"
+    },
+    {
+      "Clave": "titulo_FormListarReservas",
+      "Texto": "Historial de Reservas"
+    },
+    {
+      "Clave": "btn_ActualizarListado",
+      "Texto": "Actualizar Listado"
+    },
+    {
+      "Clave": "Codigo_Reserva_VM516",
+      "Texto": "Cod. Reserva"
+    },
+    {
+      "Clave": "Fecha_Inicio_VM516",
+      "Texto": "Fecha Inicio"
+    },
+    {
+      "Clave": "Fecha_Fin_VM516",
+      "Texto": "Fecha Fin"
+    },
+    {
+      "Clave": "Monto_Alquiler_Total_VM516",
+      "Texto": "Monto Total"
+    },
+    {
+      "Clave": "Porcentaje_Sena_VM516",
+      "Texto": "% Seña"
+    },
+    {
+      "Clave": "Saldo_Restante_A_Pagar_VM516",
+      "Texto": "Saldo Pendiente"
+    },
+    {
+      "Clave": "Estado_Espacio_VM516",
+      "Texto": "Estado Espacio"
+    },
+    {
+      "Clave": "Estado_Pago_VM516",
+      "Texto": "Estado Pago"
+    },
+    {
+      "Clave": "err_ErrorCargarReservas",
+      "Texto": "Error al cargar el listado de reservas:"
+    },
+    {
+      "Clave": "titulo_FormLogin",
+      "Texto": "Vanguardia Arte - Inicio de Sesión"
+    },
+    {
+      "Clave": "lbl_IdiomaLogin",
+      "Texto": "Idioma"
+    },
+    {
+      "Clave": "msg_PrimeraVezSistema",
+      "Texto": "Es la primera vez que inicia el sistema. Por favor, registre al administrador inicial."
+    },
+    {
+      "Clave": "msg_ErrorCrearAdmin",
+      "Texto": "No se pudo crear el administrador. El sistema se cerrará."
+    },
+    {
+      "Clave": "msg_ErrorEstadoSistema",
+      "Texto": "Error al verificar el estado del sistema: "
+    },
+    {
+      "Clave": "btn_BuscarArtista",
+      "Texto": "Buscar Artista"
+    },
+    {
+      "Clave": "titulo_FormGestionSalas",
+      "Texto": "Vanguardia Arte - Gestión de Salas Físicas"
+    },
+    {
+      "Clave": "lbl_CodigoSala",
+      "Texto": "Código Sala"
+    },
+    {
+      "Clave": "lbl_NombreSala",
+      "Texto": "Nombre Sala"
+    },
+    {
+      "Clave": "lbl_AltoMaximo",
+      "Texto": "Alto Máximo"
+    },
+    {
+      "Clave": "lbl_AnchoMaximo",
+      "Texto": "Ancho Máximo"
+    },
+    {
+      "Clave": "lbl_PesoMaximo",
+      "Texto": "Peso Máximo"
+    },
+    {
+      "Clave": "lbl_IluminacionDisponible",
+      "Texto": "Iluminación Disponible"
+    },
+    {
+      "Clave": "btn_GuardarSala",
+      "Texto": "Guardar"
+    },
+    {
+      "Clave": "btn_ModificarSala",
+      "Texto": "Modificar"
+    },
+    {
+      "Clave": "btn_EliminarSala",
+      "Texto": "Eliminar"
+    },
+    {
+      "Clave": "btn_LimpiarSala",
+      "Texto": "Limpiar"
+    },
+    {
+      "Clave": "err_CamposObligatoriosSalas",
+      "Texto": "Existen campos obligatorios incompletos."
+    },
+    {
+      "Clave": "err_DimensionesNumericasSalas",
+      "Texto": "Las dimensiones y el peso máximo soportado deben ser valores numéricos mayores a cero."
+    },
+    {
+      "Clave": "err_SeleccionarSalaEliminar",
+      "Texto": "Debe seleccionar una sala para eliminar."
+    },
+    {
+      "Clave": "msg_SalaRegistradaExito",
+      "Texto": "Sala registrada con éxito."
+    },
+    {
+      "Clave": "msg_SalaModificadaExito",
+      "Texto": "Sala modificada con éxito."
+    },
+    {
+      "Clave": "msg_SalaEliminadaExito",
+      "Texto": "Sala eliminada con éxito."
+    },
+    {
+      "Clave": "err_ErrorCargarGrilla",
+      "Texto": "Error al cargar la grilla: "
+    },
+    {
+      "Clave": "titulo_FormRegistroArtista",
+      "Texto": "Vanguardia Arte - Registro de Artistas"
+    },
+    {
+      "Clave": "btn_BuscarArtista_R",
+      "Texto": "Buscar Artista por DNI"
+    },
+    {
+      "Clave": "err_CamposIncompletosArtista",
+      "Texto": "Campos incompletos. Por favor, ingrese todos los datos del artista."
+    },
+    {
+      "Clave": "err_DNIInvalidoArtista",
+      "Texto": "El DNI debe contener solo números y tener entre 7 y 8 dígitos."
+    },
+    {
+      "Clave": "err_TelefonoInvalidoArtista",
+      "Texto": "El teléfono debe contener solo números."
+    },
+    {
+      "Clave": "err_EmailInvalidoArtista",
+      "Texto": "El formato del correo electrónico no es válido."
+    },
+    {
+      "Clave": "err_ArtistaDuplicado",
+      "Texto": "El artista ya se encuentra registrado."
+    },
+    {
+      "Clave": "err_DniVacioArtista",
+      "Texto": "El DNI no puede estar vacío."
+    },
+    {
+      "Clave": "err_ArtistaNoEncontrado",
+      "Texto": "No se encontró un artista con el DNI proporcionado."
+    },
+    {
+      "Clave": "msg_ArtistaVerificado",
+      "Texto": "Artista verificado: {0} {1}"
+    },
+    {
+      "Clave": "titulo_FormCobros",
+      "Texto": "Vanguardia Arte - Gestión de Cobranzas"
+    },
+    {
+      "Clave": "lbl_CodigoReserva",
+      "Texto": "Código Reserva"
+    },
+    {
+      "Clave": "btn_BuscarReserva",
+      "Texto": "Buscar Reserva"
+    },
+    {
+      "Clave": "lbl_EstadoReservaPendiente",
+      "Texto": "Estado de reserva: En espera"
+    },
+    {
+      "Clave": "lbl_MontoAbonado",
+      "Texto": "Monto a Cobrar"
+    },
+    {
+      "Clave": "lbl_MedioPago",
+      "Texto": "Medio de Pago"
+    },
+    {
+      "Clave": "btn_RegistrarCobro",
+      "Texto": "Iniciar Cobro y Emitir Comprobante"
+    },
+    {
+      "Clave": "err_CodigoReservaVacio",
+      "Texto": "Debe ingresar un código de reserva."
+    },
+    {
+      "Clave": "err_ReservaNoPendienteSena",
+      "Texto": "No se registran reservas pendientes de seña para el criterio ingresado."
+    },
+    {
+      "Clave": "msg_ReservaEncontradaPendiente",
+      "Texto": "Estado de reserva: Pendiente de Seña"
+    },
+    {
+      "Clave": "err_DebeBuscarReservaPrimero",
+      "Texto": "Debe buscar y verificar una reserva primero."
+    },
+    {
+      "Clave": "err_SeleccioneMedioPago",
+      "Texto": "Debe seleccionar un medio de pago."
+    },
+    {
+      "Clave": "msg_PagoAprobadoExternamente",
+      "Texto": "Pago aprobado por la Entidad Financiera."
+    },
+    {
+      "Clave": "err_TransaccionRechazadaFinanciera",
+      "Texto": "Transacción rechazada por la Entidad Financiera."
+    },
+    {
+      "Clave": "err_PagoNoValidado",
+      "Texto": "El pago debe estar validado por la entidad financiera antes de registrarlo."
+    },
+    {
+      "Clave": "msg_CobroRegistradoExito",
+      "Texto": "Cobro registrado con éxito. Reserva actualizada y comprobante emitido."
+    },
+    {
+      "Clave": "err_CamposObligatoriosComprobante",
+      "Texto": "Existen campos obligatorios incompletos en el comprobante."
+    },
+    {
+      "Clave": "err_MontoAbonadoInvalido",
+      "Texto": "El monto abonado debe ser mayor a cero."
+    },
+    {
+      "Clave": "err_PorcentajeSenaInvalido",
+      "Texto": "El porcentaje de seña aplicado debe estar entre 0 y 100."
+    },
+    {
+      "Clave": "Nro_Comprobante_VM516",
+      "Texto": "Nro Comprobante"
+    },
+    {
+      "Clave": "Fecha_Pago_VM516",
+      "Texto": "Fecha de Pago"
+    },
+    {
+      "Clave": "Porcentaje_Sena_Aplicado_VM516",
+      "Texto": "% Seña Aplicado"
+    },
+    {
+      "Clave": "Codigo_Reserva_VM516",
+      "Texto": "Cod. Reserva"
+    },
+    {
+      "Clave": "err_InspeccionEgresoPendiente",
+      "Texto": "No es posible procesar el pago final. El peritaje o inspección de egreso de la sala aún no se encuentra registrado."
+    },
+    {
+      "Clave": "err_ReservaNoValida",
+      "Texto": "La reserva seleccionada no es válida."
+    },
+    {
+      "Clave": "err_ObraNoEncontrada",
+      "Texto": "No se encontró la obra asociada a la reserva."
+    },
+    {
+      "Clave": "PdfGenerado",
+      "Texto": "El comprobante en PDF se ha generado con éxito."
+    },
+    {
+      "Clave": "titulo_FacturaFinal",
+      "Texto": "FACTURA FINAL DE ALQUILER"
+    },
+    {
+      "Clave": "titulo_ComprobanteSena",
+      "Texto": "COMPROBANTE DE ANTICIPO / SEÑA"
+    },
+    {
+      "Clave": "titulo_FormInspeccion",
+      "Texto": "Vanguardia Arte - Peritaje Post-Exhibición"
+    },
+    {
+      "Clave": "Estado_Post_Exhibicion_VM516",
+      "Texto": "Estado Post-Exhibición"
+    },
+    {
+      "Clave": "Observaciones_Fisicas_VM516",
+      "Texto": "Observaciones Físicas"
+    },
+    {
+      "Clave": "Fecha_Inspeccion_VM516",
+      "Texto": "Fecha Inspección"
+    },
+    {
+      "Clave": "btnConfirmarPeritaje",
+      "Texto": "Confirmar Peritaje"
+    },
+    {
+      "Clave": "lblObservaciones",
+      "Texto": "Observaciones Físicas"
+    },
+    {
+      "Clave": "lblEstadoExhibicion",
+      "Texto": "Estado Post-Exhibición"
+    },
+    {
+      "Clave": "lblInfoReserva",
+      "Texto": "Información de la reserva: [Pendiente]"
+    },
+    {
+      "Clave": "btnBuscarReserva",
+      "Texto": "Buscar Reserva"
+    },
+    {
+      "Clave": "lblCodigoReserva",
+      "Texto": "Código de Reserva"
+    },
+    {
+      "Clave": "err_SeleccioneEstadoExhibicion",
+      "Texto": "Debe seleccionar un estado post-exhibición."
+    },
+    {
+      "Clave": "err_InspeccionYaRegistrada",
+      "Texto": "Ya existe una inspección o peritaje registrado para esta reserva."
+    },
+    {
+      "Clave": "err_ErrorCargarHistorialPeritajes",
+      "Texto": "Error al cargar el historial de peritajes"
+    },
+    {
+      "Clave": "lbl_InfoReservaPendiente",
+      "Texto": "Información de la reserva: [Pendiente]"
+    },
+    {
+      "Clave": "lbl_InfoReservaNoEncontrada",
+      "Texto": "Información de la reserva: [No encontrada]"
+    },
+    {
+      "Clave": "titulo_ValidacionError",
+      "Texto": "Validación / Error"
+    },
+    {
+      "Clave": "msg_PeritajeIntactoExito",
+      "Texto": "Peritaje de egreso registrado con éxito. La obra se encuentra en estado Intacto. Póliza de seguro liberada de responsabilidades."
+    },
+    {
+      "Clave": "titulo_PeritajeExitoso",
+      "Texto": "Peritaje Exitoso"
+    },
+    {
+      "Clave": "msg_PeritajeDañadoAdvertencia",
+      "Texto": "Peritaje registrado. Obra registrada como Dañada. Trámite de seguro de la galería retenido para peritaje de liquidación externa. Se inhabilita provisionalmente el desmontaje."
+    },
+    {
+      "Clave": "titulo_AtencionObraDanada",
+      "Texto": "Atención - Obra Dañada"
+    },
+    {
+      "Clave": "err_ReservaNoEncontradaPeritaje",
+      "Texto": "No se registran reservas vigentes en etapa de cierre para el criterio ingresado."
+    },
+    {
+      "Clave": "err_ReservaPendienteSenaPeritaje",
+      "Texto": "No es posible realizar el peritaje. La reserva se encuentra pendiente de seña."
+    },
+    {
+      "Clave": "err_ReservaPendienteSenaPeritaje",
+      "Texto": "No es posible realizar el peritaje. La reserva se encuentra pendiente de seña."
+    },
+    {
+      "Clave": "err_SalaEnUsoReserva",
+      "Texto": "No es posible modificar o eliminar la sala porque se encuentra asignada a una reserva u obra activa."
+    },
+    {
+      "Clave": "err_SalaYaExiste",
+      "Texto": "Ya existe una sala registrada con ese código."
+    },
+    {
+      "Clave": "Monto_Abonado_VM516",
+      "Texto": "Monto Abonado"
+    },
+    {
+      "Clave": "Medio_Pago_VM516",
+      "Texto": "Medio de Pago"
+    },
+    {
+      "Clave": "msg_ReservaSenaAbonada",
+      "Texto": "Estado de reserva: Seña Abonada"
+    },
+    {
+      "Clave": "err_ReservaSinSaldoPendiente",
+      "Texto": "No se encontraron reservas activas con saldo pendiente para el criterio ingresado."
+    },
+    {
+      "Clave": "lbl_EstadoReservaPendiente",
+      "Texto": "Estado de reserva: En espera"
+    },
+    {
+      "Clave": "titulo_FormRetiroObra",
+      "Texto": "Vanguardia Arte - Registrar Desmontaje de Obra"
+    },
+    {
+      "Clave": "lbl_DniResponsableDesmontaje",
+      "Texto": "DNI Responsable Desmontaje"
+    },
+    {
+      "Clave": "lbl_InfoReservaSaldada",
+      "Texto": "Información de reserva: [Pagado]"
+    },
+    {
+      "Clave": "lbl_InfoReservaNoValida",
+      "Texto": "No se encontró una reserva apta para desmontaje."
+    },
+    {
+      "Clave": "btn_RegistrarDesmontaje",
+      "Texto": "Registrar Desmontaje y Liberar Espacio"
+    },
+    {
+      "Clave": "msg_DesmontajeExitoso",
+      "Texto": "Desmontaje Autorizado. Retiro asentado con éxito. La sala física se encuentra nuevamente Disponible."
+    },
+    {
+      "Clave": "err_ReservaNoEncontradaDesmontaje",
+      "Texto": "No se registran alquileres listos para cierre con el criterio ingresado."
+    },
+    {
+      "Clave": "err_InspeccionFaltanteDesmontaje",
+      "Texto": "Atención: Inspección de obra faltante. Es obligatorio peritar la integridad de la pieza antes de autorizar su salida."
+    },
+    {
+      "Clave": "err_DesmontajeBloqueadoSaldoDeudor",
+      "Texto": "Atención: Desmontaje Bloqueado. El artista presenta saldos impagos. Dirija al cliente a Tesorería."
+    },
+    {
+      "Clave": "err_DniResponsableInvalido",
+      "Texto": "El DNI del responsable de desmontaje no es válido."
+    },
+    {
+      "Clave": "err_RetiroYaRegistrado",
+      "Texto": "Ya se encuentra registrado un retiro de obra para esta reserva."
+    },
+    {
+      "Clave": "DNI_Responsable_Desmontaje_VM516",
+      "Texto": "DNI Responsable"
+    },
+    {
+      "Clave": "Fecha_Retiro_VM516",
+      "Texto": "Fecha de Retiro"
+    },
+    {
+      "Clave": "err_ObraYaRetirada",
+      "Texto": "Atención: La obra de esta reserva ya fue desmontada y retirada con anterioridad."
+    },
+    {
+      "Clave": "msg_ArtistaVerificadoExito",
+      "Texto": "Artista verificado: {0} {1}"
+    },
+    {
+      "Clave": "err_ErrorRegistroObra",
+      "Texto": "Ocurrió un error al registrar las especificaciones de la obra."
+    },
+    {
+      "Clave": "msg_ArtistaVerificadoExito",
+      "Texto": "Artista verificado: {0} {1}"
+    },
+    {
+      "Clave": "err_CamposObligatoriosObra",
+      "Texto": "Existen campos obligatorios incompletos."
+    },
+    {
+      "Clave": "err_DimensionesInvalidasObra",
+      "Texto": "El Alto, Ancho y Peso deben ser valores numéricos válidos y mayores a cero."
+    },
+    {
+      "Clave": "err_ValorMercadoNegativoObra",
+      "Texto": "El valor declarado de mercado debe ser un número válido y no puede ser negativo."
+    },
+    {
+      "Clave": "err_ReservaYaLiquidada",
+      "Texto": "La reserva ya se encuentra liquidada bajo el estado actual."
+    },
+    {
+      "Clave": "msg_DetalleEspecificacionObra",
+      "Texto": "--- Especificaciones de la Obra ---\nTítulo: {0}\nArtista DNI: {1}\nAlto: {2} | Ancho: {3} | Peso: {4}\nIluminación: {5}\nSeguro: {6}"
+    },
+    {
+      "Clave": "titulo_FormRegistroCliente",
+      "Texto": "Vanguardia Arte - Registrar Cliente"
+    },
+    {
+      "Clave": "lbl_TituloRegistroCliente",
+      "Texto": "Registro de Clientes"
+    },
+    {
+      "Clave": "btn_RegistrarCliente",
+      "Texto": "Registrar Cliente"
+    },
+    {
+      "Clave": "btn_BuscarCliente_R",
+      "Texto": "Buscar Cliente por DNI"
+    },
+    {
+      "Clave": "lbl_ResultadoCliente",
+      "Texto": "Cliente ..."
+    },
+    {
+      "Clave": "Dni_VM516",
+      "Texto": "DNI"
+    },
+    {
+      "Clave": "err_CamposIncompletosCliente",
+      "Texto": "Todos los campos del cliente son obligatorios."
+    },
+    {
+      "Clave": "err_TelefonoInvalidoCliente",
+      "Texto": "El teléfono del cliente debe contener entre 7 y 15 dígitos numéricos."
+    },
+    {
+      "Clave": "err_EmailInvalidoCliente",
+      "Texto": "El formato del correo electrónico del cliente es inválido."
+    },
+    {
+      "Clave": "err_ClienteDuplicado",
+      "Texto": "Ya existe un cliente registrado con ese número de DNI."
+    },
+    {
+      "Clave": "msg_ClienteRegistradoExito",
+      "Texto": "El cliente fue registrado con éxito."
+    },
+    {
+      "Clave": "titulo_FormRegistrarPedido",
+      "Texto": "Registrar Pedido de Cafetería"
+    },
+    {
+      "Clave": "lbl_DniCliente",
+      "Texto": "Identificación del Cliente (DNI)"
+    },
+    {
+      "Clave": "btn_BuscarCliente",
+      "Texto": "Buscar"
+    },
+    {
+      "Clave": "lbl_NombreClienteInfo",
+      "Texto": "Seleccione un cliente..."
+    },
+    {
+      "Clave": "lbl_ClienteNoEncontrado",
+      "Texto": "Cliente no registrado"
+    },
+    {
+      "Clave": "lbl_Cantidad",
+      "Texto": "Cantidad a Comprar"
+    },
+    {
+      "Clave": "btn_AgregarCarrito",
+      "Texto": "🛒 Agregar al Carrito"
+    },
+    {
+      "Clave": "btn_QuitarCarrito",
+      "Texto": "Quitar Artículo Seleccionado"
+    },
+    {
+      "Clave": "lbl_TotalTitulo",
+      "Texto": "TOTAL A ABONAR"
+    },
+    {
+      "Clave": "btn_ConfirmarPedido",
+      "Texto": "Confirmar y Pasar a Caja"
+    },
+    {
+      "Clave": "lbl_CatalogoProductos",
+      "Texto": "☕ Catálogo de Cafetería"
+    },
+    {
+      "Clave": "lbl_CarritoCompras",
+      "Texto": "🛍️ Carrito Actual"
+    },
+    {
+      "Clave": "CodigoProducto_VM516",
+      "Texto": "Código"
+    },
+    {
+      "Clave": "Descripcion_VM516",
+      "Texto": "Descripción"
+    },
+    {
+      "Clave": "StockDisponible_VM516",
+      "Texto": "Stock Disponible"
+    },
+    {
+      "Clave": "PrecioVigente_VM516",
+      "Texto": "Precio Vigente"
+    },
+    {
+      "Clave": "Cantidad_VM516",
+      "Texto": "Cantidad"
+    },
+    {
+      "Clave": "PrecioUnitario_VM516",
+      "Texto": "Precio Unitario"
+    },
+    {
+      "Clave": "Subtotal_VM516",
+      "Texto": "Subtotal"
+    },
+    {
+      "Clave": "err_SeleccioneProducto",
+      "Texto": "Debe seleccionar un producto del catálogo."
+    },
+    {
+      "Clave": "err_SeleccioneArticuloQuitar",
+      "Texto": "Debe seleccionar un artículo del carrito para quitar."
+    },
+    {
+      "Clave": "err_CantidadInvalidaPedido",
+      "Texto": "La cantidad ingresada debe ser un número entero mayor a cero."
+    },
+    {
+      "Clave": "err_ProductoInhabilitadoStock",
+      "Texto": "Este producto fue inhabilitado por falta de existencias."
+    },
+    {
+      "Clave": "err_IndisponibilidadStock",
+      "Texto": "No hay existencias suficientes para el artículo:"
+    },
+    {
+      "Clave": "msg_PreguntaContinuarOCancelarVenta",
+      "Texto": "El producto fue inhabilitado. ¿Desea elegir otro artículo para continuar? (Presione 'No' para cancelar la operación completa)."
+    },
+    {
+      "Clave": "err_DniVacioCliente",
+      "Texto": "Debe ingresar el número de DNI del cliente."
+    },
+    {
+      "Clave": "err_DNIInvalidoCliente",
+      "Texto": "El DNI del cliente debe contener entre 7 y 8 dígitos numéricos."
+    },
+    {
+      "Clave": "err_ClienteNoRegistrado",
+      "Texto": "El cliente no se encuentra registrado en el sistema."
+    },
+    {
+      "Clave": "msg_ClienteNoRegistradoExtend",
+      "Texto": "El número de documento no está registrado. ¿Desea registrar al cliente ahora?"
+    },
+    {
+      "Clave": "err_PedidoSinArticulos",
+      "Texto": "El pedido debe contener al menos un artículo en el carrito."
+    },
+    {
+      "Clave": "err_ClienteNoSeleccionado",
+      "Texto": "Debe buscar y asociar un cliente válido antes de confirmar el pedido."
+    },
+    {
+      "Clave": "err_ProductoNoEncontrado",
+      "Texto": "El producto seleccionado no existe en el catálogo."
+    },
+    {
+      "Clave": "msg_PedidoRegistradoExito",
+      "Texto": "El pedido se registró en estado 'Pendiente de Pago'. Pasando al proceso de cobro..."
+    },
+    {
+      "Clave": "titulo_FormCobroCafeteria",
+      "Texto": "Cobro de Pedido - Cafetería"
+    },
+    {
+      "Clave": "lbl_NumeroPedidoCobro",
+      "Texto": "Número de Pedido"
+    },
+    {
+      "Clave": "lbl_EstadoPedidoPendiente",
+      "Texto": "Estado del pedido: Pendiente de Pago"
+    },
+    {
+      "Clave": "lbl_EstadoPedidoPagado",
+      "Texto": "Estado del pedido: Pagado"
+    },
+    {
+      "Clave": "NumeroTicket_VM516",
+      "Texto": "N° Ticket"
+    },
+    {
+      "Clave": "FechaHora_VM516",
+      "Texto": "Fecha y Hora"
+    },
+    {
+      "Clave": "MontoAbonado_VM516",
+      "Texto": "Monto Abonado"
+    },
+    {
+      "Clave": "MedioPago_VM516",
+      "Texto": "Medio de Pago"
+    },
+    {
+      "Clave": "NumeroPedido_VM516",
+      "Texto": "N° Pedido"
+    },
+    {
+      "Clave": "err_PedidoNoValido",
+      "Texto": "El pedido seleccionado para el cobro no es válido."
+    },
+    {
+      "Clave": "err_PedidoSinSaldoPendiente",
+      "Texto": "El pedido no se encuentra en estado 'Pendiente de Pago'."
+    },
+    {
+      "Clave": "titulo_FormRetiroPedido",
+      "Texto": "Retiro de Pedidos - Cafetería"
+    },
+    {
+      "Clave": "btn_BuscarPedidoRetiro",
+      "Texto": "Buscar Pedido"
+    },
+    {
+      "Clave": "lbl_EstadoPedidoEsperaRetiro",
+      "Texto": "Estado del pedido: En espera"
+    },
+    {
+      "Clave": "lbl_PedidosPendientesEntrega",
+      "Texto": "Pedidos Pendientes de Entrega"
+    },
+    {
+      "Clave": "lbl_DetalleArticulosOrden",
+      "Texto": "Detalle de Artículos de la Orden"
+    },
+    {
+      "Clave": "EstadoPedido_VM516",
+      "Texto": "Estado del Pedido"
+    },
+    {
+      "Clave": "msg_PedidoListoParaEntregar",
+      "Texto": "Estado del pedido: Pagado (Listo para entregar)"
+    },
+    {
+      "Clave": "err_NumeroPedidoInvalido",
+      "Texto": "Debe ingresar un número de pedido válido."
+    },
+    {
+      "Clave": "err_PedidoInexistenteRetiro",
+      "Texto": "El número de pedido ingresado no existe en el sistema."
+    },
+    {
+      "Clave": "err_PedidoYaEntregado",
+      "Texto": "El pedido ingresado ya figura en estado 'Entregado'."
+    },
+    {
+      "Clave": "err_PedidoNoPagadoRetiro",
+      "Texto": "El pedido aún figura 'Pendiente de Pago' y no puede ser entregado."
+    },
+    {
+      "Clave": "err_DebeBuscarPedidoPrimero",
+      "Texto": "Debe localizar un pedido válido antes de registrar la entrega."
+    },
+    {
+      "Clave": "msg_EntregaRegistradaExito",
+      "Texto": "La entrega del pedido se registró con éxito."
+    },
+    {
+      "Clave": "btn_RegistrarEntrega",
+      "Texto": "REGISTRAR ENTREGA DE PEDIDO"
+    },
+    {
+      "Clave": "btn_RegistrarPedido",
+      "Texto": "REGISTRAR PEDIDO"
+    },
+    {
+      "Clave": "btn_VerPedidosEntregados",
+      "Texto": "Ver Pedidos Entregados"
+    },
+    {
+      "Clave": "titulo_FormHistorialEntregados",
+      "Texto": "Historial de Pedidos Entregados"
+    },
+    {
+      "Clave": "lbl_FiltroEntregados",
+      "Texto": "Filtrar por N° de Pedido o DNI Cliente:"
+    },
+    {
+      "Clave": "btn_Filtrar",
+      "Texto": "Filtrar"
+    },
+    {
+      "Clave": "btn_LimpiarFiltro",
+      "Texto": "Ver Todos"
+    },
+    {
+      "Clave": "prod_CAF-001",
+      "Texto": "Café Espresso Italiano"
+    },
+    {
+      "Clave": "prod_CAF-002",
+      "Texto": "Café Doble Espresso"
+    },
+    {
+      "Clave": "prod_CAF-003",
+      "Texto": "Cappuccino Tradicional con Cacao"
+    },
+    {
+      "Clave": "prod_CAF-004",
+      "Texto": "Latte Macchiato Vainilla"
+    },
+    {
+      "Clave": "prod_CAF-005",
+      "Texto": "Flat White Australiano"
+    },
+    {
+      "Clave": "prod_CAF-006",
+      "Texto": "Submarino con Chocolate Amargo"
+    },
+    {
+      "Clave": "prod_FRI-001",
+      "Texto": "Iced Caramel Latte"
+    },
+    {
+      "Clave": "prod_FRI-002",
+      "Texto": "Frappuccino de Dulce de Leche"
+    },
+    {
+      "Clave": "prod_FRI-003",
+      "Texto": "Limonada con Menta y Jengibre"
+    },
+    {
+      "Clave": "prod_FRI-004",
+      "Texto": "Jugo Natural de Naranja Exprimido"
+    },
+    {
+      "Clave": "prod_PAS-001",
+      "Texto": "Medialuna de Manteca"
+    },
+    {
+      "Clave": "prod_PAS-002",
+      "Texto": "Croissant Relleno de Almendras"
+    },
+    {
+      "Clave": "prod_PAS-003",
+      "Texto": "Porción de Torta Red Velvet"
+    },
+    {
+      "Clave": "prod_PAS-004",
+      "Texto": "Cheesecake de Frutos Rojos"
+    },
+    {
+      "Clave": "prod_PAS-005",
+      "Texto": "Brownie con Nueces y Merengue"
+    },
+    {
+      "Clave": "prod_SAL-001",
+      "Texto": "Tostado de Jamón y Queso en Pan de Campo"
+    },
+    {
+      "Clave": "prod_SAL-002",
+      "Texto": "Bagel de Salmón Ahumado y Queso Crema"
+    },
+    {
+      "Clave": "prod_ESP-001",
+      "Texto": "Té en Hebras Blend de la Galería"
+    },
+    {
+      "Clave": "titulo_FormGestionProductos",
+      "Texto": "Gestión de Productos de Cafetería"
+    },
+    {
+      "Clave": "lbl_CodigoProducto",
+      "Texto": "Código de Producto"
+    },
+    {
+      "Clave": "lbl_DescripcionProducto",
+      "Texto": "Descripción del Producto"
+    },
+    {
+      "Clave": "err_CamposObligatoriosProducto",
+      "Texto": "Todos los campos del producto son obligatorios."
+    },
+    {
+      "Clave": "err_StockProductoInvalido",
+      "Texto": "El stock disponible debe ser un número entero mayor o igual a cero."
+    },
+    {
+      "Clave": "err_PrecioProductoInvalido",
+      "Texto": "El precio vigente debe ser un valor numérico mayor a cero."
+    },
+    {
+      "Clave": "err_ProductoYaExiste",
+      "Texto": "Ya existe un producto registrado con ese código."
+    },
+    {
+      "Clave": "err_SeleccionarProductoEliminar",
+      "Texto": "Debe seleccionar un producto de la grilla para eliminar."
+    },
+    {
+      "Clave": "err_ProductoEnUsoPedido",
+      "Texto": "No es posible eliminar el producto porque se encuentra asociado a pedidos registrados."
+    },
+    {
+      "Clave": "msg_ProductoRegistradoExito",
+      "Texto": "Producto registrado con éxito."
+    },
+    {
+      "Clave": "msg_ProductoModificadoExito",
+      "Texto": "Producto modificado con éxito."
+    },
+    {
+      "Clave": "msg_ProductoEliminadoExito",
+      "Texto": "Producto eliminado con éxito."
+    },
+    {
+      "Clave": "titulo_FormGestionClientes",
+      "Texto": "Consulta y Modificación de Clientes"
+    },
+    {
+      "Clave": "lbl_BuscarClienteDNI",
+      "Texto": "BUSCAR CLIENTE POR DNI"
+    },
+    {
+      "Clave": "msg_ClienteModificadoExito",
+      "Texto": "Los datos del cliente fueron modificados con éxito."
+    },
+    {
+      "Clave": "btn_ClientesCafeteria",
+      "Texto": "CLIENTES"
+    },
+    {
+      "Clave": "lbl_SeccionCafeteria",
+      "Texto": "CAFETERÍA"
+    },
+    {
+      "Clave": "btn_ProductosCafeteria",
+      "Texto": "PRODUCTOS"
+    },
+    {
+      "Clave": "btn_ClientesCafeteria",
+      "Texto": "CLIENTES"
+    },
+    {
+      "Clave": "lbl_FormBitacoraProducto",
+      "Texto": "Vanguardia Arte - Auditoría de Cambios de Productos"
+    },
+    {
+      "Clave": "lbl_TituloBitacoraProducto",
+      "Texto": "Bitácora de Cambios"
+    },
+    {
+      "Clave": "lbl_CantRegistros",
+      "Texto": "Cantidad de Registros:"
+    },
+    {
+      "Clave": "lbl_CodigoProducto",
+      "Texto": "Código producto:"
+    },
+    {
+      "Clave": "lbl_NombreProducto",
+      "Texto": "Nombre:"
+    },
+    {
+      "Clave": "lbl_FechaDesde",
+      "Texto": "Fecha desde:"
+    },
+    {
+      "Clave": "lbl_FechaHasta",
+      "Texto": "Fecha hasta:"
+    },
+    {
+      "Clave": "CodigoProducto_VM516",
+      "Texto": "Código de Producto"
+    },
+    {
+      "Clave": "Descripcion_VM516",
+      "Texto": "Descripción"
+    },
+    {
+      "Clave": "StockDisponible_VM516",
+      "Texto": "Stock Disponible"
+    },
+    {
+      "Clave": "PrecioVigente_VM516",
+      "Texto": "Precio Vigente"
+    },
+    {
+      "Clave": "Bit_Lo_Bo_VM516",
+      "Texto": "Borrado Lógico"
+    },
+    {
+      "Clave": "Fecha_VM516",
+      "Texto": "Fecha del Cambio"
+    },
+    {
+      "Clave": "Activo_VM516",
+      "Texto": "Activo"
+    },
+    {
+      "Clave": "msg_RegistroActivadoExito",
+      "Texto": "El registro histórico ha sido activado correctamente."
+    },
+    {
+      "Clave": "err_RangoFechasInvalido",
+      "Texto": "La fecha de inicio no puede ser mayor a la fecha de fin."
+    },
+    {
+      "Clave": "err_SeleccionarRegistroHistorico",
+      "Texto": "Por favor, seleccione un registro histórico de la grilla."
+    },
+    {
+      "Clave": "lbl_FormMenuBitacoras",
+      "Texto": "Vanguardia Arte - Menú de Bitácoras de Cambios"
+    },
+    {
+      "Clave": "lbl_TituloMenuBitacoras",
+      "Texto": "Selección de Bitácoras de Cambios"
+    },
+    {
+      "Clave": "btn_BitacoraProductos",
+      "Texto": "Producto"
+    },
+    {
+      "Clave": "btn_BitacoraObras",
+      "Texto": "Especificación de Obra"
+    },
+    {
+      "Clave": "err_ProductoDuplicado",
+      "Texto": "El código del producto ya se encuentra registrado en el sistema."
+    },
+    {
+      "Clave": "lbl_FormBitacoraObra",
+      "Texto": "Vanguardia Arte - Auditoría de Cambios de Obras"
+    },
+    {
+      "Clave": "lbl_TituloBitacoraObra",
+      "Texto": "Bitácora de Cambios de Obras"
+    },
+    {
+      "Clave": "Id_Cambio_VM516",
+      "Texto": "ID Cambio"
+    },
+    {
+      "Clave": "msg_ObraModificadaExito",
+      "Texto": "Especificación de obra modificada con éxito."
+    },
+    {
+      "Clave": "msg_ObraEliminadaExito",
+      "Texto": "Especificación de obra eliminada con éxito."
+    },
+    {
+      "Clave": "lbl_FormBitacoraObra",
+      "Texto": "Vanguardia Arte - Auditoría de Cambios de Obras"
+    },
+    {
+      "Clave": "lbl_TituloBitacoraObra",
+      "Texto": "Bitácora de Cambios de Obras"
+    },
+    {
+      "Clave": "lbl_IdObra",
+      "Texto": "ID Obra:"
+    },
+    {
+      "Clave": "lbl_TituloObraFiltro",
+      "Texto": "Título Obra:"
+    },
+    {
+      "Clave": "Id_Cambio_VM516",
+      "Texto": "ID Cambio"
+    },
+    {
+      "Clave": "Id_Obra_VM516",
+      "Texto": "ID Obra"
+    },
+    {
+      "Clave": "DNI_Artista_VM516",
+      "Texto": "DNI Artista"
+    },
+    {
+      "Clave": "Titulo_Obra_VM516",
+      "Texto": "Título"
+    },
+    {
+      "Clave": "Tecnica_VM516",
+      "Texto": "Técnica"
+    },
+    {
+      "Clave": "Alto_VM516",
+      "Texto": "Alto"
+    },
+    {
+      "Clave": "Ancho_VM516",
+      "Texto": "Ancho"
+    },
+    {
+      "Clave": "Peso_VM516",
+      "Texto": "Peso"
+    },
+    {
+      "Clave": "Req_Iluminacion_VM516",
+      "Texto": "Iluminación"
+    },
+    {
+      "Clave": "Valor_Declarado_Mercado_VM516",
+      "Texto": "Valor Mercado"
+    },
+    {
+      "Clave": "Categoria_Seguro_VM516",
+      "Texto": "Seguro"
+    },
+    {
+      "Clave": "Estado_Asignacion_VM516",
+      "Texto": "Estado"
+    },
+    {
+      "Clave": "Bit_Lo_Bo_VM516",
+      "Texto": "Borrado Lógico"
+    },
+    {
+      "Clave": "Fecha_VM516",
+      "Texto": "Fecha del Cambio"
+    },
+    {
+      "Clave": "Activo_VM516",
+      "Texto": "Activo"
+    },
+    {
+      "Clave": "err_ErrorAlSerializar",
+      "Texto": "Error al serializar el archivo XML: "
+    },
+    {
+      "Clave": "err_ErrorAlDeserializar",
+      "Texto": "Error al deserializar el archivo XML: "
+    },
+    {
+      "Clave": "err_GrillaVaciaParaSerializar",
+      "Texto": "No hay registros en la grilla para serializar."
+    },
+    {
+      "Clave": "msg_ExitoSerializar",
+      "Texto": "Archivo XML serializado con éxito."
+    },
+    {
+      "Clave": "msg_ExitoDeserializar",
+      "Texto": "Archivo XML deserializado y cargado en la grilla con éxito."
+    },
+    {
+      "Clave": "btnSerializar",
+      "Texto": "SERIALIZAR"
+    },
+    {
+      "Clave": "btnDeserializar",
+      "Texto": "DES-SERIALIZAR"
+    },
+    {
+      "Clave": "msg_LogAltaObra",
+      "Texto": "Alta de especificación de obra registrada exitosamente."
+    },
+    {
+      "Clave": "msg_LogErrorAlta",
+      "Texto": "Error durante el registro de la obra"
+    },
+    {
+      "Clave": "msg_LogModificacionObra",
+      "Texto": "Modificación de especificación de obra registrada exitosamente."
+    },
+    {
+      "Clave": "msg_LogErrorModificacion",
+      "Texto": "Error durante la modificación de la obra"
+    },
+    {
+      "Clave": "msg_LogBajaObra",
+      "Texto": "Baja de especificación de obra (eliminación lógica) registrada exitosamente."
+    },
+    {
+      "Clave": "msg_LogErrorBaja",
+      "Texto": "Error al intentar eliminar la obra"
+    },
+    {
+      "Clave": "msg_LogGrillaLimpiada",
+      "Texto": "Grilla limpiada visualmente. Lista para cargar un archivo XML."
+    },
+    {
+      "Clave": "msg_LogGrillaActualizada",
+      "Texto": "Grilla actualizada con los registros originales de la Base de Datos."
+    },
+    {
+      "Clave": "msg_LogSerializacionExito",
+      "Texto": "Serialización exitosa. Archivo guardado en"
+    },
+    {
+      "Clave": "msg_LogErrorSerializacion",
+      "Texto": "Fallo en el proceso de serialización"
+    },
+    {
+      "Clave": "msg_LogDeserializacionExito",
+      "Texto": "Deserialización exitosa. Archivo cargado en la matriz de la pantalla."
+    },
+    {
+      "Clave": "msg_LogErrorDeserializacion",
+      "Texto": "Fallo en el proceso de deserialización"
+    },
+    {
+      "Clave": "err_GrillaVaciaSerializar",
+      "Texto": "No hay datos en la grilla para serializar."
+    },
+    {
+      "Clave": "msg_CobroPedidoExito",
+      "Texto": "Cobro registrado con éxito. Pedido actualizado y ticket emitido."
+    },
+    {
+      "Clave": "msg_CobroAbortadoCancelado",
+      "Texto": "El cobro fue abortado en caja. El pedido ha sido cancelado permanentemente."
+    },
+    {
+      "Clave": "titulo_Informacion",
+      "Texto": "Información"
+    },
+    {
+      "Clave": "Menu_Tip_Artistas",
+      "Texto": "Permite el registro de nuevos artistas y la consulta de su información."
+    },
+    {
+      "Clave": "Menu_Tip_CatalogoObras",
+      "Texto": "Permite registrar, consultar, modificar, eliminar, serializar y deserializar el catálogo de obras."
+    },
+    {
+      "Clave": "Menu_Tip_Reservas",
+      "Texto": "Permite registrar y gestionar las reservas de obras realizadas por los clientes."
+    },
+    {
+      "Clave": "Menu_Tip_Tesoreria",
+      "Texto": "Permite gestionar el cobro de señas por reservas o el pago final de las mismas."
+    },
+    {
+      "Clave": "Menu_Tip_EstadoPostExhibicion",
+      "Texto": "Permite registrar el estado de conservación de la obra tras finalizar la exposición."
+    },
+    {
+      "Clave": "Menu_Tip_RetiroObra",
+      "Texto": "Permite registrar el egreso y retiro definitivo de las obras de la galería."
+    },
+    {
+      "Clave": "Menu_Tip_Salas",
+      "Texto": "Permite el registro, modificación, baja y consulta de las salas de exposición del edificio."
+    },
+    {
+      "Clave": "Menu_Tip_RegistrarPedido",
+      "Texto": "Permite cargar productos al carrito de compras, buscar o registrar clientes y procesar el cobro del pedido."
+    },
+    {
+      "Clave": "Menu_Tip_RetiroPedido",
+      "Texto": "Permite validar el comprobante y registrar la entrega física del pedido en la barra."
+    },
+    {
+      "Clave": "Menu_Tip_ProductosCafeteria",
+      "Texto": "Permite registrar, modificar, consultar y dar de baja los productos de cafetería y su stock."
+    },
+    {
+      "Clave": "Menu_Tip_ClientesCafeteria",
+      "Texto": "Permite consultar la información de los clientes de cafetería y actualizar sus datos."
+    },
+    {
+      "Clave": "Menu_Tip_GestionUsuarios",
+      "Texto": "Permite registrar, activar, desactivar y consultar los usuarios con acceso al sistema."
+    },
+    {
+      "Clave": "Menu_Tip_GestionRespaldo",
+      "Texto": "Permite generar copias de seguridad (backups), recalcular dígitos verificadores y cargar bases de datos."
+    },
+    {
+      "Clave": "Menu_Tip_CambiarContrasenia",
+      "Texto": "Permite modificar la contraseña de autenticación del usuario activo."
+    },
+    {
+      "Clave": "Menu_Tip_GestionPerfiles",
+      "Texto": "Permite configurar los roles de usuario y sus permisos de acceso por perfil."
+    },
+    {
+      "Clave": "Menu_Tip_GestionBitacora",
+      "Texto": "Permite consultar el registro histórico de eventos y auditoría del sistema."
+    },
+    {
+      "Clave": "Menu_Tip_GestionIdioma",
+      "Texto": "Permite administrar los diccionarios de traducción e internacionalización."
+    },
+    {
+      "Clave": "Menu_Tip_CambiarIdioma",
+      "Texto": "Permite alternar el idioma de visualización de la interfaz gráfica."
+    },
+    {
+      "Clave": "Menu_Tip_BitacoraCambios",
+      "Texto": "Permite visualizar el registro detallado de modificaciones de datos y transacciones."
+    },
+    {
+      "Clave": "Menu_Tip_CerrarSesion",
+      "Texto": "Finaliza la sesión del usuario actual y retorna a la pantalla de inicio de sesión."
+    },
+    {
+      "Clave": "Menu_Tip_Ayuda",
+      "Texto": "Despliega el manual general de asistencia y ayuda en línea del sistema."
+    },
+    {
+      "Clave": "btn_BC",
+      "Texto": "Bitácora de Cambios"
+    },
+    {
+      "Clave": "AuditObra_Tip_Aplicar",
+      "Texto": "Filtra el historial de cambios según los parámetros ingresados."
+    },
+    {
+      "Clave": "AuditObra_Tip_Limpiar",
+      "Texto": "Restablece los filtros de búsqueda por defecto."
+    },
+    {
+      "Clave": "AuditObra_Tip_Activar",
+      "Texto": "Restaura la versión seleccionada del historial y recalcula los dígitos verificadores."
+    },
+    {
+      "Clave": "AuditObra_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú principal."
+    },
+    {
+      "Clave": "AuditProd_Tip_Aplicar",
+      "Texto": "Filtra el historial de cambios de productos según los parámetros ingresados."
+    },
+    {
+      "Clave": "AuditProd_Tip_Limpiar",
+      "Texto": "Restablece los filtros de búsqueda de productos por defecto."
+    },
+    {
+      "Clave": "AuditProd_Tip_Activar",
+      "Texto": "Restaura la versión histórica seleccionada del producto y recalcula los dígitos verificadores."
+    },
+    {
+      "Clave": "AuditProd_Tip_Salir",
+      "Texto": "Cierra la ventana actual de auditoría de productos."
+    },
+    {
+      "Clave": "MenuBitacoras_Tip_Producto",
+      "Texto": "Abre el módulo de auditoría e historial de cambios de productos."
+    },
+    {
+      "Clave": "MenuBitacoras_Tip_Obra",
+      "Texto": "Abre el módulo de auditoría e historial de cambios de especificaciones de obras."
+    },
+    {
+      "Clave": "Artista_Tip_Registrar",
+      "Texto": "Valida los datos ingresados y registra un nuevo artista en el sistema."
+    },
+    {
+      "Clave": "Artista_Tip_BuscarDNI",
+      "Texto": "Busca y verifica la existencia de un artista mediante su número de DNI."
+    },
+    {
+      "Clave": "Obra_Tip_BuscarArtista",
+      "Texto": "Busca y valida al artista en el sistema mediante su número de DNI."
+    },
+    {
+      "Clave": "Obra_Tip_Confirmar",
+      "Texto": "Registra una nueva especificación de obra con los datos ingresados."
+    },
+    {
+      "Clave": "Obra_Tip_Modificar",
+      "Texto": "Actualiza los datos de la obra seleccionada en la grilla."
+    },
+    {
+      "Clave": "Obra_Tip_Eliminar",
+      "Texto": "Da de baja la obra seleccionada del sistema."
+    },
+    {
+      "Clave": "Obra_Tip_Serializar",
+      "Texto": "Exporta y guarda la información actual de la grilla en un archivo XML."
+    },
+    {
+      "Clave": "Obra_Tip_Deserializar",
+      "Texto": "Carga y visualiza los datos de obras desde un archivo XML externo."
+    },
+    {
+      "Clave": "Obra_Tip_Limpiar",
+      "Texto": "Limpia los campos de entrada, deselecciona la obra y vacía la grilla visualmente."
+    },
+    {
+      "Clave": "Obra_Tip_Actualizar",
+      "Texto": "Recarga y sincroniza la grilla con los datos actuales de la base de datos."
+    },
+    {
+      "Clave": "Obra_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "RegCliente_Tip_Guardar",
+      "Texto": "Valida los datos ingresados y registra un nuevo cliente en el sistema."
+    },
+    {
+      "Clave": "RegCliente_Tip_Cancelar",
+      "Texto": "Cancela el registro actual y cierra la ventana."
+    },
+    {
+      "Clave": "Pedido_Tip_BuscarCliente",
+      "Texto": "Busca y valida la información del cliente mediante su número de identificación."
+    },
+    {
+      "Clave": "Pedido_Tip_AgregarCarrito",
+      "Texto": "Agrega la cantidad seleccionada del producto actual al carrito de compras."
+    },
+    {
+      "Clave": "Pedido_Tip_QuitarCarrito",
+      "Texto": "Elimina el producto seleccionado del carrito de compras actual."
+    },
+    {
+      "Clave": "Pedido_Tip_Confirmar",
+      "Texto": "Registra y confirma el pedido actual para proceder con su cobro en caja."
+    },
+    {
+      "Clave": "Pedido_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "Prod_Tip_Guardar",
+      "Texto": "Registra un nuevo producto en el catálogo con los datos ingresados."
+    },
+    {
+      "Clave": "Prod_Tip_Modificar",
+      "Texto": "Actualiza la información del producto seleccionado."
+    },
+    {
+      "Clave": "Prod_Tip_Eliminar",
+      "Texto": "Da de baja el producto seleccionado del sistema."
+    },
+    {
+      "Clave": "Prod_Tip_Limpiar",
+      "Texto": "Limpia los campos del formulario y deselecciona el producto."
+    },
+    {
+      "Clave": "Prod_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "Cobro_Tip_Registrar",
+      "Texto": "Procesa el pago del pedido, registra el comprobante y genera el ticket de venta en PDF."
+    },
+    {
+      "Clave": "Cobro_Tip_Cancelar",
+      "Texto": "Cancela el proceso de cobro actual y cierra la ventana."
+    },
+    {
+      "Clave": "Inspeccion_Tip_BuscarReserva",
+      "Texto": "Busca y valida la información de la reserva para iniciar el peritaje."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Confirmar",
+      "Texto": "Registra el estado de conservación e inspección física post-exhibición de la obra."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "Inspeccion_Tip_BuscarReserva",
+      "Texto": "Busca y valida la información de la reserva para iniciar el peritaje."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Confirmar",
+      "Texto": "Registra el estado de conservación e inspección física post-exhibición de la obra."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "HistorialEntregados_Tip_Filtrar",
+      "Texto": "Filtra el historial de pedidos entregados según el número de pedido o DNI ingresado."
+    },
+    {
+      "Clave": "HistorialEntregados_Tip_VerTodos",
+      "Texto": "Limpia el filtro de búsqueda y muestra todos los pedidos entregados registrados."
+    },
+    {
+      "Clave": "HistorialEntregados_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "Sala_Tip_Guardar",
+      "Texto": "Registra una nueva sala física en el sistema con los datos ingresados."
+    },
+    {
+      "Clave": "Sala_Tip_Modificar",
+      "Texto": "Actualiza la información de la sala seleccionada."
+    },
+    {
+      "Clave": "Sala_Tip_Eliminar",
+      "Texto": "Da de baja la sala seleccionada del sistema."
+    },
+    {
+      "Clave": "Sala_Tip_Limpiar",
+      "Texto": "Limpia los campos del formulario y habilita el código de sala."
+    },
+    {
+      "Clave": "Sala_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "Retiro_Tip_BuscarPedido",
+      "Texto": "Busca y verifica la información del pedido pendiente mediante su número."
+    },
+    {
+      "Clave": "Retiro_Tip_RegistrarEntrega",
+      "Texto": "Registra la entrega oficial del pedido verificado al cliente."
+    },
+    {
+      "Clave": "Retiro_Tip_VerEntregados",
+      "Texto": "Abre el historial de los pedidos que ya fueron entregados."
+    },
+    {
+      "Clave": "Retiro_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "RetiroObra_Tip_BuscarReserva",
+      "Texto": "Busca y valida la información de la reserva para el desmontaje de la obra."
+    },
+    {
+      "Clave": "RetiroObra_Tip_RegistrarDesmontaje",
+      "Texto": "Registra el desmontaje de la obra, libera el espacio y genera la constancia de libre deuda en PDF."
+    },
+    {
+      "Clave": "RetiroObra_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "CobroReserva_Tip_BuscarReserva",
+      "Texto": "Busca y verifica la información de la reserva para calcular el monto a cobrar."
+    },
+    {
+      "Clave": "CobroReserva_Tip_RegistrarCobro",
+      "Texto": "Procesa el pago de la seña o saldo, registra el comprobante y genera el recibo en PDF."
+    },
+    {
+      "Clave": "CobroReserva_Tip_Cancelar",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "ListarReservas_Tip_Actualizar",
+      "Texto": "Recarga y sincroniza la grilla con el listado actual de reservas."
+    },
+    {
+      "Clave": "ListarReservas_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "CambiarClave_Tip_Guardar",
+      "Texto": "Guarda los cambios y actualiza tu contraseña en el sistema."
+    },
+    {
+      "Clave": "Config_Tip_Idioma",
+      "Texto": "Selecciona el idioma deseado para cambiar la visualización del sistema."
+    },
+    {
+      "Clave": "Config_Tip_Guardar",
+      "Texto": "Guarda y aplica la configuración de idioma seleccionada en la sesión."
+    },
+    {
+      "Clave": "Config_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "CrearUsuario_Tip_Guardar",
+      "Texto": "Valida los datos ingresados y registra el nuevo usuario en el sistema."
+    },
+    {
+      "Clave": "CrearUsuario_Tip_Cancelar",
+      "Texto": "Cancela la operación actual y cierra la ventana."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Rol",
+      "Texto": "Selecciona el rol que se le asignará al nuevo usuario en el sistema."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Activo",
+      "Texto": "Indica si el usuario tendrá acceso habilitado al sistema."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Guardar",
+      "Texto": "Valida los datos y registra el nuevo usuario en el sistema."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Cancelar",
+      "Texto": "Cancela la operación actual y cierra la ventana."
+    },
+    {
+      "Clave": "Bitacora_Tip_Limpiar",
+      "Texto": "Restablece los filtros de búsqueda y muestra los eventos de los últimos 3 días."
+    },
+    {
+      "Clave": "Bitacora_Tip_Aplicar",
+      "Texto": "Aplica los filtros seleccionados para buscar eventos en la bitácora."
+    },
+    {
+      "Clave": "Bitacora_Tip_Imprimir",
+      "Texto": "Exporta el listado actual de eventos de la bitácora a un archivo PDF."
+    },
+    {
+      "Clave": "Bitacora_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "lbl_FormBitacora",
+      "Texto": "Vanguardia Arte - Gestión de Bitácora de Eventos"
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroLogin",
+      "Texto": "Filtra los eventos de la bitácora según el usuario seleccionado."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroFechaInicio",
+      "Texto": "Define la fecha de inicio para acotar la búsqueda de registros."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroFechaFin",
+      "Texto": "Define la fecha de cierre para acotar la búsqueda de registros."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroModulo",
+      "Texto": "Filtra los eventos según el módulo del sistema específico."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroEvento",
+      "Texto": "Filtra los registros según el tipo de evento registrado."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroCriticidad",
+      "Texto": "Filtra los eventos según su nivel de criticidad."
+    },
+    {
+      "Clave": "lbl_FormGestionIdioma",
+      "Texto": "Vanguardia Arte - Gestión de Idioma"
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Combo",
+      "Texto": "Selecciona el idioma cuyos textos y etiquetas deseas visualizar o editar."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_NuevoIdioma",
+      "Texto": "Habilita el modo para registrar un nuevo idioma en el sistema."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_AgregarEtiqueta",
+      "Texto": "Habilita el modo para registrar una nueva clave y su texto traducido."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_ModificarEtiqueta",
+      "Texto": "Permite modificar el texto de la etiqueta seleccionada en la grilla."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Aplicar",
+      "Texto": "Confirma y guarda la acción actual (creación o modificación)."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Cancelar",
+      "Texto": "Cancela la operación actual y limpia los campos de entrada."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "lbl_FormPerfiles",
+      "Texto": "Vanguardia Arte - Gestión de Perfiles"
+    },
+    {
+      "Clave": "Perfil_Tip_CmbRol",
+      "Texto": "Selecciona el rol principal sobre el cual se aplicará la acción."
+    },
+    {
+      "Clave": "Perfil_Tip_CmbFamilia",
+      "Texto": "Selecciona la familia principal o contenedora."
+    },
+    {
+      "Clave": "Perfil_Tip_CmbFamiliaHija",
+      "Texto": "Selecciona la subfamilia que se agregará dentro de la familia contenedora."
+    },
+    {
+      "Clave": "Perfil_Tip_ClbPermiso",
+      "Texto": "Lista de permisos disponibles para tildar y asignar al perfil o familia."
+    },
+    {
+      "Clave": "Perfil_Tip_ClbFamilia",
+      "Texto": "Lista de familias disponibles para tildar, asociar o previsualizar."
+    },
+    {
+      "Clave": "Perfil_Tip_TreeView1",
+      "Texto": "Árbol jerárquico general de Roles, Familias y Permisos configurados en el sistema."
+    },
+    {
+      "Clave": "Perfil_Tip_TreeViewVistaPrevia",
+      "Texto": "Vista previa detallada de la estructura interna y componentes de la familia seleccionada."
+    },
+    {
+      "Clave": "titulo_FormGestionRespaldo",
+      "Texto": "Vanguardia Arte - Gestión de Respaldo"
+    },
+    {
+      "Clave": "Respaldo_Tip_Restaurar",
+      "Texto": "Restaura la base de datos a partir de un archivo de respaldo (.bak) seleccionado."
+    },
+    {
+      "Clave": "Respaldo_Tip_Backup",
+      "Texto": "Genera una copia de seguridad (backup) de la base de datos en la ruta especificada."
+    },
+    {
+      "Clave": "Respaldo_Tip_Seleccionar",
+      "Texto": "Busca y selecciona la carpeta de destino para guardar la copia de seguridad."
+    },
+    {
+      "Clave": "Respaldo_Tip_RecalcularDV",
+      "Texto": "Recalcula los dígitos verificadores horizontales y verticales de integridad del sistema."
+    },
+    {
+      "Clave": "Usuarios_Tip_Activos",
+      "Texto": "Filtra la grilla para mostrar únicamente los usuarios activos en el sistema."
+    },
+    {
+      "Clave": "Usuarios_Tip_Todos",
+      "Texto": "Muestra el listado completo de todos los usuarios registrados."
+    },
+    {
+      "Clave": "Usuarios_Tip_Crear",
+      "Texto": "Abre el formulario para dar de alta un nuevo usuario."
+    },
+    {
+      "Clave": "Usuarios_Tip_Desbloquear",
+      "Texto": "Desbloquea al usuario seleccionado que haya superado los intentos fallidos."
+    },
+    {
+      "Clave": "Usuarios_Tip_Modificar",
+      "Texto": "Habilita la edición de los datos y el rol del usuario seleccionado."
+    },
+    {
+      "Clave": "Usuarios_Tip_ActivarDesactivar",
+      "Texto": "Permite habilitar o inhabilitar el acceso del usuario al sistema."
+    },
+    {
+      "Clave": "Usuarios_Tip_Aplicar",
+      "Texto": "Confirma y guarda los cambios realizados en la operación actual."
+    },
+    {
+      "Clave": "Usuarios_Tip_Cancelar",
+      "Texto": "Cancela la operación actual y restablece el modo de consulta."
+    },
+    {
+      "Clave": "Usuarios_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú anterior."
+    },
+    {
+      "Clave": "titulo_FormGestionUsuarios",
+      "Texto": "Vanguardia Arte - Gestión de Usuarios"
+    },
+    {
+      "Clave": "err_DniYaExiste",
+      "Texto": "Ya existe un usuario registrado con el número de DNI ingresado."
+    },
+    {
+      "Clave": "Perfil_Tip_Crear",
+      "Texto": "Habilita el modo para registrar un nuevo rol o familia en el sistema."
+    },
+    {
+      "Clave": "Perfil_Tip_Modificar",
+      "Texto": "Habilita el modo para editar el nombre del rol o familia seleccionada."
+    },
+    {
+      "Clave": "Perfil_Tip_Eliminar",
+      "Texto": "Elimina permanentemente el perfil o familia seleccionada."
+    },
+    {
+      "Clave": "Perfil_Tip_AsignarPermiso",
+      "Texto": "Habilita el modo para asignar permisos a un rol o familia."
+    },
+    {
+      "Clave": "Perfil_Tip_AsignarFamilia",
+      "Texto": "Habilita el modo para asociar familias y subfamilias."
+    },
+    {
+      "Clave": "Perfil_Tip_Desasignar",
+      "Texto": "Desvincula el permiso o subfamilia seleccionada en el árbol."
+    },
+    {
+      "Clave": "Perfil_Tip_Aplicar",
+      "Texto": "Confirma y guarda los cambios de la operación actual."
+    },
+    {
+      "Clave": "Perfil_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú principal."
+    },
+    {
+      "Clave": "Reserva_Tip_IdObra",
+      "Texto": "Ingrese el ID de la obra para verificar sus especificaciones."
+    },
+    {
+      "Clave": "Reserva_Tip_FechaInicio",
+      "Texto": "Seleccione la fecha de inicio del período de exhibición."
+    },
+    {
+      "Clave": "Reserva_Tip_FechaFin",
+      "Texto": "Seleccione la fecha de finalización del período de exhibición."
+    },
+    {
+      "Clave": "Reserva_Tip_ConsultarDisponibilidad",
+      "Texto": "Busca y muestra las salas físicas compatibles y disponibles para la obra en las fechas seleccionadas."
+    },
+    {
+      "Clave": "Reserva_Tip_MontoTotal",
+      "Texto": "Ingrese el monto total pactado para el alquiler del espacio."
+    },
+    {
+      "Clave": "Reserva_Tip_PorcentajeSena",
+      "Texto": "Ingrese el porcentaje de seña requerido para confirmar la reserva."
+    },
+    {
+      "Clave": "Reserva_Tip_ConfirmarReserva",
+      "Texto": "Adjudica el espacio, registra la reserva y genera los códigos de control de pago."
+    },
+    {
+      "Clave": "Reserva_Tip_HistorialReservas",
+      "Texto": "Abre el historial completo de reservas de salas registradas en el sistema."
+    },
+    {
+      "Clave": "Reserva_Tip_GrillaSalas",
+      "Texto": "Grilla interactiva con las salas disponibles que cumplen con los requisitos de la obra."
+    },
+    {
+      "Clave": "Reserva_Tip_Salir",
+      "Texto": "Cierra la ventana actual y regresa al menú principal."
+    },
+    {
+      "Clave": "titulo_FormReporteInteligente",
+      "Texto": "Reporte Inteligente"
+    },
+    {
+      "Clave": "lbl_SeleccionarReporte",
+      "Texto": "Seleccione Tipo de Reporte:"
+    },
+    {
+      "Clave": "btn_ExportarPdf",
+      "Texto": "📄 Exportar a PDF"
+    },
+    {
+      "Clave": "btn_Salir",
+      "Texto": "Salir"
+    },
+    {
+      "Clave": "lbl_Usuario",
+      "Texto": "Usuario activo: "
+    }
+
+
+  ]
+}

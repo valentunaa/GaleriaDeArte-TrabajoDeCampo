@@ -1,0 +1,3454 @@
+{
+  "Nombre": "English",
+  "Etiquetas": [
+    {
+      "Clave": "msg_UsuarioCreadoCorrectamente",
+      "Texto": "User created successfully"
+    },
+    {
+      "Clave": "msg_ErrorAutenticacion",
+      "Texto": "Authentication error"
+    },
+    {
+      "Clave": "titulo_FormMenu",
+      "Texto": "Vanguardia Arte - Gallery Management System"
+    },
+    {
+      "Clave": "lbl_SeccionOperacion",
+      "Texto": "SPACE RENTAL"
+    },
+    {
+      "Clave": "lbl_SeccionSistema",
+      "Texto": "SYSTEM"
+    },
+    {
+      "Clave": "btn_Artistas",
+      "Texto": "ARTISTS"
+    },
+    {
+      "Clave": "btn_CatalogoObras",
+      "Texto": "ARTWORK CATALOG"
+    },
+    {
+      "Clave": "btn_Reservas",
+      "Texto": "RESERVATIONS"
+    },
+    {
+      "Clave": "btn_TesoreriaCobros",
+      "Texto": "TREASURY/COLLECTIONS"
+    },
+    {
+      "Clave": "btn_SalasCalendario",
+      "Texto": "ARTWORK WITHDRAWAL"
+    },
+    {
+      "Clave": "btn_EstadoPostExhibicion",
+      "Texto": "POST-EXHIBITION STATUS"
+    },
+    {
+      "Clave": "btn_Salas",
+      "Texto": "ROOMS"
+    },
+    {
+      "Clave": "Ayuda",
+      "Texto": "Help"
+    },
+    {
+      "Clave": "btn_CerrarSesion",
+      "Texto": "Log out"
+    },
+    {
+      "Clave": "btn_CambiarClave",
+      "Texto": "Change Password"
+    },
+    {
+      "Clave": "dgv_Menu",
+      "Texto": "Menu"
+    },
+    {
+      "Clave": "lbl_Usuario",
+      "Texto": "Active User:"
+    },
+    {
+      "Clave": "lbl_LogInNombreUsuario",
+      "Texto": "Username:"
+    },
+    {
+      "Clave": "lbl_LogInClave",
+      "Texto": "Password"
+    },
+    {
+      "Clave": "btn_Salir",
+      "Texto": "Exit"
+    },
+    {
+      "Clave": "btn_Ingresar",
+      "Texto": "Log In"
+    },
+    {
+      "Clave": "lbl_TituloCambiarContraseña",
+      "Texto": "Change Password"
+    },
+    {
+      "Clave": "lbl_ClaveAnterior",
+      "Texto": "Previous Password"
+    },
+    {
+      "Clave": "lbl_NuevaClave",
+      "Texto": "New Password"
+    },
+    {
+      "Clave": "btn_Guardar",
+      "Texto": "Save"
+    },
+    {
+      "Clave": "lbl_TituloCrearNuevoUsuario",
+      "Texto": "Create New User"
+    },
+    {
+      "Clave": "lbl_DNI",
+      "Texto": "ID Number"
+    },
+    {
+      "Clave": "lbl_RolAsignado",
+      "Texto": "Assigned Role"
+    },
+    {
+      "Clave": "lbl_Nombre",
+      "Texto": "First Name"
+    },
+    {
+      "Clave": "lbl_Apellido",
+      "Texto": "Last Name"
+    },
+    {
+      "Clave": "lbl_Correo",
+      "Texto": "Email"
+    },
+    {
+      "Clave": "lbl_NomdeLogin",
+      "Texto": "Username"
+    },
+    {
+      "Clave": "chk_Activo",
+      "Texto": "Enable Access (Active)"
+    },
+    {
+      "Clave": "btn_Cancelar",
+      "Texto": "Cancel"
+    },
+    {
+      "Clave": "EventosUltimos3Dias",
+      "Texto": "Events from the last 3 days have been loaded."
+    },
+    {
+      "Clave": "FiltroAplicado",
+      "Texto": "Filter applied successfully. Records found:"
+    },
+    {
+      "Clave": "SinRegistros",
+      "Texto": "No records were found for the selected filters."
+    },
+    {
+      "Clave": "FiltrosRestablecidos",
+      "Texto": "Filters have been reset."
+    },
+    {
+      "Clave": "PdfGenerado",
+      "Texto": "PDF generated successfully."
+    },
+    {
+      "Clave": "lbl_TituloBitacoradeEventos",
+      "Texto": "Event Log"
+    },
+    {
+      "Clave": "lbl_FechaInicio",
+      "Texto": "Start Date"
+    },
+    {
+      "Clave": "lbl_FechaFin",
+      "Texto": "End Date"
+    },
+    {
+      "Clave": "lbl_Modulo",
+      "Texto": "Module"
+    },
+    {
+      "Clave": "lbl_Evento",
+      "Texto": "Event"
+    },
+    {
+      "Clave": "lbl_Criticidad",
+      "Texto": "Severity"
+    },
+    {
+      "Clave": "lbl_CantidadEventos",
+      "Texto": "Number of Events"
+    },
+    {
+      "Clave": "btn_Limpiar",
+      "Texto": "Clear"
+    },
+    {
+      "Clave": "btn_Aplicar",
+      "Texto": "Apply"
+    },
+    {
+      "Clave": "btn_Imprimir",
+      "Texto": "Print"
+    },
+    {
+      "Clave": "Login",
+      "Texto": "User"
+    },
+    {
+      "Clave": "Evento",
+      "Texto": "Event"
+    },
+    {
+      "Clave": "Modulo",
+      "Texto": "Module"
+    },
+    {
+      "Clave": "Criticidad",
+      "Texto": "Severity"
+    },
+    {
+      "Clave": "Fecha",
+      "Texto": "Date"
+    },
+    {
+      "Clave": "Hora",
+      "Texto": "Time"
+    },
+    {
+      "Clave": "idEvento",
+      "Texto": "idEvent"
+    },
+    {
+      "Clave": "ModoCrearIdioma",
+      "Texto": "Current mode: CREATE LANGUAGE"
+    },
+    {
+      "Clave": "IngreseNombreIdioma",
+      "Texto": "Enter the language name in the Text field."
+    },
+    {
+      "Clave": "PresioneAplicarConfirmar",
+      "Texto": "Press Apply to confirm."
+    },
+
+    {
+      "Clave": "IngreseNombreParaIdioma",
+      "Texto": "Enter a name for the language"
+    },
+    {
+      "Clave": "IdiomaCreadoCorrectamente",
+      "Texto": "Language created successfully"
+    },
+    {
+      "Clave": "IdiomaYaExiste",
+      "Texto": "The language already exists"
+    },
+    {
+      "Clave": "ErrorCrearIdioma",
+      "Texto": "Error creating language"
+    },
+    {
+      "Clave": "Error",
+      "Texto": "Error"
+    },
+
+    {
+      "Clave": "SeleccioneIdioma",
+      "Texto": "Select a language"
+    },
+    {
+      "Clave": "IngreseTexto",
+      "Texto": "Enter a text"
+    },
+    {
+      "Clave": "EtiquetaModificadaCorrectamente",
+      "Texto": "Label modified successfully"
+    },
+    {
+      "Clave": "NoSePudoModificarEtiqueta",
+      "Texto": "The label could not be modified"
+    },
+
+    {
+      "Clave": "IngreseClave",
+      "Texto": "Enter a key"
+    },
+    {
+      "Clave": "EtiquetaAgregadaCorrectamente",
+      "Texto": "Label added successfully"
+    },
+    {
+      "Clave": "ClaveYaExiste",
+      "Texto": "The key already exists"
+    },
+
+    {
+      "Clave": "ModoCrearEtiqueta",
+      "Texto": "Current mode: CREATE LABEL"
+    },
+    {
+      "Clave": "IngreseLaClave",
+      "Texto": "Enter the Key."
+    },
+    {
+      "Clave": "IngreseElTexto",
+      "Texto": "Enter the Text."
+    },
+
+    {
+      "Clave": "SeleccioneEtiqueta",
+      "Texto": "Select a label"
+    },
+    {
+      "Clave": "ModoModificarEtiqueta",
+      "Texto": "Current mode: MODIFY LABEL"
+    },
+    {
+      "Clave": "ModifiqueTexto",
+      "Texto": "Modify the text."
+    },
+    {
+      "Clave": "ClaveNoPuedeCambiarse",
+      "Texto": "The key cannot be changed."
+    },
+    {
+      "Clave": "Clave",
+      "Texto": "Key"
+    },
+    {
+      "Clave": "Texto",
+      "Texto": "Text"
+    },
+    {
+      "Clave": "lbl_TituloGestiondeIdiomas",
+      "Texto": "Language Management"
+    },
+    {
+      "Clave": "lbl_SeleccioneElIdioma",
+      "Texto": "Select Language"
+    },
+    {
+      "Clave": "btn_NuevoIdioma",
+      "Texto": "New Language"
+    },
+    {
+      "Clave": "btn_AgregarEtiqueta",
+      "Texto": "Add Label"
+    },
+    {
+      "Clave": "btn_ModificarEtiqueta",
+      "Texto": "Edit Label"
+    },
+    {
+      "Clave": "btn_GestionPerfiles",
+      "Texto": "Profile Management"
+    },
+    {
+      "Clave": "btn_GestionUsuarios",
+      "Texto": "User Management"
+    },
+    {
+      "Clave": "btn_GestionDeBitacora",
+      "Texto": "Event Log Management"
+    },
+    {
+      "Clave": "btn_GestionDeIdioma",
+      "Texto": "Language Management"
+    },
+    {
+      "Clave": "btn_RegistrarNuevoEgreso",
+      "Texto": "Register New Expense"
+    },
+    {
+      "Clave": "btn_RegistrarNuevoIngreso",
+      "Texto": "Register New Income"
+    },
+    {
+      "Clave": "lbl_SaldosConciliados",
+      "Texto": "Balanced Accounts: Home in Balance and Harmony"
+    },
+    {
+      "Clave": "lbl_GestionDeUsuarios",
+      "Texto": "User Management"
+    },
+    {
+      "Clave": "btn_UsuarioActivos",
+      "Texto": "Active Users"
+    },
+    {
+      "Clave": "btn_TodosUsuarios",
+      "Texto": "All Users"
+    },
+    {
+      "Clave": "lbl_TotalDeUsuarios",
+      "Texto": "Total Users"
+    },
+    {
+      "Clave": "btn_Crear",
+      "Texto": "Create"
+    },
+    {
+      "Clave": "btn_Desbloquear",
+      "Texto": "Unblock"
+    },
+    {
+      "Clave": "btn_Modificar",
+      "Texto": "Edit"
+    },
+    {
+      "Clave": "btn_Activar/Desactivar",
+      "Texto": "Activate/Deactivate"
+    },
+    {
+      "Clave": "ModoConsulta",
+      "Texto": "View Mode"
+    },
+    {
+      "Clave": "ModoModificar",
+      "Texto": "Edit Mode"
+    },
+    {
+      "Clave": "ModoDesbloquear",
+      "Texto": "Unlock Mode"
+    },
+    {
+      "Clave": "ModoActivarDesactivar",
+      "Texto": "Activate / Deactivate Mode"
+    },
+    {
+      "Clave": "UsuarioModificado",
+      "Texto": "User successfully updated"
+    },
+    {
+      "Clave": "NoSePudoModificar",
+      "Texto": "User could not be updated"
+    },
+    {
+      "Clave": "UsuarioNoBloqueado",
+      "Texto": "The selected user is not blocked"
+    },
+    {
+      "Clave": "UsuarioDesbloqueado",
+      "Texto": "User successfully unlocked"
+    },
+    {
+      "Clave": "EstadoActualizado",
+      "Texto": "Status updated successfully"
+    },
+    {
+      "Clave": "ModoCreacion",
+      "Texto": "Create Mode"
+    },
+    {
+      "Clave": "DNI",
+      "Texto": "ID"
+    },
+    {
+      "Clave": "Apellido",
+      "Texto": "Last Name"
+    },
+    {
+      "Clave": "Nombre",
+      "Texto": "Name"
+    },
+    {
+      "Clave": "Email",
+      "Texto": "Email"
+    },
+    {
+      "Clave": "Login",
+      "Texto": "Username"
+    },
+    {
+      "Clave": "Rol",
+      "Texto": "Role"
+    },
+    {
+      "Clave": "Activo",
+      "Texto": "Active"
+    },
+    {
+      "Clave": "Password",
+      "Texto": "Password"
+    },
+    {
+      "Clave": "Bloqueo",
+      "Texto": "Lockout"
+    },
+    {
+      "Clave": "Idioma",
+      "Texto": "Language"
+    },
+    {
+      "Clave": "btn_Eliminar",
+      "Texto": "Delete"
+    },
+    {
+      "Clave": "btn_AsignarFamilia",
+      "Texto": "Assign Family"
+    },
+    {
+      "Clave": "btn_AsignarPermiso",
+      "Texto": "Assign Permission"
+    },
+    {
+      "Clave": "btn_Desasignar",
+      "Texto": "Unassign"
+    },
+    {
+      "Clave": "lbl_GestionDePerfiles",
+      "Texto": "Profile Management"
+    },
+    {
+      "Clave": "cmb_Rol",
+      "Texto": "Role"
+    },
+    {
+      "Clave": "cmb_Familia",
+      "Texto": "Family"
+    },
+    {
+      "Clave": "lbl_Rol",
+      "Texto": "Role"
+    },
+    {
+      "Clave": "lbl_Familia",
+      "Texto": "Family"
+    },
+    {
+      "Clave": "lbl_FamiliaHija",
+      "Texto": "Child Family"
+    },
+    {
+      "Clave": "msg_ErrorVistaPrevia",
+      "Texto": "Error loading preview"
+    },
+    {
+      "Clave": "msg_SeleccioneFamilia",
+      "Texto": "Select at least one family"
+    },
+    {
+      "Clave": "msg_ConflictoPermisos",
+      "Texto": "Permission conflict"
+    },
+    {
+      "Clave": "msg_FamiliaContienePermisos",
+      "Texto": "The family {0} contains the following permissions: {1}"
+    },
+    {
+      "Clave": "msg_FamiliasAsignadasRol",
+      "Texto": "Families assigned to role successfully"
+    },
+    {
+      "Clave": "msg_FamiliaAsignadaCorrectamente",
+      "Texto": "Family assigned successfully"
+    },
+    {
+      "Clave": "msg_SeleccioneRolOFamilia",
+      "Texto": "Select Role or Family"
+    },
+    {
+      "Clave": "msg_SeleccionePermiso",
+      "Texto": "Select at least one permission"
+    },
+    {
+      "Clave": "msg_RolYaPoseePermiso",
+      "Texto": "The role already has permission '{0}'"
+    },
+    {
+      "Clave": "msg_AvisoRedundancia",
+      "Texto": "Redundancy warning"
+    },
+    {
+      "Clave": "msg_PermisosAsignadosCorrectamente",
+      "Texto": "Successfully assigned {0} permissions"
+    },
+    {
+      "Clave": "msg_FamiliaYaPoseePermiso",
+      "Texto": "The family already has permission '{0}'"
+    },
+    {
+      "Clave": "msg_PermisoAsignadoCorrectamente",
+      "Texto": "Permission assigned successfully"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaArbol",
+      "Texto": "Please select a Family [F] from the tree to modify"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaArbolSimple",
+      "Texto": "Select a family from the tree"
+    },
+    {
+      "Clave": "msg_IngreseNuevoNombre",
+      "Texto": "Enter the new name"
+    },
+    {
+      "Clave": "msg_ModificarFamilia",
+      "Texto": "Modify Family"
+    },
+    {
+      "Clave": "msg_FamiliaYaExiste",
+      "Texto": "A family with that name already exists"
+    },
+    {
+      "Clave": "msg_FamiliaModificadaCorrectamente",
+      "Texto": "Family modified successfully"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaArbolEliminar",
+      "Texto": "Please select a Family [F] from the tree to delete"
+    },
+    {
+      "Clave": "msg_FamiliaEliminadaCorrectamente",
+      "Texto": "Family deleted successfully"
+    },
+    {
+      "Clave": "msg_FamiliaMinComponentes",
+      "Texto": "A family must contain at least 2 components from creation. Select more elements."
+    },
+    {
+      "Clave": "msg_Validacion",
+      "Texto": "Validation"
+    },
+    {
+      "Clave": "msg_IngreseNombreFamilia",
+      "Texto": "Enter family name"
+    },
+    {
+      "Clave": "msg_NuevaFamilia",
+      "Texto": "New Family"
+    },
+    {
+      "Clave": "msg_FamiliaYaExiste",
+      "Texto": "A family with that name already exists"
+    },
+    {
+      "Clave": "msg_FamiliaGuardadaCorrectamente",
+      "Texto": "Family structured and saved successfully"
+    },
+    {
+      "Clave": "msg_SeleccioneElementoArbolQuitar",
+      "Texto": "Please select an item from the tree to remove"
+    },
+    {
+      "Clave": "msg_NoQuitarRolPrincipal",
+      "Texto": "A main Role cannot be removed from here"
+    },
+    {
+      "Clave": "msg_ElementoDesvinculadoCorrectamente",
+      "Texto": "Item successfully unlinked"
+    },
+    {
+      "Clave": "msg_ErrorDesasignar",
+      "Texto": "Error while trying to unassign"
+    },
+    {
+      "Clave": "msg_RolVacioNoPermitido",
+      "Texto": "Empty roles are not allowed. Select at least one Permission or an initial Family before continuing"
+    },
+    {
+      "Clave": "msg_Validacion",
+      "Texto": "Validation"
+    },
+    {
+      "Clave": "msg_IngreseNombreRol",
+      "Texto": "Enter role name"
+    },
+    {
+      "Clave": "msg_NuevoRol",
+      "Texto": "New Role"
+    },
+    {
+      "Clave": "msg_RolYaExiste",
+      "Texto": "A role with that name already exists"
+    },
+    {
+      "Clave": "msg_RolCreadoExito",
+      "Texto": "Role created successfully. The system automatically omitted redundant permissions"
+    },
+    {
+      "Clave": "msg_SeleccionePerfilRol",
+      "Texto": "Select a Role [ROL]"
+    },
+    {
+      "Clave": "msg_NuevoNombreRol",
+      "Texto": "New Role name"
+    },
+    {
+      "Clave": "msg_ModificarRol",
+      "Texto": "Modify Role"
+    },
+    {
+      "Clave": "msg_RolYaExisteNombre",
+      "Texto": "A Role with that name already exists. Please choose another"
+    },
+    {
+      "Clave": "msg_RolModificadoCorrectamente",
+      "Texto": "Role modified successfully"
+    },
+    {
+      "Clave": "msg_SeleccionePerfilRol",
+      "Texto": "Select a Role [ROL]"
+    },
+    {
+      "Clave": "msg_EliminarPerfil",
+      "Texto": "Delete profile?"
+    },
+    {
+      "Clave": "msg_Confirmacion",
+      "Texto": "Confirmation"
+    },
+    {
+      "Clave": "msg_PerfilEliminadoCorrectamente",
+      "Texto": "Profile successfully deleted"
+    },
+    {
+      "Clave": "lst_AsignarPermisoInstruccion1",
+      "Texto": "1. Select above whether you will assign to a ROLE or a FAMILY"
+    },
+    {
+      "Clave": "lst_ModoAsignarPermiso",
+      "Texto": "Permission assignment mode"
+    },
+
+    {
+      "Clave": "lst_AsignarFamiliaInstruccion1",
+      "Texto": "1. Select above whether you will assign to a ROLE or to another FAMILY"
+    },
+    {
+      "Clave": "lst_ModoAsignarFamilia",
+      "Texto": "Family assignment mode"
+    },
+    {
+      "Clave": "lst_ModoModificarFamilia",
+      "Texto": "Family modification mode"
+    },
+    {
+      "Clave": "lst_ModificarFamiliaPaso1",
+      "Texto": "1. Select a Family [F] or Role [R] in the tree"
+    },
+    {
+      "Clave": "lst_ModificarFamiliaPaso2",
+      "Texto": "2. Click Apply"
+    },
+    {
+      "Clave": "lst_ModificarFamiliaPaso3",
+      "Texto": "3. Enter the new name in the popup window"
+    },
+    {
+      "Clave": "lst_ModoEliminarFamiliaRol",
+      "Texto": "Delete FAMILY/ROLE mode (full removal)"
+    },
+    {
+      "Clave": "lst_EliminarPaso1",
+      "Texto": "1. Select a Family [F] or Role [R] in the tree"
+    },
+    {
+      "Clave": "lst_EliminarPaso2",
+      "Texto": "2. Click Apply to remove it from the system"
+    },
+    {
+      "Clave": "lst_ModoCrear",
+      "Texto": "Create mode"
+    },
+    {
+      "Clave": "lst_CrearPaso1",
+      "Texto": "1. Select Role/Family"
+    },
+    {
+      "Clave": "lst_ModoCrearPerfilRolTitulo",
+      "Texto": ">>> MODE: CREATE NEW PROFILE (ROLE) <<<"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso1",
+      "Texto": "1. Select all initial Permissions and/or Families from the lists"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso2",
+      "Texto": "2. Remember it cannot be empty (at least one must be selected)"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso3",
+      "Texto": "3. Click the 'Apply' button"
+    },
+    {
+      "Clave": "lst_CrearPerfilPaso4",
+      "Texto": "4. Enter the name of the new profile in the popup window"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolTitulo",
+      "Texto": "Assigning permission to ROLE:"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolPaso1",
+      "Texto": "1. Select the ROLE from the ComboBox"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolPaso2",
+      "Texto": "2. Select the PERMISSION from the dropdown list"
+    },
+    {
+      "Clave": "lst_AsignarPermisoRolPaso3",
+      "Texto": "3. Click Apply"
+    },
+    {
+      "Clave": "lst_ModoAsignarFamiliaRol",
+      "Texto": "Assign family to ROLE mode"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaRolPaso1",
+      "Texto": "1. Select the ROLE from the ComboBox"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaRolPaso2",
+      "Texto": "2. Select the FAMILY from the dropdown list"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaRolPaso3",
+      "Texto": "3. Click Apply"
+    },
+    {
+      "Clave": "lst_ModoCrearFamiliaTitulo",
+      "Texto": ">>> MODE: CREATE NEW FAMILY <<<"
+    },
+    {
+      "Clave": "lst_CrearFamiliaPaso1",
+      "Texto": "1. Select the Permissions and/or Subfamilies that will compose this family"
+    },
+    {
+      "Clave": "lst_CrearFamiliaPaso2",
+      "Texto": "2. It is REQUIRED to select at least one element"
+    },
+    {
+      "Clave": "lst_CrearFamiliaPaso3",
+      "Texto": "3. Click 'Apply' and enter the Family name"
+    },
+    {
+      "Clave": "lst_ModoAsignarPermisoFamilia",
+      "Texto": "Assigning permission to FAMILY mode"
+    },
+    {
+      "Clave": "lst_AsignarPermisoFamiliaPaso1",
+      "Texto": "1. Select the FAMILY from the designated dropdown list"
+    },
+    {
+      "Clave": "lst_AsignarPermisoFamiliaPaso2",
+      "Texto": "2. Select the PERMISSION from the designated dropdown list"
+    },
+    {
+      "Clave": "lst_AsignarPermisoFamiliaPaso3",
+      "Texto": "3. Click Apply"
+    },
+    {
+      "Clave": "lst_ModoAsignarFamiliaFamilia",
+      "Texto": "Assign family to FAMILY mode"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaFamiliaPaso1",
+      "Texto": "1. Select the CONTAINER Family from the designated dropdown list"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaFamiliaPaso2",
+      "Texto": "2. Select the Family to INSERT from the designated dropdown list"
+    },
+    {
+      "Clave": "lst_AsignarFamiliaFamiliaPaso3",
+      "Texto": "3. Click Apply"
+    },
+    {
+      "Clave": "lst_ModoDesasignarSeleccionado",
+      "Texto": "Unassign mode selected"
+    },
+    {
+      "Clave": "lst_DesasignarPaso1",
+      "Texto": "1. Select a [P] or [F] from the tree"
+    },
+    {
+      "Clave": "lst_DesasignarPaso2",
+      "Texto": "2. Click Apply to remove it"
+    },
+    {
+      "Clave": "msg_DebeCompletarCampos",
+      "Texto": "You must complete all fields"
+    },
+    {
+      "Clave": "msg_UsuarioContrasenaIncorrectos",
+      "Texto": "Invalid username or password"
+    },
+    {
+      "Clave": "btn_CambiarIdioma",
+      "Texto": "Change Current Language"
+    },
+    {
+      "Clave": "lbl_Permiso",
+      "Texto": "Permission"
+    },
+    {
+      "Clave": "lbl_SaldosConciliados:HogarenEquilibrioyArmonia",
+      "Texto": "Reconciled Balances: Home in Balance and Harmony"
+    },
+    {
+      "Clave": "lbl_CantEventos",
+      "Texto": "Event count"
+    },
+    {
+      "Clave": "btn_Restaurar",
+      "Texto": "Restore"
+    },
+    {
+      "Clave": "btn_BackUp",
+      "Texto": "Backup"
+    },
+    {
+      "Clave": "btn_Seleccionar",
+      "Texto": "Select"
+    },
+    {
+      "Clave": "btn_RecalcularDigitosVerificadores",
+      "Texto": "Recalculate Verification Digits"
+    },
+    {
+      "Clave": "btn_GestionDeRespaldo",
+      "Texto": "Backup Management"
+    },
+    {
+      "Clave": "Atencion",
+      "Texto": "WARNING"
+    },
+    {
+      "Clave": "ViolacionIntegridad",
+      "Texto": "The system detected an integrity violation."
+    },
+    {
+      "Clave": "Tabla",
+      "Texto": "Table"
+    },
+    {
+      "Clave": "RegistrosModificados",
+      "Texto": "Modified records:"
+    },
+    {
+      "Clave": "RegistrosEliminados",
+      "Texto": "Deleted records:"
+    },
+    {
+      "Clave": "ErrorDVV",
+      "Texto": "An error was detected in the table DVV."
+    },
+    {
+      "Clave": "AlteracionEstructural",
+      "Texto": "A structural alteration of the table was detected."
+    },
+    {
+      "Clave": "ModoEmergenciaFinal",
+      "Texto": "The system is running in Emergency Mode.\n\nPlease review the database before continuing."
+    },
+    {
+      "Clave": "ModoEmergencia",
+      "Texto": "Emergency Mode"
+    },
+    {
+      "Clave": "err_IntentosRestantes",
+      "Texto": "Attempts remaining:"
+    },
+    {
+      "Clave": "err_NombreApellidoObligatorios",
+      "Texto": "First name and last name are required."
+    },
+    {
+      "Clave": "err_NombreApellidoSoloLetras",
+      "Texto": "First name and last name can only contain letters."
+    },
+    {
+      "Clave": "err_DniFormatoInvalido",
+      "Texto": "The ID number must contain exactly 8 digits."
+    },
+    {
+      "Clave": "err_EmailFormatoInvalido",
+      "Texto": "The email address format is invalid."
+    },
+    {
+      "Clave": "err_UsuarioYaExiste",
+      "Texto": "The user already exists."
+    },
+    {
+      "Clave": "err_ErrorActualizacionDV",
+      "Texto": "An error occurred while updating the data integrity verification."
+    },
+    {
+      "Clave": "err_SistemaMantenimiento",
+      "Texto": "The system is under maintenance. Please try again in a few seconds."
+    },
+    {
+      "Clave": "err_UsuarioNoRegistrado",
+      "Texto": "User not registered."
+    },
+    {
+      "Clave": "err_UsuarioBloqueado",
+      "Texto": "User blocked due to multiple failed login attempts."
+    },
+    {
+      "Clave": "err_UsuarioInactivoBloqueado",
+      "Texto": "The user is inactive or blocked."
+    },
+    {
+      "Clave": "err_UsuarioSinRol",
+      "Texto": "Configuration error: The user does not have an assigned role. Please contact the Administrator."
+    },
+    {
+      "Clave": "err_UsuarioNoEncontrado",
+      "Texto": "The user to be modified was not found."
+    },
+    {
+      "Clave": "err_UsuarioEstadoInvalido",
+      "Texto": "The user is not in a valid state to be modified."
+    },
+    {
+      "Clave": "msg_CamposObligatorios",
+      "Texto": "Please complete all fields."
+    },
+    {
+      "Clave": "msg_Atencion",
+      "Texto": "Attention"
+    },
+    {
+      "Clave": "msg_ClaveModificadaCorrectamente",
+      "Texto": "Password changed successfully."
+    },
+    {
+      "Clave": "msg_Exito",
+      "Texto": "Success"
+    },
+    {
+      "Clave": "msg_ErrorCambioClave",
+      "Texto": "The password could not be changed. Please verify that your current password is correct or try again later."
+    },
+    {
+      "Clave": "msg_Error",
+      "Texto": "Error"
+    },
+    {
+      "Clave": "msg_UsuarioCreadoCorrectamente",
+      "Texto": "User created successfully."
+    },
+    {
+      "Clave": "err_ErrorCrearRol",
+      "Texto": "Error creating the role."
+    },
+    {
+      "Clave": "msg_RolEliminadoCorrectamente",
+      "Texto": "Role deleted successfully."
+    },
+    {
+      "Clave": "msg_ErrorIntegridadFamiliaPermisos",
+      "Texto": "Integrity error: The selected family contains permissions that this Role already has. Please remove the redundancy before assigning it."
+    },
+    {
+      "Clave": "msg_RedundanciaDetectada",
+      "Texto": "Redundancy detected"
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaPadreHija",
+      "Texto": "Please select a parent family and a child family from the dropdowns."
+    },
+    {
+      "Clave": "msg_FamiliaNoPuedeAsignarseMisma",
+      "Texto": "A family cannot be assigned to itself."
+    },
+    {
+      "Clave": "msg_RelacionFamiliasYaExisteOCiclo",
+      "Texto": "This relationship already exists or would cause a cycle."
+    },
+    {
+      "Clave": "msg_SeleccioneFamiliaModificar",
+      "Texto": "Please select a family from the list on the left."
+    },
+    {
+      "Clave": "msg_SoloUnaFamiliaModificar",
+      "Texto": "Please select only one family at a time to modify."
+    },
+    {
+      "Clave": "msg_ErrorEliminar",
+      "Texto": "Error deleting."
+    },
+    {
+      "Clave": "msg_SeleccioneRolCombo",
+      "Texto": "Please select a role from the dropdown."
+    },
+    {
+      "Clave": "msg_ModoModificarFamilia",
+      "Texto": "FAMILY modification mode"
+    },
+    {
+      "Clave": "msg_ElijaFamiliaLista",
+      "Texto": "1. Select the FAMILY from the list."
+    },
+    {
+      "Clave": "msg_PresioneAplicar",
+      "Texto": "2. Press Apply."
+    },
+    {
+      "Clave": "msg_ConfirmarRestauracion",
+      "Texto": "Are you sure? This will overwrite the current data."
+    },
+    {
+      "Clave": "msg_RestauracionExitosaCerrar",
+      "Texto": "The database was restored successfully.\n\nThe application will close to apply the changes."
+    },
+    {
+      "Clave": "msg_Restauracion",
+      "Texto": "Restoration"
+    },
+    {
+      "Clave": "msg_ErrorRestauracion",
+      "Texto": "Restoration error"
+    },
+    {
+      "Clave": "msg_BackupGeneradoExitosamente",
+      "Texto": "Backup generated successfully."
+    },
+
+    {
+      "Clave": "msg_ConfirmarRecalculoDV",
+      "Texto": "All Verification Digits will be recalculated.\n\nDo you want to continue?"
+    },
+    {
+      "Clave": "msg_Confirmacion",
+      "Texto": "Confirmation"
+    },
+    {
+      "Clave": "msg_DVRecalculadosCorrectamente",
+      "Texto": "The Verification Digits were recalculated successfully."
+    },
+    {
+      "Clave": "msg_Exito",
+      "Texto": "Success"
+    },
+    {
+      "Clave": "msg_Atencion",
+      "Texto": "Attention"
+    },
+    {
+      "Clave": "ErrorDesbloquearUsuario",
+      "Texto": "Error: The user could not be unlocked."
+    },
+    {
+      "Clave": "err_NoSePudoActualizarEstadoUsuario",
+      "Texto": "Error: The user's status could not be updated."
+    },
+    {
+      "Clave": "err_NombreFamiliaObligatorio",
+      "Texto": "Please enter a name."
+    },
+    {
+      "Clave": "err_FamiliaNombreExistente",
+      "Texto": "A family with that name already exists."
+    },
+    {
+      "Clave": "err_FamiliaSinContenido",
+      "Texto": "A family cannot be created empty. You must select at least two initial permissions or subfamilies."
+    },
+    {
+      "Clave": "err_RedundanciaPermisoSuelto",
+      "Texto": "Integrity error: You have selected a standalone permission that is already contained in one of the selected families."
+    },
+    {
+      "Clave": "err_RedundanciaPermisoFamilia",
+      "Texto": "Integrity error: The selection is redundant. The permission is repeated within the selected families."
+    },
+    {
+      "Clave": "err_SeleccionarFamiliaEliminar",
+      "Texto": "Please select a family to delete."
+    },
+    {
+      "Clave": "err_FamiliaEnUso",
+      "Texto": "The family cannot be deleted because it is being used by:"
+    },
+    {
+      "Clave": "err_SeleccionarFamiliaPadre",
+      "Texto": "Please select a parent family."
+    },
+    {
+      "Clave": "err_SeleccionarFamiliaHija",
+      "Texto": "Please select a child family."
+    },
+    {
+      "Clave": "err_FamiliaNoPuedeAsignarseSiMisma",
+      "Texto": "A family cannot be assigned to itself."
+    },
+    {
+      "Clave": "err_CicloFamilias",
+      "Texto": "Error: This would create an infinite cycle of families."
+    },
+    {
+      "Clave": "err_AsignacionFamiliaRedundanteRoles",
+      "Texto": "Operation cancelled. The child family contains permissions that already exist in the following Roles, which use the parent family:"
+    },
+    {
+      "Clave": "err_PermisosRedundantesFamilia",
+      "Texto": "The assignment cannot be performed. The following permissions from the child family are already present in the parent family:"
+    },
+    {
+      "Clave": "err_FamiliaUnSoloElemento",
+      "Texto": "A family cannot be left with only one element."
+    },
+    {
+      "Clave": "err_CicloFamilia",
+      "Texto": "Integrity error: A cycle was detected in the family:"
+    },
+    {
+      "Clave": "err_FamiliaRepetidaJerarquia",
+      "Texto": "Integrity error: The family appears more than once within the same hierarchy:"
+    },
+    {
+      "Clave": "err_PermisoRepetidoJerarquia",
+      "Texto": "Integrity error: The permission is repeated within the hierarchy:"
+    },
+    {
+      "Clave": "err_ArchivoNoExiste",
+      "Texto": "The selected file does not exist."
+    },
+    {
+      "Clave": "err_ExtensionBackupInvalida",
+      "Texto": "You must select a .bak file."
+    },
+    {
+      "Clave": "err_RolNombreExiste",
+      "Texto": "A role with that name already exists."
+    },
+    {
+      "Clave": "err_RolVacio",
+      "Texto": "A role cannot be created empty. You must assign at least one Permission or Family."
+    },
+    {
+      "Clave": "err_PermisosSueltosRedundantes",
+      "Texto": "Integrity error: You have selected individual permissions that are already included within the selected families"
+    },
+    {
+      "Clave": "err_RolPermisosRedundantes",
+      "Texto": "The role cannot be created. The selected families have the following overlapping/redundant permissions:"
+    },
+    {
+      "Clave": "err_SeleccioneRol",
+      "Texto": "Please select a role."
+    },
+    {
+      "Clave": "err_SeleccionePermiso",
+      "Texto": "Please select a permission."
+    },
+    {
+      "Clave": "err_RolYaPoseePermiso",
+      "Texto": "The role already has this permission."
+    },
+    {
+      "Clave": "err_SeleccioneFamilia",
+      "Texto": "Please select a family."
+    },
+    {
+      "Clave": "err_FamiliaYaAsignada",
+      "Texto": "The family is already assigned."
+    },
+    {
+      "Clave": "err_FamiliaPermisosRedundantes",
+      "Texto": "The family cannot be assigned because the role already has the following permissions:"
+    },
+    {
+      "Clave": "err_PermisoRepetidoRol",
+      "Texto": "Integrity error: The permission is repeated within the role:"
+    },
+    {
+      "Clave": "err_CicloFamiliaRol",
+      "Texto": "Integrity error: A cycle was detected in the family within the role:"
+    },
+    {
+      "Clave": "err_FamiliaRepetidaRol",
+      "Texto": "Integrity error: The family appears more than once within the role:"
+    },
+    {
+      "Clave": "err_PermisoRepetidoRol",
+      "Texto": "Integrity error: The permission is repeated within the role:"
+    },
+    {
+      "Clave": "lbl_GestionDeRespaldo",
+      "Texto": "Backup Management"
+    },
+    {
+      "Clave": "err_EmailYaExiste",
+      "Texto": "The email address format is invalid."
+    },
+    {
+      "Clave": "btn_Ayuda",
+      "Texto": "Help"
+    },
+    {
+      "Clave": "err_ManualNoEncontrado",
+      "Texto": "The user manual could not be found."
+    },
+    {
+      "Clave": "lbl_TituloRegistroArtista",
+      "Texto": "Artist Registration"
+    },
+    {
+      "Clave": "lbl_Telefono",
+      "Texto": "Phone:"
+    },
+    {
+      "Clave": "lbl_Email",
+      "Texto": "Email:"
+    },
+    {
+      "Clave": "btn_RegistrarArtista",
+      "Texto": "Register Artist"
+    },
+    {
+      "Clave": "lbl_BuscarArtistaDNI",
+      "Texto": "SEARCH ARTIST BY ID"
+    },
+    {
+      "Clave": "titulo_FormRegistroArtista",
+      "Texto": "Vanguardia Arte - Artist Management"
+    },
+    {
+      "Clave": "err_CamposIncompletos",
+      "Texto": "Incomplete fields. Please enter all artist details."
+    },
+    {
+      "Clave": "err_DNI_Invalido",
+      "Texto": "The ID must contain only numbers and be between 7 and 8 digits long."
+    },
+    {
+      "Clave": "err_Telefono_Invalido",
+      "Texto": "The phone must contain only numbers."
+    },
+    {
+      "Clave": "err_ArtistaDuplicado",
+      "Texto": "The artist is already registered."
+    },
+    {
+      "Clave": "msg_RegistroArtistaExito",
+      "Texto": "Artist registered successfully!"
+    },
+    {
+      "Clave": "titulo_Exito",
+      "Texto": "Information"
+    },
+    {
+      "Clave": "titulo_Error",
+      "Texto": "Validation / Error"
+    },
+    {
+      "Clave": "DNI_VM516",
+      "Texto": "ID Number"
+    },
+    {
+      "Clave": "Nombre_VM516",
+      "Texto": "First Name"
+    },
+    {
+      "Clave": "Apellido_VM516",
+      "Texto": "Last Name"
+    },
+    {
+      "Clave": "Telefono_VM516",
+      "Texto": "Phone"
+    },
+    {
+      "Clave": "Email_VM516",
+      "Texto": "Email"
+    },
+    {
+      "Clave": "titulo_FormEspecificacionObra",
+      "Texto": "Catalog Artwork Specifications"
+    },
+    {
+      "Clave": "lbl_DNIArtista",
+      "Texto": "Artist ID Number"
+    },
+    {
+      "Clave": "btn_BuscarArtista",
+      "Texto": "Search Artist"
+    },
+    {
+      "Clave": "lbl_EstadoArtistaPendiente",
+      "Texto": "Artist status: Pending"
+    },
+    {
+      "Clave": "lbl_TituloObra",
+      "Texto": "Artwork Title"
+    },
+    {
+      "Clave": "lbl_Tecnica",
+      "Texto": "Technique"
+    },
+    {
+      "Clave": "lbl_Alto",
+      "Texto": "Height"
+    },
+    {
+      "Clave": "lbl_Ancho",
+      "Texto": "Width"
+    },
+    {
+      "Clave": "lbl_Peso",
+      "Texto": "Weight"
+    },
+    {
+      "Clave": "lbl_ReqIluminacion",
+      "Texto": "Lighting Requirement"
+    },
+    {
+      "Clave": "lbl_ValorMercado",
+      "Texto": "Declared Market Value"
+    },
+    {
+      "Clave": "lbl_CategoriaSeguro",
+      "Texto": "Insurance Category"
+    },
+    {
+      "Clave": "btn_ConfirmarRegistroObra",
+      "Texto": "Confirm Registration"
+    },
+    {
+      "Clave": "msg_ExitoRegistroObra",
+      "Texto": "Artwork specification successfully registered under [Pending_Assignment] status!"
+    },
+    {
+      "Clave": "err_CamposObligatoriosObra",
+      "Texto": "There are incomplete mandatory fields."
+    },
+    {
+      "Clave": "err_ArtistaNoRegistradoObra",
+      "Texto": "The artist is not registered."
+    },
+    {
+      "Clave": "err_DimensionesInvalidasObra",
+      "Texto": "Height, Width, and Weight must be valid numeric values greater than zero."
+    },
+    {
+      "Clave": "err_ValorMercadoNegativoObra",
+      "Texto": "The declared market value must be a valid number and cannot be negative."
+    },
+    {
+      "Clave": "err_DebeVerificarArtistaObra",
+      "Texto": "You must verify a registered artist before confirming the artwork."
+    },
+    {
+      "Clave": "err_IngreseDniArtista",
+      "Texto": "Please enter the artist's ID number to search."
+    },
+    {
+      "Clave": "Id_Obra_VM516",
+      "Texto": "ID"
+    },
+    {
+      "Clave": "DNI_Artista_VM516",
+      "Texto": "Artist ID"
+    },
+    {
+      "Clave": "Titulo_Obra_VM516",
+      "Texto": "Title"
+    },
+    {
+      "Clave": "Tecnica_VM516",
+      "Texto": "Technique"
+    },
+    {
+      "Clave": "Alto_VM516",
+      "Texto": "Height"
+    },
+    {
+      "Clave": "Ancho_VM516",
+      "Texto": "Width"
+    },
+    {
+      "Clave": "Peso_VM516",
+      "Texto": "Weight"
+    },
+    {
+      "Clave": "Req_Iluminacion_VM516",
+      "Texto": "Lighting"
+    },
+    {
+      "Clave": "Valor_Declarado_Mercado_VM516",
+      "Texto": "Market Value"
+    },
+    {
+      "Clave": "Categoria_Seguro_VM516",
+      "Texto": "Insurance"
+    },
+    {
+      "Clave": "Estado_Asignacion_VM516",
+      "Texto": "Status"
+    },
+    {
+      "Clave": "titulo_FormReservaSala",
+      "Texto": "Register Reservation"
+    },
+    {
+      "Clave": "btn_VerHistorialReservas",
+      "Texto": "View Reservation History"
+    },
+    {
+      "Clave": "lbl_IdObra",
+      "Texto": "Artwork ID"
+    },
+    {
+      "Clave": "lbl_FechaInicio",
+      "Texto": "Start Date"
+    },
+    {
+      "Clave": "lbl_FechaFin",
+      "Texto": "End Date"
+    },
+    {
+      "Clave": "btn_ConsultarDisponibilidad",
+      "Texto": "Check Room Availability"
+    },
+    {
+      "Clave": "lbl_MontoTotal",
+      "Texto": "Total Rent Amount"
+    },
+    {
+      "Clave": "lbl_PorcentajeSena",
+      "Texto": "Deposit Percentage"
+    },
+    {
+      "Clave": "btn_ConfirmarReserva",
+      "Texto": "Confirm Reservation"
+    },
+    {
+      "Clave": "Codigo_Sala_VM516",
+      "Texto": "Room Code"
+    },
+    {
+      "Clave": "Nombre_Sala_VM516",
+      "Texto": "Name"
+    },
+    {
+      "Clave": "Alto_Max_Soportado_VM516",
+      "Texto": "Max Height"
+    },
+    {
+      "Clave": "Ancho_Max_Soportado_VM516",
+      "Texto": "Max Width"
+    },
+    {
+      "Clave": "Peso_Max_Soportado_VM516",
+      "Texto": "Max Weight"
+    },
+    {
+      "Clave": "Tipo_Iluminacion_Disponible_VM516",
+      "Texto": "Lighting"
+    },
+    {
+      "Clave": "err_IdObraNumerico",
+      "Texto": "The artwork ID must be a numeric value."
+    },
+    {
+      "Clave": "err_ObraNoEncontrada",
+      "Texto": "No artwork was found registered with that ID."
+    },
+    {
+      "Clave": "err_SinSalasDisponibles",
+      "Texto": "There are no compatible rooms available in the requested period."
+    },
+    {
+      "Clave": "err_SeleccionarSalaGrilla",
+      "Texto": "You must select a room from the interactive grid to continue."
+    },
+    {
+      "Clave": "err_MontoTotalInvalido",
+      "Texto": "The total rent amount must be a numeric value greater than zero."
+    },
+    {
+      "Clave": "err_PorcentajeSenaInvalido",
+      "Texto": "The required deposit percentage must be a value greater than 0% and less than or equal to 100%."
+    },
+    {
+      "Clave": "err_FechasCronologicamenteIncorrectas",
+      "Texto": "The entered date range is chronologically incorrect."
+    },
+    {
+      "Clave": "msg_ReservaExitosa",
+      "Texto": "Exhibition space successfully awarded. The reservation has been registered and is pending deposit collection."
+    },
+    {
+      "Clave": "titulo_FormListarReservas",
+      "Texto": "Reservation History"
+    },
+    {
+      "Clave": "btn_ActualizarListado",
+      "Texto": "Refresh List"
+    },
+    {
+      "Clave": "Codigo_Reserva_VM516",
+      "Texto": "Res. Code"
+    },
+    {
+      "Clave": "Fecha_Inicio_VM516",
+      "Texto": "Start Date"
+    },
+    {
+      "Clave": "Fecha_Fin_VM516",
+      "Texto": "End Date"
+    },
+    {
+      "Clave": "Monto_Alquiler_Total_VM516",
+      "Texto": "Total Amount"
+    },
+    {
+      "Clave": "Porcentaje_Sena_VM516",
+      "Texto": "Deposit %"
+    },
+    {
+      "Clave": "Saldo_Restante_A_Pagar_VM516",
+      "Texto": "Pending Balance"
+    },
+    {
+      "Clave": "Estado_Espacio_VM516",
+      "Texto": "Space Status"
+    },
+    {
+      "Clave": "Estado_Pago_VM516",
+      "Texto": "Payment Status"
+    },
+    {
+      "Clave": "err_ErrorCargarReservas",
+      "Texto": "Error loading reservation list:"
+    },
+    {
+      "Clave": "titulo_FormLogin",
+      "Texto": "Vanguardia Arte - Log In"
+    },
+    {
+      "Clave": "lbl_IdiomaLogin",
+      "Texto": "Language"
+    },
+    {
+      "Clave": "msg_PrimeraVezSistema",
+      "Texto": "This is the first time starting the system. Please register the initial administrator."
+    },
+    {
+      "Clave": "msg_ErrorCrearAdmin",
+      "Texto": "Could not create the administrator. The system will close."
+    },
+    {
+      "Clave": "msg_ErrorEstadoSistema",
+      "Texto": "Error checking system status: "
+    },
+    {
+      "Clave": "btn_BuscarArtista",
+      "Texto": "Search Artist"
+    },
+    {
+      "Clave": "titulo_FormGestionSalas",
+      "Texto": "Vanguardia Arte - Physical Rooms Management"
+    },
+    {
+      "Clave": "lbl_CodigoSala",
+      "Texto": "Room Code"
+    },
+    {
+      "Clave": "lbl_NombreSala",
+      "Texto": "Room Name"
+    },
+    {
+      "Clave": "lbl_AltoMaximo",
+      "Texto": "Max Height"
+    },
+    {
+      "Clave": "lbl_AnchoMaximo",
+      "Texto": "Max Width"
+    },
+    {
+      "Clave": "lbl_PesoMaximo",
+      "Texto": "Max Weight"
+    },
+    {
+      "Clave": "lbl_IluminacionDisponible",
+      "Texto": "Available Lighting"
+    },
+    {
+      "Clave": "btn_GuardarSala",
+      "Texto": "Save"
+    },
+    {
+      "Clave": "btn_ModificarSala",
+      "Texto": "Edit"
+    },
+    {
+      "Clave": "btn_EliminarSala",
+      "Texto": "Delete"
+    },
+    {
+      "Clave": "btn_LimpiarSala",
+      "Texto": "Clear"
+    },
+    {
+      "Clave": "err_CamposObligatoriosSalas",
+      "Texto": "There are incomplete mandatory fields."
+    },
+    {
+      "Clave": "err_DimensionesNumericasSalas",
+      "Texto": "Dimensions and maximum supported weight must be numeric values greater than zero."
+    },
+    {
+      "Clave": "err_SeleccionarSalaEliminar",
+      "Texto": "You must select a room to delete."
+    },
+    {
+      "Clave": "msg_SalaRegistradaExito",
+      "Texto": "Room successfully registered."
+    },
+    {
+      "Clave": "msg_SalaModificadaExito",
+      "Texto": "Room successfully updated."
+    },
+    {
+      "Clave": "msg_SalaEliminadaExito",
+      "Texto": "Room successfully deleted."
+    },
+    {
+      "Clave": "err_ErrorCargarGrilla",
+      "Texto": "Error loading grid: "
+    },
+    {
+      "Clave": "titulo_FormRegistroArtista",
+      "Texto": "Vanguardia Arte - Artist Registration"
+    },
+    {
+      "Clave": "btn_BuscarArtista_R",
+      "Texto": "Search Artist by ID"
+    },
+    {
+      "Clave": "err_CamposIncompletosArtista",
+      "Texto": "Incomplete fields. Please enter all artist details."
+    },
+    {
+      "Clave": "err_DNIInvalidoArtista",
+      "Texto": "The ID must contain only numbers and be between 7 and 8 digits long."
+    },
+    {
+      "Clave": "err_TelefonoInvalidoArtista",
+      "Texto": "The phone must contain only numbers."
+    },
+    {
+      "Clave": "err_EmailInvalidoArtista",
+      "Texto": "The email format is invalid."
+    },
+    {
+      "Clave": "err_ArtistaDuplicado",
+      "Texto": "The artist is already registered."
+    },
+    {
+      "Clave": "err_DniVacioArtista",
+      "Texto": "The ID cannot be empty."
+    },
+    {
+      "Clave": "err_ArtistaNoEncontrado",
+      "Texto": "No artist was found with the provided ID."
+    },
+    {
+      "Clave": "msg_ArtistaVerificado",
+      "Texto": "Verified artist: {0} {1}"
+    },
+    {
+      "Clave": "titulo_FormCobros",
+      "Texto": "Vanguardia Arte - Collections Management"
+    },
+    {
+      "Clave": "lbl_CodigoReserva",
+      "Texto": "Reservation Code"
+    },
+    {
+      "Clave": "btn_BuscarReserva",
+      "Texto": "Search Reservation"
+    },
+    {
+      "Clave": "lbl_EstadoReservaPendiente",
+      "Texto": "Reservation status: Waiting"
+    },
+    {
+      "Clave": "lbl_MontoAbonado",
+      "Texto": "Amount to Collect"
+    },
+    {
+      "Clave": "lbl_MedioPago",
+      "Texto": "Payment Method"
+    },
+    {
+      "Clave": "btn_RegistrarCobro",
+      "Texto": "Start Payment & Issue Receipt"
+    },
+    {
+      "Clave": "err_CodigoReservaVacio",
+      "Texto": "You must enter a reservation code."
+    },
+    {
+      "Clave": "err_ReservaNoPendienteSena",
+      "Texto": "No pending deposit reservations found for the entered criteria."
+    },
+    {
+      "Clave": "msg_ReservaEncontradaPendiente",
+      "Texto": "Reservation status: Pending Deposit"
+    },
+    {
+      "Clave": "err_DebeBuscarReservaPrimero",
+      "Texto": "You must search and verify a reservation first."
+    },
+    {
+      "Clave": "err_SeleccioneMedioPago",
+      "Texto": "You must select a payment method."
+    },
+    {
+      "Clave": "msg_PagoAprobadoExternamente",
+      "Texto": "Payment approved by the Financial Entity."
+    },
+    {
+      "Clave": "err_TransaccionRechazadaFinanciera",
+      "Texto": "Transaction rejected by the Financial Entity."
+    },
+    {
+      "Clave": "err_PagoNoValidado",
+      "Texto": "The payment must be validated by the financial entity before registering it."
+    },
+    {
+      "Clave": "msg_CobroRegistradoExito",
+      "Texto": "Payment successfully registered. Reservation updated and receipt issued."
+    },
+    {
+      "Clave": "err_CamposObligatoriosComprobante",
+      "Texto": "There are incomplete mandatory fields in the receipt."
+    },
+    {
+      "Clave": "err_MontoAbonadoInvalido",
+      "Texto": "The paid amount must be greater than zero."
+    },
+    {
+      "Clave": "err_PorcentajeSenaInvalido",
+      "Texto": "The applied deposit percentage must be between 0 and 100."
+    },
+    {
+      "Clave": "Nro_Comprobante_VM516",
+      "Texto": "Receipt No."
+    },
+    {
+      "Clave": "Fecha_Pago_VM516",
+      "Texto": "Payment Date"
+    },
+    {
+      "Clave": "Porcentaje_Sena_Aplicado_VM516",
+      "Texto": "Applied Deposit %"
+    },
+    {
+      "Clave": "Codigo_Reserva_VM516",
+      "Texto": "Res. Code"
+    },
+    {
+      "Clave": "err_InspeccionEgresoPendiente",
+      "Texto": "Cannot process final payment. The room exit inspection or appraisal is not yet registered."
+    },
+    {
+      "Clave": "err_ReservaNoValida",
+      "Texto": "The selected reservation is not valid."
+    },
+    {
+      "Clave": "err_ObraNoEncontrada",
+      "Texto": "The artwork associated with the reservation was not found."
+    },
+    {
+      "Clave": "PdfGenerado",
+      "Texto": "The PDF receipt has been successfully generated."
+    },
+    {
+      "Clave": "titulo_FacturaFinal",
+      "Texto": "FINAL RENTAL INVOICE"
+    },
+    {
+      "Clave": "titulo_ComprobanteSena",
+      "Texto": "DEPOSIT / ADVANCE RECEIPT"
+    },
+    {
+      "Clave": "titulo_FormInspeccion",
+      "Texto": "Vanguardia Arte - Post-Exhibition Appraisal"
+    },
+    {
+      "Clave": "Estado_Post_Exhibicion_VM516",
+      "Texto": "Post-Exhibition Status"
+    },
+    {
+      "Clave": "Observaciones_Fisicas_VM516",
+      "Texto": "Physical Observations"
+    },
+    {
+      "Clave": "Fecha_Inspeccion_VM516",
+      "Texto": "Inspection Date"
+    },
+    {
+      "Clave": "btnConfirmarPeritaje",
+      "Texto": "Confirm Appraisal"
+    },
+    {
+      "Clave": "lblObservaciones",
+      "Texto": "Physical Observations"
+    },
+    {
+      "Clave": "lblEstadoExhibicion",
+      "Texto": "Post-Exhibition Status"
+    },
+    {
+      "Clave": "lblInfoReserva",
+      "Texto": "Reservation info: [Pending]"
+    },
+    {
+      "Clave": "btnBuscarReserva",
+      "Texto": "Search Reservation"
+    },
+    {
+      "Clave": "lblCodigoReserva",
+      "Texto": "Reservation Code"
+    },
+    {
+      "Clave": "err_SeleccioneEstadoExhibicion",
+      "Texto": "You must select a post-exhibition status."
+    },
+    {
+      "Clave": "err_InspeccionYaRegistrada",
+      "Texto": "An inspection or appraisal is already registered for this reservation."
+    },
+    {
+      "Clave": "err_ErrorCargarHistorialPeritajes",
+      "Texto": "Error loading appraisal history"
+    },
+    {
+      "Clave": "lbl_InfoReservaPendiente",
+      "Texto": "Reservation information: [Pending]"
+    },
+    {
+      "Clave": "lbl_InfoReservaNoEncontrada",
+      "Texto": "Reservation information: [Not found]"
+    },
+    {
+      "Clave": "titulo_ValidacionError",
+      "Texto": "Validation / Error"
+    },
+    {
+      "Clave": "msg_PeritajeIntactoExito",
+      "Texto": "Exit appraisal successfully registered. The artwork is Intact. Insurance policy released from liabilities."
+    },
+    {
+      "Clave": "titulo_PeritajeExitoso",
+      "Texto": "Successful Appraisal"
+    },
+    {
+      "Clave": "msg_PeritajeDañadoAdvertencia",
+      "Texto": "Appraisal registered. Artwork registered as Damaged. Gallery insurance claim withheld for external liquidation appraisal. Disassembly temporarily disabled."
+    },
+    {
+      "Clave": "titulo_AtencionObraDanada",
+      "Texto": "Attention - Damaged Artwork"
+    },
+    {
+      "Clave": "err_ReservaPendienteSenaPeritaje",
+      "Texto": "Cannot perform appraisal. The reservation has a pending deposit."
+    },
+    {
+      "Clave": "err_ReservaNoEncontradaPeritaje",
+      "Texto": "No active reservations found in closing stage for the entered criteria."
+    },
+    {
+      "Clave": "err_ReservaPendienteSenaPeritaje",
+      "Texto": "Cannot perform appraisal. The reservation has a pending deposit."
+    },
+    {
+      "Clave": "err_SalaEnUsoReserva",
+      "Texto": "It is not possible to modify or delete the room because it is assigned to an active reservation or artwork."
+    },
+    {
+      "Clave": "err_SalaYaExiste",
+      "Texto": "A room with that code already exists."
+    },
+    {
+      "Clave": "Monto_Abonado_VM516",
+      "Texto": "Paid Amount"
+    },
+    {
+      "Clave": "Medio_Pago_VM516",
+      "Texto": "Payment Method"
+    },
+    {
+      "Clave": "msg_ReservaSenaAbonada",
+      "Texto": "Reservation status: Deposit Paid"
+    },
+    {
+      "Clave": "err_ReservaSinSaldoPendiente",
+      "Texto": "No active reservations with a pending balance were found for the entered criteria."
+    },
+    {
+      "Clave": "lbl_EstadoReservaPendiente",
+      "Texto": "Reservation status: Waiting"
+    },
+    {
+      "Clave": "titulo_FormRetiroObra",
+      "Texto": "Vanguardia Arte - Artwork Withdrawal"
+    },
+    {
+      "Clave": "lbl_DniResponsableDesmontaje",
+      "Texto": "DNI of Dismantling Responsible"
+    },
+    {
+      "Clave": "lbl_InfoReservaSaldada",
+      "Texto": "Reservation info: [Paid]"
+    },
+    {
+      "Clave": "lbl_InfoReservaNoValida",
+      "Texto": "No reservation eligible for withdrawal was found."
+    },
+    {
+      "Clave": "btn_RegistrarDesmontaje",
+      "Texto": "Register Withdrawal & Release Space"
+    },
+    {
+      "Clave": "msg_DesmontajeExitoso",
+      "Texto": "Withdrawal Authorized. Pick-up successfully recorded. The room is now Available again."
+    },
+    {
+      "Clave": "err_ReservaNoEncontradaDesmontaje",
+      "Texto": "No active rentals ready for closing were found for the entered criteria."
+    },
+    {
+      "Clave": "err_InspeccionFaltanteDesmontaje",
+      "Texto": "Attention: Missing artwork inspection. It is mandatory to appraise the piece before authorizing its release."
+    },
+    {
+      "Clave": "err_DesmontajeBloqueadoSaldoDeudor",
+      "Texto": "Attention: Withdrawal Blocked. The artist has an unpaid balance. Direct the client to Treasury."
+    },
+    {
+      "Clave": "err_DniResponsableInvalido",
+      "Texto": "The ID of the responsible person is invalid."
+    },
+    {
+      "Clave": "err_RetiroYaRegistrado",
+      "Texto": "An artwork withdrawal is already registered for this reservation."
+    },
+    {
+      "Clave": "DNI_Responsable_Desmontaje_VM516",
+      "Texto": "Responsible ID"
+    },
+    {
+      "Clave": "Fecha_Retiro_VM516",
+      "Texto": "Withdrawal Date"
+    },
+    {
+      "Clave": "err_ObraYaRetirada",
+      "Texto": "Attention: The artwork for this reservation has already been dismantled and withdrawn."
+    },
+    {
+      "Clave": "msg_ArtistaVerificadoExito",
+      "Texto": "Verified artist: {0} {1}"
+    },
+    {
+      "Clave": "err_ErrorRegistroObra",
+      "Texto": "An error occurred while registering the artwork specifications."
+    },
+    {
+      "Clave": "msg_ArtistaVerificadoExito",
+      "Texto": "Verified artist: {0} {1}"
+    },
+    {
+      "Clave": "err_CamposObligatoriosObra",
+      "Texto": "There are incomplete mandatory fields."
+    },
+    {
+      "Clave": "err_DimensionesInvalidasObra",
+      "Texto": "Height, Width, and Weight must be valid numeric values greater than zero."
+    },
+    {
+      "Clave": "err_ValorMercadoNegativoObra",
+      "Texto": "The declared market value must be a valid number and cannot be negative."
+    },
+    {
+      "Clave": "err_ReservaYaLiquidada",
+      "Texto": "The reservation is already settled under its current status."
+    },
+    {
+      "Clave": "msg_DetalleEspecificacionObra",
+      "Texto": "--- Artwork Specifications ---\nTitle: {0}\nArtist ID: {1}\nHeight: {2} | Width: {3} | Weight: {4}\nLighting: {5}\nInsurance: {6}"
+    },
+    {
+      "Clave": "titulo_FormRegistroCliente",
+      "Texto": "Vanguardia Arte - Register Customer"
+    },
+    {
+      "Clave": "lbl_TituloRegistroCliente",
+      "Texto": "Customer Registration"
+    },
+    {
+      "Clave": "btn_RegistrarCliente",
+      "Texto": "Register Customer"
+    },
+    {
+      "Clave": "btn_BuscarCliente_R",
+      "Texto": "Search Customer by ID"
+    },
+    {
+      "Clave": "lbl_ResultadoCliente",
+      "Texto": "Customer ..."
+    },
+    {
+      "Clave": "Dni_VM516",
+      "Texto": "ID"
+    },
+    {
+      "Clave": "err_CamposIncompletosCliente",
+      "Texto": "All customer fields are required."
+    },
+    {
+      "Clave": "err_TelefonoInvalidoCliente",
+      "Texto": "The customer phone number must contain between 7 and 15 numeric digits."
+    },
+    {
+      "Clave": "err_EmailInvalidoCliente",
+      "Texto": "The customer email format is invalid."
+    },
+    {
+      "Clave": "err_ClienteDuplicado",
+      "Texto": "A customer with that ID number is already registered."
+    },
+    {
+      "Clave": "msg_ClienteRegistradoExito",
+      "Texto": "The customer was successfully registered."
+    },
+    {
+      "Clave": "titulo_FormRegistrarPedido",
+      "Texto": "Register Cafeteria Order"
+    },
+    {
+      "Clave": "lbl_DniCliente",
+      "Texto": "Customer ID (DNI)"
+    },
+    {
+      "Clave": "btn_BuscarCliente",
+      "Texto": "Search"
+    },
+    {
+      "Clave": "lbl_NombreClienteInfo",
+      "Texto": "Select a customer..."
+    },
+    {
+      "Clave": "lbl_ClienteNoEncontrado",
+      "Texto": "Unregistered customer"
+    },
+    {
+      "Clave": "lbl_Cantidad",
+      "Texto": "Quantity to Buy"
+    },
+    {
+      "Clave": "btn_AgregarCarrito",
+      "Texto": "🛒 Add to Cart"
+    },
+    {
+      "Clave": "btn_QuitarCarrito",
+      "Texto": "Remove Selected Item"
+    },
+    {
+      "Clave": "lbl_TotalTitulo",
+      "Texto": "TOTAL TO PAY"
+    },
+    {
+      "Clave": "btn_ConfirmarPedido",
+      "Texto": "Confirm & Proceed to Checkout"
+    },
+    {
+      "Clave": "lbl_CatalogoProductos",
+      "Texto": "☕ Cafeteria Catalog"
+    },
+    {
+      "Clave": "lbl_CarritoCompras",
+      "Texto": "🛍️ Current Cart"
+    },
+    {
+      "Clave": "CodigoProducto_VM516",
+      "Texto": "Code"
+    },
+    {
+      "Clave": "Descripcion_VM516",
+      "Texto": "Description"
+    },
+    {
+      "Clave": "StockDisponible_VM516",
+      "Texto": "Available Stock"
+    },
+    {
+      "Clave": "PrecioVigente_VM516",
+      "Texto": "Current Price"
+    },
+    {
+      "Clave": "Cantidad_VM516",
+      "Texto": "Quantity"
+    },
+    {
+      "Clave": "PrecioUnitario_VM516",
+      "Texto": "Unit Price"
+    },
+    {
+      "Clave": "Subtotal_VM516",
+      "Texto": "Subtotal"
+    },
+    {
+      "Clave": "err_SeleccioneProducto",
+      "Texto": "You must select a product from the catalog."
+    },
+    {
+      "Clave": "err_SeleccioneArticuloQuitar",
+      "Texto": "You must select an item from the cart to remove."
+    },
+    {
+      "Clave": "err_CantidadInvalidaPedido",
+      "Texto": "The entered quantity must be an integer greater than zero."
+    },
+    {
+      "Clave": "err_ProductoInhabilitadoStock",
+      "Texto": "This product was disabled due to insufficient stock."
+    },
+    {
+      "Clave": "err_IndisponibilidadStock",
+      "Texto": "Insufficient stock for item:"
+    },
+    {
+      "Clave": "msg_PreguntaContinuarOCancelarVenta",
+      "Texto": "The product was disabled. Would you like to choose another item to continue? (Press 'No' to cancel the entire operation)."
+    },
+    {
+      "Clave": "err_DniVacioCliente",
+      "Texto": "You must enter the customer ID number."
+    },
+    {
+      "Clave": "err_DNIInvalidoCliente",
+      "Texto": "The customer ID must contain between 7 and 8 numeric digits."
+    },
+    {
+      "Clave": "err_ClienteNoRegistrado",
+      "Texto": "The customer is not registered in the system."
+    },
+    {
+      "Clave": "msg_ClienteNoRegistradoExtend",
+      "Texto": "The ID number is not registered. Would you like to register the customer now?"
+    },
+    {
+      "Clave": "err_PedidoSinArticulos",
+      "Texto": "The order must contain at least one item in the cart."
+    },
+    {
+      "Clave": "err_ClienteNoSeleccionado",
+      "Texto": "You must search and associate a valid customer before confirming the order."
+    },
+    {
+      "Clave": "err_ProductoNoEncontrado",
+      "Texto": "The selected product does not exist in the catalog."
+    },
+    {
+      "Clave": "msg_PedidoRegistradoExito",
+      "Texto": "The order was registered as 'Pending Payment'. Proceeding to checkout..."
+    },
+    {
+      "Clave": "titulo_FormCobroCafeteria",
+      "Texto": "Order Checkout - Cafeteria"
+    },
+    {
+      "Clave": "lbl_NumeroPedidoCobro",
+      "Texto": "Order Number"
+    },
+    {
+      "Clave": "lbl_EstadoPedidoPendiente",
+      "Texto": "Order status: Pending Payment"
+    },
+    {
+      "Clave": "lbl_EstadoPedidoPagado",
+      "Texto": "Order status: Paid"
+    },
+    {
+      "Clave": "NumeroTicket_VM516",
+      "Texto": "Ticket #"
+    },
+    {
+      "Clave": "FechaHora_VM516",
+      "Texto": "Date & Time"
+    },
+    {
+      "Clave": "MontoAbonado_VM516",
+      "Texto": "Amount Paid"
+    },
+    {
+      "Clave": "MedioPago_VM516",
+      "Texto": "Payment Method"
+    },
+    {
+      "Clave": "NumeroPedido_VM516",
+      "Texto": "Order #"
+    },
+    {
+      "Clave": "err_PedidoNoValido",
+      "Texto": "The selected order for checkout is not valid."
+    },
+    {
+      "Clave": "err_PedidoSinSaldoPendiente",
+      "Texto": "The order is not in 'Pending Payment' status."
+    },
+    {
+      "Clave": "titulo_FormRetiroPedido",
+      "Texto": "Order Pickup - Cafeteria"
+    },
+    {
+      "Clave": "btn_BuscarPedidoRetiro",
+      "Texto": "Search Order"
+    },
+    {
+      "Clave": "lbl_EstadoPedidoEsperaRetiro",
+      "Texto": "Order status: Waiting"
+    },
+    {
+      "Clave": "lbl_PedidosPendientesEntrega",
+      "Texto": "Orders Pending Delivery"
+    },
+    {
+      "Clave": "lbl_DetalleArticulosOrden",
+      "Texto": "Order Items Detail"
+    },
+    {
+      "Clave": "EstadoPedido_VM516",
+      "Texto": "Order Status"
+    },
+    {
+      "Clave": "msg_PedidoListoParaEntregar",
+      "Texto": "Order status: Paid (Ready for delivery)"
+    },
+    {
+      "Clave": "err_NumeroPedidoInvalido",
+      "Texto": "You must enter a valid order number."
+    },
+    {
+      "Clave": "err_PedidoInexistenteRetiro",
+      "Texto": "The entered order number does not exist in the system."
+    },
+    {
+      "Clave": "err_PedidoYaEntregado",
+      "Texto": "The entered order is already in 'Delivered' status."
+    },
+    {
+      "Clave": "err_PedidoNoPagadoRetiro",
+      "Texto": "The order is still in 'Pending Payment' status and cannot be delivered."
+    },
+    {
+      "Clave": "err_DebeBuscarPedidoPrimero",
+      "Texto": "You must locate a valid order before registering the delivery."
+    },
+    {
+      "Clave": "msg_EntregaRegistradaExito",
+      "Texto": "The order delivery was successfully registered."
+    },
+    {
+      "Clave": "btn_RegistrarEntrega",
+      "Texto": "REGISTER ORDER DELIVERY"
+    },
+    {
+      "Clave": "btn_RegistrarPedido",
+      "Texto": "REGISTER ORDER"
+    },
+    {
+      "Clave": "btn_VerPedidosEntregados",
+      "Texto": "View Delivered Orders"
+    },
+    {
+      "Clave": "titulo_FormHistorialEntregados",
+      "Texto": "Delivered Orders History"
+    },
+    {
+      "Clave": "lbl_FiltroEntregados",
+      "Texto": "Filter by Order # or Customer ID:"
+    },
+    {
+      "Clave": "btn_Filtrar",
+      "Texto": "Filter"
+    },
+    {
+      "Clave": "btn_LimpiarFiltro",
+      "Texto": "View All"
+    },
+    {
+      "Clave": "prod_CAF-001",
+      "Texto": "Italian Espresso Coffee"
+    },
+    {
+      "Clave": "prod_CAF-002",
+      "Texto": "Double Espresso Coffee"
+    },
+    {
+      "Clave": "prod_CAF-003",
+      "Texto": "Traditional Cappuccino with Cocoa"
+    },
+    {
+      "Clave": "prod_CAF-004",
+      "Texto": "Vanilla Latte Macchiato"
+    },
+    {
+      "Clave": "prod_CAF-005",
+      "Texto": "Australian Flat White"
+    },
+    {
+      "Clave": "prod_CAF-006",
+      "Texto": "Hot Milk with Dark Chocolate Bar"
+    },
+    {
+      "Clave": "prod_FRI-001",
+      "Texto": "Iced Caramel Latte"
+    },
+    {
+      "Clave": "prod_FRI-002",
+      "Texto": "Dulce de Leche Frappuccino"
+    },
+    {
+      "Clave": "prod_FRI-003",
+      "Texto": "Mint & Ginger Lemonade"
+    },
+    {
+      "Clave": "prod_FRI-004",
+      "Texto": "Fresh Squeezed Orange Juice"
+    },
+    {
+      "Clave": "prod_PAS-001",
+      "Texto": "Butter Croissant (Medialuna)"
+    },
+    {
+      "Clave": "prod_PAS-002",
+      "Texto": "Almond-Filled Croissant"
+    },
+    {
+      "Clave": "prod_PAS-003",
+      "Texto": "Red Velvet Cake Slice"
+    },
+    {
+      "Clave": "prod_PAS-004",
+      "Texto": "Mixed Berry Cheesecake"
+    },
+    {
+      "Clave": "prod_PAS-005",
+      "Texto": "Walnut & Meringue Brownie"
+    },
+    {
+      "Clave": "prod_SAL-001",
+      "Texto": "Grilled Ham & Cheese Country Bread Sandwich"
+    },
+    {
+      "Clave": "prod_SAL-002",
+      "Texto": "Smoked Salmon & Cream Cheese Bagel"
+    },
+    {
+      "Clave": "prod_ESP-001",
+      "Texto": "Gallery Blend Loose Leaf Tea"
+    },
+    {
+      "Clave": "titulo_FormGestionProductos",
+      "Texto": "Cafeteria Products Management"
+    },
+    {
+      "Clave": "lbl_CodigoProducto",
+      "Texto": "Product Code"
+    },
+    {
+      "Clave": "lbl_DescripcionProducto",
+      "Texto": "Product Description"
+    },
+    {
+      "Clave": "err_CamposObligatoriosProducto",
+      "Texto": "All product fields are required."
+    },
+    {
+      "Clave": "err_StockProductoInvalido",
+      "Texto": "Available stock must be an integer greater than or equal to zero."
+    },
+    {
+      "Clave": "err_PrecioProductoInvalido",
+      "Texto": "Current price must be a numeric value greater than zero."
+    },
+    {
+      "Clave": "err_ProductoYaExiste",
+      "Texto": "A product with that code is already registered."
+    },
+    {
+      "Clave": "err_SeleccionarProductoEliminar",
+      "Texto": "You must select a product from the grid to delete."
+    },
+    {
+      "Clave": "err_ProductoEnUsoPedido",
+      "Texto": "Cannot delete the product because it is associated with registered orders."
+    },
+    {
+      "Clave": "msg_ProductoRegistradoExito",
+      "Texto": "Product registered successfully."
+    },
+    {
+      "Clave": "msg_ProductoModificadoExito",
+      "Texto": "Product updated successfully."
+    },
+    {
+      "Clave": "msg_ProductoEliminadoExito",
+      "Texto": "Product deleted successfully."
+    },
+    {
+      "Clave": "titulo_FormGestionClientes",
+      "Texto": "Customer Inquiry & Modification"
+    },
+    {
+      "Clave": "lbl_BuscarClienteDNI",
+      "Texto": "SEARCH CUSTOMER BY ID"
+    },
+    {
+      "Clave": "msg_ClienteModificadoExito",
+      "Texto": "Customer details were updated successfully."
+    },
+    {
+      "Clave": "btn_ClientesCafeteria",
+      "Texto": "CUSTOMERS"
+    },
+    {
+      "Clave": "lbl_SeccionCafeteria",
+      "Texto": "CAFETERIA"
+    },
+    {
+      "Clave": "btn_ProductosCafeteria",
+      "Texto": "PRODUCTS"
+    },
+    {
+      "Clave": "btn_ClientesCafeteria",
+      "Texto": "CUSTOMERS"
+    },
+    {
+      "Clave": "lbl_FormBitacoraProducto",
+      "Texto": "Vanguardia Arte - Product Change Audit"
+    },
+    {
+      "Clave": "lbl_TituloBitacoraProducto",
+      "Texto": "Change Audit Log"
+    },
+    {
+      "Clave": "lbl_CantRegistros",
+      "Texto": "Record Count:"
+    },
+    {
+      "Clave": "lbl_CodigoProducto",
+      "Texto": "Product Code:"
+    },
+    {
+      "Clave": "lbl_NombreProducto",
+      "Texto": "Name:"
+    },
+    {
+      "Clave": "lbl_FechaDesde",
+      "Texto": "Start Date:"
+    },
+    {
+      "Clave": "lbl_FechaHasta",
+      "Texto": "End Date:"
+    },
+    {
+      "Clave": "CodigoProducto_VM516",
+      "Texto": "Product Code"
+    },
+    {
+      "Clave": "Descripcion_VM516",
+      "Texto": "Description"
+    },
+    {
+      "Clave": "StockDisponible_VM516",
+      "Texto": "Available Stock"
+    },
+    {
+      "Clave": "PrecioVigente_VM516",
+      "Texto": "Current Price"
+    },
+    {
+      "Clave": "Bit_Lo_Bo_VM516",
+      "Texto": "Logical Delete"
+    },
+    {
+      "Clave": "Fecha_VM516",
+      "Texto": "Change Date"
+    },
+    {
+      "Clave": "Activo_VM516",
+      "Texto": "Active"
+    },
+    {
+      "Clave": "msg_RegistroActivadoExito",
+      "Texto": "The historical record has been successfully activated."
+    },
+    {
+      "Clave": "err_RangoFechasInvalido",
+      "Texto": "The start date cannot be later than the end date."
+    },
+    {
+      "Clave": "err_SeleccionarRegistroHistorico",
+      "Texto": "Please select a historical record from the grid."
+    },
+    {
+      "Clave": "lbl_FormMenuBitacoras",
+      "Texto": "Vanguardia Arte - Change Audit Logs Menu"
+    },
+    {
+      "Clave": "lbl_TituloMenuBitacoras",
+      "Texto": "Change Audit Logs Selection"
+    },
+    {
+      "Clave": "btn_BitacoraProductos",
+      "Texto": "Product"
+    },
+    {
+      "Clave": "btn_BitacoraObras",
+      "Texto": "Artwork Specification"
+    },
+    {
+      "Clave": "err_ProductoDuplicado",
+      "Texto": "The product code is already registered in the system."
+    },
+    {
+      "Clave": "lbl_FormBitacoraObra",
+      "Texto": "Vanguardia Arte - Artwork Change Audit"
+    },
+    {
+      "Clave": "lbl_TituloBitacoraObra",
+      "Texto": "Artwork Change Audit Log"
+    },
+    {
+      "Clave": "Id_Cambio_VM516",
+      "Texto": "Change ID"
+    },
+    {
+      "Clave": "msg_ObraModificadaExito",
+      "Texto": "Artwork specification updated successfully."
+    },
+    {
+      "Clave": "msg_ObraEliminadaExito",
+      "Texto": "Artwork specification deleted successfully."
+    },
+    {
+      "Clave": "lbl_FormBitacoraObra",
+      "Texto": "Vanguardia Arte - Artwork Change Audit"
+    },
+    {
+      "Clave": "lbl_TituloBitacoraObra",
+      "Texto": "Artwork Change Audit Log"
+    },
+    {
+      "Clave": "lbl_IdObra",
+      "Texto": "Artwork ID:"
+    },
+    {
+      "Clave": "lbl_TituloObraFiltro",
+      "Texto": "Artwork Title:"
+    },
+    {
+      "Clave": "Id_Cambio_VM516",
+      "Texto": "Change ID"
+    },
+    {
+      "Clave": "Id_Obra_VM516",
+      "Texto": "Artwork ID"
+    },
+    {
+      "Clave": "DNI_Artista_VM516",
+      "Texto": "Artist ID"
+    },
+    {
+      "Clave": "Titulo_Obra_VM516",
+      "Texto": "Title"
+    },
+    {
+      "Clave": "Tecnica_VM516",
+      "Texto": "Technique"
+    },
+    {
+      "Clave": "Alto_VM516",
+      "Texto": "Height"
+    },
+    {
+      "Clave": "Ancho_VM516",
+      "Texto": "Width"
+    },
+    {
+      "Clave": "Peso_VM516",
+      "Texto": "Weight"
+    },
+    {
+      "Clave": "Req_Iluminacion_VM516",
+      "Texto": "Lighting"
+    },
+    {
+      "Clave": "Valor_Declarado_Mercado_VM516",
+      "Texto": "Market Value"
+    },
+    {
+      "Clave": "Categoria_Seguro_VM516",
+      "Texto": "Insurance"
+    },
+    {
+      "Clave": "Estado_Asignacion_VM516",
+      "Texto": "Status"
+    },
+    {
+      "Clave": "Bit_Lo_Bo_VM516",
+      "Texto": "Logical Delete"
+    },
+    {
+      "Clave": "Fecha_VM516",
+      "Texto": "Change Date"
+    },
+    {
+      "Clave": "Activo_VM516",
+      "Texto": "Active"
+    },
+    {
+      "Clave": "err_ErrorAlSerializar",
+      "Texto": "Error serializing the XML file: "
+    },
+    {
+      "Clave": "err_ErrorAlDeserializar",
+      "Texto": "Error deserializing the XML file: "
+    },
+    {
+      "Clave": "err_GrillaVaciaParaSerializar",
+      "Texto": "There are no records in the grid to serialize."
+    },
+    {
+      "Clave": "msg_ExitoSerializar",
+      "Texto": "XML file serialized successfully."
+    },
+    {
+      "Clave": "msg_ExitoDeserializar",
+      "Texto": "XML file deserialized and loaded into the grid successfully."
+    },
+    {
+      "Clave": "btnSerializar",
+      "Texto": "SERIALIZE"
+    },
+    {
+      "Clave": "btnDeserializar",
+      "Texto": "DESERIALIZE"
+    },
+    {
+      "Clave": "msg_LogAltaObra",
+      "Texto": "Artwork specification successfully registered."
+    },
+    {
+      "Clave": "msg_LogErrorAlta",
+      "Texto": "Error during artwork registration"
+    },
+    {
+      "Clave": "msg_LogModificacionObra",
+      "Texto": "Artwork specification successfully updated."
+    },
+    {
+      "Clave": "msg_LogErrorModificacion",
+      "Texto": "Error during artwork modification"
+    },
+    {
+      "Clave": "msg_LogBajaObra",
+      "Texto": "Artwork specification successfully deleted (logical delete)."
+    },
+    {
+      "Clave": "msg_LogErrorBaja",
+      "Texto": "Error attempting to delete the artwork"
+    },
+    {
+      "Clave": "msg_LogGrillaLimpiada",
+      "Texto": "Grid cleared visually. Ready to load an XML file."
+    },
+    {
+      "Clave": "msg_LogGrillaActualizada",
+      "Texto": "Grid updated with the original records from the Database."
+    },
+    {
+      "Clave": "msg_LogSerializacionExito",
+      "Texto": "Serialization successful. File saved at"
+    },
+    {
+      "Clave": "msg_LogErrorSerializacion",
+      "Texto": "Serialization process failed"
+    },
+    {
+      "Clave": "msg_LogDeserializacionExito",
+      "Texto": "Deserialization successful. File loaded into the screen matrix."
+    },
+    {
+      "Clave": "msg_LogErrorDeserializacion",
+      "Texto": "Deserialization process failed"
+    },
+    {
+      "Clave": "err_GrillaVaciaSerializar",
+      "Texto": "There is no data in the grid to serialize."
+    },
+    {
+      "Clave": "msg_CobroPedidoExito",
+      "Texto": "Payment successfully registered. Order updated and ticket issued."
+    },
+    {
+      "Clave": "msg_CobroAbortadoCancelado",
+      "Texto": "Payment was aborted at checkout. The order has been permanently canceled."
+    },
+    {
+      "Clave": "titulo_Informacion",
+      "Texto": "Information"
+    },
+    {
+      "Clave": "msg_EntregaRegistradaExito",
+      "Texto": "The order delivery was successfully registered."
+    },
+    {
+      "Clave": "Menu_Tip_Artistas",
+      "Texto": "Allows registering new artists and querying their information."
+    },
+    {
+      "Clave": "Menu_Tip_CatalogoObras",
+      "Texto": "Allows registering, querying, modifying, deleting, serializing, and deserializing the artwork catalog."
+    },
+    {
+      "Clave": "Menu_Tip_Reservas",
+      "Texto": "Allows registering and managing artwork reservations made by clients."
+    },
+    {
+      "Clave": "Menu_Tip_Tesoreria",
+      "Texto": "Allows managing the collection of reservation deposits or their final payment."
+    },
+    {
+      "Clave": "Menu_Tip_EstadoPostExhibicion",
+      "Texto": "Allows recording the conservation status of the artwork after the exhibition ends."
+    },
+    {
+      "Clave": "Menu_Tip_RetiroObra",
+      "Texto": "Allows registering the departure and final withdrawal of artworks from the gallery."
+    },
+    {
+      "Clave": "Menu_Tip_Salas",
+      "Texto": "Allows the registration, modification, deletion, and query of the building's exhibition rooms."
+    },
+    {
+      "Clave": "Menu_Tip_RegistrarPedido",
+      "Texto": "Allows adding products to the shopping cart, searching or registering customers, and processing order payments."
+    },
+    {
+      "Clave": "Menu_Tip_RetiroPedido",
+      "Texto": "Allows validating the receipt and recording the physical delivery of the order at the bar."
+    },
+    {
+      "Clave": "Menu_Tip_ProductosCafeteria",
+      "Texto": "Allows registering, modifying, querying, and discontinuing cafeteria products and their stock."
+    },
+    {
+      "Clave": "Menu_Tip_ClientesCafeteria",
+      "Texto": "Allows querying cafeteria customer information and updating their data."
+    },
+    {
+      "Clave": "Menu_Tip_GestionUsuarios",
+      "Texto": "Allows registering, activating, deactivating, and querying users with system access."
+    },
+    {
+      "Clave": "Menu_Tip_GestionRespaldo",
+      "Texto": "Allows generating backups, recalculating verification digits, and loading databases."
+    },
+    {
+      "Clave": "Menu_Tip_CambiarContrasenia",
+      "Texto": "Allows modifying the authentication password of the active user."
+    },
+    {
+      "Clave": "Menu_Tip_GestionPerfiles",
+      "Texto": "Allows configuring user roles and their access permissions by profile."
+    },
+    {
+      "Clave": "Menu_Tip_GestionBitacora",
+      "Texto": "Allows querying the historical log of system events and auditing."
+    },
+    {
+      "Clave": "Menu_Tip_GestionIdioma",
+      "Texto": "Allows managing translation dictionaries and internationalization."
+    },
+    {
+      "Clave": "Menu_Tip_CambiarIdioma",
+      "Texto": "Allows toggling the display language of the graphical interface."
+    },
+    {
+      "Clave": "Menu_Tip_BitacoraCambios",
+      "Texto": "Allows viewing the detailed log of data modifications and transactions."
+    },
+    {
+      "Clave": "Menu_Tip_CerrarSesion",
+      "Texto": "Ends the current user session and returns to the login screen."
+    },
+    {
+      "Clave": "Menu_Tip_Ayuda",
+      "Texto": "Displays the general assistance and online user manual of the system."
+    },
+    {
+      "Clave": "btn_BC",
+      "Texto": "Change Log"
+    },
+    {
+      "Clave": "AuditObra_Tip_Aplicar",
+      "Texto": "Filters the change history based on the entered parameters."
+    },
+    {
+      "Clave": "AuditObra_Tip_Limpiar",
+      "Texto": "Resets search filters to default values."
+    },
+    {
+      "Clave": "AuditObra_Tip_Activar",
+      "Texto": "Restores the selected history version and recalculates verification digits."
+    },
+    {
+      "Clave": "AuditObra_Tip_Salir",
+      "Texto": "Closes the current window and returns to the main menu."
+    },
+    {
+      "Clave": "AuditProd_Tip_Aplicar",
+      "Texto": "Filters product change history based on entered parameters."
+    },
+    {
+      "Clave": "AuditProd_Tip_Limpiar",
+      "Texto": "Resets product search filters to default values."
+    },
+    {
+      "Clave": "AuditProd_Tip_Activar",
+      "Texto": "Restores the selected historical product version and recalculates verification digits."
+    },
+    {
+      "Clave": "AuditProd_Tip_Salir",
+      "Texto": "Closes the current product audit window."
+    },
+    {
+      "Clave": "MenuBitacoras_Tip_Producto",
+      "Texto": "Opens the product change history and audit module."
+    },
+    {
+      "Clave": "MenuBitacoras_Tip_Obra",
+      "Texto": "Opens the artwork specification change history and audit module."
+    },
+    {
+      "Clave": "Artista_Tip_Registrar",
+      "Texto": "Validates the entered data and registers a new artist in the system."
+    },
+    {
+      "Clave": "Artista_Tip_BuscarDNI",
+      "Texto": "Searches and verifies the existence of an artist using their DNI number."
+    },
+    {
+      "Clave": "Obra_Tip_BuscarArtista",
+      "Texto": "Searches and validates the artist in the system using their DNI number."
+    },
+    {
+      "Clave": "Obra_Tip_Confirmar",
+      "Texto": "Registers a new artwork specification with the entered data."
+    },
+    {
+      "Clave": "Obra_Tip_Modificar",
+      "Texto": "Updates the data of the artwork selected in the grid."
+    },
+    {
+      "Clave": "Obra_Tip_Eliminar",
+      "Texto": "Removes the selected artwork from the system."
+    },
+    {
+      "Clave": "Obra_Tip_Serializar",
+      "Texto": "Exports and saves the current grid data into an XML file."
+    },
+    {
+      "Clave": "Obra_Tip_Deserializar",
+      "Texto": "Loads and displays artwork data from an external XML file."
+    },
+    {
+      "Clave": "Obra_Tip_Limpiar",
+      "Texto": "Clears input fields, deselects the artwork, and visually empties the grid."
+    },
+    {
+      "Clave": "Obra_Tip_Actualizar",
+      "Texto": "Reloads and synchronizes the grid with the current database records."
+    },
+    {
+      "Clave": "Obra_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "RegCliente_Tip_Guardar",
+      "Texto": "Validates the entered data and registers a new customer in the system."
+    },
+    {
+      "Clave": "RegCliente_Tip_Cancelar",
+      "Texto": "Cancels the current registration and closes the window."
+    },
+    {
+      "Clave": "Pedido_Tip_BuscarCliente",
+      "Texto": "Searches and validates customer information using their identification number."
+    },
+    {
+      "Clave": "Pedido_Tip_AgregarCarrito",
+      "Texto": "Adds the selected quantity of the current product to the shopping cart."
+    },
+    {
+      "Clave": "Pedido_Tip_QuitarCarrito",
+      "Texto": "Removes the selected product from the current shopping cart."
+    },
+    {
+      "Clave": "Pedido_Tip_Confirmar",
+      "Texto": "Registers and confirms the current order to proceed with checkout."
+    },
+    {
+      "Clave": "Pedido_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "Prod_Tip_Guardar",
+      "Texto": "Registers a new product in the catalog with the entered data."
+    },
+    {
+      "Clave": "Prod_Tip_Modificar",
+      "Texto": "Updates the information of the selected product."
+    },
+    {
+      "Clave": "Prod_Tip_Eliminar",
+      "Texto": "Removes the selected product from the system."
+    },
+    {
+      "Clave": "Prod_Tip_Limpiar",
+      "Texto": "Clears the form fields and deselects the product."
+    },
+    {
+      "Clave": "Prod_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "Cobro_Tip_Registrar",
+      "Texto": "Processes the order payment, registers the receipt, and generates the sales ticket in PDF."
+    },
+    {
+      "Clave": "Cobro_Tip_Cancelar",
+      "Texto": "Cancels the current payment process and closes the window."
+    },
+    {
+      "Clave": "Inspeccion_Tip_BuscarReserva",
+      "Texto": "Searches and validates reservation information to begin the inspection."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Confirmar",
+      "Texto": "Registers the conservation status and physical post-exhibition inspection of the artwork."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "Inspeccion_Tip_BuscarReserva",
+      "Texto": "Searches and validates reservation information to begin the inspection."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Confirmar",
+      "Texto": "Registers the conservation status and physical post-exhibition inspection of the artwork."
+    },
+    {
+      "Clave": "Inspeccion_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "HistorialEntregados_Tip_Filtrar",
+      "Texto": "Filters the delivered orders history based on the entered order number or DNI."
+    },
+    {
+      "Clave": "HistorialEntregados_Tip_VerTodos",
+      "Texto": "Clears the search filter and displays all registered delivered orders."
+    },
+    {
+      "Clave": "HistorialEntregados_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "Sala_Tip_Guardar",
+      "Texto": "Registers a new physical room in the system with the entered data."
+    },
+    {
+      "Clave": "Sala_Tip_Modificar",
+      "Texto": "Updates the information of the selected room."
+    },
+    {
+      "Clave": "Sala_Tip_Eliminar",
+      "Texto": "Removes the selected room from the system."
+    },
+    {
+      "Clave": "Sala_Tip_Limpiar",
+      "Texto": "Clears the form fields and enables the room code."
+    },
+    {
+      "Clave": "Sala_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "Retiro_Tip_BuscarPedido",
+      "Texto": "Searches and verifies pending order information using its number."
+    },
+    {
+      "Clave": "Retiro_Tip_RegistrarEntrega",
+      "Texto": "Registers the official delivery of the verified order to the customer."
+    },
+    {
+      "Clave": "Retiro_Tip_VerEntregados",
+      "Texto": "Opens the history of orders that have already been delivered."
+    },
+    {
+      "Clave": "Retiro_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "RetiroObra_Tip_BuscarReserva",
+      "Texto": "Searches and validates reservation information for artwork disassembly."
+    },
+    {
+      "Clave": "RetiroObra_Tip_RegistrarDesmontaje",
+      "Texto": "Registers artwork disassembly, frees up the space, and generates the debt-free certificate in PDF."
+    },
+    {
+      "Clave": "RetiroObra_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "CobroReserva_Tip_BuscarReserva",
+      "Texto": "Searches and verifies reservation information to calculate the amount to charge."
+    },
+    {
+      "Clave": "CobroReserva_Tip_RegistrarCobro",
+      "Texto": "Processes deposit or balance payment, registers the receipt, and generates the PDF ticket."
+    },
+    {
+      "Clave": "CobroReserva_Tip_Cancelar",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "ListarReservas_Tip_Actualizar",
+      "Texto": "Reloads and synchronizes the grid with the current list of reservations."
+    },
+    {
+      "Clave": "ListarReservas_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "CambiarClave_Tip_Guardar",
+      "Texto": "Saves the changes and updates your password in the system."
+    },
+    {
+      "Clave": "Config_Tip_Idioma",
+      "Texto": "Selects the desired language to change the system display."
+    },
+    {
+      "Clave": "Config_Tip_Guardar",
+      "Texto": "Saves and applies the selected language configuration to the session."
+    },
+    {
+      "Clave": "Config_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "CrearUsuario_Tip_Guardar",
+      "Texto": "Validates the entered data and registers the new user in the system."
+    },
+    {
+      "Clave": "CrearUsuario_Tip_Cancelar",
+      "Texto": "Cancels the current operation and closes the window."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Rol",
+      "Texto": "Selects the role to be assigned to the new user in the system."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Activo",
+      "Texto": "Indicates whether the user will have enabled access to the system."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Guardar",
+      "Texto": "Validates the data and registers the new user in the system."
+    },
+    {
+      "Clave": "CrearUsuarioAdmin_Tip_Cancelar",
+      "Texto": "Cancels the current operation and closes the window."
+    },
+    {
+      "Clave": "Bitacora_Tip_Limpiar",
+      "Texto": "Resets search filters and displays events from the last 3 days."
+    },
+    {
+      "Clave": "Bitacora_Tip_Aplicar",
+      "Texto": "Applies the selected filters to search for events in the audit log."
+    },
+    {
+      "Clave": "Bitacora_Tip_Imprimir",
+      "Texto": "Exports the current list of audit log events to a PDF file."
+    },
+    {
+      "Clave": "Bitacora_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "lbl_FormBitacora",
+      "Texto": "Vanguardia Arte - Event Audit Log Management"
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroLogin",
+      "Texto": "Filters audit log events by the selected user."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroFechaInicio",
+      "Texto": "Sets the start date to narrow down record searches."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroFechaFin",
+      "Texto": "Sets the end date to narrow down record searches."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroModulo",
+      "Texto": "Filters events based on the specific system module."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroEvento",
+      "Texto": "Filters records based on the type of logged event."
+    },
+    {
+      "Clave": "Bitacora_Tip_FiltroCriticidad",
+      "Texto": "Filters events according to their criticality level."
+    },
+    {
+      "Clave": "lbl_FormGestionIdioma",
+      "Texto": "Vanguardia Arte - Language Management"
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Combo",
+      "Texto": "Selects the language whose texts and tags you want to view or edit."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_NuevoIdioma",
+      "Texto": "Enables the mode to register a new language in the system."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_AgregarEtiqueta",
+      "Texto": "Enables the mode to register a new key and its translated text."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_ModificarEtiqueta",
+      "Texto": "Allows modifying the text of the selected tag in the grid."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Aplicar",
+      "Texto": "Confirms and saves the current action (creation or modification)."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Cancelar",
+      "Texto": "Cancels the current operation and clears input fields."
+    },
+    {
+      "Clave": "GestionIdioma_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "lbl_FormPerfiles",
+      "Texto": "Vanguardia Arte - Profile Management"
+    },
+    {
+      "Clave": "Perfil_Tip_CmbRol",
+      "Texto": "Selects the main role to which the action will be applied."
+    },
+    {
+      "Clave": "Perfil_Tip_CmbFamilia",
+      "Texto": "Selects the main or container family."
+    },
+    {
+      "Clave": "Perfil_Tip_CmbFamiliaHija",
+      "Texto": "Selects the subfamily to be added inside the container family."
+    },
+    {
+      "Clave": "Perfil_Tip_ClbPermiso",
+      "Texto": "List of available permissions to check and assign to the profile or family."
+    },
+    {
+      "Clave": "Perfil_Tip_ClbFamilia",
+      "Texto": "List of available families to check, associate, or preview."
+    },
+    {
+      "Clave": "Perfil_Tip_TreeView1",
+      "Texto": "General hierarchical tree of Roles, Families, and Permissions configured in the system."
+    },
+    {
+      "Clave": "Perfil_Tip_TreeViewVistaPrevia",
+      "Texto": "Detailed preview of the internal structure and components of the selected family."
+    },
+    {
+      "Clave": "titulo_FormGestionRespaldo",
+      "Texto": "Vanguardia Arte - Backup Management"
+    },
+    {
+      "Clave": "Respaldo_Tip_Restaurar",
+      "Texto": "Restores the database from a selected backup file (.bak)."
+    },
+    {
+      "Clave": "Respaldo_Tip_Backup",
+      "Texto": "Generates a database backup copy in the specified path."
+    },
+    {
+      "Clave": "Respaldo_Tip_Seleccionar",
+      "Texto": "Browses and selects the destination folder to save the backup copy."
+    },
+    {
+      "Clave": "Respaldo_Tip_RecalcularDV",
+      "Texto": "Recalculates horizontal and vertical system integrity check digits."
+    },
+    {
+      "Clave": "Usuarios_Tip_Activos",
+      "Texto": "Filters the grid to show only active users in the system."
+    },
+    {
+      "Clave": "Usuarios_Tip_Todos",
+      "Texto": "Displays the complete list of all registered users."
+    },
+    {
+      "Clave": "Usuarios_Tip_Crear",
+      "Texto": "Opens the form to register a new user."
+    },
+    {
+      "Clave": "Usuarios_Tip_Desbloquear",
+      "Texto": "Unlocks the selected user who has exceeded failed login attempts."
+    },
+    {
+      "Clave": "Usuarios_Tip_Modificar",
+      "Texto": "Enables editing of the selected user's data and role."
+    },
+    {
+      "Clave": "Usuarios_Tip_ActivarDesactivar",
+      "Texto": "Allows enabling or disabling the user's access to the system."
+    },
+    {
+      "Clave": "Usuarios_Tip_Aplicar",
+      "Texto": "Confirms and saves the changes made in the current operation."
+    },
+    {
+      "Clave": "Usuarios_Tip_Cancelar",
+      "Texto": "Cancels the current operation and restores query mode."
+    },
+    {
+      "Clave": "Usuarios_Tip_Salir",
+      "Texto": "Closes the current window and returns to the previous menu."
+    },
+    {
+      "Clave": "titulo_FormGestionUsuarios",
+      "Texto": "Vanguardia Arte - User Management"
+    },
+    {
+      "Clave": "err_DniYaExiste",
+      "Texto": "A user is already registered with the entered DNI number."
+    },
+    {
+      "Clave": "Perfil_Tip_Crear",
+      "Texto": "Enables the mode to register a new role or family in the system."
+    },
+    {
+      "Clave": "Perfil_Tip_Modificar",
+      "Texto": "Enables the mode to edit the name of the selected role or family."
+    },
+    {
+      "Clave": "Perfil_Tip_Eliminar",
+      "Texto": "Permanently deletes the selected profile or family."
+    },
+    {
+      "Clave": "Perfil_Tip_AsignarPermiso",
+      "Texto": "Enables the mode to assign permissions to a role or family."
+    },
+    {
+      "Clave": "Perfil_Tip_AsignarFamilia",
+      "Texto": "Enables the mode to associate families and subfamilies."
+    },
+    {
+      "Clave": "Perfil_Tip_Desasignar",
+      "Texto": "Unlinks the selected permission or subfamily from the tree."
+    },
+    {
+      "Clave": "Perfil_Tip_Aplicar",
+      "Texto": "Confirms and saves the changes for the current operation."
+    },
+    {
+      "Clave": "Perfil_Tip_Salir",
+      "Texto": "Closes the current window and returns to the main menu."
+    },
+    {
+      "Clave": "Reserva_Tip_IdObra",
+      "Texto": "Enter the artwork ID to verify its specifications."
+    },
+    {
+      "Clave": "Reserva_Tip_FechaInicio",
+      "Texto": "Select the start date of the exhibition period."
+    },
+    {
+      "Clave": "Reserva_Tip_FechaFin",
+      "Texto": "Select the end date of transfer or exhibition."
+    },
+    {
+      "Clave": "Reserva_Tip_ConsultarDisponibilidad",
+      "Texto": "Searches and displays compatible and available physical rooms for the artwork on the selected dates."
+    },
+    {
+      "Clave": "Reserva_Tip_MontoTotal",
+      "Texto": "Enter the total agreed amount for the space rental."
+    },
+    {
+      "Clave": "Reserva_Tip_PorcentajeSena",
+      "Texto": "Enter the required deposit percentage to confirm the reservation."
+    },
+    {
+      "Clave": "Reserva_Tip_ConfirmarReserva",
+      "Texto": "Awards the space, registers the reservation, and generates payment control codes."
+    },
+    {
+      "Clave": "Reserva_Tip_HistorialReservas",
+      "Texto": "Opens the complete history of room reservations registered in the system."
+    },
+    {
+      "Clave": "Reserva_Tip_GrillaSalas",
+      "Texto": "Interactive grid showing available rooms that meet the artwork's requirements."
+    },
+    {
+      "Clave": "Reserva_Tip_Salir",
+      "Texto": "Closes the current window and returns to the main menu."
+    },
+    {
+      "Clave": "titulo_FormReporteInteligente",
+      "Texto": "Smart Report"
+    },
+    {
+      "Clave": "lbl_SeleccionarReporte",
+      "Texto": "Select Report Type:"
+    },
+    {
+      "Clave": "btn_ExportarPdf",
+      "Texto": "📄 Export to PDF"
+    },
+    {
+      "Clave": "btn_Salir",
+      "Texto": "Exit"
+    },
+    {
+      "Clave": "lbl_Usuario",
+      "Texto": "Active user: "
+    }
+
+
+  ]
+}

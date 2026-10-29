@@ -44,9 +44,8 @@ namespace CuentaClara_TrabajoCampo
             toolTipMenu.SetToolTip(button6, TraducirTexto("Menu_Tip_CambiarIdioma"));
             toolTipMenu.SetToolTip(button14, TraducirTexto("Menu_Tip_BitacoraCambios"));
 
-            // Botones Generales
-            // toolTipMenu.SetToolTip(btnCerrarSesion, TraducirTexto("Menu_Tip_CerrarSesion"));
-            // toolTipMenu.SetToolTip(btnAyudaGeneral, TraducirTexto("Menu_Tip_Ayuda"));
+            toolTipMenu.SetToolTip(btnCerrarSesion, TraducirTexto("Menu_Tip_CerrarSesion"));
+            toolTipMenu.SetToolTip(button8, TraducirTexto("Menu_Tip_Ayuda"));
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -151,7 +150,9 @@ namespace CuentaClara_TrabajoCampo
             button11.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P48");
             button12.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P49");
             button14.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P50");
-            //button14.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P51");
+            button10.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P53");
+            button13.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P54");
+
         }
 
         public void ActualizarIdioma()
