@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             picLogo = new PictureBox();
@@ -50,6 +51,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipReserva = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).BeginInit();
@@ -341,6 +343,12 @@
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
+            // toolTipReserva
+            // 
+            toolTipReserva.AutoPopDelay = 5000;
+            toolTipReserva.InitialDelay = 100;
+            toolTipReserva.ReshowDelay = 100;
+            // 
             // Form_Reserva_Sala_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -386,5 +394,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private Button button1;
         private PictureBox picLogo;
+        private ToolTip toolTipReserva;
     }
 }

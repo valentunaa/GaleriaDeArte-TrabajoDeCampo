@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             lblCantRegistrosValor = new Label();
             lblCantRegistrosEtiqueta = new Label();
@@ -127,14 +127,14 @@
             dgvBitacoraObra.BorderStyle = BorderStyle.None;
             dgvBitacoraObra.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBitacoraObra.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBitacoraObra.ColumnHeadersHeight = 45;
             dgvBitacoraObra.EnableHeadersVisualStyles = false;
             dgvBitacoraObra.GridColor = Color.FromArgb(220, 220, 220);
@@ -326,6 +326,12 @@
             lblUsuarioActivo.TabIndex = 0;
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
+            // 
+            // toolTipAudit
+            // 
+            toolTipAudit.AutoPopDelay = 5000;
+            toolTipAudit.InitialDelay = 100;
+            toolTipAudit.ReshowDelay = 100;
             // 
             // Form_Auditoria_Especificacion_Obra_VM516
             // 

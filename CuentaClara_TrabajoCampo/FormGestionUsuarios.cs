@@ -18,6 +18,7 @@ namespace CuentaClara_TrabajoCampo
         public FormGestionUsuarios()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.ReadOnly = true;
@@ -25,9 +26,64 @@ namespace CuentaClara_TrabajoCampo
             dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
             GestorIdioma.GetInstancia().Suscribir(this);
       
+        } 
+        
+        private void FormGestionUsuarios_Load_1(object sender, EventArgs e)
+        {
+            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
+            this.WindowState = FormWindowState.Normal;
+            this.Width = Screen.FromControl(this).WorkingArea.Width;
+            this.Height = Screen.FromControl(this).WorkingArea.Height;
+            this.Location = new Point(0, 0);
+
+            FormGestionUsuarios_Resize(null, null);
+            radioBtnTodosUser.Checked = true;
+
+            RefrescarSesionUsuario();
+
+            var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
+            BloquearBotonesSegunPermisos(usuarioActual);
+            string nombreRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
+            label1.Text = $"{usuarioActual.Login}-{nombreRol}";
+
+            cmbRol.DataSource = bllRol.ObtenerRoles();
+            cmbRol.DisplayMember = "Nombre";
+            cmbRol.ValueMember = "IdRol";
+            CargarUsuarios();
+
+            btnAplicar.Enabled = false;
+            btnCancelar.Enabled = false;
+            lblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
+
+            ActualizarIdioma();
+
+            BloquearCampos();
+
+            modoActual = "ModoConsulta";
+
+            lstMensajes.Items.Clear();
+            lstMensajes.Items.Add(TraducirTexto("ModoConsulta"));
         }
 
-        
+        private void ConfigurarToolTips()
+        {
+            // Radio buttons de filtro
+            toolTipGestionUsuarios.SetToolTip(radioBtnUserActivos, TraducirTexto("Usuarios_Tip_Activos"));
+            toolTipGestionUsuarios.SetToolTip(radioBtnTodosUser, TraducirTexto("Usuarios_Tip_Todos"));
+
+            // Botones de gestión principales
+            toolTipGestionUsuarios.SetToolTip(btnCrear, TraducirTexto("Usuarios_Tip_Crear"));
+            toolTipGestionUsuarios.SetToolTip(btnDesbloquear, TraducirTexto("Usuarios_Tip_Desbloquear"));
+            toolTipGestionUsuarios.SetToolTip(btnModificar, TraducirTexto("Usuarios_Tip_Modificar"));
+            toolTipGestionUsuarios.SetToolTip(btnActivarDesactivar, TraducirTexto("Usuarios_Tip_ActivarDesactivar"));
+
+            // Botones inferiores de control
+            toolTipGestionUsuarios.SetToolTip(btnAplicar, TraducirTexto("Usuarios_Tip_Aplicar"));
+            toolTipGestionUsuarios.SetToolTip(btnCancelar, TraducirTexto("Usuarios_Tip_Cancelar"));
+            toolTipGestionUsuarios.SetToolTip(btnSalir, TraducirTexto("Usuarios_Tip_Salir"));
+        }
+
+
 
         private void RefrescarSesionUsuario()
         {
@@ -91,43 +147,7 @@ namespace CuentaClara_TrabajoCampo
             btnActivarDesactivar.Enabled = false;
             btnAplicar.Enabled = false;
         }
-        private void FormGestionUsuarios_Load_1(object sender, EventArgs e)
-        {
-            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
-            this.WindowState = FormWindowState.Normal;
-            this.Width = Screen.FromControl(this).WorkingArea.Width;
-            this.Height = Screen.FromControl(this).WorkingArea.Height;
-            this.Location = new Point(0, 0);
-
-            FormGestionUsuarios_Resize(null, null);
-            radioBtnTodosUser.Checked = true;
-
-            RefrescarSesionUsuario();
-
-            var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
-            BloquearBotonesSegunPermisos(usuarioActual);
-            string nombreRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
-            label1.Text = $"{usuarioActual.Login}-{nombreRol}";
-
-            cmbRol.DataSource = bllRol.ObtenerRoles();
-            cmbRol.DisplayMember = "Nombre";
-            cmbRol.ValueMember = "IdRol";
-            CargarUsuarios();
-
-            btnAplicar.Enabled = false;
-            btnCancelar.Enabled = false;
-            lblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
-
-            ActualizarIdioma();
-
-            BloquearCampos();
-
-            modoActual = "ModoConsulta";
-
-            lstMensajes.Items.Clear();
-            //lstMensajes.Items.Add("Modo Consulta");
-            lstMensajes.Items.Add(TraducirTexto("ModoConsulta"));
-        }
+       
 
         private void HabilitarCamposEdicion()
         {
@@ -150,7 +170,6 @@ namespace CuentaClara_TrabajoCampo
             modoActual = "ModoConsulta";
 
             lstMensajes.Items.Clear();
-            //lstMensajes.Items.Add("Modo Consulta");
             lstMensajes.Items.Add(TraducirTexto("ModoConsulta"));
         }
 
@@ -378,6 +397,8 @@ namespace CuentaClara_TrabajoCampo
 
             TraducirControles(this.Controls, idioma);
             TraducirColumnasUsuarios();
+            this.Text = TraducirTexto("titulo_FormGestionUsuarios");
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controls, Servicio_Idioma idioma)

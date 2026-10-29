@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelContenedor = new Panel();
+            picLogo = new PictureBox();
             lblTitulo = new Label();
             lblClaveActual = new Label();
             txtClaveActual = new TextBox();
@@ -38,10 +40,10 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
-            picLogo = new PictureBox();
+            toolTipCambiarClave = new ToolTip(components);
             panelContenedor.SuspendLayout();
-            panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            panelInferior.SuspendLayout();
             SuspendLayout();
             // 
             // panelContenedor
@@ -58,6 +60,18 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(520, 320);
             panelContenedor.TabIndex = 0;
+            // 
+            // picLogo
+            // 
+            picLogo.BorderStyle = BorderStyle.FixedSingle;
+            picLogo.Image = IU.Properties.Resources.ImagenLogo;
+            picLogo.Location = new Point(44, 9);
+            picLogo.Margin = new Padding(0);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(67, 62);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 19;
+            picLogo.TabStop = false;
             // 
             // lblTitulo
             // 
@@ -166,17 +180,11 @@
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
-            // picLogo
+            // toolTipCambiarClave
             // 
-            picLogo.BorderStyle = BorderStyle.FixedSingle;
-            picLogo.Image = IU.Properties.Resources.ImagenLogo;
-            picLogo.Location = new Point(44, 9);
-            picLogo.Margin = new Padding(0);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(67, 62);
-            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            picLogo.TabIndex = 19;
-            picLogo.TabStop = false;
+            toolTipCambiarClave.AutoPopDelay = 5000;
+            toolTipCambiarClave.InitialDelay = 100;
+            toolTipCambiarClave.ReshowDelay = 100;
             // 
             // FormCambiarClave
             // 
@@ -197,9 +205,9 @@
             Load += FormCambiarClave_Load_1;
             panelContenedor.ResumeLayout(false);
             panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             panelInferior.ResumeLayout(false);
             panelInferior.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -216,5 +224,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo;
         private Label lblUsuarioValor;
         private PictureBox picLogo;
+        private ToolTip toolTipCambiarClave;
     }
 }

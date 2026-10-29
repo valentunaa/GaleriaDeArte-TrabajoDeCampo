@@ -106,6 +106,9 @@ namespace BLL
             // 1. Validaciones (Si fallan, lanzan una excepción que llega al Form)
             ValidarDatosBasicos(usuario.DNI, usuario.Nombre, usuario.Apellido, usuario.email);
 
+            if (_dalUsuario.ObtenerUsuario(usuario.DNI) != null)
+                throw new Exception("err_DniYaExiste");
+
             if (_dalUsuario.ExisteUsuario(usuario.Login))
                 throw new Exception("err_UsuarioYaExiste"); // Clave para traducir en el Form
 

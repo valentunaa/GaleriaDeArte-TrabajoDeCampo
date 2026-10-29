@@ -57,7 +57,8 @@ namespace BLL
   
             List<string> eventos = new List<string>
             {
-           "Login correcto",
+               
+                "Login correcto",
                 "Cerrar Sesión",
                 "Cambio Clave",
                 "Cambio de Idioma en Sesión",
@@ -71,7 +72,17 @@ namespace BLL
                 "Registro de nueva Sala",
                 "Modificación de Sala",
                 "Eliminación de Sala",
-                "Impresión/Exportación"
+                "Impresión/Exportación",
+                "Alta Pedido",
+                "Entrega Pedido",
+                "Pedido Cancelado",
+                "Alta Producto",
+                "Modificación Producto",
+                "Baja Producto",
+                "Alta Cliente",
+                "Modificación Cliente",
+                "Exportación XML de Obras",
+                "Importación XML de Obras"
             };
 
       
@@ -111,8 +122,20 @@ namespace BLL
             "Recalculo de Dígitos Verificadores de Roles",
             "Recalculo de Dígitos Verificadores de Familias",
             "Recalculo de Dígitos Verificadores de Permisos",
-            "Recalculo de Dígitos Verificadores de Idiomas"
-                
+            "Recalculo de Dígitos Verificadores de Idiomas",
+            "Recalculo de Dígitos Verificadores de Artistas",
+            "Recalculo de Dígitos Verificadores de Obras",
+            "Recalculo de Dígitos Verificadores de Reservas",
+            "Recalculo de Dígitos Verificadores de Salas",
+            "Recalculo de Dígitos Verificadores de Comprobantes",
+            "Recalculo de Dígitos Verificadores de Inspecciones",
+            "Recalculo de Dígitos Verificadores de Retiros de Obra",
+            "Recalculo de Dígitos Verificadores de Clientes",
+            "Recalculo de Dígitos Verificadores de Productos",
+            "Recalculo de Dígitos Verificadores de Pedidos",
+            "Recalculo de Dígitos Verificadores de Líneas de Detalle",
+            "Recalculo de Dígitos Verificadores de Tickets de Cafetería",
+            "Restauración de base de datos"
                 });
             }
 

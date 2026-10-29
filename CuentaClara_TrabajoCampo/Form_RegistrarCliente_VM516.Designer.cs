@@ -203,6 +203,12 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // toolTipRegCliente
+            // 
+            toolTipRegCliente.AutoPopDelay = 5000;
+            toolTipRegCliente.InitialDelay = 100;
+            toolTipRegCliente.ReshowDelay = 100;
+            // 
             // Form_RegistrarCliente_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

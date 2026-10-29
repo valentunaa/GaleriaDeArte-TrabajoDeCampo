@@ -21,13 +21,10 @@ namespace IU
         public FormConfiguracion()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
         }
 
-        private void panelLogin_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void FormConfiguracion_Load(object sender, EventArgs e)
         {
@@ -35,6 +32,13 @@ namespace IU
             cmbIdioma.DisplayMember = "Nombre";
             cmbIdioma.ValueMember = "Id_Idioma";
             ActualizarIdioma();
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipConfig.SetToolTip(cmbIdioma, TraducirTexto("Config_Tip_Idioma"));
+            toolTipConfig.SetToolTip(btnGuardarr, TraducirTexto("Config_Tip_Guardar")); // btnGuardarr es el botón Guardar según tu código
+            toolTipConfig.SetToolTip(button1, TraducirTexto("Config_Tip_Salir"));      // button1 es el botón Salir según tu código
         }
 
         private void btnGuardarr_Click(object sender, EventArgs e)
@@ -63,6 +67,7 @@ namespace IU
                 return;
 
             TraducirControles(this.Controls, idioma);
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
@@ -94,6 +99,22 @@ namespace IU
                 if (c.HasChildren)
                     TraducirControles(c.Controls, idioma);
             }
+        }
+
+        private string TraducirTexto(string clave)
+        {
+            string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
+
+            BLL_Idioma bllIdioma = new BLL_Idioma();
+
+            Servicio_Idioma idioma = bllIdioma.ObtenerIdiomaPorId(idIdioma);
+
+            if (idioma == null)
+                return clave;
+
+            var etiqueta = idioma.Etiquetas.FirstOrDefault(x => x.Clave == clave);
+
+            return etiqueta != null ? etiqueta.Texto : clave;
         }
 
         private void FormConfiguracion_FormClosed(object sender, FormClosedEventArgs e)

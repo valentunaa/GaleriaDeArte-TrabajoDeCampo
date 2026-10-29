@@ -59,14 +59,15 @@ namespace DAL
         {
             DataTable tabla = new DataTable();
             string consulta = @"SELECT * FROM Sala_VM516 
-                        WHERE Alto_Max_Soportado_VM516 >= @Alto 
-                          AND Ancho_Max_Soportado_VM516 >= @Ancho 
-                          AND Peso_Max_Soportado_VM516 >= @Peso 
-                          AND Tipo_Iluminacion_Disponible_VM516 = @Iluminacion 
-                          AND Codigo_Sala_VM516 NOT IN (
-                              SELECT Codigo_Sala_VM516 FROM Reserva_Sala_VM516 
-                              WHERE NOT (Fecha_Fin_VM516 < @FechaInicio OR Fecha_Inicio_VM516 > @FechaFin)
-                          )";
+                WHERE Alto_Max_Soportado_VM516 >= @Alto 
+                  AND Ancho_Max_Soportado_VM516 >= @Ancho 
+                  AND Peso_Max_Soportado_VM516 >= @Peso 
+                  AND Tipo_Iluminacion_Disponible_VM516 = @Iluminacion 
+                  AND Codigo_Sala_VM516 NOT IN (
+                      SELECT Codigo_Sala_VM516 FROM Reserva_Sala_VM516 
+                      WHERE (Estado_Espacio_VM516 IS NULL OR Estado_Espacio_VM516 != 'Retirado') 
+                        AND NOT (Fecha_Fin_VM516 < @FechaInicio OR Fecha_Inicio_VM516 > @FechaFin)
+                  )";
 
             using (SqlConnection conexion = new SqlConnection(_connectionString_VM516))
             {
@@ -174,6 +175,49 @@ namespace DAL
                 adapter.Fill(dt);
             }
             return MapearLista(dt);
+        }
+        public void ActualizarEstadoEspacio_VM516(string codigoReserva, string nuevoEstadoEspacio)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString_VM516))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Reserva_Sala_VM516 WHERE Codigo_Reserva_VM516 = @Codigo", conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@Codigo", codigoReserva);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "Reserva_Sala_VM516");
+
+                if (ds.Tables["Reserva_Sala_VM516"].Rows.Count > 0)
+                {
+                    DataRow row = ds.Tables["Reserva_Sala_VM516"].Rows[0];
+                    row["Estado_Espacio_VM516"] = nuevoEstadoEspacio;
+
+                    SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                    adapter.Update(ds, "Reserva_Sala_VM516");
+                }
+            }
+        }
+        public DataTable ObtenerReporteOcupacionSalas_VM516()
+        {
+            DataTable tabla = new DataTable();
+            // Ejecutamos el JOIN y las funciones de agregación (COUNT, SUM) nativas en SQL Server
+            string consulta = @"
+        SELECT 
+            S.Codigo_Sala_VM516 AS CodigoSala,
+            S.Nombre_Sala_VM516 AS NombreSala,
+            COUNT(R.Codigo_Reserva_VM516) AS CantidadReservas,
+            ISNULL(SUM(R.Monto_Alquiler_Total_VM516), 0) AS RecaudacionSalas
+        FROM Sala_VM516 S
+        INNER JOIN Reserva_Sala_VM516 R ON S.Codigo_Sala_VM516 = R.Codigo_Sala_VM516
+        GROUP BY S.Codigo_Sala_VM516, S.Nombre_Sala_VM516
+        ORDER BY RecaudacionSalas DESC";
+
+            using (SqlConnection conexion = new SqlConnection(_connectionString_VM516))
+            {
+                using (SqlDataAdapter adaptador = new SqlDataAdapter(consulta, conexion))
+                {
+                    adaptador.Fill(tabla); // Se llena desconectado, ideal para reportes
+                }
+            }
+            return tabla;
         }
     }
 }

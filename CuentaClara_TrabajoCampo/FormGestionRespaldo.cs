@@ -18,7 +18,31 @@ namespace IU
         public FormGestionRespaldo()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
+        } 
+        
+        private void FormGestionRespaldo_Load(object sender, EventArgs e)
+        {
+            ActualizarIdioma();
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipRespaldo.SetToolTip(btnAplicar, TraducirTexto("Respaldo_Tip_Restaurar"));          
+            toolTipRespaldo.SetToolTip(button1, TraducirTexto("Respaldo_Tip_Backup"));          
+            toolTipRespaldo.SetToolTip(btnSeleccionar, TraducirTexto("Respaldo_Tip_Seleccionar"));
+            toolTipRespaldo.SetToolTip(btn_RecalcularDv, TraducirTexto("Respaldo_Tip_RecalcularDV"));
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = fbd.SelectedPath;
+            }
+
         }
 
         private void btnAplicar_Click(object sender, EventArgs e) //boton de restaurar
@@ -54,7 +78,6 @@ namespace IU
         {
             if (string.IsNullOrEmpty(textBox1.Text)) return;
 
-            // Mostramos progreso
             progresoBackup.Style = ProgressBarStyle.Marquee;
 
             try
@@ -71,24 +94,6 @@ namespace IU
             {
                 progresoBackup.Style = ProgressBarStyle.Blocks;
             }
-        }
-
-
-
-        private void FormGestionRespaldo_Load(object sender, EventArgs e)
-        {
-           
-            ActualizarIdioma();
-        }
-
-        private void btnSeleccionar_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Text = fbd.SelectedPath;
-            }
-
         }
 
         private void btn_RecalcularDv_Click(object sender, EventArgs e)
@@ -132,6 +137,8 @@ namespace IU
                 return;
 
             TraducirControles(this.Controls, idioma);
+            this.Text = TraducirTexto("titulo_FormGestionRespaldo");
+            ConfigurarToolTips();
 
         }
 

@@ -27,14 +27,14 @@ namespace BLL
             string nombreArchivo = $"Backup_CuentaClara_{DateTime.Now:yyyyMMdd_HHmmss}.bak";
             string rutaCompleta = System.IO.Path.Combine(carpetaDestino, nombreArchivo);
 
-        
             dal.EjecutarBackup(rutaCompleta);
-            _bitacora.RegistrarBitacora("Backup exitoso", "Sistema", "Administración", 2);
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().ToString();
+
+            _bitacora.RegistrarBitacora("Backup exitoso", loginActual, "Administración", 4);
         }
 
         public void HacerRestore(string rutaArchivo)
         {
-
             if (!System.IO.File.Exists(rutaArchivo))
                 throw new Exception("err_ArchivoNoExiste");
 
@@ -42,7 +42,8 @@ namespace BLL
                 throw new Exception("err_ExtensionBackupInvalida");
 
             dal.EjecutarRestore(rutaArchivo);
-            //_bitacora.RegistrarBitacora("Restauración de base de datos realizada", "Sistema", "Seguridad", 3);
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().ToString();
+            _bitacora.RegistrarBitacora("Restauración de base de datos", loginActual, "Administración", 1);
         }
 
         public void RecalcularDigitos()

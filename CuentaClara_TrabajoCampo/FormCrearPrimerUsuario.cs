@@ -17,8 +17,8 @@ namespace IU
     {
         public FormCrearPrimerUsuario()
         {
-
-            InitializeComponent();
+           
+            InitializeComponent(); ConfigurarToolTips();
 
         }
 
@@ -26,7 +26,11 @@ namespace IU
         {
             txt_Login.Text = txtNombre.Text + txtDNI.Text;
         }
-
+        private void ConfigurarToolTips()
+        {
+            toolTipCrearUsuario.SetToolTip(btnGuardar, TraducirTexto("CrearUsuario_Tip_Guardar"));
+            toolTipCrearUsuario.SetToolTip(btnCancelar, TraducirTexto("CrearUsuario_Tip_Cancelar"));
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try

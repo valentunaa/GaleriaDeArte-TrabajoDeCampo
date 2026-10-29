@@ -4,6 +4,7 @@ using DAL;
 using Servicio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -129,7 +130,7 @@ namespace BLL_Negocio
             // Registrar en Bitácora
             string loginUsuario_VM516 = SessionManager.GetInstancia().GetUsuarioActual().Login;
             string detalleEvento_VM516 = $"Alta Pedido: {pedido_VM516.NumeroPedido_VM516} - Estado: {pedido_VM516.EstadoPedido_VM516}";
-            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginUsuario_VM516, "Negocio - Cafetería", 4);
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginUsuario_VM516, "Negocio - Cafetería", 3);
 
             return pedido_VM516;
         }
@@ -209,7 +210,7 @@ namespace BLL_Negocio
             }
 
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora_VM516.RegistrarBitacora($"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado", loginActual_VM516, "Negocio - Cafetería", 4);
+            bllBitacora_VM516.RegistrarBitacora($"Entrega Pedido: {pedidoBD_VM516.NumeroPedido_VM516} - Estado: Entregado", loginActual_VM516, "Negocio - Cafetería", 3);
         }
         public List<BE_Pedido_VM516> ListarPedidosEntregados_VM516(string filtro_VM516 = "")
         {
@@ -231,16 +232,15 @@ namespace BLL_Negocio
 
         public void CancelarPedido_VM516(int numeroPedido_VM516)
         {
-            // Reutilizamos tu método existente para cambiarle el estado y recalcular dígitos
             ActualizarEstadoPagoPedido_VM516(numeroPedido_VM516, "Cancelado");
-
-            // Registro de auditoría
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora_VM516.RegistrarBitacora(
-                $"Pedido Abortado/Cancelado en Caja: {numeroPedido_VM516}",
-                loginActual_VM516,
-                "Negocio - Cafetería",
-                4);
+            bllBitacora_VM516.RegistrarBitacora($"Pedido Cancelado en Caja: {numeroPedido_VM516}",loginActual_VM516, "Negocio - Cafetería",3);  
+        }
+
+        public DataTable ObtenerReporteCafeteria_VM516()
+        {
+            // La BLL delega el acceso a datos a su DAL correspondiente
+            return dalPedido_VM516.ObtenerReporteCafeteria_VM516();
         }
     }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelPrincipal = new Panel();
             picLogo = new PictureBox();
             lblTitulo = new Label();
@@ -44,6 +45,7 @@
             chkActivo = new CheckBox();
             btnCancelar = new Button();
             btnGuardar = new Button();
+            toolTipCrearUsuarioAdmin = new ToolTip(components);
             panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
@@ -68,11 +70,10 @@
             panelPrincipal.Controls.Add(chkActivo);
             panelPrincipal.Controls.Add(btnCancelar);
             panelPrincipal.Controls.Add(btnGuardar);
-            panelPrincipal.Location = new Point(26, 25);
+            panelPrincipal.Location = new Point(21, 17);
             panelPrincipal.Name = "panelPrincipal";
             panelPrincipal.Size = new Size(651, 499);
             panelPrincipal.TabIndex = 0;
-            panelPrincipal.Paint += panelPrincipal_Paint;
             // 
             // picLogo
             // 
@@ -201,7 +202,6 @@
             chkActivo.TabIndex = 15;
             chkActivo.Tag = "chk_Activo";
             chkActivo.Text = "Habilitar Acceso (Activo)";
-            chkActivo.CheckedChanged += chkActivo_CheckedChanged;
             // 
             // btnCancelar
             // 
@@ -240,11 +240,11 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(856, 669);
+            ClientSize = new Size(695, 528);
             Controls.Add(panelPrincipal);
             Font = new Font("Segoe UI", 10F);
             MaximizeBox = false;
-            MinimumSize = new Size(872, 708);
+            MinimumSize = new Size(400, 508);
             Name = "FormCrearUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_FormCrearUsuario";
@@ -284,5 +284,6 @@
         private Button btnGuardar;
         private Button btnCancelar;
         private PictureBox picLogo;
+        private ToolTip toolTipCrearUsuarioAdmin;
     }
 }

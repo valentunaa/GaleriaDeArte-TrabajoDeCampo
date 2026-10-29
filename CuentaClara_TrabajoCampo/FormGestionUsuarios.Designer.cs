@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
@@ -61,6 +62,7 @@
             panelInferior = new Panel();
             label1 = new Label();
             lblUsuarioActivo = new Label();
+            toolTipGestionUsuarios = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             panelInferior.SuspendLayout();
@@ -302,13 +304,13 @@
             dgvUsuarios.RowHeadersWidth = 102;
             dgvUsuarios.RowTemplate.Height = 32;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(974, 320);
+            dgvUsuarios.Size = new Size(976, 320);
             dgvUsuarios.TabIndex = 1;
             dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
             // 
             // btnCrear
             // 
-            btnCrear.BackColor = Color.FromArgb(18, 87, 150);
+            btnCrear.BackColor = Color.FromArgb(46, 17, 39);
             btnCrear.FlatAppearance.BorderSize = 0;
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -327,7 +329,7 @@
             btnDesbloquear.BackColor = Color.White;
             btnDesbloquear.FlatStyle = FlatStyle.Flat;
             btnDesbloquear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnDesbloquear.ForeColor = Color.FromArgb(18, 87, 150);
+            btnDesbloquear.ForeColor = Color.FromArgb(46, 17, 39);
             btnDesbloquear.Location = new Point(1068, 204);
             btnDesbloquear.Name = "btnDesbloquear";
             btnDesbloquear.Size = new Size(140, 42);
@@ -342,7 +344,7 @@
             btnModificar.BackColor = Color.White;
             btnModificar.FlatStyle = FlatStyle.Flat;
             btnModificar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnModificar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnModificar.ForeColor = Color.FromArgb(46, 17, 39);
             btnModificar.Location = new Point(1068, 274);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(140, 42);
@@ -357,7 +359,7 @@
             btnActivarDesactivar.BackColor = Color.White;
             btnActivarDesactivar.FlatStyle = FlatStyle.Flat;
             btnActivarDesactivar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnActivarDesactivar.ForeColor = Color.FromArgb(18, 87, 150);
+            btnActivarDesactivar.ForeColor = Color.FromArgb(46, 17, 39);
             btnActivarDesactivar.Location = new Point(1068, 338);
             btnActivarDesactivar.Name = "btnActivarDesactivar";
             btnActivarDesactivar.Size = new Size(140, 51);
@@ -482,6 +484,12 @@
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo:";
             // 
+            // toolTipGestionUsuarios
+            // 
+            toolTipGestionUsuarios.AutoPopDelay = 5000;
+            toolTipGestionUsuarios.InitialDelay = 100;
+            toolTipGestionUsuarios.ReshowDelay = 100;
+            // 
             // FormGestionUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -542,5 +550,6 @@
         private RadioButton radioBtnTodosUser;
         private ComboBox cmbRol;
         private Label label1;
+        private ToolTip toolTipGestionUsuarios;
     }
 }

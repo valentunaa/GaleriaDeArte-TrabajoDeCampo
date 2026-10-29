@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnAplicar = new Button();
             button1 = new Button();
             folderBrowserDialog1 = new FolderBrowserDialog();
@@ -37,6 +38,7 @@
             btn_RecalcularDv = new Button();
             picLogo = new PictureBox();
             lblTitulo = new Label();
+            toolTipRespaldo = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
@@ -158,8 +160,7 @@
             MaximizeBox = false;
             Name = "FormGestionRespaldo";
             StartPosition = FormStartPosition.CenterScreen;
-            Tag = "lbl_FormRespaldo";
-            Text = "Form Gestion Respaldo";
+            Tag = "titulo_FormGestionRespaldo";
             FormClosed += FormGestionRespaldo_FormClosed;
             Load += FormGestionRespaldo_Load;
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
@@ -178,5 +179,6 @@
         private Button btn_RecalcularDv;
         private PictureBox picLogo;
         private Label lblTitulo;
+        private ToolTip toolTipRespaldo;
     }
 }

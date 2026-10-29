@@ -132,6 +132,12 @@ namespace IU
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
+            // toolTipMenuBitacoras
+            // 
+            toolTipMenuBitacoras.AutoPopDelay = 5000;
+            toolTipMenuBitacoras.InitialDelay = 100;
+            toolTipMenuBitacoras.ReshowDelay = 100;
+            // 
             // Form_Bitacoras_Cambios_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

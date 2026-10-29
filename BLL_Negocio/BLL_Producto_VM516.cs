@@ -161,11 +161,11 @@ namespace BLL_Negocio
 
             // Registrar en Bitácora
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora_VM516.RegistrarBitacora(
-                $"Baja Producto Cafetería: {codigoLimpio_VM516}",
-                loginActual_VM516,
-                "Negocio - Cafetería",
-                4);
+            bllBitacora_VM516.RegistrarBitacora($"Baja Producto Cafetería: {codigoLimpio_VM516}",loginActual_VM516,"Negocio - Cafetería",3);
+                
+                
+                
+                
         }
         public List<BE_Producto_VM516> ListarProductos_VM516()
         {

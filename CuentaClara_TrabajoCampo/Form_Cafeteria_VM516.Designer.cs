@@ -476,6 +476,12 @@
             lblUsuarioActivo_VM516.Tag = "lbl_Usuario";
             lblUsuarioActivo_VM516.Text = "Usuario activo: ";
             // 
+            // toolTipPedido
+            // 
+            toolTipPedido.AutoPopDelay = 5000;
+            toolTipPedido.InitialDelay = 100;
+            toolTipPedido.ReshowDelay = 100;
+            // 
             // Form_Cafeteria_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

@@ -263,6 +263,12 @@
             lblUsuarioActivo.Tag = "lbl_Usuario";
             lblUsuarioActivo.Text = "Usuario activo: ";
             // 
+            // toolTipRetiroObra
+            // 
+            toolTipRetiroObra.AutoPopDelay = 5000;
+            toolTipRetiroObra.InitialDelay = 100;
+            toolTipRetiroObra.ReshowDelay = 100;
+            // 
             // Form_Retiro_Obra_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

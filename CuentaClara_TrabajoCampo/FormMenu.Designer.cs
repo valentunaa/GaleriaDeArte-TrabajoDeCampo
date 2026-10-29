@@ -59,6 +59,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             toolTipMenu = new ToolTip(components);
+            button15 = new Button();
             panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelUsuario.SuspendLayout();
@@ -67,6 +68,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(46, 17, 39);
+            panelMenu.Controls.Add(button15);
             panelMenu.Controls.Add(button14);
             panelMenu.Controls.Add(lineaOperacion);
             panelMenu.Controls.Add(lineaCafeteria);
@@ -280,10 +282,10 @@
             lblSeccionOperacion.ForeColor = Color.FromArgb(210, 150, 180);
             lblSeccionOperacion.Location = new Point(18, 139);
             lblSeccionOperacion.Name = "lblSeccionOperacion";
-            lblSeccionOperacion.Size = new Size(74, 15);
+            lblSeccionOperacion.Size = new Size(131, 15);
             lblSeccionOperacion.TabIndex = 21;
             lblSeccionOperacion.Tag = "lbl_SeccionOperacion";
-            lblSeccionOperacion.Text = "OPERACIÓN";
+            lblSeccionOperacion.Text = "ALQUILER DE ESPACIO";
             // 
             // button9
             // 
@@ -703,6 +705,13 @@
             dataGridViewTextBoxColumn3.ReadOnly = true;
             dataGridViewTextBoxColumn3.Width = 250;
             // 
+            // toolTipMenu
+            // 
+            toolTipMenu.AutoPopDelay = 5000;
+            toolTipMenu.InitialDelay = 100;
+            toolTipMenu.ReshowDelay = 100;
+
+            // 
             // FormMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -773,5 +782,6 @@
         private Button button13;
         private Button button14;
         private ToolTip toolTipMenu;
+        private Button button15;
     }
 }

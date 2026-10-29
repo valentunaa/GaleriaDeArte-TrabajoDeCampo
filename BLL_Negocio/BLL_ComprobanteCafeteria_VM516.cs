@@ -97,7 +97,7 @@ namespace BLL_Negocio
 
             string loginActual_VM516 = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
             string detalleEvento_VM516 = $"Cobro Ticket: {comprobante_VM516.NumeroTicket_VM516} - Pedido: {comprobante_VM516.NumeroPedido_VM516}";
-            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginActual_VM516, "Negocio - Tesorería", 4);
+            bllBitacora_VM516.RegistrarBitacora(detalleEvento_VM516, loginActual_VM516, "Negocio - Tesorería", 3);
 
             return comprobante_VM516;
         }

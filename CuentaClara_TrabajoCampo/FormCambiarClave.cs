@@ -17,6 +17,7 @@ namespace CuentaClara_TrabajoCampo
         public FormCambiarClave()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
         }
 
@@ -33,6 +34,11 @@ namespace CuentaClara_TrabajoCampo
             _bllUsuario = new BLL_Usuario();
             _bllBitacoraEvento = new BLL_BitacoraEvento();
             ActualizarIdioma();
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipCambiarClave.SetToolTip(btnGuardar, TraducirTexto("CambiarClave_Tip_Guardar"));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -119,6 +125,7 @@ namespace CuentaClara_TrabajoCampo
                 return;
 
             TraducirControles(this.Controls, idioma);
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

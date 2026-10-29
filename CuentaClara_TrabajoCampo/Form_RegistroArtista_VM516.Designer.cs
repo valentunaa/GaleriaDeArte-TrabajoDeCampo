@@ -239,6 +239,12 @@
             lblNombreArtista.TabIndex = 17;
             lblNombreArtista.Text = "Artista ...";
             // 
+            // toolTipArtista
+            // 
+            toolTipArtista.AutoPopDelay = 5000;
+            toolTipArtista.InitialDelay = 100;
+            toolTipArtista.ReshowDelay = 100;
+            // 
             // Form_RegistroArtista_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

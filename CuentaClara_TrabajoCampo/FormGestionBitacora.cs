@@ -22,8 +22,51 @@ namespace CuentaClara_TrabajoCampo
         public FormGestionBitacora()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
+        }        
+        
+        private void FormGestionBitacora_Load_1(object sender, EventArgs e)
+        {
+            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
+            this.WindowState = FormWindowState.Normal;
+            this.Width = Screen.FromControl(this).WorkingArea.Width;
+            this.Height = Screen.FromControl(this).WorkingArea.Height;
+            this.Location = new Point(0, 0);
+            FormGestionBitacora_Resize(null, null);
+            RefrescarSesionUsuario();
+            List<string> listaEventos = bll.ObtenerEventosBase();
+            listaEventos.Insert(0, "Todos");
+            cboEvento.DataSource = listaEventos;
+            cboEvento.SelectedIndex = 0;
+            var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
+            BLL_Rol bllRol = new BLL_Rol(); BloquearBotonesSegunPermisos(usuarioActual);
+            string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
+            lblUsuarioActivo.Text = $"Usuario:";
+            lblUsuarioValor.Text = $"{usuarioActual.Login}-{nombreLegibleDelRol}";
+
+            CargarUltimos3Dias();
+            ActualizarContador();
+            CargarLogins();
+            CargarModulos();
+            ActualizarIdioma();
+
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipBitacora.SetToolTip(btnLimpiar, TraducirTexto("Bitacora_Tip_Limpiar"));
+            toolTipBitacora.SetToolTip(btnAplicar, TraducirTexto("Bitacora_Tip_Aplicar"));
+            toolTipBitacora.SetToolTip(btnImprimir, TraducirTexto("Bitacora_Tip_Imprimir"));
+            toolTipBitacora.SetToolTip(btnSalir, TraducirTexto("Bitacora_Tip_Salir"));
+            toolTipBitacora.SetToolTip(cboLogin, TraducirTexto("Bitacora_Tip_FiltroLogin"));
+            toolTipBitacora.SetToolTip(dtpFechaInicio, TraducirTexto("Bitacora_Tip_FiltroFechaInicio"));
+            toolTipBitacora.SetToolTip(dtpFechaFin, TraducirTexto("Bitacora_Tip_FiltroFechaFin"));
+            toolTipBitacora.SetToolTip(cboModulo, TraducirTexto("Bitacora_Tip_FiltroModulo"));
+            toolTipBitacora.SetToolTip(cboEvento, TraducirTexto("Bitacora_Tip_FiltroEvento"));
+            toolTipBitacora.SetToolTip(cboCriticidad, TraducirTexto("Bitacora_Tip_FiltroCriticidad"));
+        }
+
         private void DeshabilitarBotones()
         {
             btnAplicar.Enabled = false;
@@ -129,59 +172,26 @@ namespace CuentaClara_TrabajoCampo
         
             cboModulo.Items.Add("Todos");
 
-            if (esAdmin)
-            {
-                cboModulo.Items.Add("Administración");
-                cboModulo.Items.Add("Seguridad");
-                cboModulo.Items.Add("Gestión de Perfiles y Autorización");
-                cboModulo.Items.Add("Negocio - Artísta");
-                cboModulo.Items.Add("Negocio - Obra");
-                cboModulo.Items.Add("Negocio - Reserva");
-                cboModulo.Items.Add("Negocio - Retiro");
-                cboModulo.Items.Add("Negocio - Tesorería");
-                cboModulo.Items.Add("Operación");
-            }
-            else
-            {
-                cboModulo.Items.Add("Negocio - Artísta");
-                cboModulo.Items.Add("Negocio - Obra");
-                cboModulo.Items.Add("Negocio - Reserva");
-                cboModulo.Items.Add("Negocio - Retiro");
-                cboModulo.Items.Add("Negocio - Tesorería");
-                cboModulo.Items.Add("Administración");
-            }
+            cboModulo.Items.Add("Administración");
+            cboModulo.Items.Add("Seguridad");
+            cboModulo.Items.Add("Gestión de Perfiles y Autorización");
+            cboModulo.Items.Add("Operación");
+            // Negocio Arte
+            cboModulo.Items.Add("Negocio - Artísta");
+            cboModulo.Items.Add("Negocio - Obra");
+            cboModulo.Items.Add("Negocio - Sala");
+            cboModulo.Items.Add("Negocio - Reserva");
+            cboModulo.Items.Add("Negocio - Retiro de Obra");
+            // Negocio Cafetería y Cobros
+            cboModulo.Items.Add("Negocio - Cafetería");
+            cboModulo.Items.Add("Negocio - Tesorería");
 
             if (cboModulo.Items.Count > 0)
             {
                 cboModulo.SelectedIndex = 0;
             }
         }
-        private void FormGestionBitacora_Load_1(object sender, EventArgs e)
-        {
-            this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
-            this.WindowState = FormWindowState.Normal;
-            this.Width = Screen.FromControl(this).WorkingArea.Width;
-            this.Height = Screen.FromControl(this).WorkingArea.Height;
-            this.Location = new Point(0, 0);
-            FormGestionBitacora_Resize(null, null);
-            RefrescarSesionUsuario();
-            List<string> listaEventos = bll.ObtenerEventosBase();
-            listaEventos.Insert(0, "Todos");
-            cboEvento.DataSource = listaEventos;
-            cboEvento.SelectedIndex = 0;
-            var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
-            BLL_Rol bllRol = new BLL_Rol(); BloquearBotonesSegunPermisos(usuarioActual);
-            string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
-            lblUsuarioActivo.Text = $"Usuario:";
-            lblUsuarioValor.Text = $"{usuarioActual.Login}-{nombreLegibleDelRol}";
 
-            CargarUltimos3Dias();
-            ActualizarContador();
-            CargarLogins();
-            CargarModulos();
-            ActualizarIdioma();
-
-        }
 
         private void dgvBitacora_SelectionChanged(object sender, EventArgs e)
         {
@@ -297,8 +307,9 @@ namespace CuentaClara_TrabajoCampo
 
             if (idioma == null) return;
 
-
             TraducirControles(this.Controls, idioma);
+            this.Text = TraducirTexto("lbl_FormBitacora");
+            ConfigurarToolTips();
         }
 
 

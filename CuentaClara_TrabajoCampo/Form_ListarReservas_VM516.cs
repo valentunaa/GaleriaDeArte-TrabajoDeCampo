@@ -19,6 +19,7 @@ namespace IU
         public Form_ListarReservas_VM516()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             bllReserva_VM516 = new BLL_Reserva_Sala_VM516();
         }
 
@@ -26,11 +27,18 @@ namespace IU
         {
             GestorIdioma.GetInstancia().Suscribir(this);
             ActualizarIdioma();
+            ConfigurarToolTips();
             Servicio_Usuario usuario = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuario.IdRol);
             lblUsuarioValor.Text = $"Usuario activo: {usuario.Login} - {nombreLegibleDelRol}";
             CargarGrillaReservas();
+        }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipListarReservas.SetToolTip(btnActualizar, TraducirTexto("ListarReservas_Tip_Actualizar"));
+            toolTipListarReservas.SetToolTip(btnSalir, TraducirTexto("ListarReservas_Tip_Salir"));
         }
         public void ActualizarIdioma()
         {

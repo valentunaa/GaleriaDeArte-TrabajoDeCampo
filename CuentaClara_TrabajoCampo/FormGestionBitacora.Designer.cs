@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             label2 = new Label();
@@ -58,6 +59,7 @@
             panelInferior = new Panel();
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
+            toolTipBitacora = new ToolTip(components);
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBitacora).BeginInit();
             panelInferior.SuspendLayout();
@@ -456,7 +458,7 @@
             Name = "FormGestionBitacora";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_FormBitacora";
-            Text = "CuentaClara - Gestión de Bitácora";
+            Text = "Vanguardia Arte - Gestión de Bitácora de Eventos";
             FormClosed += FormGestionBitacora_FormClosed;
             Load += FormGestionBitacora_Load_1;
             Resize += FormGestionBitacora_Resize;
@@ -512,5 +514,6 @@
         private Label lblUsuarioValor;
         private Label label2;
         private Label label1;
+        private ToolTip toolTipBitacora;
     }
 }

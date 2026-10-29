@@ -142,7 +142,7 @@ namespace BLL_Negocio
             }
 
             string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora_VM516.RegistrarBitacora($"Modificación Obra ID: {idObra}", loginActual, "Negocio - Obra", 2);
+            bllBitacora_VM516.RegistrarBitacora($"Modificación Obra ID: {idObra}", loginActual, "Negocio - Obra", 3);
         }
 
         public void EliminarEspecificacion_VM516(int idObra_VM516)
@@ -165,7 +165,7 @@ namespace BLL_Negocio
             }
 
             string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora_VM516.RegistrarBitacora($"Baja Lógica Obra ID: {idObra_VM516}", loginActual, "Negocio - Obra", 2);
+            bllBitacora_VM516.RegistrarBitacora($"Baja Lógica Obra ID: {idObra_VM516}", loginActual, "Negocio - Obra", 3);
         }
 
         public void RecalcularDigitosPostRestauracion_VM516(int idObra_VM516)
@@ -197,7 +197,7 @@ namespace BLL_Negocio
                 }
 
                 string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-                bllBitacora_VM516.RegistrarBitacora("Exportación XML de Obras", loginActual, "Negocio - Obra", 5);
+                bllBitacora_VM516.RegistrarBitacora("Exportación XML de Obras", loginActual, "Administración", 4);
             }
             catch (Exception ex)
             {
@@ -218,7 +218,7 @@ namespace BLL_Negocio
                 }
 
                 string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-                bllBitacora_VM516.RegistrarBitacora("Importación XML de Obras", loginActual, "Negocio - Obra", 5);
+                bllBitacora_VM516.RegistrarBitacora("Importación XML de Obras", loginActual, "Administración", 4);
 
                 return listaDeserializada;
             }

@@ -155,9 +155,17 @@ namespace IU
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
                     BLL_PDF bllPdf = new BLL_PDF();
+                    BLL_Especificacion_Obra_VM516 bllObra = new BLL_Especificacion_Obra_VM516();
+                    var obra = bllObra.ObtenerPorId_VM516(reservaVerificada.Id_Obra_VM516);
+
+                    string tituloObra = obra != null ? obra.Titulo_Obra_VM516 : "Desconocida";
+                    string dniArtista = obra != null ? obra.DNI_Artista_VM516 : "S/D";
 
                     bllPdf.GenerarConstanciaLibreDeuda_VM516(
                         reservaVerificada.Codigo_Reserva_VM516,
+                        reservaVerificada.Id_Obra_VM516,
+                        tituloObra,
+                        dniArtista,
                         dniResponsable,
                         DateTime.Now,
                         saveDialog.FileName

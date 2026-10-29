@@ -27,10 +27,8 @@ namespace CuentaClara_TrabajoCampo
             toolTipMenu.SetToolTip(btnReserva, TraducirTexto("Menu_Tip_Reservas"));
             toolTipMenu.SetToolTip(btnTesoreria_Cobros, TraducirTexto("Menu_Tip_Tesoreria"));
             toolTipMenu.SetToolTip(btn_Estado_PostExhibicion, TraducirTexto("Menu_Tip_EstadoPostExhibicion"));
-            toolTipMenu.SetToolTip(btn_Salas_Calendario, TraducirTexto("Menu_Tip_RetiroObra")); // Nota: ajustalo si el botón es otro
-            // toolTipMenu.SetToolTip(btnSalas, TraducirTexto("Menu_Tip_Salas")); // Descomentar si tenés el botón mapeado
+            toolTipMenu.SetToolTip(btn_Salas_Calendario, TraducirTexto("Menu_Tip_RetiroObra")); 
 
-            // Módulo Cafetería (Asumiendo nombres de botones según tu código)
             toolTipMenu.SetToolTip(button11, TraducirTexto("Menu_Tip_RegistrarPedido"));
             toolTipMenu.SetToolTip(button12, TraducirTexto("Menu_Tip_RetiroPedido"));
             toolTipMenu.SetToolTip(button10, TraducirTexto("Menu_Tip_ProductosCafeteria"));
@@ -227,7 +225,7 @@ namespace CuentaClara_TrabajoCampo
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-          
+
             var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
             BLL_Rol bllRol = new BLL_Rol();
             string nombreLegibleDelRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
@@ -369,6 +367,8 @@ namespace CuentaClara_TrabajoCampo
             Form_Bitacoras_Cambios_VM516 frm = new Form_Bitacoras_Cambios_VM516();
             frm.ShowDialog();
         }
+
+        
     }
 }
 

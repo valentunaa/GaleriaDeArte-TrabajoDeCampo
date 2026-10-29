@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelPrincipal = new Panel();
             label1 = new Label();
             txt_Login = new TextBox();
@@ -43,6 +44,7 @@
             txtCorreo = new TextBox();
             btnCancelar = new Button();
             btnGuardar = new Button();
+            toolTipCrearUsuario = new ToolTip(components);
             panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
@@ -255,5 +257,6 @@
         private PictureBox picLogo;
         private Label label1;
         private TextBox txt_Login;
+        private ToolTip toolTipCrearUsuario;
     }
 }

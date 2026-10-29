@@ -229,7 +229,20 @@ namespace BLL_Negocio
 
             return reserva;
         }
-       
+
+        public void ActualizarEstadoEspacioReserva_VM516(string codigoReserva, string nuevoEstadoEspacio)
+        {
+            dalReserva_VM516.ActualizarEstadoEspacio_VM516(codigoReserva, nuevoEstadoEspacio);
+
+            List<BE_Reserva_Sala_VM516> listaReservas = dalReserva_VM516.ListarReservas_VM516();
+            BE_Reserva_Sala_VM516 reservaModificada = listaReservas.FirstOrDefault(r => r.Codigo_Reserva_VM516 == codigoReserva);
+
+            if (reservaModificada != null)
+            {
+                bllDigito_VM516.ActualizarDigitos<BE_Reserva_Sala_VM516>(reservaModificada, listaReservas, "Reserva_Sala_VM516");
+            }
+        }
+
         public void ActualizarEstadoPagoReserva_VM516(string codigoReserva, string nuevoEstadoPago)
         {
             
@@ -250,6 +263,11 @@ namespace BLL_Negocio
         public List<BE_Reserva_Sala_VM516> ListarReservas_VM516()
         {
             return dalReserva_VM516.ListarReservas_VM516();
+        }
+        public DataTable ObtenerReporteOcupacionSalas_VM516()
+        {
+            // La BLL delega el acceso a datos a su DAL correspondiente
+            return dalReserva_VM516.ObtenerReporteOcupacionSalas_VM516();
         }
     }
 }

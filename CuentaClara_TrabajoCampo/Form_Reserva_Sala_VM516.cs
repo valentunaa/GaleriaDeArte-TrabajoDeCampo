@@ -22,6 +22,7 @@ namespace IU
         public Form_Reserva_Sala_VM516()
         {
             InitializeComponent(); bllReserva = new BLL_Reserva_Sala_VM516();
+            ConfigurarToolTips();
             bllObra = new BLL_Especificacion_Obra_VM516();
         }
         private void Form_Reserva_Sala_VM516_Load(object sender, EventArgs e)
@@ -35,7 +36,20 @@ namespace IU
 
             lblUsuarioValor.Text = $"{usuario.Login} -  {nombreLegibleDelRol}";
         }
+        private void ConfigurarToolTips()
+        {
 
+            toolTipReserva.SetToolTip(txtIdObra, TraducirTexto("Reserva_Tip_IdObra"));
+            toolTipReserva.SetToolTip(dtpFechaInicio, TraducirTexto("Reserva_Tip_FechaInicio"));
+            toolTipReserva.SetToolTip(dtpFechaFin, TraducirTexto("Reserva_Tip_FechaFin"));
+            toolTipReserva.SetToolTip(btnConsultarDisponibilidad, TraducirTexto("Reserva_Tip_ConsultarDisponibilidad"));
+            toolTipReserva.SetToolTip(txtMontoTotal, TraducirTexto("Reserva_Tip_MontoTotal"));
+            toolTipReserva.SetToolTip(txtPorcentajeSena, TraducirTexto("Reserva_Tip_PorcentajeSena"));
+            toolTipReserva.SetToolTip(btnConfirmarReserva, TraducirTexto("Reserva_Tip_ConfirmarReserva"));
+            toolTipReserva.SetToolTip(button1, TraducirTexto("Reserva_Tip_HistorialReservas")); // Botón Ver Historial de Reservas
+            toolTipReserva.SetToolTip(dgvSalas, TraducirTexto("Reserva_Tip_GrillaSalas"));
+            toolTipReserva.SetToolTip(btnSalir, TraducirTexto("Reserva_Tip_Salir")); // Asumiendo que se llama btnSalir_1 o btnSalir según tu diseñador
+        }
         public void ActualizarIdioma()
         {
             string idIdioma = SessionManager.GetInstancia().GetUsuarioActual().Id_Idioma;
@@ -49,6 +63,7 @@ namespace IU
 
             this.Text = TraducirTexto("titulo_FormReservaSala");
             FormatearGrillaSalas();
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

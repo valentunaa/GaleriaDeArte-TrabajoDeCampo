@@ -89,7 +89,7 @@ namespace BLL_Negocio
             try
             {
                 dalRetiro_VM516.GuardarRetiro_VM516(retiro);
-
+                bllReserva_VM516.ActualizarEstadoEspacioReserva_VM516(reserva.Codigo_Reserva_VM516, "Retirado");
                 var salas = bllSala_VM516.ListarSalas();
                 var salaAsignada = salas.FirstOrDefault(s => s.Codigo_Sala_VM516.Trim().Equals(reserva.Codigo_Sala_VM516.Trim(), StringComparison.OrdinalIgnoreCase));
 
@@ -108,7 +108,7 @@ namespace BLL_Negocio
 
                 string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
                 string detalleEvento = $"Retiro Obra: {codigoReserva}";
-                bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Retiro", 3);
+                bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Retiro de Obra", 3);
             }
             catch (Exception ex)
             {

@@ -15,10 +15,35 @@ namespace CuentaClara_TrabajoCampo
         public FormCrearUsuario()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
         }
 
         private BLL_Rol bllRol = new BLL_Rol();
+        
+        private void FormCrearUsuario_Load_1(object sender, EventArgs e)
+        {
+            cmbRol.DataSource = null;
+            cmbRol.DataSource = bllRol.ObtenerRoles();
+            cmbRol.DisplayMember = "Nombre";
+            cmbRol.ValueMember = "IdRol";
+            ActualizarIdioma();
+            if (!posicionInicializada)
+            {
+                posicionOriginalPanel = panelPrincipal.Location;
+                posicionInicializada = true;
+            }
+
+            ReacomodarPanel();
+        }
+        
+        private void ConfigurarToolTips()
+        {
+            toolTipCrearUsuarioAdmin.SetToolTip(cmbRol, TraducirTexto("CrearUsuarioAdmin_Tip_Rol"));
+            toolTipCrearUsuarioAdmin.SetToolTip(chkActivo, TraducirTexto("CrearUsuarioAdmin_Tip_Activo"));
+            toolTipCrearUsuarioAdmin.SetToolTip(btnGuardar, TraducirTexto("CrearUsuarioAdmin_Tip_Guardar"));
+            toolTipCrearUsuarioAdmin.SetToolTip(btnCancelar, TraducirTexto("CrearUsuarioAdmin_Tip_Cancelar"));
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -87,32 +112,10 @@ namespace CuentaClara_TrabajoCampo
 
             return etiqueta != null ? etiqueta.Texto : clave;
         }
-        private void FormCrearUsuario_Load_1(object sender, EventArgs e)
-        {
-            cmbRol.DataSource = null;
-            cmbRol.DataSource = bllRol.ObtenerRoles();
-            cmbRol.DisplayMember = "Nombre";
-            cmbRol.ValueMember = "IdRol";
-            ActualizarIdioma();
-            if (!posicionInicializada)
-            {
-                posicionOriginalPanel = panelPrincipal.Location;
-                posicionInicializada = true;
-            }
+        
 
-            ReacomodarPanel();
-        }
-
-        private void chkActivo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
+        
         private void FormCrearUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
@@ -135,6 +138,7 @@ namespace CuentaClara_TrabajoCampo
                 return;
 
             TraducirControles(this.Controls, idioma);
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)

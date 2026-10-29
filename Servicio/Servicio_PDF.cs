@@ -361,7 +361,7 @@ namespace Servicio
                 });
             }).GeneratePdf(ruta_VM516);
         }
-        public void GenerarConstanciaLibreDeudaPDF(string codigoReserva, string dniResponsable, DateTime fechaRetiro, string ruta)
+        public void GenerarConstanciaLibreDeudaPDF(string codigoReserva, int idObra, string tituloObra, string dniArtista, string dniResponsable, DateTime fechaRetiro, string ruta)
         {
             QuestPDF.Settings.License = LicenseType.Community;
 
@@ -373,7 +373,7 @@ namespace Servicio
                     page.Margin(40);
                     page.PageColor(Colors.White);
 
-                    // Encabezado con estilo corporativo y color institucional (Gótico / Elegante)
+                    // Encabezado
                     page.Header().Row(row =>
                     {
                         row.RelativeItem().Column(col =>
@@ -406,7 +406,6 @@ namespace Servicio
                     {
                         col.Spacing(15);
 
-                        // Línea divisoria elegante
                         col.Item().LineHorizontal(1.5f).LineColor(Colors.Purple.Darken3);
 
                         col.Item().PaddingTop(10).Text("CERTIFICADO DE LIBRE DEUDA Y DESMONTAJE")
@@ -418,16 +417,17 @@ namespace Servicio
                             .FontSize(10)
                             .FontColor(Colors.Grey.Darken3);
 
-                        // Tarjeta de Detalles de la Operación
+                        // Tarjeta de Detalles (Solo DNI del artista)
                         col.Item().Background(Colors.Grey.Lighten4).Padding(15).Column(card =>
                         {
                             card.Spacing(8);
-                            card.Item().Text("DETALLES DE LA OPERACIÓN").Bold().FontSize(12).FontColor(Colors.Purple.Darken3);
+                            card.Item().Text("DETALLES DE LA OPERACIÓN Y PATRIMONIO").Bold().FontSize(12).FontColor(Colors.Purple.Darken3);
                             card.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
                             card.Item().Text($"• Código de Reserva: {codigoReserva}").FontSize(10).Bold();
-                            card.Item().Text($"• DNI del Responsable Autorizado: {dniResponsable}").FontSize(10);
+                            card.Item().Text($"• Obra Retirada: ID {idObra} - {tituloObra}").FontSize(10).Bold();
+                            card.Item().Text($"• DNI del Artista Creador: {dniArtista}").FontSize(10);
+                            card.Item().Text($"• DNI del Responsable del Retiro: {dniResponsable}").FontSize(10);
                             card.Item().Text($"• Estado Financiero: SALDADO [Libre Deuda Emitido]").FontSize(10).FontColor(Colors.Green.Darken2);
-                            card.Item().Text($"• Estado Físico de la Sala: LIBERADA / DISPONIBLE").FontSize(10).FontColor(Colors.Blue.Darken2);
                         });
 
                         col.Item().PaddingTop(15).Text("Condiciones de Retiro:")
@@ -439,7 +439,7 @@ namespace Servicio
                             .FontSize(9)
                             .FontColor(Colors.Grey.Darken2);
 
-                        // Bloque de Firmas
+                        // Firmas
                         col.Item().PaddingTop(40).Row(row =>
                         {
                             row.RelativeItem().Column(firma =>
@@ -448,7 +448,7 @@ namespace Servicio
                                 firma.Item().PaddingTop(5).AlignCenter().Text("Firma Encargado de Sala").FontSize(9).Bold();
                             });
 
-                            row.ConstantItem(50); // Espacio entre firmas
+                            row.ConstantItem(50);
 
                             row.RelativeItem().Column(firma =>
                             {
@@ -471,6 +471,229 @@ namespace Servicio
                 });
             })
             .GeneratePdf(ruta);
+        }
+        public void GenerarReporteInteligenteCafeteriaPDF_VM516(DataTable dtDatos, string ruta_VM516)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(PageSizes.A4);
+                    page.Margin(40);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Segoe UI"));
+
+                    // Encabezado institucional
+                    page.Header().Column(header =>
+                    {
+                        header.Item().Row(row =>
+                        {
+                            row.RelativeItem().Column(col =>
+                            {
+                                col.Item().Text("VANGUARDIA ARTE").FontSize(20).Bold().FontColor(Colors.Purple.Darken3);
+                                col.Item().Text("Galería Internacional de Arte - Unidad Gastronómica").FontSize(9).FontColor(Colors.Grey.Medium);
+                            });
+
+                            row.ConstantItem(180).AlignRight().Column(col =>
+                            {
+                                col.Item().Text("REPORTE INTELIGENTE").FontSize(11).Bold().FontColor(Colors.Blue.Darken3);
+                                col.Item().Text($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}").FontSize(9).FontColor(Colors.Grey.Darken1);
+                            });
+                        });
+                        header.Item().PaddingTop(10).LineHorizontal(1.5f).LineColor(Colors.Purple.Darken3);
+                    });
+
+                    // Contenido Principal
+                    page.Content().PaddingVertical(15).Column(col =>
+                    {
+                        col.Spacing(12);
+
+                        col.Item().Text("Análisis de Consumos y Productos Líderes").FontSize(14).Bold().FontColor(Colors.Purple.Darken4);
+
+                        col.Item().Background(Colors.Purple.Lighten5).Padding(10).Column(c =>
+                        {
+                            c.Item().Text("PROPÓSITO DEL REPORTE:").Bold().FontSize(9.5f).FontColor(Colors.Purple.Darken3);
+                            c.Item().Text("Cruce de tablas de productos y detalle de pedidos destinado a optimizar la gestión de stock, planificar promociones y anticipar compras a proveedores basándose en la demanda comercial efectiva.").FontSize(9).FontColor(Colors.Grey.Darken3);
+                        });
+
+                        // Tabla de datos
+                        col.Item().PaddingTop(5).Text("Ranking de Productos Más Vendidos").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
+
+                        col.Item().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.RelativeColumn();    // Descripción
+                                columns.ConstantColumn(90);  // Cantidad Total
+                                columns.ConstantColumn(110); // Recaudación Total
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).Text("Descripción del Producto").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignCenter().Text("Cant. Vendida").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignRight().Text("Recaudación ($)").FontColor(Colors.White).Bold().FontSize(9);
+                            });
+
+                            if (dtDatos != null)
+                            {
+                                foreach (DataRow row in dtDatos.Rows)
+                                {
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).Text(row["Descripcion"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignCenter().Text(row["CantidadTotal"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionTotal"]):N2}").FontSize(9);
+                                }
+                            }
+                        });
+                    });
+
+                    // Pie de página
+                    page.Footer().AlignCenter().Text(text =>
+                    {
+                        text.Span("Vanguardia Arte - Sistema de Gestión | Módulo Inteligencia de Negocio | Página ").FontSize(8).FontColor(Colors.Grey.Medium);
+                        text.CurrentPageNumber().FontSize(8).FontColor(Colors.Grey.Medium);
+                    });
+                });
+            }).GeneratePdf(ruta_VM516);
+        }
+
+        public void GenerarReporteInteligenteSalasPDF_VM516(DataTable dtDatos, string ruta_VM516)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(PageSizes.A4);
+                    page.Margin(40);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Segoe UI"));
+
+                    // Encabezado institucional
+                    page.Header().Column(header =>
+                    {
+                        header.Item().Row(row =>
+                        {
+                            row.RelativeItem().Column(col =>
+                            {
+                                col.Item().Text("VANGUARDIA ARTE").FontSize(20).Bold().FontColor(Colors.Purple.Darken3);
+                                col.Item().Text("Galería Internacional de Arte - Unidad de Espacios").FontSize(9).FontColor(Colors.Grey.Medium);
+                            });
+
+                            row.ConstantItem(180).AlignRight().Column(col =>
+                            {
+                                col.Item().Text("REPORTE INTELIGENTE").FontSize(11).Bold().FontColor(Colors.Blue.Darken3);
+                                col.Item().Text($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}").FontSize(9).FontColor(Colors.Grey.Darken1);
+                            });
+                        });
+                        header.Item().PaddingTop(10).LineHorizontal(1.5f).LineColor(Colors.Purple.Darken3);
+                    });
+
+                    // Contenido Principal
+                    page.Content().PaddingVertical(15).Column(col =>
+                    {
+                        col.Spacing(15);
+
+                        col.Item().Text("Análisis de Ocupación y Rendimiento de Salas").FontSize(14).Bold().FontColor(Colors.Purple.Darken4);
+
+                        col.Item().Background(Colors.Purple.Lighten5).Padding(10).Column(c =>
+                        {
+                            c.Item().Text("PROPÓSITO DEL REPORTE:").Bold().FontSize(9.5f).FontColor(Colors.Purple.Darken3);
+                            c.Item().Text("Cruce de histórico de reservas y catálogo de salas con el objetivo de evaluar la tasa de ocupación de los espacios de exhibición, facilitando estrategias para el ajuste de tarifas según la demanda.").FontSize(9).FontColor(Colors.Grey.Darken3);
+                        });
+
+                        // ---------------------------------------------------------
+                        // NUEVA SECCIÓN: GRÁFICO DE BARRAS NATIVO EN QUESTPDF
+                        // ---------------------------------------------------------
+                        if (dtDatos != null && dtDatos.Rows.Count > 0)
+                        {
+                            col.Item().Background(Colors.Grey.Lighten4).Padding(15).Column(grafico =>
+                            {
+                                grafico.Spacing(10);
+                                grafico.Item().Text("📈 GRÁFICO DE RENDIMIENTO FINANCIERO").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
+                                grafico.Item().Text("Representación visual del volumen de recaudación por sala de exposición.").FontSize(8.5f).FontColor(Colors.Grey.Darken2);
+                                grafico.Item().PaddingBottom(5).LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
+
+                                // 1. Obtener el valor máximo para calcular los porcentajes del gráfico
+                                decimal maxRecaudacion = dtDatos.AsEnumerable().Max(r => Convert.ToDecimal(r["RecaudacionSalas"]));
+
+                                // 2. Dibujar las barras iterando el DataTable
+                                foreach (DataRow row in dtDatos.Rows)
+                                {
+                                    decimal valor = Convert.ToDecimal(row["RecaudacionSalas"]);
+                                    float proporcion = maxRecaudacion == 0 ? 0 : (float)(valor / maxRecaudacion) * 100;
+                                    float remanente = 100 - proporcion;
+
+                                    grafico.Item().Row(r =>
+                                    {
+                                        // Etiqueta de la Sala (Alineada a la derecha)
+                                        r.ConstantItem(110).AlignRight().PaddingRight(10).AlignMiddle()
+                                         .Text(row["NombreSala"].ToString()).FontSize(8.5f).Bold().FontColor(Colors.Grey.Darken3);
+
+                                        // Contenedor de la Barra de progreso
+                                        r.RelativeItem().AlignMiddle().Row(barRow =>
+                                        {
+                                            if (proporcion > 0)
+                                                barRow.RelativeItem(proporcion).Height(12).Background(Colors.Purple.Accent1);
+
+                                            if (remanente > 0)
+                                                barRow.RelativeItem(remanente).Height(12).Background(Colors.Grey.Lighten3);
+                                        });
+
+                                        // Etiqueta del Valor (Alineada a la izquierda de la barra)
+                                        r.ConstantItem(85).AlignLeft().PaddingLeft(10).AlignMiddle()
+                                         .Text($"$ {valor:N2}").FontSize(8).FontColor(Colors.Purple.Darken4).Bold();
+                                    });
+                                }
+                            });
+                        }
+                        // ---------------------------------------------------------
+
+                        // Tabla de datos estructurados (La que ya tenías)
+                        col.Item().PaddingTop(10).Text("Desglose Analítico Detallado").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
+
+                        col.Item().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.ConstantColumn(80);  // Código Sala
+                                columns.RelativeColumn();    // Nombre Sala
+                                columns.ConstantColumn(90);  // Cant. Reservas
+                                columns.ConstantColumn(110); // Recaudación
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).Text("Código").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).Text("Sala de Exposición").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignCenter().Text("Ocupaciones").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignRight().Text("Recaudación ($)").FontColor(Colors.White).Bold().FontSize(9);
+                            });
+
+                            if (dtDatos != null)
+                            {
+                                foreach (DataRow row in dtDatos.Rows)
+                                {
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).Text(row["CodigoSala"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).Text(row["NombreSala"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignCenter().Text(row["CantidadReservas"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionSalas"]):N2}").FontSize(9);
+                                }
+                            }
+                        });
+                    });
+
+                    // Pie de página
+                    page.Footer().AlignCenter().Text(text =>
+                    {
+                        text.Span("Vanguardia Arte - Sistema de Gestión | Módulo Inteligencia de Negocio | Página ").FontSize(8).FontColor(Colors.Grey.Medium);
+                        text.CurrentPageNumber().FontSize(8).FontColor(Colors.Grey.Medium);
+                    });
+                });
+            }).GeneratePdf(ruta_VM516);
         }
     }
 

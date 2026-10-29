@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo_VM516 = new PictureBox();
             lblTitulo_VM516 = new Label();
@@ -165,14 +165,14 @@
             dgvEntregados_VM516.BorderStyle = BorderStyle.None;
             dgvEntregados_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvEntregados_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvEntregados_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEntregados_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvEntregados_VM516.ColumnHeadersHeight = 45;
             dgvEntregados_VM516.EnableHeadersVisualStyles = false;
             dgvEntregados_VM516.GridColor = Color.FromArgb(220, 220, 220);
@@ -185,6 +185,12 @@
             dgvEntregados_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEntregados_VM516.Size = new Size(952, 405);
             dgvEntregados_VM516.TabIndex = 6;
+            // 
+            // toolTipHistorialEntregados
+            // 
+            toolTipHistorialEntregados.AutoPopDelay = 5000;
+            toolTipHistorialEntregados.InitialDelay = 100;
+            toolTipHistorialEntregados.ReshowDelay = 100;
             // 
             // Form_Historial_Entregados_VM516
             // 

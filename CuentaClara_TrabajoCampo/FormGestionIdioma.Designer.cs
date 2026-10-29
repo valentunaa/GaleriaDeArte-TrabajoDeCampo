@@ -382,6 +382,7 @@ namespace IU
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitulo = new Label();
@@ -402,6 +403,7 @@ namespace IU
             btnAplicar = new Button();
             listBox1 = new ListBox();
             btnCancelar = new Button();
+            toolTipGestionIdioma = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dgvEtiquetas).BeginInit();
             panelInferior.SuspendLayout();
             SuspendLayout();
@@ -411,7 +413,7 @@ namespace IU
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(46, 17, 39);
-            lblTitulo.Location = new Point(51, 69);
+            lblTitulo.Location = new Point(51, 31);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(288, 41);
             lblTitulo.TabIndex = 0;
@@ -423,7 +425,7 @@ namespace IU
             lblSeccionIdioma.AutoSize = true;
             lblSeccionIdioma.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblSeccionIdioma.ForeColor = Color.FromArgb(46, 17, 39);
-            lblSeccionIdioma.Location = new Point(54, 144);
+            lblSeccionIdioma.Location = new Point(54, 118);
             lblSeccionIdioma.Name = "lblSeccionIdioma";
             lblSeccionIdioma.Size = new Size(154, 20);
             lblSeccionIdioma.TabIndex = 1;
@@ -435,7 +437,7 @@ namespace IU
             cboIdiomas.DropDownStyle = ComboBoxStyle.DropDownList;
             cboIdiomas.Font = new Font("Segoe UI", 11F);
             cboIdiomas.FormattingEnabled = true;
-            cboIdiomas.Location = new Point(249, 140);
+            cboIdiomas.Location = new Point(249, 114);
             cboIdiomas.Name = "cboIdiomas";
             cboIdiomas.Size = new Size(256, 28);
             cboIdiomas.TabIndex = 2;
@@ -468,14 +470,14 @@ namespace IU
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvEtiquetas.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEtiquetas.EnableHeadersVisualStyles = false;
-            dgvEtiquetas.Location = new Point(55, 201);
+            dgvEtiquetas.Location = new Point(55, 177);
             dgvEtiquetas.MultiSelect = false;
             dgvEtiquetas.Name = "dgvEtiquetas";
             dgvEtiquetas.ReadOnly = true;
             dgvEtiquetas.RowHeadersVisible = false;
             dgvEtiquetas.RowHeadersWidth = 102;
             dgvEtiquetas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEtiquetas.Size = new Size(875, 323);
+            dgvEtiquetas.Size = new Size(936, 347);
             dgvEtiquetas.TabIndex = 3;
             // 
             // lblClave
@@ -483,7 +485,7 @@ namespace IU
             lblClave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblClave.AutoSize = true;
             lblClave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblClave.Location = new Point(51, 553);
+            lblClave.Location = new Point(51, 558);
             lblClave.Name = "lblClave";
             lblClave.Size = new Size(50, 19);
             lblClave.TabIndex = 4;
@@ -494,7 +496,7 @@ namespace IU
             // 
             txtClave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             txtClave.Font = new Font("Segoe UI", 10F);
-            txtClave.Location = new Point(55, 579);
+            txtClave.Location = new Point(55, 584);
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(349, 25);
             txtClave.TabIndex = 5;
@@ -504,7 +506,7 @@ namespace IU
             lblTexto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTexto.AutoSize = true;
             lblTexto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTexto.Location = new Point(51, 628);
+            lblTexto.Location = new Point(51, 633);
             lblTexto.Name = "lblTexto";
             lblTexto.Size = new Size(50, 19);
             lblTexto.TabIndex = 6;
@@ -515,7 +517,7 @@ namespace IU
             // 
             txtTexto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             txtTexto.Font = new Font("Segoe UI", 10F);
-            txtTexto.Location = new Point(55, 654);
+            txtTexto.Location = new Point(55, 659);
             txtTexto.Name = "txtTexto";
             txtTexto.Size = new Size(349, 25);
             txtTexto.TabIndex = 7;
@@ -528,7 +530,7 @@ namespace IU
             panelInferior.Dock = DockStyle.Bottom;
             panelInferior.Location = new Point(0, 788);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1314, 46);
+            panelInferior.Size = new Size(1234, 46);
             panelInferior.TabIndex = 13;
             // 
             // lblUsuarioValor
@@ -561,7 +563,7 @@ namespace IU
             btnNuevoIdioma.FlatStyle = FlatStyle.Flat;
             btnNuevoIdioma.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNuevoIdioma.ForeColor = Color.White;
-            btnNuevoIdioma.Location = new Point(955, 196);
+            btnNuevoIdioma.Location = new Point(1036, 201);
             btnNuevoIdioma.Name = "btnNuevoIdioma";
             btnNuevoIdioma.Size = new Size(163, 52);
             btnNuevoIdioma.TabIndex = 8;
@@ -577,7 +579,7 @@ namespace IU
             btnAgregarEtiqueta.FlatStyle = FlatStyle.Flat;
             btnAgregarEtiqueta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAgregarEtiqueta.ForeColor = Color.FromArgb(46, 17, 39);
-            btnAgregarEtiqueta.Location = new Point(955, 271);
+            btnAgregarEtiqueta.Location = new Point(1036, 276);
             btnAgregarEtiqueta.Name = "btnAgregarEtiqueta";
             btnAgregarEtiqueta.Size = new Size(163, 52);
             btnAgregarEtiqueta.TabIndex = 9;
@@ -593,7 +595,7 @@ namespace IU
             btnModificarEtiqueta.FlatStyle = FlatStyle.Flat;
             btnModificarEtiqueta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnModificarEtiqueta.ForeColor = Color.FromArgb(46, 17, 39);
-            btnModificarEtiqueta.Location = new Point(955, 346);
+            btnModificarEtiqueta.Location = new Point(1036, 351);
             btnModificarEtiqueta.Name = "btnModificarEtiqueta";
             btnModificarEtiqueta.Size = new Size(163, 52);
             btnModificarEtiqueta.TabIndex = 10;
@@ -609,7 +611,7 @@ namespace IU
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir.Location = new Point(984, 641);
+            btnSalir.Location = new Point(863, 640);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(128, 44);
             btnSalir.TabIndex = 12;
@@ -642,7 +644,7 @@ namespace IU
             listBox1.Location = new Point(505, 545);
             listBox1.Margin = new Padding(1);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(427, 79);
+            listBox1.Size = new Size(486, 79);
             listBox1.TabIndex = 14;
             // 
             // btnCancelar
@@ -665,7 +667,7 @@ namespace IU
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1314, 834);
+            ClientSize = new Size(1234, 834);
             Controls.Add(btnCancelar);
             Controls.Add(listBox1);
             Controls.Add(panelInferior);
@@ -714,5 +716,6 @@ namespace IU
         private ListBox listBox1;
         private Button btnCancelar;
         private Label lblUsuarioValor;
+        private ToolTip toolTipGestionIdioma;
     }
 }

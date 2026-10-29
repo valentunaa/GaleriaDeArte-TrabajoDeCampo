@@ -30,8 +30,32 @@ namespace IU
         public FormGestionPerfil()
         {
             InitializeComponent();
+            ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
         }
+
+        private void ConfigurarToolTips()
+        {
+            toolTipPerfil.SetToolTip(cmbRol, "Prueba directa de tooltip");
+            toolTipPerfil.SetToolTip(cmbRol, TraducirTexto("Perfil_Tip_CmbRol"));
+            toolTipPerfil.SetToolTip(cmbFamilia, TraducirTexto("Perfil_Tip_CmbFamilia"));
+            toolTipPerfil.SetToolTip(cmbFamiliaHija, TraducirTexto("Perfil_Tip_CmbFamiliaHija"));
+            toolTipPerfil.SetToolTip(clbPermiso, TraducirTexto("Perfil_Tip_ClbPermiso"));
+            toolTipPerfil.SetToolTip(clbFamilia, TraducirTexto("Perfil_Tip_ClbFamilia"));
+            toolTipPerfil.SetToolTip(treeView1, TraducirTexto("Perfil_Tip_TreeView1"));
+            toolTipPerfil.SetToolTip(treeViewVistaPrevia, TraducirTexto("Perfil_Tip_TreeViewVistaPrevia"));
+
+            toolTipPerfil.SetToolTip(btnCrear, TraducirTexto("Perfil_Tip_Crear"));
+            toolTipPerfil.SetToolTip(btnModificar, TraducirTexto("Perfil_Tip_Modificar"));
+            toolTipPerfil.SetToolTip(btnEliminar, TraducirTexto("Perfil_Tip_Eliminar"));
+            toolTipPerfil.SetToolTip(btnAsignarPermiso, TraducirTexto("Perfil_Tip_AsignarPermiso"));
+            toolTipPerfil.SetToolTip(btnAsignarFamilia, TraducirTexto("Perfil_Tip_AsignarFamilia"));
+            toolTipPerfil.SetToolTip(button1, TraducirTexto("Perfil_Tip_Desasignar")); // O el nombre de tu botón de desasignar
+            toolTipPerfil.SetToolTip(btnAplicar, TraducirTexto("Perfil_Tip_Aplicar"));
+            toolTipPerfil.SetToolTip(btnSalir, TraducirTexto("Perfil_Tip_Salir"));
+
+        }
+
         private void RefrescarSesionUsuario()
         {
             var login = SessionManager.GetInstancia().GetUsuarioActual().Login;
@@ -41,13 +65,8 @@ namespace IU
             var usuarioActualizado = bllUsuario.RecargarUsuarioSesion(login);
 
             SessionManager.GetInstancia().SetUsuarioActual(usuarioActualizado);
-        }
-        private void DesmarcarCheckedLists()
-        {
-            for (int i = 0; i < clbPermiso.Items.Count; i++) clbPermiso.SetItemChecked(i, false);
-            for (int i = 0; i < clbFamilia.Items.Count; i++) clbFamilia.SetItemChecked(i, false);
-        }
-
+        } 
+        
         private void FormGestionPerfil_Load(object sender, EventArgs e)
         {
             FormGestionPerfil_Resize(null, null);
@@ -81,6 +100,13 @@ namespace IU
             radioBtn_Rol.Enabled = false;
             radioBtn_Familia.Enabled = false;
         }
+        private void DesmarcarCheckedLists()
+        {
+            for (int i = 0; i < clbPermiso.Items.Count; i++) clbPermiso.SetItemChecked(i, false);
+            for (int i = 0; i < clbFamilia.Items.Count; i++) clbFamilia.SetItemChecked(i, false);
+        }
+
+       
         private void DeshabilitarBotones()
         {
 
@@ -411,7 +437,6 @@ namespace IU
 
                     if (clbFamilia.CheckedItems.Count == 0)
                     {
-                        //MessageBox.Show("Seleccione al menos una familia de la lista.");
                         MessageBox.Show(TraducirTexto("msg_SeleccioneFamilia"));
                         return;
                     }
@@ -481,27 +506,7 @@ namespace IU
                     bllFamilia.AsignarSubFamilia(idPadre, idHija);
                     MessageBox.Show(TraducirTexto("msg_FamiliaAsignadaCorrectamente"));
                     LimpiarModo();
-                    //// 2. Buscamos el contexto del Rol (el padre de toda la jerarquía)
-                    //string idRolContexto = ObtenerIdRolDesdeArbol();
-
-                    //if (string.IsNullOrEmpty(idRolContexto))
-                    //{
-                    //    MessageBox.Show("Por favor, seleccione un nodo dentro de un Rol en el árbol.");
-                    //    return;
-                    //}
-
-                    //// 3. VALIDAMOS ANTES DE HACER NADA EN LA BASE DE DATOS
-                    //BLL_Rol bllRolValidacion = new BLL_Rol();
-                    //if (bllRolValidacion.EsRedundanteAsignar(idRolContexto, idHija))
-                    //{
-                    //    MessageBox.Show("Error: La familia ya existe en la jerarquía de este perfil.",
-                    //                    "Error de integridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //    return;
-                    //}
-                    //bllFamilia.AsignarSubFamilia(idPadre, idHija);
-
-                    //MessageBox.Show(TraducirTexto("msg_FamiliaAsignadaCorrectamente"));
-                    //LimpiarModo();
+                   
                 }
                 else
                 {
@@ -685,8 +690,7 @@ namespace IU
         {
             try
             {
-                // 1. Validación en la Interfaz: Controlamos que haya tildado mínimo 2 elementos 
-                // para no hacer trabajar a la BLL innecesariamente.
+
                 if ((clbPermiso.CheckedItems.Count + clbFamilia.CheckedItems.Count) < 2)
                 {
                     MessageBox.Show(TraducirTexto("msg_FamiliaMinComponentes"), TraducirTexto("msg_Validacion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -694,40 +698,29 @@ namespace IU
                     return;
                 }
 
-                // 2. Pedimos el nombre al usuario
                 string nombre = Microsoft.VisualBasic.Interaction.InputBox(TraducirTexto("msg_IngreseNombreFamilia"), TraducirTexto("msg_NuevaFamilia"));
 
                 if (string.IsNullOrWhiteSpace(nombre)) return;
 
-                // 3. Ya no validamos el nombre acá, de eso se encarga la BLL. 
-                // Tampoco instanciamos y guardamos la familia acá. 
-                // Vamos a preparar la "caja" con todo lo que el usuario eligió.
-
                 List<string> elementosSeleccionados = new List<string>();
 
-                // Agregamos los IDs de los Permisos
                 foreach (Servicio_Permiso perm in clbPermiso.CheckedItems)
                 {
                     elementosSeleccionados.Add(perm.IdRol);
                 }
 
-                // Agregamos los IDs de las Familias (Subfamilias)
                 foreach (Servicio_Familia subFam in clbFamilia.CheckedItems)
                 {
                     elementosSeleccionados.Add(subFam.IdRol);
                 }
 
-                // 4. Preparamos el objeto Familia principal
                 string idNuevaFamilia = Guid.NewGuid().ToString();
                 Servicio_Familia familia = new Servicio_Familia(idNuevaFamilia, nombre);
 
-                // 5. Instanciamos la BLL y le mandamos el paquete completo
                 BLL_Familia bllFamilia = new BLL_Familia();
 
-                // Llamamos al nuevo método Guardar que armamos (Familia + Lista de IDs)
                 bllFamilia.Guardar(familia, elementosSeleccionados);
 
-                // Si la BLL no arrojó ninguna Excepción, significa que TODO salió bien
                 MessageBox.Show(TraducirTexto("msg_FamiliaGuardadaCorrectamente"));
                 LimpiarModo();
                 CargarCombos();
@@ -735,8 +728,7 @@ namespace IU
             }
             catch (Exception ex)
             {
-                // Si falló el nombre, si falló la cantidad mínima en la BLL, o si hubo una 
-                // redundancia no resuelta, el error salta acá y LA FAMILIA NO SE CREÓ EN LA BD.
+
                 string mensaje = TraducirExcepcion(ex);
                 MessageBox.Show(mensaje, TraducirTexto("msg_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -796,7 +788,6 @@ namespace IU
             }
             catch (Exception ex)
             {
-                // MessageBox.Show("Error al intentar desasignar: " + ex.Message);
                 string mensaje = TraducirExcepcion(ex);
                 MessageBox.Show(TraducirTexto("msg_ErrorDesasignar") + ": " + mensaje);
             }
@@ -845,12 +836,6 @@ namespace IU
         {
             try
             {
-                //if (tipoNodoSeleccionado != "ROL")
-                //{
-                //    //MessageBox.Show("Seleccione un Perfil [ROL]");
-                //    MessageBox.Show(TraducirTexto("msg_SeleccionePerfilRol"));
-                //    return;
-                //}
                 if (cmbRol.SelectedItem == null)
                 {
                     MessageBox.Show(TraducirTexto("msg_SeleccioneRolCombo"));
@@ -860,7 +845,6 @@ namespace IU
 
                 string idRol = rolSeleccionado.IdRol;
                 string nombreActual = rolSeleccionado.Nombre;
-                //string nuevoNombre = Microsoft.VisualBasic.Interaction.InputBox("Nuevo nombre del Rol", "Modificar Rol", nombreNodoSeleccionado);
                 string nuevoNombre = Microsoft.VisualBasic.Interaction.InputBox(
                         TraducirTexto("msg_NuevoNombreRol"),
                         TraducirTexto("msg_ModificarRol"),
@@ -873,14 +857,11 @@ namespace IU
 
                 if (nuevoNombre.ToUpper() != nombreActual.ToUpper() && bllRol.ExisteNombre(nuevoNombre))
                 {
-                    //MessageBox.Show("Ya existe un Rol con ese nombre. Elija otro.");
                     MessageBox.Show(TraducirTexto("msg_RolYaExisteNombre"));
                     return;
                 }
 
                 bllRol.ModificarRol(idRol, nuevoNombre);
-
-                //MessageBox.Show("Rol modificado correctamente.");
                 MessageBox.Show(TraducirTexto("msg_RolModificadoCorrectamente"));
 
                 MostrarArbol();
@@ -899,25 +880,15 @@ namespace IU
             {
                 if (tipoNodoSeleccionado != "ROL")
                 {
-                    //MessageBox.Show( "Seleccione un Perfil [ROL]");
                     MessageBox.Show(TraducirTexto("msg_SeleccionePerfilRol"));
                     return;
                 }
-
-                //DialogResult r =
-                //    MessageBox.Show(
-                //        "¿Eliminar perfil?",
-                //        "Confirmación",
-                //        MessageBoxButtons.YesNo);
 
                 DialogResult r = MessageBox.Show(TraducirTexto("msg_EliminarPerfil"), TraducirTexto("msg_Confirmacion"), MessageBoxButtons.YesNo);
 
                 bllRol.EliminarRol(idNodoSeleccionado);
 
                 MessageBox.Show(TraducirTexto("msg_RolEliminadoCorrectamente"));
-
-                //MessageBox.Show(
-                //    "Perfil eliminado correctamente."); 
 
                 MessageBox.Show(TraducirTexto("msg_PerfilEliminadoCorrectamente"));
 
@@ -936,8 +907,6 @@ namespace IU
         {
             modoActual = "ASIGNAR_PERMISO";
             listBox1.Items.Clear();
-            //listBox1.Items.Add("1. Seleccione arriba si lo asignará a un ROL o a una FAMILIA.");
-            //listBox1.Items.Add("Modo asignar permiso a...");
             listBox1.Items.Add(TraducirTexto("lst_AsignarPermisoInstruccion1"));
             listBox1.Items.Add(TraducirTexto("lst_ModoAsignarPermiso"));
 
@@ -958,8 +927,6 @@ namespace IU
         {
             modoActual = "ASIGNAR_FAMILIA";
             listBox1.Items.Clear();
-            //listBox1.Items.Add("1. Seleccione arriba si la asignará a un ROL o a otra FAMILIA.");
-            //listBox1.Items.Add("Modo asignar familia a ...");
 
             listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaInstruccion1"));
             listBox1.Items.Add(TraducirTexto("lst_ModoAsignarFamilia"));
@@ -986,10 +953,6 @@ namespace IU
         {
             modoActual = "MODIFICAR";
             listBox1.Items.Clear();
-            //listBox1.Items.Add("Modo modificar FAMILIA seleccionada\n");
-            //listBox1.Items.Add("1. Seleccione una Familia [F] o Rol [R] en el árbol.");
-            //listBox1.Items.Add("2. Presione Aplicar.");
-            //listBox1.Items.Add("3. Ingrese el nuevo nombre en la ventana emergente.");
 
             listBox1.Items.Add(TraducirTexto("lst_ModoModificarFamilia"));
             listBox1.Items.Add(TraducirTexto("lst_ModificarFamiliaPaso1"));
@@ -1019,10 +982,6 @@ namespace IU
             modoActual = "ELIMINAR";
             listBox1.Items.Clear();
 
-            //listBox1.Items.Add("Modo ELIMINAR FAMILIA/ROL (Baja completa)");
-            //listBox1.Items.Add("1. Seleccione una Familia [F] o Rol [R] en el árbol.");
-            //listBox1.Items.Add("2. Presione Aplicar para destruirla del sistema.");
-
             listBox1.Items.Add(TraducirTexto("lst_ModoEliminarFamiliaRol"));
             listBox1.Items.Add(TraducirTexto("lst_EliminarPaso1"));
             listBox1.Items.Add(TraducirTexto("lst_EliminarPaso2"));
@@ -1045,8 +1004,6 @@ namespace IU
             modoActual = "CREAR";
             treeView1.Enabled = false;
             listBox1.Items.Clear();
-            //listBox1.Items.Add("Modo CREAR");
-            //listBox1.Items.Add("1. Elegir Rol/Familia.");
             listBox1.Items.Add(TraducirTexto("lst_ModoCrear"));
             listBox1.Items.Add(TraducirTexto("lst_CrearPaso1"));
 
@@ -1076,19 +1033,12 @@ namespace IU
             if (modoActual == "CREAR" && radioBtn_Rol.Checked)
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add(">>> MODO: CREAR NUEVO PERFIL (ROL) <<<");
-                //listBox1.Items.Add("1. Seleccione en las listas todos los Permisos y/o Familias iniciales.");
-                //listBox1.Items.Add("2. Recuerde que NO puede quedar vacío (es obligatorio marcar al menos uno).");
-                //listBox1.Items.Add("3. Presione el botón 'Aplicar'.");
-                //listBox1.Items.Add("4. Ingrese el nombre del nuevo Perfil en la ventana emergente.");
 
                 listBox1.Items.Add(TraducirTexto("lst_ModoCrearPerfilRolTitulo"));
                 listBox1.Items.Add(TraducirTexto("lst_CrearPerfilPaso1"));
                 listBox1.Items.Add(TraducirTexto("lst_CrearPerfilPaso2"));
                 listBox1.Items.Add(TraducirTexto("lst_CrearPerfilPaso3"));
                 listBox1.Items.Add(TraducirTexto("lst_CrearPerfilPaso4"));
-
-
                 clbPermiso.Enabled = true;
                 clbFamilia.Enabled = true;
                 cmbFamiliaHija.Enabled = false;
@@ -1099,10 +1049,6 @@ namespace IU
             if (modoActual == "ASIGNAR_PERMISO" && radioBtn_Rol.Checked)
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add("Asignando permiso a ROL:");
-                //listBox1.Items.Add("1. Elija el ROL del ComboBox.");
-                //listBox1.Items.Add("2. Elija el PERMISO en la lista desplegable.");
-                //listBox1.Items.Add("3. Presione Aplicar.");
                 listBox1.Items.Add(TraducirTexto("lst_AsignarPermisoRolTitulo"));
                 listBox1.Items.Add(TraducirTexto("lst_AsignarPermisoRolPaso1"));
                 listBox1.Items.Add(TraducirTexto("lst_AsignarPermisoRolPaso2"));
@@ -1115,10 +1061,6 @@ namespace IU
             if (modoActual == "ASIGNAR_FAMILIA" && radioBtn_Rol.Checked)
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add("Modo asignar familia a ROL");
-                //listBox1.Items.Add("1. Elija el ROL del ComboBox.");
-                //listBox1.Items.Add("2. Elija la FAMILIA en la lista desplegable.");
-                //listBox1.Items.Add("3. Presione Aplicar.");
 
                 listBox1.Items.Add(TraducirTexto("lst_ModoAsignarFamiliaRol"));
                 listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaRolPaso1"));
@@ -1133,9 +1075,6 @@ namespace IU
             if ((modoActual == "MODIFICAR" & radioBtn_Rol.Checked))
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add("Modo modificar ROL");
-                //listBox1.Items.Add("1. Elija el ROL del ComboBox.");
-                //listBox1.Items.Add("3. Presione Aplicar.");
 
                 cmbRol.Enabled = true;
                 btnAplicar.Enabled = true;
@@ -1150,11 +1089,6 @@ namespace IU
             if (modoActual == "CREAR" && radioBtn_Familia.Checked)
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add(">>> MODO: CREAR NUEVA FAMILIA <<<");
-                //listBox1.Items.Add("1. Seleccione los Permisos y/o Subfamilias que compondrán esta familia.");
-                //listBox1.Items.Add("2. Es OBLIGATORIO tildar al menos un elemento.");
-                //listBox1.Items.Add("3. Presione 'Aplicar' e ingrese el nombre de la Familia.");
-
                 listBox1.Items.Add(TraducirTexto("lst_ModoCrearFamiliaTitulo"));
                 listBox1.Items.Add(TraducirTexto("lst_CrearFamiliaPaso1"));
                 listBox1.Items.Add(TraducirTexto("lst_CrearFamiliaPaso2"));
@@ -1170,10 +1104,6 @@ namespace IU
             if (modoActual == "ASIGNAR_PERMISO" && radioBtn_Familia.Checked)
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add("Modo asignar permiso a FAMILIA");
-                //listBox1.Items.Add("1. Elija la FAMILIA en la lista desplegable determinada.");
-                //listBox1.Items.Add("2. Elija el PERMISO en la lista desplegable determinada.");
-                //listBox1.Items.Add("3. Presione Aplicar.");
 
                 listBox1.Items.Add(TraducirTexto("lst_ModoAsignarPermisoFamilia"));
                 listBox1.Items.Add(TraducirTexto("lst_AsignarPermisoFamiliaPaso1"));
@@ -1191,15 +1121,11 @@ namespace IU
             if (modoActual == "ASIGNAR_FAMILIA" && radioBtn_Familia.Checked)
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add("Modo asignar familia a FAMILIA");
-                //listBox1.Items.Add("1. Elija la Familia CONTENEDORA del ComboBox.");
-                //listBox1.Items.Add("2. Elija la Familia a INSERTAR del ComboBox.");
-                //listBox1.Items.Add("3. Presione Aplicar.");
 
                 listBox1.Items.Add(TraducirTexto("lst_ModoAsignarFamiliaFamilia"));
                 listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaFamiliaPaso1"));
-                listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaFamiliaPaso2"));//
-                listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaFamiliaPaso3"));//
+                listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaFamiliaPaso2"));
+                listBox1.Items.Add(TraducirTexto("lst_AsignarFamiliaFamiliaPaso3"));
 
                 cmbFamilia.Enabled = true;
                 cmbFamiliaHija.Enabled = true;
@@ -1212,9 +1138,6 @@ namespace IU
             if ((modoActual == "MODIFICAR" & radioBtn_Familia.Checked))
             {
                 listBox1.Items.Clear();
-                //listBox1.Items.Add("Modo modificar FAMILIA");
-                //listBox1.Items.Add("1. Elija la FAMILIA de la lista.");
-                //listBox1.Items.Add("3. Presione Aplicar.");
                 listBox1.Items.Add(TraducirTexto("msg_ModoModificarFamilia"));
                 listBox1.Items.Add(TraducirTexto("msg_ElijaFamiliaLista"));
                 listBox1.Items.Add(TraducirTexto("msg_PresioneAplicar"));
@@ -1228,9 +1151,6 @@ namespace IU
             modoActual = "DESASIGNAR";
 
             listBox1.Items.Clear();
-            //listBox1.Items.Add("Modo DESASIGNAR seleccionado");
-            //listBox1.Items.Add("1. Seleccione un [P] o [F] del árbol.");
-            //listBox1.Items.Add("2. Presione Aplicar para quitarlo.");
 
             listBox1.Items.Add(TraducirTexto("lst_ModoDesasignarSeleccionado"));
             listBox1.Items.Add(TraducirTexto("lst_DesasignarPaso1"));
@@ -1370,6 +1290,8 @@ namespace IU
                 return;
 
             TraducirControles(this.Controls, idioma);
+            this.Text = TraducirTexto("lbl_FormPerfiles");
+            ConfigurarToolTips();
         }
 
         private void TraducirControles(Control.ControlCollection controles, Servicio_Idioma idioma)
@@ -1431,14 +1353,5 @@ namespace IU
             );
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -307,8 +307,6 @@ namespace BLL
             string dvvFinal = servicioCalcular.CalcularHash(cadenaAcumulada);
             string nombreMaestro = $"{nombreTabla}_MAESTRO";
 
-
-            //Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador(dvvFinal, nombreMaestro);
             Servicio_DigitoVerificador nuevoDVV = new Servicio_DigitoVerificador();
             nuevoDVV.Nombre = nombreMaestro;
             nuevoDVV.DVV = dvvFinal;
@@ -401,21 +399,9 @@ namespace BLL
                 cadenaDVV += dvh;
             }
 
-            //foreach (Servicio_Familia rol in roles)
-            //{
-            //    string dvh = servicioCalcular.CalcularDVH(rol);
-            //    Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical
-            //    {
-            //        Nombre = "Rol_" + rol.ObtenerIdentificadorFila(),
-            //        DVH = dvh
-            //    };
-
-            //    dalDigito.GuardarDVH(reg);
-            //    cadenaDVV += dvh;
-            //}
-
+            
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            //Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Rol_MAESTRO");
+
             Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
             maestro.Nombre = "Rol_MAESTRO";
             maestro.DVV = dvv;
@@ -458,27 +444,7 @@ namespace BLL
 
                 cadenaDVV += dvh;
             }
-
-            //DAL_Familia dalFam = new DAL_Familia("Data Source=.;Initial Catalog=BD_CuentaClara;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
-            //List<Servicio_Familia> familias = dalFam.ListarFamilias() .OrderBy(f => f.ObtenerIdentificadorFila()) .ToList();
-
-            //string cadenaDVV = "";
-
-            //foreach (Servicio_Familia familia in familias)
-            //{
-            //    string dvh = servicioCalcular.CalcularDVH(familia);
-            //    Servicio_DigitoVerificadorVertical reg = new Servicio_DigitoVerificadorVertical
-            //    {
-            //        Nombre = "Familia_" + familia.ObtenerIdentificadorFila(),
-            //        DVH = dvh
-            //    };
-
-            //    dalDigito.GuardarDVH(reg);
-            //    cadenaDVV += dvh;
-            //}
-
             string dvv = servicioCalcular.CalcularHash(cadenaDVV);
-            //Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador(dvv, "Familia_MAESTRO");
             Servicio_DigitoVerificador maestro = new Servicio_DigitoVerificador();
             maestro.Nombre = "Familia_MAESTRO";
             maestro.DVV = dvv;

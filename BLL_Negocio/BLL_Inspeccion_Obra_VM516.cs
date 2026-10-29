@@ -60,8 +60,8 @@ namespace BLL_Negocio
                 }
 
                 string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-                string detalleEvento = $"Peritaje: {codigoReserva} [{estadoPostExhibicion}]";
-                bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Retiro", 3);
+                string detalleEvento = $"Peritaje: {codigoReserva}";
+                bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Retiro de Obra", 3);
             }
             catch (Exception ex)
             {

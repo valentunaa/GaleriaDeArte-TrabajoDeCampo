@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cmbIdioma = new ComboBox();
             btnGuardarr = new Button();
             button1 = new Button();
             panelLogin = new Panel();
+            toolTipConfig = new ToolTip(components);
             panelLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -93,7 +95,6 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(326, 174);
             panelLogin.TabIndex = 1;
-            panelLogin.Paint += panelLogin_Paint;
             // 
             // FormConfiguracion
             // 
@@ -117,5 +118,6 @@
         private Button btnGuardarr;
         private Button button1;
         private Panel panelLogin;
+        private ToolTip toolTipConfig;
     }
 }
