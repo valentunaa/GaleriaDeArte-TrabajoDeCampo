@@ -48,33 +48,74 @@ namespace BLL
                 dalConexion.EjecutarScriptSQL(script, servidorElegido);
             }
 
-            string appDataFolder = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "CuentaClara");
+            string configFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Configuracion");
 
-            Directory.CreateDirectory(appDataFolder);
+            if (!Directory.Exists(configFolder))
+            {
+                Directory.CreateDirectory(configFolder);
+            }
 
-            string configPath = Path.Combine(appDataFolder, "servidor_config.txt");
+            string configPath = Path.Combine(configFolder, "servidor_config.txt");
             File.WriteAllText(configPath, servidorElegido);
 
-            string banderaPath = Path.Combine(appDataFolder, "bandera.txt");
+            string banderaPath = Path.Combine(configFolder, "bandera.txt");
             File.WriteAllText(banderaPath, "INSTALADO OK - " + DateTime.Now);
         }
 
         public bool EsNecesarioInstalar()
         {
-           
-            string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CuentaClara");
-            string rutaBandera = Path.Combine(appDataFolder, "bandera.txt");
 
-            if (!File.Exists(rutaBandera))
+            try
             {
+                string configFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Configuracion");
+                string configPath = Path.Combine(configFolder, "servidor_config.txt");
+
+                // ESCENARIO A: El archivo existe (El camino normal)
+                if (File.Exists(configPath))
+                {
+                    string servidorGuardado = File.ReadAllText(configPath).Trim();
+
+                    // Verificamos si la base está en el servidor que habíamos guardado
+                    if (DAL_ConexionDB.VerificarBaseDatosExistente(servidorGuardado))
+                    {
+                        return false; // Todo en orden, saltea el instalador
+                    }
+                }
+                else
+                {
+                    // ESCENARIO B: Borraste la carpeta o estás en una PC nueva con la base ya cargada a mano
+                    // Hacemos que busque "a ciegas" en los servidores locales por defecto.
+
+                    if (DAL_ConexionDB.VerificarBaseDatosExistente(".\\SQLEXPRESS"))
+                    {
+                        RestaurarArchivos(configFolder, configPath, ".\\SQLEXPRESS");
+                        return false;
+                    }
+
+                    if (DAL_ConexionDB.VerificarBaseDatosExistente("."))
+                    {
+                        RestaurarArchivos(configFolder, configPath, ".");
+                        return false;
+                    }
+                }
+
+                // Si probó todo y no encontró la base de datos por ningún lado, hay que instalar.
                 return true;
             }
-
-            bool baseExisteEnSql = DAL_ConexionDB.VerificarBaseDatosExistente();
-
-            return !baseExisteEnSql;
+            catch
+            {
+                // Si el SQL Server está apagado o tira error de red, forzamos el form por seguridad
+                return true;
+            }
+        }
+        private void RestaurarArchivos(string carpeta, string archivoConfig, string servidorEncontrado)
+        {
+            if (!Directory.Exists(carpeta))
+            {
+                Directory.CreateDirectory(carpeta);
+            }
+            File.WriteAllText(archivoConfig, servidorEncontrado);
+            File.WriteAllText(Path.Combine(carpeta, "bandera.txt"), "RECUPERADO AUTOMÁTICAMENTE - " + DateTime.Now);
         }
     }
 }

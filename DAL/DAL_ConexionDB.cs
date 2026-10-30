@@ -14,14 +14,17 @@ namespace DAL
       
         private static string ObtenerServidor()
         {
-            string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CuentaClara");
-            string rutaConfig = Path.Combine(appDataFolder, "servidor_config.txt");
+            // Ahora la DAL busca en la misma carpeta portable que usa el instalador
+            string configFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Configuracion");
+            string rutaConfig = Path.Combine(configFolder, "servidor_config.txt");
 
             if (File.Exists(rutaConfig))
             {
                 return File.ReadAllText(rutaConfig).Trim();
             }
-            return "."; 
+
+            // Si por algún motivo no está el archivo, probamos con el local por defecto
+            return ".";
         }
 
 
