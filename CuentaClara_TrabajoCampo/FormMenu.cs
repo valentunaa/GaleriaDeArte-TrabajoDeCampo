@@ -27,7 +27,7 @@ namespace CuentaClara_TrabajoCampo
             toolTipMenu.SetToolTip(btnReserva, TraducirTexto("Menu_Tip_Reservas"));
             toolTipMenu.SetToolTip(btnTesoreria_Cobros, TraducirTexto("Menu_Tip_Tesoreria"));
             toolTipMenu.SetToolTip(btn_Estado_PostExhibicion, TraducirTexto("Menu_Tip_EstadoPostExhibicion"));
-            toolTipMenu.SetToolTip(btn_Salas_Calendario, TraducirTexto("Menu_Tip_RetiroObra")); 
+            toolTipMenu.SetToolTip(btn_Salas_Calendario, TraducirTexto("Menu_Tip_RetiroObra"));
 
             toolTipMenu.SetToolTip(button11, TraducirTexto("Menu_Tip_RegistrarPedido"));
             toolTipMenu.SetToolTip(button12, TraducirTexto("Menu_Tip_RetiroPedido"));
@@ -369,7 +369,6 @@ namespace CuentaClara_TrabajoCampo
             frm.ShowDialog();
         }
 
-        
     }
 }
 

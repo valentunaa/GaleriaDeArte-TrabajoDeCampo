@@ -59,7 +59,6 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             toolTipMenu = new ToolTip(components);
-            button15 = new Button();
             panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelUsuario.SuspendLayout();
@@ -68,7 +67,6 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(46, 17, 39);
-            panelMenu.Controls.Add(button15);
             panelMenu.Controls.Add(button14);
             panelMenu.Controls.Add(lineaOperacion);
             panelMenu.Controls.Add(lineaCafeteria);
@@ -710,7 +708,6 @@
             toolTipMenu.AutoPopDelay = 5000;
             toolTipMenu.InitialDelay = 100;
             toolTipMenu.ReshowDelay = 100;
-
             // 
             // FormMenu
             // 
@@ -782,6 +779,5 @@
         private Button button13;
         private Button button14;
         private ToolTip toolTipMenu;
-        private Button button15;
     }
 }
