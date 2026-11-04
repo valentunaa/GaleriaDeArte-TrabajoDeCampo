@@ -16,12 +16,14 @@ namespace BLL_Negocio
         private DAL_Artista_VM516 dalArtista_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_BitacoraEvento bllBitacora_VM516;
+        private Servicio_Cripto cripto; // Servicio de criptografía unificado
 
         public BLL_Artista_VM516()
         {
             dalArtista_VM516 = new DAL_Artista_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
+            cripto = new Servicio_Cripto();
         }
 
         public void RegistrarArtista_VM516(string dni, string nombre, string apellido, string telefono, string email)
@@ -55,7 +57,9 @@ namespace BLL_Negocio
                 throw new Exception("err_ArtistaDuplicado");
             }
 
-            BE_Artista_VM516 artista_VM516 = new BE_Artista_VM516(dni, nombre, apellido, telefono, email);
+            string telefonoCifrado = cripto.EncriptarAES(telefono.Trim());
+
+            BE_Artista_VM516 artista_VM516 = new BE_Artista_VM516(dni, nombre, apellido, telefonoCifrado, email);
 
             dalArtista_VM516.GuardarArtista_VM516(artista_VM516);
 
@@ -73,7 +77,13 @@ namespace BLL_Negocio
         }
         public List<BE_Artista_VM516> ListarArtistas_VM516()
         {
-            return dalArtista_VM516.ListarArtistas_VM516();
+            var lista = dalArtista_VM516.ListarArtistas_VM516();
+            // Desencriptar los teléfonos de todos los artistas de la lista
+            foreach (var artista in lista)
+            {
+                artista.Telefono_VM516 = cripto.DesencriptarAES(artista.Telefono_VM516);
+            }
+            return lista;
         }
         public BE_Artista_VM516 BuscarArtistaPorDNI_VM516(string dni)
         {
@@ -84,6 +94,7 @@ namespace BLL_Negocio
 
             if (artista == null)
                 throw new Exception("err_ArtistaNoEncontrado");
+            artista.Telefono_VM516 = cripto.DesencriptarAES(artista.Telefono_VM516);
 
             return artista;
 

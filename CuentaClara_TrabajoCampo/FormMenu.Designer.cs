@@ -59,6 +59,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             toolTipMenu = new ToolTip(components);
+            button15 = new Button();
             panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelUsuario.SuspendLayout();
@@ -67,6 +68,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(46, 17, 39);
+            panelMenu.Controls.Add(button15);
             panelMenu.Controls.Add(button14);
             panelMenu.Controls.Add(lineaOperacion);
             panelMenu.Controls.Add(lineaCafeteria);
@@ -709,6 +711,25 @@
             toolTipMenu.InitialDelay = 100;
             toolTipMenu.ReshowDelay = 100;
             // 
+            // button15
+            // 
+            button15.BackColor = Color.FromArgb(46, 17, 39);
+            button15.Cursor = Cursors.Hand;
+            button15.FlatAppearance.BorderSize = 0;
+            button15.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button15.FlatStyle = FlatStyle.Flat;
+            button15.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            button15.ForeColor = Color.FromArgb(245, 235, 240);
+            button15.Location = new Point(237, 320);
+            button15.Name = "button15";
+            button15.Size = new Size(225, 32);
+            button15.TabIndex = 30;
+            button15.Tag = "btn_ClientesCafeteria";
+            button15.Text = "CLIENTES";
+            button15.TextAlign = ContentAlignment.MiddleLeft;
+            button15.UseVisualStyleBackColor = false;
+            button15.Click += button15_Click;
+            // 
             // FormMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -779,5 +800,6 @@
         private Button button13;
         private Button button14;
         private ToolTip toolTipMenu;
+        private Button button15;
     }
 }

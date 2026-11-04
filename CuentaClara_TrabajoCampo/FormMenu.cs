@@ -369,6 +369,11 @@ namespace CuentaClara_TrabajoCampo
             frm.ShowDialog();
         }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Form_ReporteInteligente_VM516 frm = new Form_ReporteInteligente_VM516();
+            frm.ShowDialog();
+        }
     }
 }
 

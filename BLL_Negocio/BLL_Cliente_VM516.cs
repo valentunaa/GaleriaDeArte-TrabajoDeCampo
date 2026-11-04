@@ -5,9 +5,11 @@ using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BLL_Negocio
 {
@@ -16,12 +18,14 @@ namespace BLL_Negocio
         private DAL_Cliente_VM516 dalCliente_VM516;
         private BLL_DigitoVerificador bllDigito_VM516;
         private BLL_BitacoraEvento bllBitacora_VM516;
+        private Servicio_Cripto cripto; // Instanciamos el servicio aquí
 
         public BLL_Cliente_VM516()
         {
             dalCliente_VM516 = new DAL_Cliente_VM516();
             bllDigito_VM516 = new BLL_DigitoVerificador();
             bllBitacora_VM516 = new BLL_BitacoraEvento();
+            cripto = new Servicio_Cripto();
         }
 
         public void RegistrarCliente_VM516(string dni_VM516, string nombre_VM516, string apellido_VM516, string telefono_VM516, string email_VM516)
@@ -55,11 +59,13 @@ namespace BLL_Negocio
                 throw new Exception("err_ClienteDuplicado");
             }
 
+            string telefonoCifrado = cripto.EncriptarAES(telefono_VM516.Trim());
+
             BE_Cliente_VM516 cliente_VM516 = new BE_Cliente_VM516(
                 dni_VM516.Trim(),
                 nombre_VM516.Trim(),
                 apellido_VM516.Trim(),
-                telefono_VM516.Trim(),
+                telefonoCifrado, // <--- Viaja cifrado hacia la DAL
                 email_VM516.Trim()
             );
 
@@ -88,13 +94,19 @@ namespace BLL_Negocio
             // Flujo Alternativo 4.1: Cliente No Registrado
             if (cliente_VM516 == null)
                 throw new Exception("err_ClienteNoRegistrado");
-
+            cliente_VM516.Telefono_VM516 = cripto.DesencriptarAES(cliente_VM516.Telefono_VM516);
             return cliente_VM516;
         }
 
         public List<BE_Cliente_VM516> ListarClientes_VM516()
         {
-            return dalCliente_VM516.ListarClientes_VM516();
+            var lista = dalCliente_VM516.ListarClientes_VM516();
+            // Desencriptar los teléfonos de toda la lista por seguridad
+            foreach (var cliente in lista)
+            {
+                cliente.Telefono_VM516 = cripto.DesencriptarAES(cliente.Telefono_VM516);
+            }
+            return lista;
         }
         public void ModificarCliente_VM516(string dni_VM516, string nombre_VM516, string apellido_VM516, string telefono_VM516, string email_VM516)
         {
@@ -106,11 +118,13 @@ namespace BLL_Negocio
                 throw new Exception("err_ClienteNoRegistrado");
             }
 
+            string telefonoCifrado = cripto.EncriptarAES(telefono_VM516.Trim());
+
             BE_Cliente_VM516 clienteModificado_VM516 = new BE_Cliente_VM516(
                 dniLimpio_VM516,
                 nombre_VM516.Trim(),
                 apellido_VM516.Trim(),
-                telefono_VM516.Trim(),
+                telefonoCifrado, // <--- Viaja cifrado
                 email_VM516.Trim()
             );
 

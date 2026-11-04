@@ -476,6 +476,44 @@ namespace Servicio
         {
             QuestPDF.Settings.License = LicenseType.Community;
 
+            // --- ANÁLISIS DINÁMICO DE DATOS (Inteligencia de Negocio) ---
+            string textoAnalisisCafeteria = "No hay registros de consumos disponibles.";
+            if (dtDatos != null && dtDatos.Rows.Count > 0)
+            {
+                // 1. Producto más vendido en cantidad (Volumen)
+                DataRow productoVolumen = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToInt32(r["CantidadTotal"])).First();
+                string nombreVolumen = productoVolumen["Descripcion"].ToString();
+                int cantVolumen = Convert.ToInt32(productoVolumen["CantidadTotal"]);
+                decimal recVolumen = Convert.ToDecimal(productoVolumen["RecaudacionTotal"]);
+                decimal precioUnitarioVolumen = cantVolumen > 0 ? recVolumen / cantVolumen : 0;
+
+                // 2. Producto con mayor recaudación total (Margen/Dinero)
+                DataRow productoRecaudacion = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToDecimal(r["RecaudacionTotal"])).First();
+                string nombreRec = productoRecaudacion["Descripcion"].ToString();
+                decimal recTotalProd = Convert.ToDecimal(productoRecaudacion["RecaudacionTotal"]);
+
+                int totalUnidades = dtDatos.AsEnumerable().Sum(r => Convert.ToInt32(r["CantidadTotal"]));
+                decimal recaudacionTotalCafé = dtDatos.AsEnumerable().Sum(r => Convert.ToDecimal(r["RecaudacionTotal"]));
+
+                // 3. Lógica inteligente para definir la recomendación según si el producto líder es económico o costoso
+                string estrategiaComercial = "";
+                if (precioUnitarioVolumen < 2000m) // Si es un producto económico (ej: medialunas, café básico)
+                {
+                    estrategiaComercial = $"Al tratarse de un ítem de bajo costo unitario ($ {precioUnitarioVolumen:N2}), funciona como un excelente producto 'gancho' o de alta rotación. " +
+                                          $"Acción gerencial recomendada: Implementar combos promocionales cruzados (ej. '{nombreVolumen}' junto a repostería de mayor valor) " +
+                                          $"para elevar el ticket promedio por visitante.";
+                }
+                else // Si es un producto más premium o costoso
+                {
+                    estrategiaComercial = $"Al ser un producto de mayor valor unitario ($ {precioUnitarioVolumen:N2}), sostiene fuertemente el margen de rentabilidad de la unidad gastronómica. " +
+                                          $"Acción gerencial recomendada: Garantizar stock prioritario y estricto control de calidad, asegurando que no existan quiebres de inventario en los horarios pico de las muestras.";
+                }
+
+                textoAnalisisCafeteria = $"El punto de venta procesó un total de {totalUnidades} unidades, logrando una recaudación global de $ {recaudacionTotalCafé:N2}. " +
+                                         $"El producto con mayor volumen de salida es '{nombreVolumen}' ({cantVolumen} un.), mientras que el ítem que mayor dinero aporta a la caja es '{nombreRec}' ($ {recTotalProd:N2}). " +
+                                         estrategiaComercial;
+            }
+
             Document.Create(container =>
             {
                 container.Page(page =>
@@ -485,7 +523,6 @@ namespace Servicio
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Segoe UI"));
 
-                    // Encabezado institucional
                     page.Header().Column(header =>
                     {
                         header.Item().Row(row =>
@@ -493,7 +530,7 @@ namespace Servicio
                             row.RelativeItem().Column(col =>
                             {
                                 col.Item().Text("VANGUARDIA ARTE").FontSize(20).Bold().FontColor(Colors.Purple.Darken3);
-                                col.Item().Text("Galería Internacional de Arte - Unidad Gastronómica").FontSize(9).FontColor(Colors.Grey.Medium);
+                                col.Item().Text("Galería de Arte - Unidad Gastronómica").FontSize(9).FontColor(Colors.Grey.Medium);
                             });
 
                             row.ConstantItem(180).AlignRight().Column(col =>
@@ -505,7 +542,6 @@ namespace Servicio
                         header.Item().PaddingTop(10).LineHorizontal(1.5f).LineColor(Colors.Purple.Darken3);
                     });
 
-                    // Contenido Principal
                     page.Content().PaddingVertical(15).Column(col =>
                     {
                         col.Spacing(12);
@@ -514,54 +550,133 @@ namespace Servicio
 
                         col.Item().Background(Colors.Purple.Lighten5).Padding(10).Column(c =>
                         {
-                            c.Item().Text("PROPÓSITO DEL REPORTE:").Bold().FontSize(9.5f).FontColor(Colors.Purple.Darken3);
-                            c.Item().Text("Cruce de tablas de productos y detalle de pedidos destinado a optimizar la gestión de stock, planificar promociones y anticipar compras a proveedores basándose en la demanda comercial efectiva.").FontSize(9).FontColor(Colors.Grey.Darken3);
+                            c.Item().Text("PROPÓSITO Y TOMA DE DECISIONES:").Bold().FontSize(9.5f).FontColor(Colors.Purple.Darken3);
+                            c.Item().Text("Cruce dinámico de inventario y pedidos para la optimización de stock y anticipación de compras basándose en la demanda real.").FontSize(9).FontColor(Colors.Grey.Darken3);
                         });
 
-                        // Tabla de datos
-                        col.Item().PaddingTop(5).Text("Ranking de Productos Más Vendidos").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
+                        // Gráfico de barras nativo
+                        if (dtDatos != null && dtDatos.Rows.Count > 0)
+                        {
+                            col.Item().Background(Colors.Grey.Lighten4).Padding(12).Column(grafico =>
+                            {
+                                grafico.Spacing(6);
+                                grafico.Item().Text("📈 ANÁLISIS VISUAL DE UNIDADES VENDIDAS").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
+                                grafico.Item().Text("Representación comparativa del volumen de despacho por ítem gastronómico.").FontSize(8.5f).FontColor(Colors.Grey.Darken2);
+                                grafico.Item().PaddingBottom(4).LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
+
+                                decimal maxCantidad = dtDatos.AsEnumerable().Max(r => Convert.ToDecimal(r["CantidadTotal"]));
+
+                                foreach (DataRow row in dtDatos.Rows)
+                                {
+                                    decimal valor = Convert.ToDecimal(row["CantidadTotal"]);
+                                    float proporcion = maxCantidad == 0 ? 0 : (float)(valor / maxCantidad) * 100;
+                                    float remanente = 100 - proporcion;
+
+                                    grafico.Item().Row(r =>
+                                    {
+                                        r.ConstantItem(140).AlignRight().PaddingRight(10).AlignMiddle()
+                                           .Text(row["Descripcion"].ToString()).FontSize(8.5f).Bold().FontColor(Colors.Grey.Darken3);
+
+                                        r.RelativeItem().AlignMiddle().Row(barRow =>
+                                        {
+                                            if (proporcion > 0)
+                                                barRow.RelativeItem(proporcion).Height(10).Background(Colors.Purple.Accent2);
+
+                                            if (remanente > 0)
+                                                barRow.RelativeItem(remanente).Height(10).Background(Colors.Grey.Lighten3);
+                                        });
+
+                                        r.ConstantItem(50).AlignLeft().PaddingLeft(10).AlignMiddle()
+                                           .Text($"{valor} un.").FontSize(8).FontColor(Colors.Purple.Darken4).Bold();
+                                    });
+                                }
+                            });
+                        }
+
+                        // Tabla de datos estructurados
+                        col.Item().PaddingTop(5).Text("Ranking Financiero y Desglose de Ventas").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
 
                         col.Item().Table(table =>
                         {
                             table.ColumnsDefinition(columns =>
                             {
-                                columns.RelativeColumn();    // Descripción
-                                columns.ConstantColumn(90);  // Cantidad Total
-                                columns.ConstantColumn(110); // Recaudación Total
+                                columns.RelativeColumn();
+                                columns.ConstantColumn(90);
+                                columns.ConstantColumn(110);
                             });
 
                             table.Header(header =>
                             {
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).Text("Descripción del Producto").FontColor(Colors.White).Bold().FontSize(9);
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignCenter().Text("Cant. Vendida").FontColor(Colors.White).Bold().FontSize(9);
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignRight().Text("Recaudación ($)").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).Text("Descripción del Producto").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).AlignCenter().Text("Cant. Vendida").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).AlignRight().Text("Recaudación ($)").FontColor(Colors.White).Bold().FontSize(9);
                             });
 
                             if (dtDatos != null)
                             {
                                 foreach (DataRow row in dtDatos.Rows)
                                 {
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).Text(row["Descripcion"].ToString()).FontSize(9);
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignCenter().Text(row["CantidadTotal"].ToString()).FontSize(9);
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionTotal"]):N2}").FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).Text(row["Descripcion"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignCenter().Text(row["CantidadTotal"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionTotal"]):N2}").FontSize(9);
                                 }
                             }
                         });
+
+                        // BLOQUE DINÁMICO DE ANÁLISIS GERENCIAL
+                        col.Item().PaddingTop(5).Background(Colors.Grey.Lighten4).Padding(12).Column(c =>
+                        {
+                            c.Spacing(4);
+                            c.Item().Text("🔎 INFORME ANALÍTICO").Bold().FontSize(10).FontColor(Colors.Purple.Darken4);
+                            c.Item().Text(textoAnalisisCafeteria).FontSize(8.5f).FontColor(Colors.Grey.Darken3);
+                        });
                     });
 
-                    // Pie de página
                     page.Footer().AlignCenter().Text(text =>
                     {
-                        text.Span("Vanguardia Arte - Sistema de Gestión | Módulo Inteligencia de Negocio | Página ").FontSize(8).FontColor(Colors.Grey.Medium);
+                        text.Span("Vanguardia Arte - Módulo Inteligencia de Negocio | Página ").FontSize(8).FontColor(Colors.Grey.Medium);
                         text.CurrentPageNumber().FontSize(8).FontColor(Colors.Grey.Medium);
                     });
                 });
             }).GeneratePdf(ruta_VM516);
         }
-
-        public void GenerarReporteInteligenteSalasPDF_VM516(DataTable dtDatos, string ruta_VM516)
+        public void GenerarReporteInteligenteSalas_VM516(DataTable dtDatos, string ruta_VM516)
         {
             QuestPDF.Settings.License = LicenseType.Community;
+
+            // --- ANÁLISIS DINÁMICO AVANZADO (Cruce de Recaudación y Frecuencia de Reservas) ---
+            string textoAnalisisSalas = "No hay registros suficientes para emitir un diagnóstico analítico.";
+            if (dtDatos != null && dtDatos.Rows.Count > 0)
+            {
+                // 1. Sala líder en ingresos económicos (Recaudación)
+                DataRow salaMejorRecaudacion = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToDecimal(r["RecaudacionSalas"])).First();
+                string nombreRecTop = salaMejorRecaudacion["NombreSala"].ToString();
+                decimal recTop = Convert.ToDecimal(salaMejorRecaudacion["RecaudacionSalas"]);
+
+                // 2. Sala líder en cantidad de reservas / ocupaciones (Frecuencia de uso)
+                DataRow salaMayorRotacion = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToInt32(r["CantidadReservas"])).First();
+                string nombreRotTop = salaMayorRotacion["NombreSala"].ToString();
+                int reservasTop = Convert.ToInt32(salaMayorRotacion["CantidadReservas"]);
+
+                decimal recaudacionTotalGeneral = dtDatos.AsEnumerable().Sum(r => Convert.ToDecimal(r["RecaudacionSalas"]));
+                int totalReservasGeneral = dtDatos.AsEnumerable().Sum(r => Convert.ToInt32(r["CantidadReservas"]));
+
+                // 3. Lógica analítica inteligente combinando precios y frecuencia
+                string comparativaLiderazgo = "";
+                if (nombreRecTop == nombreRotTop)
+                {
+                    comparativaLiderazgo = $"El espacio que concentra tanto el mayor volumen financiero ($ {recTop:N2}) como la mayor frecuencia operativa ({reservasTop} reservas) es '{nombreRecTop}', consolidándose indiscutiblemente como el motor principal de la galería.";
+                }
+                else
+                {
+                    comparativaLiderazgo = $"Se observa una interesante diversificación operativa: mientras que '{nombreRecTop}' lidera la recaudación económica ($ {recTop:N2}), " +
+                                           $"es el espacio '{nombreRotTop}' el que registra mayor rotación de público con {reservasTop} reservas acumuladas.";
+                }
+
+                textoAnalisisSalas = $"El sistema consolida un total de {totalReservasGeneral} ocupaciones de espacios y una recaudación global de $ {recaudacionTotalGeneral:N2}. " +
+                                     comparativaLiderazgo + " " +
+                                     $"Acción gerencial recomendada: Evaluar un incremento de tarifas en los espacios de alta demanda y diseñar estrategias de fidelización o paquetes promocionales para incentivar la ocupación en las salas de menor rotación.";
+            }
 
             Document.Create(container =>
             {
@@ -572,7 +687,6 @@ namespace Servicio
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(10).FontFamily("Segoe UI"));
 
-                    // Encabezado institucional
                     page.Header().Column(header =>
                     {
                         header.Item().Row(row =>
@@ -580,7 +694,7 @@ namespace Servicio
                             row.RelativeItem().Column(col =>
                             {
                                 col.Item().Text("VANGUARDIA ARTE").FontSize(20).Bold().FontColor(Colors.Purple.Darken3);
-                                col.Item().Text("Galería Internacional de Arte - Unidad de Espacios").FontSize(9).FontColor(Colors.Grey.Medium);
+                                col.Item().Text("Galería de Arte - Unidad de Espacios").FontSize(9).FontColor(Colors.Grey.Medium);
                             });
 
                             row.ConstantItem(180).AlignRight().Column(col =>
@@ -592,35 +706,30 @@ namespace Servicio
                         header.Item().PaddingTop(10).LineHorizontal(1.5f).LineColor(Colors.Purple.Darken3);
                     });
 
-                    // Contenido Principal
                     page.Content().PaddingVertical(15).Column(col =>
                     {
-                        col.Spacing(15);
+                        col.Spacing(12);
 
                         col.Item().Text("Análisis de Ocupación y Rendimiento de Salas").FontSize(14).Bold().FontColor(Colors.Purple.Darken4);
 
                         col.Item().Background(Colors.Purple.Lighten5).Padding(10).Column(c =>
                         {
-                            c.Item().Text("PROPÓSITO DEL REPORTE:").Bold().FontSize(9.5f).FontColor(Colors.Purple.Darken3);
-                            c.Item().Text("Cruce de histórico de reservas y catálogo de salas con el objetivo de evaluar la tasa de ocupación de los espacios de exhibición, facilitando estrategias para el ajuste de tarifas según la demanda.").FontSize(9).FontColor(Colors.Grey.Darken3);
+                            c.Item().Text("PROPÓSITO Y TOMA DE DECISIONES:").Bold().FontSize(9.5f).FontColor(Colors.Purple.Darken3);
+                            c.Item().Text("Cruce dinámico de histórico de reservas y catálogo de salas para evaluar tasas de ocupación y optimizar tarifas.").FontSize(9).FontColor(Colors.Grey.Darken3);
                         });
 
-                        // ---------------------------------------------------------
-                        // NUEVA SECCIÓN: GRÁFICO DE BARRAS NATIVO EN QUESTPDF
-                        // ---------------------------------------------------------
+                        // Gráfico de barras nativo
                         if (dtDatos != null && dtDatos.Rows.Count > 0)
                         {
-                            col.Item().Background(Colors.Grey.Lighten4).Padding(15).Column(grafico =>
+                            col.Item().Background(Colors.Grey.Lighten4).Padding(12).Column(grafico =>
                             {
-                                grafico.Spacing(10);
+                                grafico.Spacing(8);
                                 grafico.Item().Text("📈 GRÁFICO DE RENDIMIENTO FINANCIERO").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
                                 grafico.Item().Text("Representación visual del volumen de recaudación por sala de exposición.").FontSize(8.5f).FontColor(Colors.Grey.Darken2);
-                                grafico.Item().PaddingBottom(5).LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
+                                grafico.Item().PaddingBottom(4).LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
 
-                                // 1. Obtener el valor máximo para calcular los porcentajes del gráfico
                                 decimal maxRecaudacion = dtDatos.AsEnumerable().Max(r => Convert.ToDecimal(r["RecaudacionSalas"]));
 
-                                // 2. Dibujar las barras iterando el DataTable
                                 foreach (DataRow row in dtDatos.Rows)
                                 {
                                     decimal valor = Convert.ToDecimal(row["RecaudacionSalas"]);
@@ -629,11 +738,9 @@ namespace Servicio
 
                                     grafico.Item().Row(r =>
                                     {
-                                        // Etiqueta de la Sala (Alineada a la derecha)
                                         r.ConstantItem(110).AlignRight().PaddingRight(10).AlignMiddle()
-                                         .Text(row["NombreSala"].ToString()).FontSize(8.5f).Bold().FontColor(Colors.Grey.Darken3);
+                                           .Text(row["NombreSala"].ToString()).FontSize(8.5f).Bold().FontColor(Colors.Grey.Darken3);
 
-                                        // Contenedor de la Barra de progreso
                                         r.RelativeItem().AlignMiddle().Row(barRow =>
                                         {
                                             if (proporcion > 0)
@@ -643,58 +750,65 @@ namespace Servicio
                                                 barRow.RelativeItem(remanente).Height(12).Background(Colors.Grey.Lighten3);
                                         });
 
-                                        // Etiqueta del Valor (Alineada a la izquierda de la barra)
                                         r.ConstantItem(85).AlignLeft().PaddingLeft(10).AlignMiddle()
-                                         .Text($"$ {valor:N2}").FontSize(8).FontColor(Colors.Purple.Darken4).Bold();
+                                           .Text($"$ {valor:N2}").FontSize(8).FontColor(Colors.Purple.Darken4).Bold();
                                     });
                                 }
                             });
                         }
-                        // ---------------------------------------------------------
 
-                        // Tabla de datos estructurados (La que ya tenías)
-                        col.Item().PaddingTop(10).Text("Desglose Analítico Detallado").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
+                        // Tabla de datos estructurados
+                        col.Item().PaddingTop(5).Text("Desglose Analítico Detallado").Bold().FontSize(11).FontColor(Colors.Blue.Darken3);
 
                         col.Item().Table(table =>
                         {
                             table.ColumnsDefinition(columns =>
                             {
-                                columns.ConstantColumn(80);  // Código Sala
-                                columns.RelativeColumn();    // Nombre Sala
-                                columns.ConstantColumn(90);  // Cant. Reservas
-                                columns.ConstantColumn(110); // Recaudación
+                                columns.ConstantColumn(80);
+                                columns.RelativeColumn();
+                                columns.ConstantColumn(90);
+                                columns.ConstantColumn(110);
                             });
 
                             table.Header(header =>
                             {
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).Text("Código").FontColor(Colors.White).Bold().FontSize(9);
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).Text("Sala de Exposición").FontColor(Colors.White).Bold().FontSize(9);
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignCenter().Text("Ocupaciones").FontColor(Colors.White).Bold().FontSize(9);
-                                header.Cell().Background(Colors.Purple.Darken3).Padding(6).AlignRight().Text("Recaudación ($)").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).Text("Código").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).Text("Sala de Exposición").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).AlignCenter().Text("Ocupaciones").FontColor(Colors.White).Bold().FontSize(9);
+                                header.Cell().Background(Colors.Purple.Darken3).Padding(5).AlignRight().Text("Recaudación ($)").FontColor(Colors.White).Bold().FontSize(9);
                             });
 
                             if (dtDatos != null)
                             {
                                 foreach (DataRow row in dtDatos.Rows)
                                 {
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).Text(row["CodigoSala"].ToString()).FontSize(9);
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).Text(row["NombreSala"].ToString()).FontSize(9);
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignCenter().Text(row["CantidadReservas"].ToString()).FontSize(9);
-                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(6).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionSalas"]):N2}").FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).Text(row["CodigoSala"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).Text(row["NombreSala"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignCenter().Text(row["CantidadReservas"].ToString()).FontSize(9);
+                                    table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionSalas"]):N2}").FontSize(9);
                                 }
                             }
                         });
+
+                        // BLOQUE DINÁMICO DE ANÁLISIS GERENCIAL
+                        col.Item().PaddingTop(5).Background(Colors.Grey.Lighten4).Padding(12).Column(c =>
+                        {
+                            c.Spacing(4);
+                            c.Item().Text("🔎 INFORME ANALÍTICO").Bold().FontSize(10).FontColor(Colors.Purple.Darken4);
+                            c.Item().Text(textoAnalisisSalas).FontSize(8.5f).FontColor(Colors.Grey.Darken3);
+                        });
                     });
 
-                    // Pie de página
                     page.Footer().AlignCenter().Text(text =>
                     {
-                        text.Span("Vanguardia Arte - Sistema de Gestión | Módulo Inteligencia de Negocio | Página ").FontSize(8).FontColor(Colors.Grey.Medium);
+                        text.Span("Vanguardia Arte - Módulo Inteligencia de Negocio | Página ").FontSize(8).FontColor(Colors.Grey.Medium);
                         text.CurrentPageNumber().FontSize(8).FontColor(Colors.Grey.Medium);
                     });
                 });
             }).GeneratePdf(ruta_VM516);
         }
+
+
     }
 
 }
