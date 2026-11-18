@@ -67,6 +67,7 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipObras = new ToolTip(components);
+            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEspecificaciones).BeginInit();
@@ -77,6 +78,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(button2);
             panelContenedor.Controls.Add(listBox1);
             panelContenedor.Controls.Add(button1);
@@ -135,7 +137,7 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(480, 559);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(789, 154);
+            listBox1.Size = new Size(789, 94);
             listBox1.TabIndex = 33;
             // 
             // button1
@@ -560,6 +562,23 @@
             toolTipObras.InitialDelay = 100;
             toolTipObras.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1161, 691);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 35;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            // 
             // Form_Especificacion_Obra_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -622,5 +641,6 @@
         private ListBox listBox1;
         private Button button2;
         private ToolTip toolTipObras;
+        private Button button8;
     }
 }

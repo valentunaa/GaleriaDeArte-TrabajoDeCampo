@@ -48,6 +48,7 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipCobroReserva = new ToolTip(components);
+            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvComprobantes).BeginInit();
@@ -58,6 +59,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(cmbMedioPago);
             panelContenedor.Controls.Add(lblTitulo);
@@ -295,6 +297,23 @@
             toolTipCobroReserva.InitialDelay = 100;
             toolTipCobroReserva.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1427, 691);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 27;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            // 
             // Form_Cobro_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,5 +357,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private System.Windows.Forms.PictureBox picLogo;
         private ToolTip toolTipCobroReserva;
+        private Button button8;
     }
 }

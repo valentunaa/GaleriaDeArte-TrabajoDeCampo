@@ -198,15 +198,18 @@ namespace DAL
         public DataTable ObtenerReporteOcupacionSalas_VM516()
         {
             DataTable tabla = new DataTable();
-            // Ejecutamos el JOIN y las funciones de agregación (COUNT, SUM) nativas en SQL Server
+
+            // Agregamos el "+ 1" al DATEDIFF para contar los días de forma inclusiva (ej: evento de 1 solo día = 1 día de ocupación)
             string consulta = @"
         SELECT 
             S.Codigo_Sala_VM516 AS CodigoSala,
             S.Nombre_Sala_VM516 AS NombreSala,
             COUNT(R.Codigo_Reserva_VM516) AS CantidadReservas,
+            ISNULL(SUM(DATEDIFF(day, R.Fecha_Inicio_VM516, R.Fecha_Fin_VM516) + 1), 0) AS DiasOcupacion,
             ISNULL(SUM(R.Monto_Alquiler_Total_VM516), 0) AS RecaudacionSalas
         FROM Sala_VM516 S
         INNER JOIN Reserva_Sala_VM516 R ON S.Codigo_Sala_VM516 = R.Codigo_Sala_VM516
+        WHERE R.Estado_Espacio_VM516 = 'Retirado'
         GROUP BY S.Codigo_Sala_VM516, S.Nombre_Sala_VM516
         ORDER BY RecaudacionSalas DESC";
 
@@ -214,7 +217,7 @@ namespace DAL
             {
                 using (SqlDataAdapter adaptador = new SqlDataAdapter(consulta, conexion))
                 {
-                    adaptador.Fill(tabla); // Se llena desconectado, ideal para reportes
+                    adaptador.Fill(tabla);
                 }
             }
             return tabla;

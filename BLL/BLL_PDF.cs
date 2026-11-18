@@ -97,24 +97,19 @@ namespace BLL
                 4
             );
         }
-        public void GenerarReporteInteligenteCafeteria_VM516(DataTable dtDatos, string ruta)
+        public void GenerarReporteInteligenteCafeteriaPDF_VM516(DataTable dtDatos, List<string> clientesFrecuentes, string ruta)
         {
-            // Llama al diseñador PDF de QuestPDF
-            servicioPdf.GenerarReporteInteligenteCafeteriaPDF_VM516(dtDatos, ruta);
-
-            // Registra en bitácora
-            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora.RegistrarBitacora("Exportación PDF - Reporte Inteligente: Consumos de Cafetería", loginActual, "Negocio - Reportes", 4);
+            servicioPdf.GenerarReporteInteligenteCafeteriaPDF_VM516(dtDatos, clientesFrecuentes, ruta);
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().Login;
+            bllBitacora.RegistrarBitacora("Impresión/Exportación:- Reporte Cafetería", loginActual, "Administración", 4);
         }
 
-        public void GenerarReporteInteligenteSalas_VM516(DataTable dtDatos, string ruta)
+        public void GenerarReporteInteligenteSalas_VM516(DataTable dtDatos, List <string> artistaEstrella, string ruta)
         {
-            // Llama al diseñador PDF de QuestPDF
-            servicioPdf.GenerarReporteInteligenteSalas_VM516(dtDatos, ruta);
+            servicioPdf.GenerarReporteInteligenteSalas_VM516(dtDatos,artistaEstrella, ruta);
 
-            // Registra en bitácora
             string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.Login;
-            bllBitacora.RegistrarBitacora("Exportación PDF - Reporte Inteligente: Ocupación de Salas", loginActual, "Negocio - Reportes", 4);
+            bllBitacora.RegistrarBitacora("Impresión/Exportación Reporte Ocupación de Salas", loginActual, "Administración", 4);
         }
     }
 }

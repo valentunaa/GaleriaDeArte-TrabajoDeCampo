@@ -96,6 +96,8 @@ namespace IU
         private void FormatearGrilla()
         {
             if (dgvReporteInteligente_VM516.Columns.Count == 0) return;
+
+            // Columnas de Cafetería
             if (dgvReporteInteligente_VM516.Columns.Contains("Descripcion"))
                 dgvReporteInteligente_VM516.Columns["Descripcion"].HeaderText = TraducirTexto("col_Rep_Descripcion");
 
@@ -108,6 +110,7 @@ namespace IU
                 dgvReporteInteligente_VM516.Columns["RecaudacionTotal"].DefaultCellStyle.Format = "N2";
             }
 
+            // Columnas de Salas
             if (dgvReporteInteligente_VM516.Columns.Contains("CodigoSala"))
                 dgvReporteInteligente_VM516.Columns["CodigoSala"].HeaderText = TraducirTexto("col_Rep_CodigoSala");
 
@@ -117,6 +120,9 @@ namespace IU
             if (dgvReporteInteligente_VM516.Columns.Contains("CantidadReservas"))
                 dgvReporteInteligente_VM516.Columns["CantidadReservas"].HeaderText = TraducirTexto("col_Rep_EventosMuestras");
 
+            if (dgvReporteInteligente_VM516.Columns.Contains("DiasOcupacion"))
+                dgvReporteInteligente_VM516.Columns["DiasOcupacion"].HeaderText = TraducirTexto("col_Rep_DiasOcupacion");
+
             if (dgvReporteInteligente_VM516.Columns.Contains("RecaudacionSalas"))
             {
                 dgvReporteInteligente_VM516.Columns["RecaudacionSalas"].HeaderText = TraducirTexto("col_Rep_VolumenFinanciero");
@@ -124,7 +130,7 @@ namespace IU
             }
         }
 
-        
+
         private void btnExportarPdf_VM516_Click(object sender, EventArgs e)
         {
             try
@@ -145,8 +151,17 @@ namespace IU
                     if (saveDialog.ShowDialog() == DialogResult.OK)
                     {
                         DataTable dt = (DataTable)dgvReporteInteligente_VM516.DataSource;
-                        bllPdf_VM516.GenerarReporteInteligenteCafeteria_VM516(dt, saveDialog.FileName);
+
+                        List<string> clientesFrecuentes = bllPedido_VM516.ObtenerClientesFrecuentesCafeteria_VM516();
+
+                        // 2. Le pasamos al PDF el DataTable y la LISTA de clientes
+                        bllPdf_VM516.GenerarReporteInteligenteCafeteriaPDF_VM516(dt, clientesFrecuentes, saveDialog.FileName);
                         MessageBox.Show("Reporte ejecutivo de Cafetería generado y exportado con éxito.", "Exportación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        {
+                            FileName = saveDialog.FileName,
+                            UseShellExecute = true // Esto le dice a Windows que use el visor de PDF predeterminado
+                        });
                     }
                 }
                 // Exportación Opción B
@@ -156,8 +171,17 @@ namespace IU
                     if (saveDialog.ShowDialog() == DialogResult.OK)
                     {
                         DataTable dt = (DataTable)dgvReporteInteligente_VM516.DataSource;
-                        bllPdf_VM516.GenerarReporteInteligenteSalas_VM516(dt, saveDialog.FileName);
+                        // 1. Calculamos quién es el mejor artista
+                        List<string> mejoresArtistas = bllReserva_VM516.ObtenerTop3Artistas_VM516();
+
+                        // 2. Exportamos pasándole la LISTA como parámetro
+                        bllPdf_VM516.GenerarReporteInteligenteSalas_VM516(dt, mejoresArtistas, saveDialog.FileName);
                         MessageBox.Show("Reporte ejecutivo de Ocupación de Salas generado y exportado con éxito.", "Exportación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        {
+                            FileName = saveDialog.FileName,
+                            UseShellExecute = true // Esto le dice a Windows que use el visor de PDF predeterminado
+                        });
                     }
                 }
             }
@@ -167,7 +191,7 @@ namespace IU
             }
         }
 
-        
+
         private void CargarOpcionesComboBox()
         {
             int indexGuardado = cmbTipoReporte_VM516.SelectedIndex;
@@ -232,5 +256,8 @@ namespace IU
         {
             this.Close();
         }
+
+      
+        }
     }
-}
+

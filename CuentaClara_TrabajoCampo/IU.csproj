@@ -10,7 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Manual de Usuario Integral - Vanguardia Arte.pdf" />
     <None Remove="SetupData.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Manual de Usuario Integral - Vanguardia Arte.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -42,6 +42,7 @@
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
             toolTipCobro = new ToolTip(components);
+            button8 = new Button();
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvComprobantes_VM516).BeginInit();
@@ -52,6 +53,7 @@
             // 
             panelContenedor_VM516.Anchor = AnchorStyles.None;
             panelContenedor_VM516.BackColor = Color.White;
+            panelContenedor_VM516.Controls.Add(button8);
             panelContenedor_VM516.Controls.Add(picLogo_VM516);
             panelContenedor_VM516.Controls.Add(cmbMedioPago_VM516);
             panelContenedor_VM516.Controls.Add(lblTitulo_VM516);
@@ -275,6 +277,23 @@
             toolTipCobro.InitialDelay = 100;
             toolTipCobro.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1147, 691);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 27;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            // 
             // Form_Cobrar_Pedido_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -317,5 +336,6 @@
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private System.Windows.Forms.PictureBox picLogo_VM516;
         private ToolTip toolTipCobro;
+        private Button button8;
     }
 }

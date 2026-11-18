@@ -62,6 +62,7 @@
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
             toolTipPedido = new ToolTip(components);
+            button8 = new Button();
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panelCliente_VM516.SuspendLayout();
@@ -86,7 +87,7 @@
             panelContenedor_VM516.Controls.Add(dgvProductos_VM516);
             panelContenedor_VM516.Controls.Add(lblCarritoTitulo_VM516);
             panelContenedor_VM516.Controls.Add(dgvCarrito_VM516);
-            panelContenedor_VM516.Location = new Point(10, 12);
+            panelContenedor_VM516.Location = new Point(10, 33);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
             panelContenedor_VM516.Size = new Size(1451, 735);
             panelContenedor_VM516.TabIndex = 1;
@@ -448,7 +449,7 @@
             panelInferior_VM516.Controls.Add(lblUsuarioValor_VM516);
             panelInferior_VM516.Controls.Add(lblUsuarioActivo_VM516);
             panelInferior_VM516.Dock = DockStyle.Bottom;
-            panelInferior_VM516.Location = new Point(0, 750);
+            panelInferior_VM516.Location = new Point(0, 793);
             panelInferior_VM516.Name = "panelInferior_VM516";
             panelInferior_VM516.Size = new Size(1464, 38);
             panelInferior_VM516.TabIndex = 0;
@@ -482,12 +483,30 @@
             toolTipPedido.InitialDelay = 100;
             toolTipPedido.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1322, 755);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 28;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            // 
             // Form_Cafeteria_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(235, 238, 242);
-            ClientSize = new Size(1464, 788);
+            ClientSize = new Size(1464, 831);
+            Controls.Add(button8);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);
@@ -548,5 +567,6 @@
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private PictureBox picLogo;
         private ToolTip toolTipPedido;
+        private Button button8;
     }
 }

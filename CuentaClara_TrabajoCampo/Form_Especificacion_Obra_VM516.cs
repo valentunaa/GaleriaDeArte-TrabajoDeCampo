@@ -412,7 +412,6 @@ namespace IU
         {
             try
             {
-                // Se toma toda la información visualizada en la matriz (grilla)
                 List<BE_Especificacion_Obra_VM516> listaObras = (List<BE_Especificacion_Obra_VM516>)dgvEspecificaciones.DataSource;
 
                 if (listaObras == null || listaObras.Count == 0)
@@ -420,10 +419,25 @@ namespace IU
                     throw new Exception("No hay datos en la grilla para serializar.");
                 }
 
+                // Apunta directamente a la carpeta "ArchivosXML_Obras" que está en la estructura de tu app
+                string carpetaUI = Path.Combine(Application.StartupPath, "ArchivosXML_Obras");
+
+                // Si por alguna razón no está creada en el destino final, la creamos por seguridad
+                if (!Directory.Exists(carpetaUI))
+                {
+                    Directory.CreateDirectory(carpetaUI);
+                }
+
+                string fechaHoraActual = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                string nombreArchivoSugerido = $"Obras_{fechaHoraActual}.xml";
+
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Archivo XML (*.xml)|*.xml";
-                saveFileDialog.Title = "Guardar Archivo XML de Obras";
-                saveFileDialog.FileName = "Obras_VanguardiaArte.xml";
+                saveFileDialog.Title = TraducirTexto("titulo_GuardarXML");
+
+                // Forzamos a que abra por defecto en la carpeta de la UI
+                saveFileDialog.InitialDirectory = carpetaUI;
+                saveFileDialog.FileName = nombreArchivoSugerido;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -439,20 +453,28 @@ namespace IU
                 MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+          
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                // Apunta a la misma carpeta oficial de la estructura
+                string carpetaUI = Path.Combine(Application.StartupPath, "ArchivosXML_Obras");
+
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "Archivo XML (*.xml)|*.xml";
                 openFileDialog.Title = "Seleccionar Archivo XML";
+
+                if (Directory.Exists(carpetaUI))
+                {
+                    openFileDialog.InitialDirectory = carpetaUI;
+                }
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     List<BE_Especificacion_Obra_VM516> listaDeserializada = bllObra.DeserializarXML_VM516(openFileDialog.FileName);
 
-                    // Subir el archivo deserializado directamente a la matriz de datos de la pantalla
                     dgvEspecificaciones.DataSource = null;
                     dgvEspecificaciones.DataSource = listaDeserializada;
                     FormatearGrilla();

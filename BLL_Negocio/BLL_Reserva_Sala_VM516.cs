@@ -269,5 +269,40 @@ namespace BLL_Negocio
             // La BLL delega el acceso a datos a su DAL correspondiente
             return dalReserva_VM516.ObtenerReporteOcupacionSalas_VM516();
         }
+
+
+        public List<string> ObtenerTop3Artistas_VM516()
+        {
+            var reservas = dalReserva_VM516.ListarReservas_VM516();
+            if (reservas.Count == 0) return new List<string> { "Artista Destacado" };
+
+            var obras = bllObra_VM516.ListarEspecificaciones();
+
+            // Magia LINQ: Cruzamos Reservas con Obras, agrupamos por DNI, ordenamos y TOMAMOS LOS 3 PRIMEROS
+            var dnisTop = reservas
+                .Join(obras, r => r.Id_Obra_VM516, o => o.Id_Obra_VM516, (r, o) => new { r, o.DNI_Artista_VM516 })
+                .GroupBy(x => x.DNI_Artista_VM516)
+                .OrderByDescending(g => g.Count())
+                .Take(3)
+                .Select(g => g.Key)
+                .ToList();
+
+            List<string> nombresTop = new List<string>();
+            BLL_Artista_VM516 bllArtista = new BLL_Artista_VM516();
+
+            // Buscamos el nombre real de cada uno de esos 3 artistas
+            foreach (var dni in dnisTop)
+            {
+                var artistaObj = bllArtista.BuscarArtistaPorDNI_VM516(dni);
+                if (artistaObj != null)
+                {
+                    nombresTop.Add($"{artistaObj.Nombre_VM516} {artistaObj.Apellido_VM516}");
+                }
+            }
+
+            if (nombresTop.Count == 0) nombresTop.Add("Artista Destacado");
+
+            return nombresTop;
+        }
     }
 }

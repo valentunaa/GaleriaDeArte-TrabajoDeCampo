@@ -273,23 +273,36 @@ namespace CuentaClara_TrabajoCampo
 
         private void button8_Click(object sender, EventArgs e)//boton de ayuda
         {
-            string ruta = Path.Combine(Application.StartupPath, "Manual_de_Usuario_e_Instalacion.pdf");
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+                int numeroPagina = 3;
 
-            if (File.Exists(ruta))
-            {
-                Process.Start(new ProcessStartInfo
+                if (File.Exists(rutaBasePdf))
                 {
-                    FileName = ruta,
-                    UseShellExecute = true
-                });
+                    var psi = new System.Diagnostics.ProcessStartInfo();
+                    psi.FileName = rutaBasePdf;
+                    psi.Arguments = $"#page={numeroPagina}";
+                    psi.UseShellExecute = true;
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"),TraducirTexto("titulo_Atencion"),MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"),MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(
-                    TraducirTexto("err_ManualNoEncontrado"),
-                    TraducirTexto("Ayuda"),
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message,TraducirTexto("titulo_Error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

@@ -192,7 +192,6 @@ namespace DAL
         public DataTable ObtenerReporteCafeteria_VM516()
         {
             DataTable tabla = new DataTable();
-            // Cruza Pedidos, Detalles y Productos, filtrando los no pagados
             string consulta = @"
         SELECT 
             Prod.Descripcion_VM516 AS Descripcion,
@@ -201,7 +200,7 @@ namespace DAL
         FROM Pedido_VM516 Ped
         INNER JOIN LineaDetalle_VM516 LD ON Ped.NumeroPedido_VM516 = LD.NumeroPedido_VM516
         INNER JOIN Producto_VM516 Prod ON LD.CodigoProducto_VM516 = Prod.CodigoProducto_VM516
-        WHERE Ped.EstadoPedido_VM516 != 'Pendiente de Pago'
+        WHERE Ped.EstadoPedido_VM516 = 'Entregado'
         GROUP BY Prod.CodigoProducto_VM516, Prod.Descripcion_VM516
         ORDER BY CantidadTotal DESC";
 

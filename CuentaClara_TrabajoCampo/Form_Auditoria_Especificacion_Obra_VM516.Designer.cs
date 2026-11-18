@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
             lblCantRegistrosValor = new Label();
             lblCantRegistrosEtiqueta = new Label();
@@ -51,6 +51,7 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipAudit = new ToolTip(components);
+            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBitacoraObra).BeginInit();
             panelInferior.SuspendLayout();
@@ -61,6 +62,7 @@
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.AutoScroll = true;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(lblCantRegistrosValor);
             panelContenedor.Controls.Add(lblCantRegistrosEtiqueta);
             panelContenedor.Controls.Add(lblTitulo);
@@ -127,14 +129,14 @@
             dgvBitacoraObra.BorderStyle = BorderStyle.None;
             dgvBitacoraObra.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBitacoraObra.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvBitacoraObra.ColumnHeadersHeight = 45;
             dgvBitacoraObra.EnableHeadersVisualStyles = false;
             dgvBitacoraObra.GridColor = Color.FromArgb(220, 220, 220);
@@ -333,6 +335,24 @@
             toolTipAudit.InitialDelay = 100;
             toolTipAudit.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1082, 679);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 26;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
             // Form_Auditoria_Especificacion_Obra_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -379,5 +399,6 @@
         private System.Windows.Forms.Label lblCantRegistrosValor;
         private System.Windows.Forms.Label lblCantRegistrosEtiqueta;
         private ToolTip toolTipAudit;
+        private Button button8;
     }
 }

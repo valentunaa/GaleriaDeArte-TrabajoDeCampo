@@ -231,6 +231,11 @@ namespace IU
         {
             this.Close();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

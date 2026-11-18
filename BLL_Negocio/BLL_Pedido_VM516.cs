@@ -242,6 +242,38 @@ namespace BLL_Negocio
             // La BLL delega el acceso a datos a su DAL correspondiente
             return dalPedido_VM516.ObtenerReporteCafeteria_VM516();
         }
+
+        public List<string> ObtenerClientesFrecuentesCafeteria_VM516()
+        {
+            // Filtramos estrictamente por pedidos con estado 'Entregado' para consolidar la venta real
+            var pedidosValidos = dalPedido_VM516.ListarPedidos_VM516()
+                .Where(p => p.EstadoPedido_VM516.Equals("Entregado", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (pedidosValidos.Count == 0) return new List<string>();
+
+            // Magia LINQ: Agrupamos por DNI, FILTRAMOS los que tienen 10 o más, y sacamos los DNIs
+            var dnisFrecuentes = pedidosValidos
+                .GroupBy(p => p.Dni_Cliente_VM516)
+                .Where(g => g.Count() >= 10)
+                .Select(g => g.Key)
+                .ToList();
+
+            List<string> nombresFrecuentes = new List<string>();
+            BLL_Cliente_VM516 bllCliente = new BLL_Cliente_VM516();
+
+            // Buscamos el nombre real de cada uno
+            foreach (var dni in dnisFrecuentes)
+            {
+                var clienteObj = bllCliente.BuscarClientePorDNI_VM516(dni);
+                if (clienteObj != null)
+                {
+                    nombresFrecuentes.Add($"{clienteObj.Nombre_VM516} {clienteObj.Apellido_VM516}");
+                }
+            }
+
+            return nombresFrecuentes;
+        }
     }
 
 }

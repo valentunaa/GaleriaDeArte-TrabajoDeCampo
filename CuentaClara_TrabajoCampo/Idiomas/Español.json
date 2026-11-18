@@ -3437,6 +3437,26 @@
     {
       "Clave": "lbl_Usuario",
       "Texto": "Usuario activo: "
+    },
+    {
+      "Clave": "msg_ManualNoDisponible",
+      "Texto": "El archivo de manual de usuario no se encuentra disponible en el directorio."
+    },
+    {
+      "Clave": "titulo_Atencion",
+      "Texto": "Atención"
+    },
+    {
+      "Clave": "msg_ErrorAbrirAyuda",
+      "Texto": "No se pudo abrir la ayuda en este momento:"
+    },
+    {
+      "Clave": "titulo_Error",
+      "Texto": "Error"
+    },
+    {
+      "Clave": "msg_SinLectorPDF",
+      "Texto": "No se encontró ningún programa predeterminado para abrir archivos PDF en este equipo. Por favor, instale un lector de PDF o un navegador web."
     }
 
 

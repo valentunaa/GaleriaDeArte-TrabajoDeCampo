@@ -127,6 +127,8 @@ namespace BLL_Negocio
             bllBitacora_VM516.RegistrarBitacora(detalleEvento, loginActual, "Negocio - Sala", 3);
         }
 
+        
+
         public List<BE_Sala_VM516> ListarSalas()
         {
             return dalSala_VM516.ListarSalas_VM516();
