@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button8 = new Button();
             lblCantRegistrosValor = new Label();
             lblCantRegistrosEtiqueta = new Label();
             lblTitulo = new Label();
@@ -51,7 +52,6 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipAudit = new ToolTip(components);
-            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBitacoraObra).BeginInit();
             panelInferior.SuspendLayout();
@@ -79,10 +79,28 @@
             panelContenedor.Controls.Add(btnAplicar);
             panelContenedor.Controls.Add(btnActivar);
             panelContenedor.Controls.Add(btnSalir);
-            panelContenedor.Location = new Point(31, 29);
+            panelContenedor.Location = new Point(27, 27);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1265, 743);
+            panelContenedor.Size = new Size(1222, 690);
             panelContenedor.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1069, 626);
+            button8.Name = "button8";
+            button8.Size = new Size(121, 38);
+            button8.TabIndex = 26;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // lblCantRegistrosValor
             // 
@@ -129,14 +147,14 @@
             dgvBitacoraObra.BorderStyle = BorderStyle.None;
             dgvBitacoraObra.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBitacoraObra.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBitacoraObra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBitacoraObra.ColumnHeadersHeight = 45;
             dgvBitacoraObra.EnableHeadersVisualStyles = false;
             dgvBitacoraObra.GridColor = Color.FromArgb(220, 220, 220);
@@ -301,9 +319,9 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 765);
+            panelInferior.Location = new Point(0, 710);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1325, 38);
+            panelInferior.Size = new Size(1261, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -335,30 +353,12 @@
             toolTipAudit.InitialDelay = 100;
             toolTipAudit.ReshowDelay = 100;
             // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(46, 17, 39);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(235, 170, 200);
-            button8.Location = new Point(1082, 679);
-            button8.Name = "button8";
-            button8.Size = new Size(108, 32);
-            button8.TabIndex = 26;
-            button8.Tag = "btn_Ayuda";
-            button8.Text = "AYUDA";
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += button8_Click;
-            // 
             // Form_Auditoria_Especificacion_Obra_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1325, 803);
+            ClientSize = new Size(1261, 748);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);

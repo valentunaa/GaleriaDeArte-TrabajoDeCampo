@@ -24,11 +24,11 @@ namespace BLL
 
         public void HacerBackup(string carpetaDestino)
         {
-            string nombreArchivo = $"Backup_CuentaClara_{DateTime.Now:yyyyMMdd_HHmmss}.bak";
+            string nombreArchivo = $"Backup_VanguardiaArte_{DateTime.Now:yyyyMMdd_HHmmss}.bak";
             string rutaCompleta = System.IO.Path.Combine(carpetaDestino, nombreArchivo);
 
             dal.EjecutarBackup(rutaCompleta);
-            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().ToString();
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.ToString() ?? "Sistema";
 
             _bitacora.RegistrarBitacora("Backup exitoso", loginActual, "Administración", 4);
         }
@@ -42,7 +42,7 @@ namespace BLL
                 throw new Exception("err_ExtensionBackupInvalida");
 
             dal.EjecutarRestore(rutaArchivo);
-            string loginActual = SessionManager.GetInstancia().GetUsuarioActual().ToString();
+            string loginActual = SessionManager.GetInstancia().GetUsuarioActual()?.ToString() ?? "Sistema";
             _bitacora.RegistrarBitacora("Restauración de base de datos", loginActual, "Administración", 1);
         }
 

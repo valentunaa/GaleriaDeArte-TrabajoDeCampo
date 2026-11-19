@@ -39,6 +39,7 @@
             picLogo = new PictureBox();
             lblTitulo = new Label();
             toolTipRespaldo = new ToolTip(components);
+            button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
@@ -143,12 +144,31 @@
             lblTitulo.Tag = "lbl_GestionDeRespaldo";
             lblTitulo.Text = "Gestión de Respaldo";
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(338, 348);
+            button8.Name = "button8";
+            button8.Size = new Size(128, 44);
+            button8.TabIndex = 37;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
             // FormGestionRespaldo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(515, 373);
+            ClientSize = new Size(515, 404);
+            Controls.Add(button8);
             Controls.Add(lblTitulo);
             Controls.Add(picLogo);
             Controls.Add(btn_RecalcularDv);
@@ -180,5 +200,6 @@
         private PictureBox picLogo;
         private Label lblTitulo;
         private ToolTip toolTipRespaldo;
+        private Button button8;
     }
 }

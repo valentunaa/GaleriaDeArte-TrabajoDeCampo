@@ -41,6 +41,7 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipCambiarClave = new ToolTip(components);
+            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panelInferior.SuspendLayout();
@@ -49,6 +50,7 @@
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(lblClaveActual);
@@ -56,9 +58,9 @@
             panelContenedor.Controls.Add(lblNuevaClave);
             panelContenedor.Controls.Add(txtNuevaClave);
             panelContenedor.Controls.Add(btnGuardar);
-            panelContenedor.Location = new Point(40, 30);
+            panelContenedor.Location = new Point(12, 22);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(520, 320);
+            panelContenedor.Size = new Size(533, 320);
             panelContenedor.TabIndex = 0;
             // 
             // picLogo
@@ -136,7 +138,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(323, 252);
+            btnGuardar.Location = new Point(167, 252);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(140, 40);
             btnGuardar.TabIndex = 5;
@@ -153,7 +155,7 @@
             panelInferior.Dock = DockStyle.Bottom;
             panelInferior.Location = new Point(0, 348);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(638, 40);
+            panelInferior.Size = new Size(562, 40);
             panelInferior.TabIndex = 1;
             // 
             // lblUsuarioValor
@@ -186,12 +188,30 @@
             toolTipCambiarClave.InitialDelay = 100;
             toolTipCambiarClave.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(337, 252);
+            button8.Name = "button8";
+            button8.Size = new Size(127, 40);
+            button8.TabIndex = 37;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
             // FormCambiarClave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(638, 388);
+            ClientSize = new Size(562, 388);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -225,5 +245,6 @@
         private Label lblUsuarioValor;
         private PictureBox picLogo;
         private ToolTip toolTipCambiarClave;
+        private Button button8;
     }
 }

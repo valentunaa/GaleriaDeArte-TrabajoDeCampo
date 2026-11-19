@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button1 = new Button();
             picLogo = new PictureBox();
             comboBox1 = new ComboBox();
             btn_Modificar = new Button();
@@ -65,6 +66,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(comboBox1);
             panelContenedor.Controls.Add(btn_Modificar);
@@ -87,8 +89,26 @@
             panelContenedor.Controls.Add(btnSalir);
             panelContenedor.Location = new Point(12, 12);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1316, 745);
+            panelContenedor.Size = new Size(1301, 655);
             panelContenedor.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(46, 17, 39);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(235, 170, 200);
+            button1.Location = new Point(1161, 596);
+            button1.Name = "button1";
+            button1.Size = new Size(108, 32);
+            button1.TabIndex = 39;
+            button1.Tag = "btn_Ayuda";
+            button1.Text = "AYUDA";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // picLogo
             // 
@@ -168,7 +188,7 @@
             dgvSalas.RowHeadersWidth = 102;
             dgvSalas.RowTemplate.Height = 28;
             dgvSalas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSalas.Size = new Size(789, 568);
+            dgvSalas.Size = new Size(789, 433);
             dgvSalas.TabIndex = 21;
             dgvSalas.RowEnter += dgvSalas_RowEnter;
             // 
@@ -357,9 +377,9 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 750);
+            panelInferior.Location = new Point(0, 660);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1340, 38);
+            panelInferior.Size = new Size(1325, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -396,7 +416,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1340, 788);
+            ClientSize = new Size(1325, 698);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -441,5 +461,6 @@
         private ComboBox comboBox1;
         private PictureBox picLogo;
         private ToolTip toolTipSalas;
+        private Button button1;
     }
 }

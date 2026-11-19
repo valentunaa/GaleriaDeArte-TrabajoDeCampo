@@ -313,27 +313,7 @@ namespace BLL
             dalDigito.GuardarDVV(nuevoDVV);
         }
 
-        public void RecalcularDigitos()
-        {
-            string log = SessionManager.GetInstancia().GetUsuarioActual().Login;
-            RecalcularUsuarios(log);
-            RecalcularRoles(log);
-            RecalcularFamilias(log);
-            RecalcularIdiomas(log);
-            RecalcularPermisos(log);
-            RecalcularArtistas(log);
-            RecalcularObras(log);
-            RecalcularReservas(log);
-            RecalcularSalas(log);
-            RecalcularComprobantes(log);
-            RecalcularInspecciones(log);
-            RecalcularRetiros(log);
-            RecalcularClientes(log);
-            RecalcularProductos(log);
-            RecalcularPedidos(log);
-            RecalcularLineasDetalle(log);
-            RecalcularComprobantesCafeteria(log);
-        }
+       
 
         private void RecalcularUsuarios(string log)
         {
@@ -846,6 +826,39 @@ namespace BLL
             };
             dalDigito.GuardarDVV(maestro);
             bllBitacora.RegistrarBitacora("Recalculo de Dígitos Verificadores de Tickets de Cafetería", log, "Seguridad", 1);
+        }
+
+        public void RecalcularDigitos(string log = null)
+        {
+            string usuarioLog = log;
+
+            if (string.IsNullOrWhiteSpace(usuarioLog))
+            {
+                usuarioLog = SessionManager.GetInstancia()?.GetUsuarioActual()?.Login;
+            }
+
+            if (string.IsNullOrWhiteSpace(usuarioLog))
+            {
+                usuarioLog = "Sistema";
+            }
+
+            RecalcularUsuarios(usuarioLog);
+            RecalcularRoles(usuarioLog);
+            RecalcularFamilias(usuarioLog);
+            RecalcularIdiomas(usuarioLog);
+            RecalcularPermisos(usuarioLog);
+            RecalcularArtistas(usuarioLog);
+            RecalcularObras(usuarioLog);
+            RecalcularReservas(usuarioLog);
+            RecalcularSalas(usuarioLog);
+            RecalcularComprobantes(usuarioLog);
+            RecalcularInspecciones(usuarioLog);
+            RecalcularRetiros(usuarioLog);
+            RecalcularClientes(usuarioLog);
+            RecalcularProductos(usuarioLog);
+            RecalcularPedidos(usuarioLog);
+            RecalcularLineasDetalle(usuarioLog);
+            RecalcularComprobantesCafeteria(usuarioLog);
         }
     }
 }

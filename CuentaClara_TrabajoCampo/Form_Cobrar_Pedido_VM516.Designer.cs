@@ -26,6 +26,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
+            button8 = new Button();
             picLogo_VM516 = new PictureBox();
             cmbMedioPago_VM516 = new ComboBox();
             lblTitulo_VM516 = new Label();
@@ -42,7 +43,6 @@
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
             toolTipCobro = new ToolTip(components);
-            button8 = new Button();
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo_VM516).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvComprobantes_VM516).BeginInit();
@@ -66,10 +66,28 @@
             panelContenedor_VM516.Controls.Add(lblMedioPago_VM516);
             panelContenedor_VM516.Controls.Add(btnRegistrarCobro_VM516);
             panelContenedor_VM516.Controls.Add(btnSalir_VM516);
-            panelContenedor_VM516.Location = new Point(12, 12);
+            panelContenedor_VM516.Location = new Point(13, 12);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
-            panelContenedor_VM516.Size = new Size(1281, 745);
+            panelContenedor_VM516.Size = new Size(1281, 606);
             panelContenedor_VM516.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1147, 550);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 27;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // picLogo_VM516
             // 
@@ -89,7 +107,7 @@
             cmbMedioPago_VM516.Font = new Font("Segoe UI", 10F);
             cmbMedioPago_VM516.FormattingEnabled = true;
             cmbMedioPago_VM516.Items.AddRange(new object[] { "Tarjeta de Débito", "Tarjeta de Crédito" });
-            cmbMedioPago_VM516.Location = new Point(34, 329);
+            cmbMedioPago_VM516.Location = new Point(34, 332);
             cmbMedioPago_VM516.Name = "cmbMedioPago_VM516";
             cmbMedioPago_VM516.Size = new Size(380, 25);
             cmbMedioPago_VM516.TabIndex = 24;
@@ -127,7 +145,7 @@
             dgvComprobantes_VM516.ColumnHeadersHeight = 58;
             dgvComprobantes_VM516.EnableHeadersVisualStyles = false;
             dgvComprobantes_VM516.GridColor = Color.FromArgb(220, 220, 220);
-            dgvComprobantes_VM516.Location = new Point(480, 129);
+            dgvComprobantes_VM516.Location = new Point(480, 110);
             dgvComprobantes_VM516.MultiSelect = false;
             dgvComprobantes_VM516.Name = "dgvComprobantes_VM516";
             dgvComprobantes_VM516.ReadOnly = true;
@@ -135,7 +153,7 @@
             dgvComprobantes_VM516.RowHeadersWidth = 102;
             dgvComprobantes_VM516.RowTemplate.Height = 28;
             dgvComprobantes_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvComprobantes_VM516.Size = new Size(775, 421);
+            dgvComprobantes_VM516.Size = new Size(775, 391);
             dgvComprobantes_VM516.TabIndex = 21;
             // 
             // lblNumeroPedido_VM516
@@ -143,7 +161,7 @@
             lblNumeroPedido_VM516.AutoSize = true;
             lblNumeroPedido_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblNumeroPedido_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            lblNumeroPedido_VM516.Location = new Point(34, 129);
+            lblNumeroPedido_VM516.Location = new Point(34, 132);
             lblNumeroPedido_VM516.Name = "lblNumeroPedido_VM516";
             lblNumeroPedido_VM516.Size = new Size(137, 19);
             lblNumeroPedido_VM516.TabIndex = 2;
@@ -154,7 +172,7 @@
             // 
             txtNumeroPedido_VM516.BorderStyle = BorderStyle.FixedSingle;
             txtNumeroPedido_VM516.Font = new Font("Segoe UI", 10F);
-            txtNumeroPedido_VM516.Location = new Point(34, 154);
+            txtNumeroPedido_VM516.Location = new Point(34, 157);
             txtNumeroPedido_VM516.Name = "txtNumeroPedido_VM516";
             txtNumeroPedido_VM516.ReadOnly = true;
             txtNumeroPedido_VM516.Size = new Size(180, 25);
@@ -165,7 +183,7 @@
             lblEstadoPedido_VM516.AutoSize = true;
             lblEstadoPedido_VM516.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             lblEstadoPedido_VM516.ForeColor = Color.FromArgb(15, 45, 75);
-            lblEstadoPedido_VM516.Location = new Point(34, 194);
+            lblEstadoPedido_VM516.Location = new Point(34, 197);
             lblEstadoPedido_VM516.Name = "lblEstadoPedido_VM516";
             lblEstadoPedido_VM516.Size = new Size(243, 17);
             lblEstadoPedido_VM516.TabIndex = 5;
@@ -177,7 +195,7 @@
             lblMontoAbonado_VM516.AutoSize = true;
             lblMontoAbonado_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblMontoAbonado_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            lblMontoAbonado_VM516.Location = new Point(34, 228);
+            lblMontoAbonado_VM516.Location = new Point(34, 231);
             lblMontoAbonado_VM516.Name = "lblMontoAbonado_VM516";
             lblMontoAbonado_VM516.Size = new Size(116, 19);
             lblMontoAbonado_VM516.TabIndex = 6;
@@ -188,7 +206,7 @@
             // 
             txtMontoAbonado_VM516.BorderStyle = BorderStyle.FixedSingle;
             txtMontoAbonado_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            txtMontoAbonado_VM516.Location = new Point(34, 253);
+            txtMontoAbonado_VM516.Location = new Point(34, 256);
             txtMontoAbonado_VM516.Name = "txtMontoAbonado_VM516";
             txtMontoAbonado_VM516.ReadOnly = true;
             txtMontoAbonado_VM516.Size = new Size(180, 25);
@@ -199,7 +217,7 @@
             lblMedioPago_VM516.AutoSize = true;
             lblMedioPago_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblMedioPago_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            lblMedioPago_VM516.Location = new Point(34, 298);
+            lblMedioPago_VM516.Location = new Point(34, 301);
             lblMedioPago_VM516.Name = "lblMedioPago_VM516";
             lblMedioPago_VM516.Size = new Size(112, 19);
             lblMedioPago_VM516.TabIndex = 8;
@@ -213,7 +231,7 @@
             btnRegistrarCobro_VM516.FlatStyle = FlatStyle.Flat;
             btnRegistrarCobro_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnRegistrarCobro_VM516.ForeColor = Color.White;
-            btnRegistrarCobro_VM516.Location = new Point(34, 383);
+            btnRegistrarCobro_VM516.Location = new Point(34, 386);
             btnRegistrarCobro_VM516.Name = "btnRegistrarCobro_VM516";
             btnRegistrarCobro_VM516.Size = new Size(380, 40);
             btnRegistrarCobro_VM516.TabIndex = 24;
@@ -228,7 +246,7 @@
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir_VM516.Location = new Point(31, 441);
+            btnSalir_VM516.Location = new Point(31, 444);
             btnSalir_VM516.Name = "btnSalir_VM516";
             btnSalir_VM516.Size = new Size(383, 38);
             btnSalir_VM516.TabIndex = 23;
@@ -243,9 +261,9 @@
             panelInferior_VM516.Controls.Add(lblUsuarioValor_VM516);
             panelInferior_VM516.Controls.Add(lblUsuarioActivo_VM516);
             panelInferior_VM516.Dock = DockStyle.Bottom;
-            panelInferior_VM516.Location = new Point(0, 750);
+            panelInferior_VM516.Location = new Point(0, 611);
             panelInferior_VM516.Name = "panelInferior_VM516";
-            panelInferior_VM516.Size = new Size(1313, 38);
+            panelInferior_VM516.Size = new Size(1306, 38);
             panelInferior_VM516.TabIndex = 0;
             // 
             // lblUsuarioValor_VM516
@@ -277,29 +295,12 @@
             toolTipCobro.InitialDelay = 100;
             toolTipCobro.ReshowDelay = 100;
             // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(46, 17, 39);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(235, 170, 200);
-            button8.Location = new Point(1147, 691);
-            button8.Name = "button8";
-            button8.Size = new Size(108, 32);
-            button8.TabIndex = 27;
-            button8.Tag = "btn_Ayuda";
-            button8.Text = "AYUDA";
-            button8.UseVisualStyleBackColor = false;
-            // 
             // Form_Cobrar_Pedido_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1313, 788);
+            ClientSize = new Size(1306, 649);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);

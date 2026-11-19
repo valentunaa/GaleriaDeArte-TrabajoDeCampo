@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button8 = new Button();
             picLogo = new PictureBox();
             lblTitulo = new Label();
             dgvRetiros = new DataGridView();
@@ -56,6 +57,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(dgvRetiros);
@@ -67,10 +69,28 @@
             panelContenedor.Controls.Add(txtDniResponsable);
             panelContenedor.Controls.Add(btnRegistrarDesmontaje);
             panelContenedor.Controls.Add(btnSalir);
-            panelContenedor.Location = new Point(12, 12);
+            panelContenedor.Location = new Point(20, 12);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1316, 745);
+            panelContenedor.Size = new Size(1193, 653);
             panelContenedor.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1060, 586);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 37;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // picLogo
             // 
@@ -117,7 +137,7 @@
             dgvRetiros.ColumnHeadersHeight = 58;
             dgvRetiros.EnableHeadersVisualStyles = false;
             dgvRetiros.GridColor = Color.FromArgb(220, 220, 220);
-            dgvRetiros.Location = new Point(480, 129);
+            dgvRetiros.Location = new Point(431, 129);
             dgvRetiros.MultiSelect = false;
             dgvRetiros.Name = "dgvRetiros";
             dgvRetiros.ReadOnly = true;
@@ -125,7 +145,7 @@
             dgvRetiros.RowHeadersWidth = 102;
             dgvRetiros.RowTemplate.Height = 28;
             dgvRetiros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRetiros.Size = new Size(789, 531);
+            dgvRetiros.Size = new Size(737, 437);
             dgvRetiros.TabIndex = 21;
             // 
             // lblCodigoReserva
@@ -220,7 +240,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir.Location = new Point(1129, 21);
+            btnSalir.Location = new Point(1028, 20);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 23;
@@ -235,9 +255,9 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 750);
+            panelInferior.Location = new Point(0, 651);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1340, 38);
+            panelInferior.Size = new Size(1225, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -274,7 +294,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1340, 788);
+            ClientSize = new Size(1225, 689);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -310,5 +330,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private System.Windows.Forms.PictureBox picLogo;
         private ToolTip toolTipRetiroObra;
+        private Button button8;
     }
 }

@@ -24,7 +24,7 @@ namespace DAL
         {
             using (SqlConnection conn = new SqlConnection(connBD))
             {
-                string sql = "BACKUP DATABASE [BD_CuentaClara] TO DISK = @path";
+                string sql = "BACKUP DATABASE [BD_VanguardiaArte] TO DISK = @path";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@path", rutaCompleta);
@@ -52,8 +52,8 @@ namespace DAL
                     string logicalData = archivos.Rows[0]["LogicalName"].ToString();
                     string logicalLog = archivos.Rows[1]["LogicalName"].ToString();
                     string rutaDatos = ObtenerRutaDatosSQL(conn);
-                    string archivoMDF = Path.Combine(rutaDatos, "BD_CuentaClara.mdf");
-                    string archivoLDF = Path.Combine(rutaDatos, "BD_CuentaClara_log.ldf");
+                    string archivoMDF = Path.Combine(rutaDatos, "BD_VanguardiaArte.mdf");
+                    string archivoLDF = Path.Combine(rutaDatos, "BD_VanguardiaArte_log.ldf");
 
                     string sqlRestore = ConstruirRestoreSQL(
                         rutaCompleta,
@@ -78,7 +78,7 @@ namespace DAL
                         conn.Open();
 
                         SqlCommand cmd = new SqlCommand(
-                            "ALTER DATABASE [BD_CuentaClara] SET MULTI_USER",
+                            "ALTER DATABASE [BD_VanguardiaArte] SET MULTI_USER",
                             conn);
 
                         cmd.ExecuteNonQuery();
@@ -131,17 +131,17 @@ namespace DAL
         private string ConstruirRestoreSQL( string rutaBackup,string logicalData,string logicalLog, string archivoMDF,string archivoLDF)
         {
             return $@"
-                ALTER DATABASE [BD_CuentaClara]
+                ALTER DATABASE [BD_VanguardiaArte]
                 SET SINGLE_USER
                 WITH ROLLBACK IMMEDIATE;
 
-                RESTORE DATABASE [BD_CuentaClara]
+                RESTORE DATABASE [BD_VanguardiaArte]
                 FROM DISK = '{rutaBackup}'
                 WITH REPLACE,
                 MOVE '{logicalData}' TO '{archivoMDF}',
                 MOVE '{logicalLog}' TO '{archivoLDF}';
 
-                ALTER DATABASE [BD_CuentaClara]
+                ALTER DATABASE [BD_VanguardiaArte]
                 SET MULTI_USER;";
         }
     }

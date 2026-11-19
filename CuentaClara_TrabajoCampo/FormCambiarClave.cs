@@ -47,7 +47,7 @@ namespace CuentaClara_TrabajoCampo
             {
                 if (string.IsNullOrWhiteSpace(txtClaveActual.Text) || string.IsNullOrWhiteSpace(txtNuevaClave.Text))
                 {
-                    MessageBox.Show(TraducirTexto("msg_CamposObligatorios"),TraducirTexto("msg_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(TraducirTexto("msg_CamposObligatorios"), TraducirTexto("msg_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 string ClaveVieja = txtClaveActual.Text;
@@ -56,12 +56,12 @@ namespace CuentaClara_TrabajoCampo
 
                 if (resultado)
                 {
-                    MessageBox.Show(TraducirTexto("msg_ClaveModificadaCorrectamente"),TraducirTexto("msg_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(TraducirTexto("msg_ClaveModificadaCorrectamente"), TraducirTexto("msg_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show(TraducirTexto("msg_ErrorCambioClave"),TraducirTexto("msg_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(TraducirTexto("msg_ErrorCambioClave"), TraducirTexto("msg_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -76,7 +76,7 @@ namespace CuentaClara_TrabajoCampo
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
 
-            
+
         }
 
         private string TraducirExcepcion(Exception ex)
@@ -156,6 +156,41 @@ namespace CuentaClara_TrabajoCampo
 
                 if (c.HasChildren)
                     TraducirControles(c.Controls, idioma);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+                int numeroPagina = 29;
+
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo();
+                    psi.FileName = rutaBasePdf;
+                    psi.Arguments = $"#page={numeroPagina}";
+                    psi.UseShellExecute = true;
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

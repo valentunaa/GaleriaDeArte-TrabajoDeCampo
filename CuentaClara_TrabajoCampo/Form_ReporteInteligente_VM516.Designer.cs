@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
             picLogo = new PictureBox();
             lblTitulo_VM516 = new Label();
@@ -45,6 +45,7 @@
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
             toolTipReporte = new ToolTip(components);
+            button1 = new Button();
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panelFiltros_VM516.SuspendLayout();
@@ -56,12 +57,13 @@
             // 
             panelContenedor_VM516.Anchor = AnchorStyles.None;
             panelContenedor_VM516.BackColor = Color.FromArgb(245, 246, 248);
+            panelContenedor_VM516.Controls.Add(button1);
             panelContenedor_VM516.Controls.Add(picLogo);
             panelContenedor_VM516.Controls.Add(lblTitulo_VM516);
             panelContenedor_VM516.Controls.Add(btnSalir_VM516);
             panelContenedor_VM516.Controls.Add(panelFiltros_VM516);
             panelContenedor_VM516.Controls.Add(dgvReporteInteligente_VM516);
-            panelContenedor_VM516.Location = new Point(10, 12);
+            panelContenedor_VM516.Location = new Point(-10, 12);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
             panelContenedor_VM516.Size = new Size(1451, 735);
             panelContenedor_VM516.TabIndex = 1;
@@ -97,7 +99,7 @@
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir_VM516.Location = new Point(1280, 36);
+            btnSalir_VM516.Location = new Point(1250, 36);
             btnSalir_VM516.Name = "btnSalir_VM516";
             btnSalir_VM516.Size = new Size(140, 40);
             btnSalir_VM516.TabIndex = 2;
@@ -114,9 +116,9 @@
             panelFiltros_VM516.Controls.Add(lblSeleccionarReporte_VM516);
             panelFiltros_VM516.Controls.Add(cmbTipoReporte_VM516);
             panelFiltros_VM516.Controls.Add(btnExportarPdf_VM516);
-            panelFiltros_VM516.Location = new Point(34, 110);
+            panelFiltros_VM516.Location = new Point(34, 91);
             panelFiltros_VM516.Name = "panelFiltros_VM516";
-            panelFiltros_VM516.Size = new Size(1386, 110);
+            panelFiltros_VM516.Size = new Size(1356, 94);
             panelFiltros_VM516.TabIndex = 2;
             // 
             // panelAcento1_VM516
@@ -125,7 +127,7 @@
             panelAcento1_VM516.Dock = DockStyle.Top;
             panelAcento1_VM516.Location = new Point(0, 0);
             panelAcento1_VM516.Name = "panelAcento1_VM516";
-            panelAcento1_VM516.Size = new Size(1386, 4);
+            panelAcento1_VM516.Size = new Size(1356, 4);
             panelAcento1_VM516.TabIndex = 0;
             // 
             // lblSeleccionarReporte_VM516
@@ -179,34 +181,35 @@
             dgvReporteInteligente_VM516.BorderStyle = BorderStyle.None;
             dgvReporteInteligente_VM516.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvReporteInteligente_VM516.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(46, 17, 39);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dgvReporteInteligente_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(46, 17, 39);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dgvReporteInteligente_VM516.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvReporteInteligente_VM516.ColumnHeadersHeight = 45;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(235, 240, 245);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvReporteInteligente_VM516.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(235, 240, 245);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvReporteInteligente_VM516.DefaultCellStyle = dataGridViewCellStyle4;
             dgvReporteInteligente_VM516.EnableHeadersVisualStyles = false;
             dgvReporteInteligente_VM516.GridColor = Color.FromArgb(230, 230, 230);
-            dgvReporteInteligente_VM516.Location = new Point(34, 245);
+            dgvReporteInteligente_VM516.Location = new Point(34, 201);
             dgvReporteInteligente_VM516.MultiSelect = false;
             dgvReporteInteligente_VM516.Name = "dgvReporteInteligente_VM516";
             dgvReporteInteligente_VM516.ReadOnly = true;
             dgvReporteInteligente_VM516.RowHeadersVisible = false;
             dgvReporteInteligente_VM516.RowTemplate.Height = 35;
             dgvReporteInteligente_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReporteInteligente_VM516.Size = new Size(1386, 455);
+            dgvReporteInteligente_VM516.Size = new Size(1356, 256);
             dgvReporteInteligente_VM516.TabIndex = 6;
             toolTipReporte.SetToolTip(dgvReporteInteligente_VM516, "Listado consolidado de indicadores extraídos de las tablas integradas de la BD");
+            dgvReporteInteligente_VM516.CellContentClick += dgvReporteInteligente_VM516_CellContentClick;
             // 
             // panelInferior_VM516
             // 
@@ -214,9 +217,9 @@
             panelInferior_VM516.Controls.Add(lblUsuarioValor_VM516);
             panelInferior_VM516.Controls.Add(lblUsuarioActivo_VM516);
             panelInferior_VM516.Dock = DockStyle.Bottom;
-            panelInferior_VM516.Location = new Point(0, 750);
+            panelInferior_VM516.Location = new Point(0, 547);
             panelInferior_VM516.Name = "panelInferior_VM516";
-            panelInferior_VM516.Size = new Size(1464, 38);
+            panelInferior_VM516.Size = new Size(1425, 38);
             panelInferior_VM516.TabIndex = 0;
             // 
             // lblUsuarioValor_VM516
@@ -248,12 +251,30 @@
             toolTipReporte.InitialDelay = 100;
             toolTipReporte.ReshowDelay = 100;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(46, 17, 39);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(235, 170, 200);
+            button1.Location = new Point(1282, 483);
+            button1.Name = "button1";
+            button1.Size = new Size(108, 32);
+            button1.TabIndex = 40;
+            button1.Tag = "btn_Ayuda";
+            button1.Text = "AYUDA";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // Form_ReporteInteligente_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(235, 238, 242);
-            ClientSize = new Size(1464, 788);
+            ClientSize = new Size(1425, 585);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);
@@ -288,5 +309,6 @@
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.ToolTip toolTipReporte;
+        private Button button1;
     }
 }

@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button8 = new Button();
             picLogo = new PictureBox();
             button1 = new Button();
             lblTitulo = new Label();
@@ -62,6 +63,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(lblTitulo);
@@ -83,6 +85,24 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(1557, 745);
             panelContenedor.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1435, 681);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 36;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // picLogo
             // 
@@ -153,7 +173,7 @@
             dgvSalas.RowHeadersWidth = 102;
             dgvSalas.RowTemplate.Height = 28;
             dgvSalas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSalas.Size = new Size(1063, 561);
+            dgvSalas.Size = new Size(1063, 486);
             dgvSalas.TabIndex = 21;
             // 
             // lblIdObra
@@ -395,5 +415,6 @@
         private Button button1;
         private PictureBox picLogo;
         private ToolTip toolTipReserva;
+        private Button button8;
     }
 }

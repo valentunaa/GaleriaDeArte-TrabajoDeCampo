@@ -143,7 +143,7 @@ namespace IU
         private void BloquearAccionesPago(bool habilitar)
         {
             cmbMedioPago.Enabled = habilitar;
-           
+
             btnRegistrarCobro.Enabled = habilitar;
         }
 
@@ -153,7 +153,7 @@ namespace IU
             {
                 string codigo = txtCodigoReserva.Text.Trim();
 
-               
+
                 reservaVerificada = bllReserva_VM516.BuscarReservaParaCobranza_VM516(codigo);
 
                 if (reservaVerificada.Estado_Pago_VM516 == "Pendiente_Sena")
@@ -182,7 +182,7 @@ namespace IU
             }
         }
 
-        
+
 
         private void btnRegistrarCobro_Click(object sender, EventArgs e)
         {
@@ -193,7 +193,7 @@ namespace IU
 
                 if (cmbMedioPago.SelectedItem == null)
                     throw new Exception("err_SeleccioneMedioPago");
-  
+
                 bool transaccionAprobadaPorBanco = true;
 
                 if (!transaccionAprobadaPorBanco)
@@ -204,7 +204,7 @@ namespace IU
                 decimal montoAbonado = decimal.Parse(txtMontoAbonado.Text);
                 string medioPago = cmbMedioPago.SelectedItem.ToString();
                 bool esPagoFinal = (reservaVerificada.Estado_Pago_VM516 == "Sena_Abonada");
- 
+
                 BE_Comprobante_Pago_VM516 comprobante = bllComprobante_VM516.ProcesarYRegistrarCobro_VM516(reservaVerificada, medioPago, montoAbonado);
 
                 MessageBox.Show(TraducirTexto("msg_CobroRegistradoExito"), TraducirTexto("titulo_Exito"), MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -222,7 +222,7 @@ namespace IU
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                   
+
                     BLL_PDF bllPdf = new BLL_PDF();
 
                     bllPdf.GenerarComprobante_VM516(
@@ -256,6 +256,46 @@ namespace IU
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

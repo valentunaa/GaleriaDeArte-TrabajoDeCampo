@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button1 = new Button();
             picLogo = new PictureBox();
             dgvInspecciones = new DataGridView();
             btnConfirmarPeritaje = new Button();
@@ -58,6 +59,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(dgvInspecciones);
             panelContenedor.Controls.Add(btnConfirmarPeritaje);
@@ -71,10 +73,28 @@
             panelContenedor.Controls.Add(lblCodigoReserva);
             panelContenedor.Controls.Add(btnSalir);
             panelContenedor.Controls.Add(lblTitulo);
-            panelContenedor.Location = new Point(12, 24);
+            panelContenedor.Location = new Point(12, 10);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1316, 776);
+            panelContenedor.Size = new Size(1316, 676);
             panelContenedor.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(46, 17, 39);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(235, 170, 200);
+            button1.Location = new Point(1164, 619);
+            button1.Name = "button1";
+            button1.Size = new Size(108, 32);
+            button1.TabIndex = 38;
+            button1.Tag = "btn_Ayuda";
+            button1.Text = "AYUDA";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // picLogo
             // 
@@ -110,14 +130,14 @@
             dgvInspecciones.ColumnHeadersHeight = 45;
             dgvInspecciones.EnableHeadersVisualStyles = false;
             dgvInspecciones.GridColor = Color.FromArgb(220, 220, 220);
-            dgvInspecciones.Location = new Point(37, 411);
+            dgvInspecciones.Location = new Point(37, 387);
             dgvInspecciones.MultiSelect = false;
             dgvInspecciones.Name = "dgvInspecciones";
             dgvInspecciones.ReadOnly = true;
             dgvInspecciones.RowHeadersVisible = false;
             dgvInspecciones.RowTemplate.Height = 28;
             dgvInspecciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvInspecciones.Size = new Size(1235, 319);
+            dgvInspecciones.Size = new Size(1235, 200);
             dgvInspecciones.TabIndex = 11;
             // 
             // btnConfirmarPeritaje
@@ -128,7 +148,7 @@
             btnConfirmarPeritaje.FlatStyle = FlatStyle.Flat;
             btnConfirmarPeritaje.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnConfirmarPeritaje.ForeColor = Color.White;
-            btnConfirmarPeritaje.Location = new Point(1082, 349);
+            btnConfirmarPeritaje.Location = new Point(1082, 325);
             btnConfirmarPeritaje.Name = "btnConfirmarPeritaje";
             btnConfirmarPeritaje.Size = new Size(190, 40);
             btnConfirmarPeritaje.TabIndex = 10;
@@ -145,7 +165,7 @@
             txtObservaciones.Location = new Point(273, 249);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.Size = new Size(999, 85);
+            txtObservaciones.Size = new Size(999, 55);
             txtObservaciones.TabIndex = 9;
             // 
             // lblObservaciones
@@ -265,7 +285,7 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 775);
+            panelInferior.Location = new Point(0, 679);
             panelInferior.Name = "panelInferior";
             panelInferior.Size = new Size(1340, 38);
             panelInferior.TabIndex = 0;
@@ -304,7 +324,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1340, 813);
+            ClientSize = new Size(1340, 717);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -344,5 +364,6 @@
         private System.Windows.Forms.Label lblUsuarioValor;
         private PictureBox picLogo;
         private ToolTip toolTipInspeccion;
+        private Button button1;
     }
 }

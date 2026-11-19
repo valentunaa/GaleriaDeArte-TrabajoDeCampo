@@ -3447,6 +3447,14 @@
     {
       "Clave": "lbl_Usuario",
       "Texto": "Active user: "
+    },
+    {
+      "Clace": "btn_Reportes",
+      "Texto": "REPORTS"
+    },
+    {
+      "Clave": "lbl_GestionUsuario",
+      "Texto": "Vanguardia Arte - User Management"
     }
 
 

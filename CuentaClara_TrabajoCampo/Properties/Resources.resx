@@ -124,6 +124,9 @@
   <data name="galerias-de-arte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\galerias-de-arte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconoLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImagenLogo.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="imagenGaleria" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mick-haupt-VbI0LMaGMlg-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

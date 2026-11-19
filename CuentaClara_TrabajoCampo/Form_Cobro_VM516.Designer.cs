@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button1 = new Button();
+            button8 = new Button();
             picLogo = new PictureBox();
             cmbMedioPago = new ComboBox();
             lblTitulo = new Label();
@@ -48,7 +50,6 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipCobroReserva = new ToolTip(components);
-            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvComprobantes).BeginInit();
@@ -59,6 +60,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button1);
             panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(picLogo);
             panelContenedor.Controls.Add(cmbMedioPago);
@@ -75,8 +77,44 @@
             panelContenedor.Controls.Add(btnSalir);
             panelContenedor.Location = new Point(20, 12);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1566, 745);
+            panelContenedor.Size = new Size(1286, 623);
             panelContenedor.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(46, 17, 39);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(235, 170, 200);
+            button1.Location = new Point(1142, 573);
+            button1.Name = "button1";
+            button1.Size = new Size(108, 32);
+            button1.TabIndex = 37;
+            button1.Tag = "btn_Ayuda";
+            button1.Text = "AYUDA";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1427, 687);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 27;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // picLogo
             // 
@@ -132,7 +170,7 @@
             dgvComprobantes.ColumnHeadersHeight = 58;
             dgvComprobantes.EnableHeadersVisualStyles = false;
             dgvComprobantes.GridColor = Color.FromArgb(220, 220, 220);
-            dgvComprobantes.Location = new Point(480, 129);
+            dgvComprobantes.Location = new Point(461, 129);
             dgvComprobantes.MultiSelect = false;
             dgvComprobantes.Name = "dgvComprobantes";
             dgvComprobantes.ReadOnly = true;
@@ -140,7 +178,7 @@
             dgvComprobantes.RowHeadersWidth = 102;
             dgvComprobantes.RowTemplate.Height = 28;
             dgvComprobantes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvComprobantes.Size = new Size(1055, 531);
+            dgvComprobantes.Size = new Size(789, 419);
             dgvComprobantes.TabIndex = 21;
             // 
             // lblCodigoReserva
@@ -248,7 +286,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir.Location = new Point(1395, 20);
+            btnSalir.Location = new Point(1110, 32);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 38);
             btnSalir.TabIndex = 23;
@@ -263,9 +301,9 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 750);
+            panelInferior.Location = new Point(0, 636);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1598, 38);
+            panelInferior.Size = new Size(1318, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -297,29 +335,12 @@
             toolTipCobroReserva.InitialDelay = 100;
             toolTipCobroReserva.ReshowDelay = 100;
             // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(46, 17, 39);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(235, 170, 200);
-            button8.Location = new Point(1427, 691);
-            button8.Name = "button8";
-            button8.Size = new Size(108, 32);
-            button8.TabIndex = 27;
-            button8.Tag = "btn_Ayuda";
-            button8.Text = "AYUDA";
-            button8.UseVisualStyleBackColor = false;
-            // 
             // Form_Cobro_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1598, 788);
+            ClientSize = new Size(1318, 674);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
@@ -358,5 +379,6 @@
         private System.Windows.Forms.PictureBox picLogo;
         private ToolTip toolTipCobroReserva;
         private Button button8;
+        private Button button1;
     }
 }

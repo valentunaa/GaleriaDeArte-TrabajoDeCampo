@@ -48,7 +48,7 @@
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnBuscar.ForeColor = Color.FromArgb(46, 17, 39);
-            btnBuscar.Location = new Point(135, 275);
+            btnBuscar.Location = new Point(133, 259);
             btnBuscar.Margin = new Padding(0);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(150, 45);
@@ -78,7 +78,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(295, 275);
+            btnGuardar.Location = new Point(295, 259);
             btnGuardar.Margin = new Padding(0);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(150, 45);
@@ -141,7 +141,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(480, 350);
+            ClientSize = new Size(480, 331);
             Controls.Add(label2);
             Controls.Add(picLogo);
             Controls.Add(lblNombre);

@@ -48,6 +48,7 @@
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            button8 = new Button();
             treeViewVistaPrevia = new TreeView();
             cmbFamilia = new ComboBox();
             label4 = new Label();
@@ -71,7 +72,7 @@
             treeView1.Location = new Point(579, 197);
             treeView1.Margin = new Padding(0);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(408, 483);
+            treeView1.Size = new Size(408, 370);
             treeView1.TabIndex = 34;
             treeView1.AfterSelect += treeView1_AfterSelect;
             // 
@@ -123,10 +124,10 @@
             listBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(43, 709);
+            listBox1.Location = new Point(43, 596);
             listBox1.Margin = new Padding(0);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1443, 64);
+            listBox1.Size = new Size(1381, 64);
             listBox1.TabIndex = 31;
             // 
             // btnModificar
@@ -135,10 +136,10 @@
             btnModificar.FlatStyle = FlatStyle.Flat;
             btnModificar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnModificar.ForeColor = Color.White;
-            btnModificar.Location = new Point(827, 101);
+            btnModificar.Location = new Point(801, 103);
             btnModificar.Margin = new Padding(0);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(131, 43);
+            btnModificar.Size = new Size(127, 43);
             btnModificar.TabIndex = 30;
             btnModificar.Tag = "btn_Modificar";
             btnModificar.Text = "Modificar";
@@ -151,10 +152,10 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(1008, 101);
+            btnEliminar.Location = new Point(962, 103);
             btnEliminar.Margin = new Padding(0);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(128, 43);
+            btnEliminar.Size = new Size(124, 43);
             btnEliminar.TabIndex = 29;
             btnEliminar.Tag = "btn_Eliminar";
             btnEliminar.Text = "Eliminar ";
@@ -203,10 +204,10 @@
             btnAsignarPermiso.FlatStyle = FlatStyle.Flat;
             btnAsignarPermiso.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAsignarPermiso.ForeColor = Color.White;
-            btnAsignarPermiso.Location = new Point(1190, 37);
+            btnAsignarPermiso.Location = new Point(1129, 38);
             btnAsignarPermiso.Margin = new Padding(0);
             btnAsignarPermiso.Name = "btnAsignarPermiso";
-            btnAsignarPermiso.Size = new Size(138, 44);
+            btnAsignarPermiso.Size = new Size(134, 44);
             btnAsignarPermiso.TabIndex = 25;
             btnAsignarPermiso.Tag = "btn_AsignarPermiso";
             btnAsignarPermiso.Text = "Asignar Permiso";
@@ -219,10 +220,10 @@
             btnAsignarFamilia.FlatStyle = FlatStyle.Flat;
             btnAsignarFamilia.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAsignarFamilia.ForeColor = Color.White;
-            btnAsignarFamilia.Location = new Point(1008, 37);
+            btnAsignarFamilia.Location = new Point(962, 38);
             btnAsignarFamilia.Margin = new Padding(0);
             btnAsignarFamilia.Name = "btnAsignarFamilia";
-            btnAsignarFamilia.Size = new Size(128, 44);
+            btnAsignarFamilia.Size = new Size(124, 44);
             btnAsignarFamilia.TabIndex = 26;
             btnAsignarFamilia.Tag = "btn_AsignarFamilia";
             btnAsignarFamilia.Text = "Asignar Familia";
@@ -235,10 +236,10 @@
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnCrear.ForeColor = Color.FromArgb(46, 17, 39);
-            btnCrear.Location = new Point(827, 37);
+            btnCrear.Location = new Point(801, 39);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(131, 43);
+            btnCrear.Size = new Size(127, 43);
             btnCrear.TabIndex = 27;
             btnCrear.Tag = "btn_Crear";
             btnCrear.Text = "Crear";
@@ -252,7 +253,7 @@
             btnAplicar.FlatStyle = FlatStyle.Flat;
             btnAplicar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAplicar.ForeColor = Color.FromArgb(46, 17, 39);
-            btnAplicar.Location = new Point(45, 805);
+            btnAplicar.Location = new Point(45, 692);
             btnAplicar.Margin = new Padding(0);
             btnAplicar.Name = "btnAplicar";
             btnAplicar.Size = new Size(107, 43);
@@ -277,10 +278,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(1190, 101);
+            button1.Location = new Point(1129, 103);
             button1.Margin = new Padding(0);
             button1.Name = "button1";
-            button1.Size = new Size(138, 43);
+            button1.Size = new Size(134, 43);
             button1.TabIndex = 37;
             button1.Tag = "btn_Desasignar";
             button1.Text = "Desasignar ";
@@ -307,7 +308,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button2.ForeColor = Color.FromArgb(46, 17, 39);
-            button2.Location = new Point(185, 805);
+            button2.Location = new Point(185, 692);
             button2.Margin = new Padding(0);
             button2.Name = "button2";
             button2.Size = new Size(107, 43);
@@ -321,6 +322,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button8);
             panel1.Controls.Add(treeViewVistaPrevia);
             panel1.Controls.Add(cmbFamilia);
             panel1.Controls.Add(lblTitulo);
@@ -345,12 +347,30 @@
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(btnEliminar);
             panel1.Controls.Add(btnAplicar);
-            panel1.Location = new Point(22, 27);
+            panel1.Location = new Point(18, 21);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1525, 871);
+            panel1.Size = new Size(1463, 758);
             panel1.TabIndex = 41;
             panel1.Paint += panel1_Paint;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1302, 693);
+            button8.Name = "button8";
+            button8.Size = new Size(122, 42);
+            button8.TabIndex = 49;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // treeViewVistaPrevia
             // 
@@ -358,7 +378,7 @@
             treeViewVistaPrevia.Location = new Point(1034, 197);
             treeViewVistaPrevia.Margin = new Padding(0);
             treeViewVistaPrevia.Name = "treeViewVistaPrevia";
-            treeViewVistaPrevia.Size = new Size(452, 483);
+            treeViewVistaPrevia.Size = new Size(390, 370);
             treeViewVistaPrevia.TabIndex = 48;
             // 
             // cmbFamilia
@@ -416,7 +436,7 @@
             clbFamilia.Location = new Point(340, 197);
             clbFamilia.Margin = new Padding(0);
             clbFamilia.Name = "clbFamilia";
-            clbFamilia.Size = new Size(185, 472);
+            clbFamilia.Size = new Size(185, 346);
             clbFamilia.TabIndex = 43;
             clbFamilia.SelectedIndexChanged += clbFamilia_SelectedIndexChanged;
             // 
@@ -427,7 +447,7 @@
             clbPermiso.Location = new Point(43, 197);
             clbPermiso.Margin = new Padding(0);
             clbPermiso.Name = "clbPermiso";
-            clbPermiso.Size = new Size(249, 472);
+            clbPermiso.Size = new Size(249, 346);
             clbPermiso.TabIndex = 42;
             // 
             // btnSalir
@@ -437,10 +457,10 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir.Location = new Point(1390, 38);
+            btnSalir.Location = new Point(1321, 38);
             btnSalir.Margin = new Padding(0);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(107, 43);
+            btnSalir.Size = new Size(103, 43);
             btnSalir.TabIndex = 23;
             btnSalir.Tag = "btn_Salir";
             btnSalir.Text = "Salir";
@@ -453,10 +473,10 @@
             panelInferior.Controls.Add(label5);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 898);
+            panelInferior.Location = new Point(0, 779);
             panelInferior.Margin = new Padding(0);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1571, 38);
+            panelInferior.Size = new Size(1481, 38);
             panelInferior.TabIndex = 42;
             // 
             // label5
@@ -497,7 +517,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1571, 936);
+            ClientSize = new Size(1481, 817);
             Controls.Add(panelInferior);
             Controls.Add(panel1);
             Margin = new Padding(0);
@@ -505,7 +525,7 @@
             Name = "FormGestionPerfil";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "lbl_FormPerfiles";
-            Text = "CuentaClara - Gestión de Perfiles";
+            Text = "Vanguardia Arte - Gestión de Perfiles";
             FormClosed += FormGestionPerfil_FormClosed;
             Load += FormGestionPerfil_Load;
             Resize += FormGestionPerfil_Resize;
@@ -551,5 +571,6 @@
         private Label lblUsuarioActivo;
         private Label label5;
         private ToolTip toolTipPerfil;
+        private Button button8;
     }
 }

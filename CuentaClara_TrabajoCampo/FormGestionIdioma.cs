@@ -75,10 +75,10 @@ namespace IU
                 return;
             }
 
-            
+
             btnAgregarEtiqueta.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P30");
 
-            btnModificarEtiqueta.Enabled =  bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P31");
+            btnModificarEtiqueta.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P31");
 
             btnNuevoIdioma.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P29");
 
@@ -434,6 +434,41 @@ namespace IU
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

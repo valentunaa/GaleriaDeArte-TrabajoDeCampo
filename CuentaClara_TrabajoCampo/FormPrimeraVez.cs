@@ -1,4 +1,5 @@
 ﻿using BLL;
+using System.IO;
 using Microsoft.Data.Sql;
 using Microsoft.Data.SqlClient;
 using System;
@@ -64,8 +65,8 @@ namespace IU
         {
             if (listaServidores.SelectedItem == null && string.IsNullOrWhiteSpace(listaServidores.Text))
             {
-                MessageBox.Show("Por favor, selecciona o escribe el nombre de un servidor SQL.","Atención",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;       
+                MessageBox.Show("Por favor, selecciona o escribe el nombre de un servidor SQL.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             // Si seleccionó uno de la lista usa ese, si no, usa el que escribió a mano
@@ -76,26 +77,59 @@ namespace IU
 
             try
             {
+                string script = null;
                 var assembly = typeof(FormPrimeraVez).Assembly;
 
-                using Stream stream = assembly.GetManifestResourceStream("IU.SetupData.sql");
+                string nombreRecurso = assembly.GetManifestResourceNames()
+                    .FirstOrDefault(r => r.EndsWith("SetupData.sql", StringComparison.OrdinalIgnoreCase));
 
-                if (stream == null)
-                    throw new Exception("No se encontró el recurso SetupData.sql. Verifica que esté marcado como 'Recurso incrustado'.");
+                if (!string.IsNullOrEmpty(nombreRecurso))
+                {
+                    using Stream stream = assembly.GetManifestResourceStream(nombreRecurso);
+                    if (stream != null)
+                    {
+                        using StreamReader reader = new StreamReader(stream);
+                        script = reader.ReadToEnd();
+                    }
+                }
 
-                using StreamReader reader = new StreamReader(stream);
-                string script = reader.ReadToEnd();
+                if (string.IsNullOrWhiteSpace(script))
+                {
+                    string rutaArchivo = Path.Combine(AppContext.BaseDirectory, "SetupData.sql");
+                    if (File.Exists(rutaArchivo))
+                    {
+                        script = File.ReadAllText(rutaArchivo);
+                    }
+                }
 
-                bllInstalador.InstalarBaseDeDatos(servidorElegido, script);
+                if (string.IsNullOrWhiteSpace(script))
+                    throw new Exception($"No se encontró SetupData.sql. Buscado en: {Path.Combine(AppContext.BaseDirectory, "SetupData.sql")}");
 
-                MessageBox.Show("¡Base de datos instalada y configurada con éxito!","Configuración Completa",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                string configFolder = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+                    "VanguardiaArte",
+                    "Configuracion"
+                );
+                string flagLimpiaPath = Path.Combine(configFolder, "forzar_bd_limpia.flag");
+                bool forzarLimpia = File.Exists(flagLimpiaPath);
+
+                bllInstalador.InstalarBaseDeDatos(servidorElegido, script, forzarLimpia, "BD_VanguardiaArte");
+                BLL_DigitoVerificador bllDV = new BLL_DigitoVerificador();
+                bllDV.RecalcularDigitos("Sistema");
+                MessageBox.Show(
+                    "¡Base de datos instalada y configurada con éxito! A continuación se abrirá la pantalla para crear el primer usuario.",
+                    "Configuración Completa",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Error de Instalación", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error de Instalación", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 btnGuardar.Enabled = true;
             }

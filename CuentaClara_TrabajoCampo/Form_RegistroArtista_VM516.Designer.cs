@@ -47,6 +47,7 @@
             button1 = new Button();
             lblNombreArtista = new Label();
             toolTipArtista = new ToolTip(components);
+            button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvArtistas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
@@ -245,12 +246,31 @@
             toolTipArtista.InitialDelay = 100;
             toolTipArtista.ReshowDelay = 100;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1038, 557);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 36;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
             // Form_RegistroArtista_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
             ClientSize = new Size(1192, 615);
+            Controls.Add(button8);
             Controls.Add(lblNombreArtista);
             Controls.Add(button1);
             Controls.Add(picLogo);
@@ -301,6 +321,7 @@
         private Button button1;
         private Label lblNombreArtista;
         private ToolTip toolTipArtista;
+        private Button button8;
         //private Button button1;
     }
 }

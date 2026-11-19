@@ -277,14 +277,14 @@ namespace CuentaClara_TrabajoCampo
             {
                 string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
                 string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
-                int numeroPagina = 3;
 
                 if (File.Exists(rutaBasePdf))
                 {
-                    var psi = new System.Diagnostics.ProcessStartInfo();
-                    psi.FileName = rutaBasePdf;
-                    psi.Arguments = $"#page={numeroPagina}";
-                    psi.UseShellExecute = true;
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
 
                     try
                     {
@@ -292,17 +292,17 @@ namespace CuentaClara_TrabajoCampo
                     }
                     catch (System.ComponentModel.Win32Exception)
                     {
-                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"),TraducirTexto("titulo_Atencion"),MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"),MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message,TraducirTexto("titulo_Error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

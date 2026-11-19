@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button8 = new Button();
             cmbRol = new ComboBox();
             radioBtnTodosUser = new RadioButton();
             radioBtnUserActivos = new RadioButton();
@@ -72,6 +73,7 @@
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(cmbRol);
             panelContenedor.Controls.Add(radioBtnTodosUser);
             panelContenedor.Controls.Add(radioBtnUserActivos);
@@ -99,10 +101,29 @@
             panelContenedor.Controls.Add(lblCantidadUsuarios);
             panelContenedor.Controls.Add(lblTotalUsuarios);
             panelContenedor.Controls.Add(lstMensajes);
-            panelContenedor.Location = new Point(0, 0);
+            panelContenedor.Location = new Point(20, 14);
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(1258, 736);
             panelContenedor.TabIndex = 0;
+            panelContenedor.Paint += panelContenedor_Paint;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1096, 665);
+            button8.Name = "button8";
+            button8.Size = new Size(122, 42);
+            button8.TabIndex = 37;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // cmbRol
             // 
@@ -277,23 +298,23 @@
             dgvUsuarios.BorderStyle = BorderStyle.None;
             dgvUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(18, 87, 150);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(18, 87, 150);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvUsuarios.ColumnHeadersHeight = 58;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(220, 230, 240);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(220, 230, 240);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle4;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.GridColor = Color.FromArgb(230, 230, 230);
             dgvUsuarios.Location = new Point(35, 105);
@@ -391,7 +412,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnCancelar.ForeColor = Color.FromArgb(46, 17, 39);
-            btnCancelar.Location = new Point(825, 665);
+            btnCancelar.Location = new Point(752, 665);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(140, 42);
             btnCancelar.TabIndex = 7;
@@ -406,7 +427,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir.ForeColor = Color.FromArgb(18, 87, 150);
-            btnSalir.Location = new Point(1078, 665);
+            btnSalir.Location = new Point(1068, 34);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(140, 42);
             btnSalir.TabIndex = 8;
@@ -455,7 +476,7 @@
             panelInferior.Controls.Add(label1);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 776);
+            panelInferior.Location = new Point(0, 741);
             panelInferior.Name = "panelInferior";
             panelInferior.Size = new Size(1305, 40);
             panelInferior.TabIndex = 0;
@@ -496,13 +517,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1305, 816);
+            ClientSize = new Size(1305, 781);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);
             Name = "FormGestionUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CuentaClara - Gestión de Usuarios";
+            Tag = "lbl_GestionUsuario";
+            Text = "Vanguardia Arte - Gestión de Usuarios";
             FormClosed += FormGestionUsuarios_FormClosed;
             Load += FormGestionUsuarios_Load_1;
             Resize += FormGestionUsuarios_Resize;
@@ -551,5 +573,6 @@
         private ComboBox cmbRol;
         private Label label1;
         private ToolTip toolTipGestionUsuarios;
+        private Button button8;
     }
 }

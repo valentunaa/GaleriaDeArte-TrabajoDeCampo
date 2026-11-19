@@ -55,10 +55,10 @@ namespace IU
             toolTipObras.SetToolTip(btnModificar_VM516, TraducirTexto("Obra_Tip_Modificar"));
             toolTipObras.SetToolTip(btnEliminar_VM516, TraducirTexto("Obra_Tip_Eliminar"));
             toolTipObras.SetToolTip(btnSerializar, TraducirTexto("Obra_Tip_Serializar"));
-            toolTipObras.SetToolTip(button1, TraducirTexto("Obra_Tip_Deserializar")); 
+            toolTipObras.SetToolTip(button1, TraducirTexto("Obra_Tip_Deserializar"));
             toolTipObras.SetToolTip(btnLimpiar_VM516, TraducirTexto("Obra_Tip_Limpiar"));
-            toolTipObras.SetToolTip(button2, TraducirTexto("Obra_Tip_Actualizar"));   
-            toolTipObras.SetToolTip(btnSalir, TraducirTexto("Obra_Tip_Salir")); 
+            toolTipObras.SetToolTip(button2, TraducirTexto("Obra_Tip_Actualizar"));
+            toolTipObras.SetToolTip(btnSalir, TraducirTexto("Obra_Tip_Salir"));
         }
         public void ActualizarIdioma()
         {
@@ -453,7 +453,7 @@ namespace IU
                 MessageBox.Show(TraducirTexto(ex.Message), TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-          
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -496,6 +496,41 @@ namespace IU
         {
             CargarGrilla(); BloquearBotonesABM(true);
             listBox1.Items.Add($"[{DateTime.Now:HH:mm:ss}] {TraducirTexto("msg_LogGrillaActualizada")}");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

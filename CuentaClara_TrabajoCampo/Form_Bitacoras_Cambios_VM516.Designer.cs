@@ -32,6 +32,7 @@ namespace IU
         {
             components = new System.ComponentModel.Container();
             panelContenedor = new Panel();
+            button8 = new Button();
             lblTitulo = new Label();
             btnBitacoraProductos = new Button();
             btnBitacoraObras = new Button();
@@ -47,6 +48,7 @@ namespace IU
             // 
             panelContenedor.Anchor = AnchorStyles.None;
             panelContenedor.BackColor = Color.White;
+            panelContenedor.Controls.Add(button8);
             panelContenedor.Controls.Add(lblTitulo);
             panelContenedor.Controls.Add(btnBitacoraProductos);
             panelContenedor.Controls.Add(btnBitacoraObras);
@@ -54,6 +56,24 @@ namespace IU
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(529, 349);
             panelContenedor.TabIndex = 0;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(340, 280);
+            button8.Name = "button8";
+            button8.Size = new Size(121, 38);
+            button8.TabIndex = 28;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // lblTitulo
             // 
@@ -170,5 +190,6 @@ namespace IU
         private System.Windows.Forms.Label lblUsuarioActivo;
         private System.Windows.Forms.Label lblUsuarioValor;
         private ToolTip toolTipMenuBitacoras;
+        private Button button8;
     }
 }

@@ -34,6 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
+            button8 = new Button();
             picLogo = new PictureBox();
             lblTitulo_VM516 = new Label();
             btnSalir_VM516 = new Button();
@@ -62,7 +63,6 @@
             lblUsuarioValor_VM516 = new Label();
             lblUsuarioActivo_VM516 = new Label();
             toolTipPedido = new ToolTip(components);
-            button8 = new Button();
             panelContenedor_VM516.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panelCliente_VM516.SuspendLayout();
@@ -77,6 +77,7 @@
             // 
             panelContenedor_VM516.Anchor = AnchorStyles.None;
             panelContenedor_VM516.BackColor = Color.FromArgb(245, 246, 248);
+            panelContenedor_VM516.Controls.Add(button8);
             panelContenedor_VM516.Controls.Add(picLogo);
             panelContenedor_VM516.Controls.Add(lblTitulo_VM516);
             panelContenedor_VM516.Controls.Add(btnSalir_VM516);
@@ -87,10 +88,28 @@
             panelContenedor_VM516.Controls.Add(dgvProductos_VM516);
             panelContenedor_VM516.Controls.Add(lblCarritoTitulo_VM516);
             panelContenedor_VM516.Controls.Add(dgvCarrito_VM516);
-            panelContenedor_VM516.Location = new Point(10, 33);
+            panelContenedor_VM516.Location = new Point(10, 12);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
-            panelContenedor_VM516.Size = new Size(1451, 735);
+            panelContenedor_VM516.Size = new Size(1451, 776);
             panelContenedor_VM516.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1312, 652);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 28;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // picLogo
             // 
@@ -288,9 +307,9 @@
             panelTotalizador_VM516.Controls.Add(lblTotalTitulo_VM516);
             panelTotalizador_VM516.Controls.Add(lblTotalMonto_VM516);
             panelTotalizador_VM516.Controls.Add(btnConfirmarPedido_VM516);
-            panelTotalizador_VM516.Location = new Point(34, 480);
+            panelTotalizador_VM516.Location = new Point(34, 475);
             panelTotalizador_VM516.Name = "panelTotalizador_VM516";
-            panelTotalizador_VM516.Size = new Size(420, 220);
+            panelTotalizador_VM516.Size = new Size(420, 159);
             panelTotalizador_VM516.TabIndex = 4;
             // 
             // panelAcento3_VM516
@@ -332,9 +351,9 @@
             btnConfirmarPedido_VM516.FlatStyle = FlatStyle.Flat;
             btnConfirmarPedido_VM516.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnConfirmarPedido_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnConfirmarPedido_VM516.Location = new Point(20, 140);
+            btnConfirmarPedido_VM516.Location = new Point(40, 113);
             btnConfirmarPedido_VM516.Name = "btnConfirmarPedido_VM516";
-            btnConfirmarPedido_VM516.Size = new Size(380, 50);
+            btnConfirmarPedido_VM516.Size = new Size(344, 30);
             btnConfirmarPedido_VM516.TabIndex = 3;
             btnConfirmarPedido_VM516.Tag = "btn_ConfirmarPedido";
             btnConfirmarPedido_VM516.Text = "Confirmar y Pasar a Caja";
@@ -388,7 +407,7 @@
             dgvProductos_VM516.RowHeadersVisible = false;
             dgvProductos_VM516.RowTemplate.Height = 35;
             dgvProductos_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProductos_VM516.Size = new Size(940, 270);
+            dgvProductos_VM516.Size = new Size(940, 251);
             dgvProductos_VM516.TabIndex = 6;
             dgvProductos_VM516.CellFormatting += dgvProductos_VM516_CellFormatting;
             dgvProductos_VM516.SelectionChanged += dgvProductos_VM516_SelectionChanged;
@@ -398,7 +417,7 @@
             lblCarritoTitulo_VM516.AutoSize = true;
             lblCarritoTitulo_VM516.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblCarritoTitulo_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            lblCarritoTitulo_VM516.Location = new Point(480, 400);
+            lblCarritoTitulo_VM516.Location = new Point(480, 380);
             lblCarritoTitulo_VM516.Name = "lblCarritoTitulo_VM516";
             lblCarritoTitulo_VM516.Size = new Size(142, 21);
             lblCarritoTitulo_VM516.TabIndex = 7;
@@ -433,14 +452,14 @@
             dgvCarrito_VM516.DefaultCellStyle = dataGridViewCellStyle4;
             dgvCarrito_VM516.EnableHeadersVisualStyles = false;
             dgvCarrito_VM516.GridColor = Color.FromArgb(230, 230, 230);
-            dgvCarrito_VM516.Location = new Point(480, 430);
+            dgvCarrito_VM516.Location = new Point(480, 410);
             dgvCarrito_VM516.MultiSelect = false;
             dgvCarrito_VM516.Name = "dgvCarrito_VM516";
             dgvCarrito_VM516.ReadOnly = true;
             dgvCarrito_VM516.RowHeadersVisible = false;
             dgvCarrito_VM516.RowTemplate.Height = 35;
             dgvCarrito_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCarrito_VM516.Size = new Size(940, 270);
+            dgvCarrito_VM516.Size = new Size(940, 224);
             dgvCarrito_VM516.TabIndex = 8;
             // 
             // panelInferior_VM516
@@ -449,7 +468,7 @@
             panelInferior_VM516.Controls.Add(lblUsuarioValor_VM516);
             panelInferior_VM516.Controls.Add(lblUsuarioActivo_VM516);
             panelInferior_VM516.Dock = DockStyle.Bottom;
-            panelInferior_VM516.Location = new Point(0, 793);
+            panelInferior_VM516.Location = new Point(0, 711);
             panelInferior_VM516.Name = "panelInferior_VM516";
             panelInferior_VM516.Size = new Size(1464, 38);
             panelInferior_VM516.TabIndex = 0;
@@ -483,30 +502,12 @@
             toolTipPedido.InitialDelay = 100;
             toolTipPedido.ReshowDelay = 100;
             // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(46, 17, 39);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(235, 170, 200);
-            button8.Location = new Point(1322, 755);
-            button8.Name = "button8";
-            button8.Size = new Size(108, 32);
-            button8.TabIndex = 28;
-            button8.Tag = "btn_Ayuda";
-            button8.Text = "AYUDA";
-            button8.UseVisualStyleBackColor = false;
-            // 
             // Form_Cafeteria_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(235, 238, 242);
-            ClientSize = new Size(1464, 831);
-            Controls.Add(button8);
+            ClientSize = new Size(1464, 749);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);

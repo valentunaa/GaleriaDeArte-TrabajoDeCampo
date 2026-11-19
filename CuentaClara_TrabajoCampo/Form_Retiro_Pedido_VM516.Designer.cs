@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
+            button8 = new Button();
             btnVerEntregados_VM516 = new Button();
             picLogo_VM516 = new PictureBox();
             lblTitulo_VM516 = new Label();
@@ -61,6 +62,7 @@
             // 
             panelContenedor_VM516.Anchor = AnchorStyles.None;
             panelContenedor_VM516.BackColor = Color.White;
+            panelContenedor_VM516.Controls.Add(button8);
             panelContenedor_VM516.Controls.Add(btnVerEntregados_VM516);
             panelContenedor_VM516.Controls.Add(picLogo_VM516);
             panelContenedor_VM516.Controls.Add(lblTitulo_VM516);
@@ -74,10 +76,28 @@
             panelContenedor_VM516.Controls.Add(dgvPedidosPendientes_VM516);
             panelContenedor_VM516.Controls.Add(lblDetallePedido_VM516);
             panelContenedor_VM516.Controls.Add(dgvDetallePedido_VM516);
-            panelContenedor_VM516.Location = new Point(20, 12);
+            panelContenedor_VM516.Location = new Point(12, 13);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
-            panelContenedor_VM516.Size = new Size(1493, 745);
+            panelContenedor_VM516.Size = new Size(1306, 689);
             panelContenedor_VM516.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1152, 610);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 28;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // btnVerEntregados_VM516
             // 
@@ -190,7 +210,7 @@
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir_VM516.Location = new Point(1298, 21);
+            btnSalir_VM516.Location = new Point(1120, 20);
             btnSalir_VM516.Name = "btnSalir_VM516";
             btnSalir_VM516.Size = new Size(140, 38);
             btnSalir_VM516.TabIndex = 23;
@@ -239,7 +259,7 @@
             dgvPedidosPendientes_VM516.RowHeadersVisible = false;
             dgvPedidosPendientes_VM516.RowTemplate.Height = 28;
             dgvPedidosPendientes_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPedidosPendientes_VM516.Size = new Size(895, 250);
+            dgvPedidosPendientes_VM516.Size = new Size(780, 214);
             dgvPedidosPendientes_VM516.TabIndex = 21;
             // 
             // lblDetallePedido_VM516
@@ -247,7 +267,7 @@
             lblDetallePedido_VM516.AutoSize = true;
             lblDetallePedido_VM516.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblDetallePedido_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            lblDetallePedido_VM516.Location = new Point(480, 395);
+            lblDetallePedido_VM516.Location = new Point(480, 370);
             lblDetallePedido_VM516.Name = "lblDetallePedido_VM516";
             lblDetallePedido_VM516.Size = new Size(230, 20);
             lblDetallePedido_VM516.TabIndex = 22;
@@ -275,14 +295,14 @@
             dgvDetallePedido_VM516.ColumnHeadersHeight = 45;
             dgvDetallePedido_VM516.EnableHeadersVisualStyles = false;
             dgvDetallePedido_VM516.GridColor = Color.FromArgb(220, 220, 220);
-            dgvDetallePedido_VM516.Location = new Point(480, 425);
+            dgvDetallePedido_VM516.Location = new Point(480, 408);
             dgvDetallePedido_VM516.MultiSelect = false;
             dgvDetallePedido_VM516.Name = "dgvDetallePedido_VM516";
             dgvDetallePedido_VM516.ReadOnly = true;
             dgvDetallePedido_VM516.RowHeadersVisible = false;
             dgvDetallePedido_VM516.RowTemplate.Height = 28;
             dgvDetallePedido_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDetallePedido_VM516.Size = new Size(895, 250);
+            dgvDetallePedido_VM516.Size = new Size(780, 184);
             dgvDetallePedido_VM516.TabIndex = 25;
             // 
             // panelInferior_VM516
@@ -291,9 +311,9 @@
             panelInferior_VM516.Controls.Add(lblUsuarioValor_VM516);
             panelInferior_VM516.Controls.Add(lblUsuarioActivo_VM516);
             panelInferior_VM516.Dock = DockStyle.Bottom;
-            panelInferior_VM516.Location = new Point(0, 750);
+            panelInferior_VM516.Location = new Point(0, 676);
             panelInferior_VM516.Name = "panelInferior_VM516";
-            panelInferior_VM516.Size = new Size(1535, 38);
+            panelInferior_VM516.Size = new Size(1330, 38);
             panelInferior_VM516.TabIndex = 0;
             // 
             // lblUsuarioValor_VM516
@@ -330,7 +350,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1535, 788);
+            ClientSize = new Size(1330, 714);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);
@@ -369,5 +389,6 @@
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private Button btnVerEntregados_VM516;
         private ToolTip toolTipRetiro;
+        private Button button8;
     }
 }

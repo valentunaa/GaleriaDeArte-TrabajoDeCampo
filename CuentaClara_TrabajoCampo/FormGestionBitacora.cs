@@ -24,8 +24,8 @@ namespace CuentaClara_TrabajoCampo
             InitializeComponent();
             ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
-        }        
-        
+        }
+
         private void FormGestionBitacora_Load_1(object sender, EventArgs e)
         {
             this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
@@ -130,7 +130,7 @@ namespace CuentaClara_TrabajoCampo
             }
             else
             {
- 
+
                 var usuariosNegocio = listaCompleta.Cast<Servicio_Usuario>()
                     .Where(u => u.IdRol != "R1" && !u.IdRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
                     .ToList();
@@ -165,11 +165,11 @@ namespace CuentaClara_TrabajoCampo
             var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
             bool esAdmin = usuarioActual != null && (usuarioActual.IdRol == "R1" || usuarioActual.IdRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase));
 
-          
+
             cboModulo.DataSource = null;
             cboModulo.Items.Clear();
 
-        
+
             cboModulo.Items.Add("Todos");
 
             cboModulo.Items.Add("Administración");
@@ -389,14 +389,40 @@ namespace CuentaClara_TrabajoCampo
             );
         }
 
-        private void lblUsuarioValor_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
 
-        }
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
 
-        private void cboEvento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

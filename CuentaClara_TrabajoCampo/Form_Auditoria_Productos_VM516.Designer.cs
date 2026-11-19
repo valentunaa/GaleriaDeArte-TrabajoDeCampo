@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor = new Panel();
+            button8 = new Button();
             lblCantRegistrosValor = new Label();
             lblCantRegistrosEtiqueta = new Label();
             lblTitulo = new Label();
@@ -51,7 +52,6 @@
             lblUsuarioValor = new Label();
             lblUsuarioActivo = new Label();
             toolTipAuditProd = new ToolTip(components);
-            button8 = new Button();
             panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBitacoraProducto).BeginInit();
             panelInferior.SuspendLayout();
@@ -79,10 +79,28 @@
             panelContenedor.Controls.Add(btnAplicar);
             panelContenedor.Controls.Add(btnActivar);
             panelContenedor.Controls.Add(btnSalir);
-            panelContenedor.Location = new Point(31, 29);
+            panelContenedor.Location = new Point(12, 12);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1265, 743);
+            panelContenedor.Size = new Size(1243, 729);
             panelContenedor.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1069, 624);
+            button8.Name = "button8";
+            button8.Size = new Size(121, 38);
+            button8.TabIndex = 27;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // lblCantRegistrosValor
             // 
@@ -302,9 +320,9 @@
             panelInferior.Controls.Add(lblUsuarioValor);
             panelInferior.Controls.Add(lblUsuarioActivo);
             panelInferior.Dock = DockStyle.Bottom;
-            panelInferior.Location = new Point(0, 765);
+            panelInferior.Location = new Point(0, 703);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(1325, 38);
+            panelInferior.Size = new Size(1267, 38);
             panelInferior.TabIndex = 0;
             // 
             // lblUsuarioValor
@@ -336,29 +354,12 @@
             toolTipAuditProd.InitialDelay = 100;
             toolTipAuditProd.ReshowDelay = 100;
             // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(46, 17, 39);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button8.ForeColor = Color.FromArgb(235, 170, 200);
-            button8.Location = new Point(1082, 689);
-            button8.Name = "button8";
-            button8.Size = new Size(108, 32);
-            button8.TabIndex = 27;
-            button8.Tag = "btn_Ayuda";
-            button8.Text = "AYUDA";
-            button8.UseVisualStyleBackColor = false;
-            // 
             // Form_Auditoria_Productos_VM516
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1325, 803);
+            ClientSize = new Size(1267, 741);
             Controls.Add(panelInferior);
             Controls.Add(panelContenedor);
             Font = new Font("Segoe UI", 9F);

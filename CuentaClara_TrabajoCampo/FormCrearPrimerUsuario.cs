@@ -35,6 +35,7 @@ namespace IU
         {
             try
             {
+
                 Servicio_Usuario usuario = new Servicio_Usuario();
                 usuario.Nombre = txtNombre.Text;
                 usuario.Apellido = txtApellido.Text;
@@ -49,7 +50,10 @@ namespace IU
 
                 if (bll.CrearUsuario(usuario))
                 {
+                    BLL_DigitoVerificador bllDV = new BLL_DigitoVerificador();
+                    bllDV.RecalcularDigitos(usuario.Login);
                     MessageBox.Show(TraducirTexto("msg_UsuarioCreadoCorrectamente"));
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
             }

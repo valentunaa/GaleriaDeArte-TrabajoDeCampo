@@ -20,8 +20,8 @@ namespace IU
             InitializeComponent();
             ConfigurarToolTips();
             GestorIdioma.GetInstancia().Suscribir(this);
-        } 
-        
+        }
+
         private void FormGestionRespaldo_Load(object sender, EventArgs e)
         {
             ActualizarIdioma();
@@ -29,8 +29,8 @@ namespace IU
 
         private void ConfigurarToolTips()
         {
-            toolTipRespaldo.SetToolTip(btnAplicar, TraducirTexto("Respaldo_Tip_Restaurar"));          
-            toolTipRespaldo.SetToolTip(button1, TraducirTexto("Respaldo_Tip_Backup"));          
+            toolTipRespaldo.SetToolTip(btnAplicar, TraducirTexto("Respaldo_Tip_Restaurar"));
+            toolTipRespaldo.SetToolTip(button1, TraducirTexto("Respaldo_Tip_Backup"));
             toolTipRespaldo.SetToolTip(btnSeleccionar, TraducirTexto("Respaldo_Tip_Seleccionar"));
             toolTipRespaldo.SetToolTip(btn_RecalcularDv, TraducirTexto("Respaldo_Tip_RecalcularDV"));
         }
@@ -207,6 +207,41 @@ namespace IU
         private void FormGestionRespaldo_FormClosed(object sender, FormClosedEventArgs e)
         {
             GestorIdioma.GetInstancia().Desuscribir(this);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

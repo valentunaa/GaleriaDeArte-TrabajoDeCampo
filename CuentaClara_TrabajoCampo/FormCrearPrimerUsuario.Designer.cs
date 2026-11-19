@@ -67,7 +67,7 @@
             panelPrincipal.Controls.Add(txtCorreo);
             panelPrincipal.Controls.Add(btnCancelar);
             panelPrincipal.Controls.Add(btnGuardar);
-            panelPrincipal.Location = new Point(12, 29);
+            panelPrincipal.Location = new Point(12, 12);
             panelPrincipal.Name = "panelPrincipal";
             panelPrincipal.Size = new Size(606, 427);
             panelPrincipal.TabIndex = 1;
@@ -198,7 +198,7 @@
             btnCancelar.ForeColor = Color.FromArgb(46, 17, 39);
             btnCancelar.Location = new Point(35, 344);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(204, 52);
+            btnCancelar.Size = new Size(124, 40);
             btnCancelar.TabIndex = 16;
             btnCancelar.Tag = "btn_Cancelar";
             btnCancelar.Text = "Cancelar";
@@ -212,9 +212,9 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(363, 344);
+            btnGuardar.Location = new Point(183, 344);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(212, 52);
+            btnGuardar.Size = new Size(137, 40);
             btnGuardar.TabIndex = 17;
             btnGuardar.Tag = "btn_Guardar";
             btnGuardar.Text = "Guardar";
@@ -225,7 +225,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(635, 483);
+            ClientSize = new Size(635, 456);
             Controls.Add(panelPrincipal);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon>ImagenLogo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,9 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Manual de Usuario Integral - Vanguardia Arte.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="ImagenLogo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +30,12 @@
 
   <ItemGroup>
     <PackageReference Include="QuestPDF" Version="2026.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Manual de Usuario Integral - Vanguardia Arte.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +66,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Idiomas\Español.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ImagenLogo.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

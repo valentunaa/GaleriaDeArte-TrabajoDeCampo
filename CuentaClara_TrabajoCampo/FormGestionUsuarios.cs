@@ -25,9 +25,9 @@ namespace CuentaClara_TrabajoCampo
 
             dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
             GestorIdioma.GetInstancia().Suscribir(this);
-      
-        } 
-        
+
+        }
+
         private void FormGestionUsuarios_Load_1(object sender, EventArgs e)
         {
             this.MaximumSize = Screen.FromControl(this).WorkingArea.Size;
@@ -96,10 +96,10 @@ namespace CuentaClara_TrabajoCampo
 
             var usuarioActual = SessionManager.GetInstancia().GetUsuarioActual();
 
-           
+
             BloquearBotonesSegunPermisos(usuarioActual);
 
-           
+
             string nombreRol = bllRol.ObtenerNombreRol(usuarioActual.IdRol);
             label1.Text = $"{usuarioActual.Login} - {nombreRol}";
         }
@@ -129,12 +129,12 @@ namespace CuentaClara_TrabajoCampo
                 DeshabilitarBotonesEdicion();
                 return;
             }
-           
+
             btnCrear.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P1");
-            btnModificar.Enabled =bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P2");
+            btnModificar.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P2");
             btnActivarDesactivar.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P3");
-            btnDesbloquear.Enabled =bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P4");
-                
+            btnDesbloquear.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P4");
+
             bool puedeEditar = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P2");
 
         }
@@ -147,7 +147,7 @@ namespace CuentaClara_TrabajoCampo
             btnActivarDesactivar.Enabled = false;
             btnAplicar.Enabled = false;
         }
-       
+
 
         private void HabilitarCamposEdicion()
         {
@@ -343,8 +343,8 @@ namespace CuentaClara_TrabajoCampo
                 CargarUsuarios();
 
                 RestaurarModoConsulta();
-            } 
-            catch(Exception ex) 
+            }
+            catch (Exception ex)
             {
                 string mensaje = TraducirExcepcion(ex);
 
@@ -476,6 +476,46 @@ namespace CuentaClara_TrabajoCampo
                 (ClientSize.Width - panelContenedor.Width) / 2,
                 (altoDisponible - panelContenedor.Height) / 2
             );
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombreArchivo = "Manual de Usuario Integral - Vanguardia Arte.pdf";
+                string rutaBasePdf = Path.Combine(Application.StartupPath, nombreArchivo);
+
+                if (File.Exists(rutaBasePdf))
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = rutaBasePdf,
+                        UseShellExecute = true
+                    };
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (System.ComponentModel.Win32Exception)
+                    {
+                        MessageBox.Show(TraducirTexto("msg_SinLectorPDF"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(TraducirTexto("msg_ManualNoDisponible"), TraducirTexto("titulo_Atencion"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(TraducirTexto("msg_ErrorAbrirAyuda") + " " + ex.Message, TraducirTexto("titulo_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

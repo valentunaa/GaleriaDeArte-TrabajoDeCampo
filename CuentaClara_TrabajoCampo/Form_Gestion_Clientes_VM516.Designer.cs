@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContenedor_VM516 = new Panel();
+            button8 = new Button();
             picLogo_VM516 = new PictureBox();
             lblTitulo_VM516 = new Label();
             lblBuscarTitulo_VM516 = new Label();
@@ -65,6 +66,7 @@
             // 
             panelContenedor_VM516.Anchor = AnchorStyles.None;
             panelContenedor_VM516.BackColor = Color.White;
+            panelContenedor_VM516.Controls.Add(button8);
             panelContenedor_VM516.Controls.Add(picLogo_VM516);
             panelContenedor_VM516.Controls.Add(lblTitulo_VM516);
             panelContenedor_VM516.Controls.Add(lblBuscarTitulo_VM516);
@@ -85,10 +87,28 @@
             panelContenedor_VM516.Controls.Add(btnLimpiar_VM516);
             panelContenedor_VM516.Controls.Add(btnSalir_VM516);
             panelContenedor_VM516.Controls.Add(dgvClientes_VM516);
-            panelContenedor_VM516.Location = new Point(20, 12);
+            panelContenedor_VM516.Location = new Point(12, 25);
             panelContenedor_VM516.Name = "panelContenedor_VM516";
-            panelContenedor_VM516.Size = new Size(1489, 745);
+            panelContenedor_VM516.Size = new Size(1361, 702);
             panelContenedor_VM516.TabIndex = 1;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(46, 17, 39);
+            button8.Cursor = Cursors.Hand;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(72, 28, 62);
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button8.ForeColor = Color.FromArgb(235, 170, 200);
+            button8.Location = new Point(1195, 620);
+            button8.Name = "button8";
+            button8.Size = new Size(108, 32);
+            button8.TabIndex = 36;
+            button8.Tag = "btn_Ayuda";
+            button8.Text = "AYUDA";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // picLogo_VM516
             // 
@@ -307,7 +327,7 @@
             btnSalir_VM516.FlatStyle = FlatStyle.Flat;
             btnSalir_VM516.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSalir_VM516.ForeColor = Color.FromArgb(46, 17, 39);
-            btnSalir_VM516.Location = new Point(1287, 25);
+            btnSalir_VM516.Location = new Point(1163, 37);
             btnSalir_VM516.Name = "btnSalir_VM516";
             btnSalir_VM516.Size = new Size(140, 38);
             btnSalir_VM516.TabIndex = 18;
@@ -344,7 +364,7 @@
             dgvClientes_VM516.RowHeadersVisible = false;
             dgvClientes_VM516.RowTemplate.Height = 30;
             dgvClientes_VM516.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvClientes_VM516.Size = new Size(967, 500);
+            dgvClientes_VM516.Size = new Size(843, 500);
             dgvClientes_VM516.TabIndex = 19;
             dgvClientes_VM516.CellClick += dgvClientes_VM516_CellClick;
             // 
@@ -354,9 +374,9 @@
             panelInferior_VM516.Controls.Add(lblUsuarioValor_VM516);
             panelInferior_VM516.Controls.Add(lblUsuarioActivo_VM516);
             panelInferior_VM516.Dock = DockStyle.Bottom;
-            panelInferior_VM516.Location = new Point(0, 750);
+            panelInferior_VM516.Location = new Point(0, 701);
             panelInferior_VM516.Name = "panelInferior_VM516";
-            panelInferior_VM516.Size = new Size(1534, 38);
+            panelInferior_VM516.Size = new Size(1387, 38);
             panelInferior_VM516.TabIndex = 0;
             // 
             // lblUsuarioValor_VM516
@@ -393,7 +413,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 248);
-            ClientSize = new Size(1534, 788);
+            ClientSize = new Size(1387, 739);
             Controls.Add(panelInferior_VM516);
             Controls.Add(panelContenedor_VM516);
             Font = new Font("Segoe UI", 9F);
@@ -437,5 +457,6 @@
         private System.Windows.Forms.Label lblUsuarioActivo_VM516;
         private System.Windows.Forms.Label lblUsuarioValor_VM516;
         private ToolTip toolTipClientes;
+        private Button button8;
     }
 }
