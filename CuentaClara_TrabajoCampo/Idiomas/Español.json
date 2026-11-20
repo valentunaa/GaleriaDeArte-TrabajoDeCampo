@@ -3459,7 +3459,7 @@
       "Texto": "No se encontró ningún programa predeterminado para abrir archivos PDF en este equipo. Por favor, instale un lector de PDF o un navegador web."
     },
     {
-      "Clace": "btn_Reportes",
+      "Clave": "btn_Reportes",
       "Texto": "REPORTES"
     },
     {

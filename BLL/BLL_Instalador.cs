@@ -39,7 +39,18 @@ namespace BLL
 
             return lista;
         }
+        private static string ObtenerCarpetaConfiguracion()
+        {
+            string rutaLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string configFolder = Path.Combine(rutaLocal, "VanguardiaArte", "Configuracion");
 
+            if (!Directory.Exists(configFolder))
+            {
+                Directory.CreateDirectory(configFolder);
+            }
+
+            return configFolder;
+        }
         public void InstalarBaseDeDatos(string servidorElegido, string script = "", bool forzarLimpia = false, string nombreBD = "VanguardiaArte")
         {
             if (forzarLimpia)
@@ -57,9 +68,7 @@ namespace BLL
                 }
             }
 
-            string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string configFolder = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion");
-
+            string configFolder = ObtenerCarpetaConfiguracion();
             if (!Directory.Exists(configFolder))
             {
                 Directory.CreateDirectory(configFolder);
@@ -80,11 +89,9 @@ namespace BLL
 
         public bool EsNecesarioInstalar()
         {
-
             try
             {
-                string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                string configFolder = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion");
+                string configFolder = ObtenerCarpetaConfiguracion();
                 string flagLimpiaPath = Path.Combine(configFolder, "forzar_bd_limpia.flag");
                 string configPath = Path.Combine(configFolder, "servidor_config.txt");
 
@@ -137,8 +144,8 @@ namespace BLL
         }
         public void LimpiarFlagBackupInstalacion()
         {
-            string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string flagPath = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion", "hacer_backup_instalacion.flag");
+            string configFolder = ObtenerCarpetaConfiguracion();
+            string flagPath = Path.Combine(configFolder, "hacer_backup_instalacion.flag");
             if (File.Exists(flagPath))
             {
                 File.Delete(flagPath);
@@ -147,8 +154,7 @@ namespace BLL
 
         public void LimpiarFlagsReinstalacion()
         {
-            string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string configFolder = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion");
+            string configFolder = ObtenerCarpetaConfiguracion();
 
             string flagReinstalar = Path.Combine(configFolder, "reinstalacion.flag");
             if (File.Exists(flagReinstalar))
@@ -165,23 +171,23 @@ namespace BLL
 
         public bool DebeHacerBackupInstalacion()
         {
-            string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string flagPath = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion", "hacer_backup_instalacion.flag");
+            string configFolder = ObtenerCarpetaConfiguracion();
+            string flagPath = Path.Combine(configFolder, "hacer_backup_instalacion.flag");
             return File.Exists(flagPath);
         }
 
         public bool DebeCargarBackupReinstalacion()
         {
-            string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string flagPath = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion", "cargar_backup_reinstalacion.flag");
+            string configFolder = ObtenerCarpetaConfiguracion();
+            string flagPath = Path.Combine(configFolder, "cargar_backup_reinstalacion.flag");
             return File.Exists(flagPath);
         }
         public bool ExistenUsuariosEnBase(string nombreBD = "BD_VanguardiaArte")
         {
             try
             {
-                string rutaPublica = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                string configPath = Path.Combine(rutaPublica, "VanguardiaArte", "Configuracion", "servidor_config.txt");
+                string configFolder = ObtenerCarpetaConfiguracion();
+                string configPath = Path.Combine(configFolder, "servidor_config.txt");
 
                 List<string> servidoresCandidatos = new List<string>();
 

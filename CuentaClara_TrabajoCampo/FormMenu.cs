@@ -152,6 +152,7 @@ namespace CuentaClara_TrabajoCampo
             button14.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P50");
             button10.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P53");
             button13.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P54");
+            button15.Enabled = bllRol.ValidarPermisoEnArbol(usuarioActual.Permisos, "P55");
 
         }
 

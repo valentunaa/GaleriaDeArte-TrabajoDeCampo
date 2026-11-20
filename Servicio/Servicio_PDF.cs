@@ -487,9 +487,14 @@ namespace Servicio
             string estrategiaComercial = "Sin datos para sugerir estrategias.";
             string estrategiaRentabilidad = "Sin datos para sugerir tácticas de rentabilidad.";
             string estrategiaFidelizacion = "Aún no se registran clientes con el volumen (10+ compras) para activar el mailing de lealtad.";
+            int totalUnidadesHistoricas = 0;
+            decimal totalGanadoHistorico = 0m;
 
             if (dtDatos != null && dtDatos.Rows.Count > 0)
             {
+                totalUnidadesHistoricas = dtDatos.AsEnumerable()  .Sum(r => Convert.ToInt32(r["CantidadTotal"]));
+                totalGanadoHistorico = dtDatos.AsEnumerable().Sum(r => Convert.ToDecimal(r["RecaudacionTotal"]));
+                    
                 DataRow productoVolumen = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToInt32(r["CantidadTotal"])).First();
                 string nombreVolumen = productoVolumen["Descripcion"].ToString();
                 int cantVolumen = Convert.ToInt32(productoVolumen["CantidadTotal"]);
@@ -499,6 +504,7 @@ namespace Servicio
                 DataRow productoRecaudacion = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToDecimal(r["RecaudacionTotal"])).First();
                 string nombreRec = productoRecaudacion["Descripcion"].ToString();
                 decimal recTotalProd = Convert.ToDecimal(productoRecaudacion["RecaudacionTotal"]);
+
 
                 // 1. BLOQUE PREDICTIVO (Cálculos de proyección)
                 decimal crecimientoEsperado = 1.15m;
@@ -619,6 +625,13 @@ namespace Servicio
                                     table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignCenter().Text(row["CantidadTotal"].ToString()).FontSize(9);
                                     table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionTotal"]):N2}").FontSize(9);
                                 }
+
+                                if (dtDatos.Rows.Count > 0)
+                                {
+                                    table.Cell().Background(Colors.Purple.Lighten5).Padding(5).Text("TOTAL GANADO HASTA AHORA").Bold().FontSize(9).FontColor(Colors.Purple.Darken4);
+                                    table.Cell().Background(Colors.Purple.Lighten5).Padding(5).AlignCenter().Text(totalUnidadesHistoricas.ToString()).Bold().FontSize(9).FontColor(Colors.Purple.Darken4);
+                                    table.Cell().Background(Colors.Purple.Lighten5).Padding(5).AlignRight().Text($"$ {totalGanadoHistorico:N2}").Bold().FontSize(9.5f).FontColor(Colors.Green.Darken4);
+                                }
                             }
                         });
                     });
@@ -635,6 +648,9 @@ namespace Servicio
         {
             QuestPDF.Settings.License = LicenseType.Community;
 
+            int totalReservasHistoricas = 0;
+            int totalDiasHistoricos = 0;
+            decimal totalGanadoSalas = 0m;
             // Variables Predictivas (Cálculos de proyección)
             string proyeccionFinanciera = "No hay datos suficientes para proyectar tarifas futuras.";
             string pronosticoOcupacion = "No hay datos para estimar la rotación de espacios.";
@@ -647,6 +663,10 @@ namespace Servicio
 
             if (dtDatos != null && dtDatos.Rows.Count > 0)
             {
+                totalReservasHistoricas = dtDatos.AsEnumerable().Sum(r => Convert.ToInt32(r["CantidadReservas"]));
+                totalDiasHistoricos = dtDatos.AsEnumerable() .Sum(r => Convert.ToInt32(r["DiasOcupacion"]));
+                totalGanadoSalas = dtDatos.AsEnumerable()  .Sum(r => Convert.ToDecimal(r["RecaudacionSalas"]));
+                  
                 // Top Recaudación
                 DataRow salaMejorRecaudacion = dtDatos.AsEnumerable().OrderByDescending(r => Convert.ToDecimal(r["RecaudacionSalas"])).First();
                 string nombreRecTop = salaMejorRecaudacion["NombreSala"].ToString();
@@ -776,6 +796,14 @@ namespace Servicio
                                     table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignCenter().Text(row["CantidadReservas"].ToString()).FontSize(9);
                                     table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignCenter().Text(row["DiasOcupacion"].ToString()).FontSize(9);
                                     table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(5).AlignRight().Text($"$ {Convert.ToDecimal(row["RecaudacionSalas"]):N2}").FontSize(9);
+                                }
+
+                                if (dtDatos.Rows.Count > 0)
+                                {
+                                    table.Cell().ColumnSpan(2).Background(Colors.Purple.Lighten5).Padding(5).Text("TOTAL GANADO HASTA AHORA").Bold().FontSize(9).FontColor(Colors.Purple.Darken4);
+                                    table.Cell().Background(Colors.Purple.Lighten5).Padding(5).AlignCenter().Text(totalReservasHistoricas.ToString()).Bold().FontSize(9).FontColor(Colors.Purple.Darken4);
+                                    table.Cell().Background(Colors.Purple.Lighten5).Padding(5).AlignCenter().Text(totalDiasHistoricos.ToString()).Bold().FontSize(9).FontColor(Colors.Purple.Darken4);
+                                    table.Cell().Background(Colors.Purple.Lighten5).Padding(5).AlignRight().Text($"$ {totalGanadoSalas:N2}").Bold().FontSize(9.5f).FontColor(Colors.Green.Darken4);
                                 }
                             }
                         });

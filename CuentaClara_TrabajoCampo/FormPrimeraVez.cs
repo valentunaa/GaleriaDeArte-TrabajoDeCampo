@@ -107,12 +107,13 @@ namespace IU
 
 
                 string configFolder = Path.Combine(
-                    Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                    "VanguardiaArte",
-                    "Configuracion"
-                );
+    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+    "VanguardiaArte",
+    "Configuracion"
+);
                 string flagLimpiaPath = Path.Combine(configFolder, "forzar_bd_limpia.flag");
                 bool forzarLimpia = File.Exists(flagLimpiaPath);
+
 
                 bllInstalador.InstalarBaseDeDatos(servidorElegido, script, forzarLimpia, "BD_VanguardiaArte");
                 BLL_DigitoVerificador bllDV = new BLL_DigitoVerificador();
